@@ -9,17 +9,17 @@ Examples are using `curl` (tip: if you are testing via `curl`, you can use `json
 ## Content
 
 
-### Intro
+### [Intro](intro.md)
 
 General information - authentication, URLs, how to form request and `X-`headers.
 
 
-### FAQ
+### [FAQ](faq.md)
 
 FAQ with tips & tricks.
 
 
-### Value lists
+### [Value lists](value_lists.md)
 
 Value lists (or so called "číselníky" in Slovak and Czech), to tell you possible values and their meanings.
 
@@ -32,41 +32,41 @@ Value lists (or so called "číselníky" in Slovak and Czech), to tell you possi
 Manage bank accounts.
 
 
-### Cash register item
+### [Cash register item](cash-register-item.md)
 
 Manage cash register items.
 
 
-### Clients
+### [Clients](clients.md)
 
 Manage clients.
 
 
-### Contact people
+### [Contact people](contact-people.md)
 
 Manage contact people for clients.
 
 
-### Expenses
+### [Expenses](expenses.md)
 
 Manage expenses and paying expenses (expense payments).
 
 
-### Invoice
+### [Invoice](invoice.md)
 
 Manage invoices and paying invoices (invoice payments).
 
 
-### Stock
+### [Stock](stock.md)
 
 Manage stock items and stock movements.
 
 
-### Tags
+### [Tags](tags.md)
 
 Manage tags. These can be added to invoices, expenses and clients.
 
 
-### Other
+### [Other](other.md)
 
 Other entities that don't fall into the main categories.
