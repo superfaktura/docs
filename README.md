@@ -1,4 +1,4 @@
-# REST API for SuperFaktúra
+# REST API documentation for SuperFaktúra
 
 This is a language agnostic REST documentation for [SuperFaktúra](https://www.superfaktura.sk).
 It is different from documentation for our [PHP API client](https://github.com/superfaktura/apiclient).
