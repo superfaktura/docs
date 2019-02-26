@@ -33,7 +33,7 @@ none
    "companies" : [
       {
          "Logo" : {
-            "url" : "https://superfakturag.local/img/no-logo.png",
+            "url" : "https://moja.superfaktura.sk/img/no-logo.png",
             "size" : {
                "3" : "width=\"75\" height=\"57\"",
                "bits" : 8,

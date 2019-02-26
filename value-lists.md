@@ -125,7 +125,7 @@ Example (list is shortened):
 ```sh
 curl \
     -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    http://superfakturag.local/countries/index/view_full:1
+    https://moja.superfaktura.sk/countries/index/view_full:1
 ```
   
 #### Attributes

@@ -20,7 +20,7 @@ data='{
 curl -X POST \
      -d "data=$data" \
      -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-     http://superfakturag.local/bank_accounts/add
+     https://moja.superfaktura.sk/bank_accounts/add
 ```
 
 ### Attributes
@@ -106,7 +106,7 @@ data='{
 curl -X POST \
      -d "data=$data" \
      -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-     http://superfakturag.local/bank_accounts/update/267
+     https://moja.superfaktura.sk/bank_accounts/update/267
 ```
 
 ### Attributes

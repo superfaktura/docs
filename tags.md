@@ -10,7 +10,7 @@
 ```sh
 curl \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    http://superfakturag.local/tags/index.json
+    https://moja.superfaktura.sk/tags/index.json
 ```
 
 ### Attributes
@@ -46,7 +46,7 @@ The tags belong to logged user profile.
 curl -X POST \
     -d 'data={"name":"abc"}' \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    http://superfakturag.local/tags/add
+    https://moja.superfaktura.sk/tags/add
 ```
 
 ### Attributes
@@ -127,7 +127,7 @@ data='{"name":"xyz"}';
 curl -X POST \
     -d "data=$data" \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    http://superfakturag.local/tags/edit/233
+    https://moja.superfaktura.sk/tags/edit/233
 ```
 
 ### Attributes
@@ -204,7 +204,7 @@ Returns HTTP status 403.
 ```sh
 curl -X GET \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    http://superfakturag.local/tags/delete/236
+    https://moja.superfaktura.sk/tags/delete/236
 ```
 
 ### Attributes
