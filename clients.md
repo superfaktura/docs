@@ -1,5 +1,9 @@
 # Clients
 
+- [Create client](#create-client)
+- [View client detail](#view-client-detail)
+- [Get client list](#get-client-list)
+
 ## Create client
 
 Creates or edits client.

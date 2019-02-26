@@ -1,5 +1,12 @@
 # Stock
 
+- [Add stock item](#add-stock-item)
+- [Delete stock item](#delete-stock-item)
+- [Get list of stock items](#get-list-of-stock-items)
+- [Edit stock item](#edit-stock-item)
+- [Add stock movement](#add-stock-movement)
+- [View stock item details](#view-stock-item-details)
+
 ## Add stock item
 
 Adds item to stock

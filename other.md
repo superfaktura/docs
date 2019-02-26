@@ -1,5 +1,8 @@
-Other API commands
-==================
+# Other API commands
+
+- [Get list of your accounts](#get-list-of-your-accounts)
+- [Get user companies data](#get-user-companies-data)
+- [Send SMS reminder](#send-sms-reminder)
 
 ## Get list of your accounts
 

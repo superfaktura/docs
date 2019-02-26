@@ -1,6 +1,21 @@
-Invoice
-=======
+# Invoice
 
+- [Delete invoice item](#delete-invoice-item)
+- [Get invoice detail](#get-invoice-details)
+- [Add invoice](#add-invoice)
+- [Edit invoice](#edit-invoice)
+- [Get list of invoices](#get-list-of-invoices)
+- [Pay invoice](#pay-invoice)
+- [Set invoice language](#set-invoice-language)
+- [Mark invoice as sent via email](#mark-invoice-as-sent-via-email)
+- [Delete invoice payment](#delete-invoice-payment)
+- [Delete invoice](#delete-invoice)
+- [Get invoice details](#get-invoice-details)
+- [Get invoice PDF](#get-invoice-pdf)
+- [Send invoice via e-mail](#send-invoice-via-mail)
+- [Send invoice via post](#send-invoice-via-post)
+- [Set invoice as "will not be paid"](#set-invoice-as-will-not-be-paid)
+- [Mark invoice as sent](#mark-invoice-as-sent)
 
 ## Delete invoice item
 
@@ -2134,7 +2149,7 @@ none
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 
-## Mark invoice as sent
+## Mark invoice as sent via email
 
 Mark invoice as sent via email.
 

@@ -1,5 +1,22 @@
-Value lists
-===========
+# Value lists
+
+- [Period types](#period-types)
+- [Language list](#language-list)
+- [Currencies](#currencies)
+- [Payment types](#payment-types)
+- [Country list](#country-list)
+- [Sequences](#sequences)
+- [Tags](#tags)
+- [Logos](#logos)
+- [Expense categories](#expense-categories)
+- [Time filters](#time-filters)
+- [Invoice statuses](#invoice-statuses)
+- [Expenses statuses](#expense-statuses)
+- [Expense types](#expense-types)
+- [Invoice types](#invoice-types)
+- [Rounding types](#rounding-types)
+- [Delivery types](#delivery-types)
+- [Time filter constants](#time-filter-constants)
 
 ## Period types
 
@@ -402,17 +419,6 @@ Example:
 | **prevmonth** | previous month |
 | **prevyear**  | previous year  |
 
-
-## Expense types
-
-| value                    | description          |
-| ------------------------ | -------------------- |
-| **bill**                 | Bill                 |
-| **contribution**         | Contributions        |
-| **internal**             | Internal document    |
-| **invoice**              | Received invoice     |
-| **nondeductible**        | Non-tax expense      |
-| **recieved_credit_note** | Received credit note |
 
 
 ## Invoice statuses

@@ -1,5 +1,9 @@
 # Contact persons
 
+- [Add contact person](#add-contact-person-to-client)
+- [Delete contact person](#delete-contact-person)
+- [Get contact persons](#get-contact-persons)
+
 ## Add contact person to client
 
 Add new contact person to existing client.
@@ -142,9 +146,9 @@ HTTP status 403
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 
-## Get contact people
+## Get contact persons
 
-Get list of contact people for client.
+Get list of contact persons for client.
 
 ### Request
 

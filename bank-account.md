@@ -1,3 +1,10 @@
+# Bank accounts
+
+- [Add bank account](#add-bank-account)
+- [Update bank account](#update-bank-account)
+- [Delete bank account](#delete-bank-account)
+- [Get list of bank accounts](#get-list-of-bank-accounts)
+
 ## Add bank account
 
 Add new bank account.

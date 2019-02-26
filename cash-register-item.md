@@ -1,5 +1,9 @@
 # Cash register item
 
+- [Get cash register items](#get-cash-register-items)
+- [Delete cash register item](#delete-cash-register-item)
+- [Add cash register item](#add-cash-register-item)
+
 ## Get cash register items
 
 Get detailed information about cash register and its items.

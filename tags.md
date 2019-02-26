@@ -1,5 +1,11 @@
 # Tags
 
+- [Get list of tags](#get-list-of-tags)
+- [Add tag](#add-tag)
+- [Edit tag](#edit-tag)
+- [Delete tag](#delete-tag)
+
+
 ## Get list of tags
 
 ### Request

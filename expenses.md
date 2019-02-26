@@ -1,5 +1,12 @@
 # Expenses
 
+- [Add expense](#add-expense)
+- [Edit expense](#edit-expense)
+- [Delete expense](#delete-expense)
+- [Delete expense payment](#delete-expense-payment)
+- [Get list of expenses](#get-list-of-expenses)
+- [Add expense payment](#add-expense-payment)
+- [Expense detail](#expense-detail)
 
 ## Add expense
 
