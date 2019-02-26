@@ -1,3 +1,5 @@
+# Stock
+
 ## Add stock item
 
 Adds item to stock

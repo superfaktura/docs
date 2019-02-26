@@ -1,3 +1,5 @@
+# Tags
+
 ## Get list of tags
 
 ### Request

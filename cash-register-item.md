@@ -1,3 +1,5 @@
+# Cash register item
+
 ## Get cash register items
 
 Get detailed information about cash register and its items.
