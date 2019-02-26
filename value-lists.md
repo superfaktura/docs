@@ -161,32 +161,38 @@ URL parameters:
 none
 
 #### Response
-JSON object containing list of countries under country_id index.
+Array containing JSON objects.
 `iso` is country code ([ISO-3166-1 (Alpha-2)](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)).
 `eu` tells whether country is in the European Union.
 
 Example (list is shortened):  
 ```json
-{
-   "62" : {
-      "eu" : "0",
-      "iso" : "tp",
-      "name" : "East Timor",
-      "id": "62"
+[
+   {
+    "Country" : {
+          "eu" : "0",
+          "iso" : "tp",
+          "name" : "East Timor",
+          "id": "62"
+       }
    },
-   "57" : {
-      "iso" : "cz",
-      "name" : "Česká republika",
-      "eu" : "1",
-      "id": "57"
+   {
+    "Country" : {
+          "iso" : "cz",
+          "name" : "Česká republika",
+          "eu" : "1",
+          "id": "57"
+       }
    },
-   "191" : {
-      "name" : "Slovensko",
-      "iso" : "sk",
-      "eu" : "1",
-      "id": "191"
+   {
+    "Country" : {
+          "name" : "Slovensko",
+          "iso" : "sk",
+          "eu" : "1",
+          "id": "191"
+       }
    }
-}
+]
 ```
 
 
