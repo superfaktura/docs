@@ -20,7 +20,7 @@ General information - authentication, URLs, how to form request and `X-`headers.
 FAQ with tips & tricks.
 
 
-### [Value lists](value_lists.md)
+### [Value lists](value-lists.md)
 
 Value lists (also called "číselníky" in Slovak and Czech), to tell you possible values and their meanings.
 
