@@ -154,17 +154,20 @@ Example (list is shortened):
    "62" : {
       "eu" : "0",
       "iso" : "tp",
-      "name" : "East Timor"
+      "name" : "East Timor",
+      "id": "62"
    },
    "57" : {
       "iso" : "cz",
       "name" : "Česká republika",
-      "eu" : "1"
+      "eu" : "1",
+      "id": "57"
    },
    "191" : {
       "name" : "Slovensko",
       "iso" : "sk",
-      "eu" : "1"
+      "eu" : "1",
+      "id": "191"
    }
 }
 ```
