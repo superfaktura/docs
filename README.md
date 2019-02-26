@@ -21,7 +21,7 @@ FAQ with tips & tricks.
 
 ### [Value lists](value_lists.md)
 
-Value lists (or so called "číselníky" in Slovak and Czech), to tell you possible values and their meanings.
+Value lists (also called "číselníky" in Slovak and Czech), to tell you possible values and their meanings.
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
