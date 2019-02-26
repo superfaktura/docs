@@ -671,12 +671,12 @@ At least one Invoice item must be specified.
 | **city**                    | string | city | |
 | **comment**                 | string | comment | |
 | **country**                 | string | custom country name | |
-| **country_id**              | int    | country ID (see *Value lists > Country list*) | |
+| **country_id**              | int    | country ID (see [Value lists > Country list](value-lists.md#country-list)) | |
 | **country_iso_id**          | string | country code ([ISO-3166-1 (Alpha-2)](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)) | |
 | **delivery_address**        | string | delivery address (street + number) | |
 | **delivery_city**           | string | delivery city | |
 | **delivery_country**        | string | custom delivery country name | |
-| **delivery_country_id**     | int    | delivery country ID (see *Value lists > Country list*) | |
+| **delivery_country_id**     | int    | delivery country ID (see [Value lists > Country list](value-lists.md#country-list)) | |
 | **delivery_country_iso_id** | string | country code ([ISO-3166-1 (Alpha-2)](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)) | |
 | **delivery_name**           | string | delivery country name | |
 | **delivery_phone**          | string | delivery phone number | |
@@ -696,7 +696,7 @@ At least one Invoice item must be specified.
 
 In case of foreign client it is necessary to correctly fill `country_id`.
 If `country_id` is empty, predefined value is used (SK version - Slovakia, CZ version - Czech republic).
-To get `country_id` see *Value lists > Country list*.
+To get `country_id` see [Value lists > Country list](value-lists.md#country-list).
 
 
 ##### Invoice
@@ -709,7 +709,7 @@ To get `country_id` see *Value lists > Country list*.
 | **constant**             | string | constant symbol | |
 | **created**              | date   | issue date | |
 | **delivery**             | date   | delivery date | |
-| **delivery_type**        | string | delivery type (see *Value lists > Delivery types*) | |
+| **delivery_type**        | string | delivery type (see [Value lists > Delivery types](value-lists.md#delivery-types)) | |
 | **deposit**              | float  | deposit paid | |
 | **discount**             | float  | discount in percent | 0 |
 | **discount_total**       | float  | nominal discount, is used only if `discount` is *not* set | |
@@ -717,7 +717,7 @@ To get `country_id` see *Value lists > Country list*.
 | **estimate_id**          | int    | estimate ID, based on which is invoice issued | |
 | **header_comment**       | string | comment above invoice items | |
 | **internal_comment**     | string | internal comment - will not be displayed on invoice | |
-| **invoice_currency**     | string | currency (see *Value lists > Currencies*) | |
+| **invoice_currency**     | string | currency (see [Value lists > Currencies](value-lists.md#currencies)) | |
 | **invoice_no_formatted** | string | invoice number | |
 | **issued_by**            | string | who issued invoice (person)| |
 | **issued_by_email**      | string | who issued invoice (email) | |
@@ -727,13 +727,13 @@ To get `country_id` see *Value lists > Country list*.
 | **order_no**             | string | order number | |
 | **name**                 | string | invoice name | |
 | **parent_id**            | int    | invoice ID, that we want to cancel | |
-| **payment_type**         | string | payment type (see *Value lists > Payment types*)| |
+| **payment_type**         | string | payment type (see [Value lists > Payment types](value-lists.md#payment-types))| |
 | **proforma_id**          | string | proforma invoice ID, based on which regular invoice is issued. Invoice will get information about paid invoice | |
-| **rounding**             | string | rounding type (see *Value lists > Rounding types*) | |
-| **sequence_id**          | int    | sequence ID (see *Value lists > Sequences*) | |
+| **rounding**             | string | rounding type (see [Value lists > Rounding types](value-lists.md#rounding-types)) | |
+| **sequence_id**          | int    | sequence ID (see [Value lists > Sequences](value-lists.md#sequences)) | |
 | **specific**             | string | specific symbol | |
 | **tax_document**         | int    | is there a receipt? (for correct connection with proforma invoice is necessary to fill `proforma_id`) (0=no, 1=yes) | |
-| **type**                 | string | invoice type (see *Value lists > Invoice types*) | |
+| **type**                 | string | invoice type (see [Value lists > Invoice types](value-lists.md#invoice-types)) | |
 | **variable**             | string | variable symbol (if left empty, invoice number will be used) | |
 
 
@@ -1600,24 +1600,24 @@ Filtering parameters
 | **amount_from**    | float        | amount from    | 0             |
 | **amount_to**      | float        | amount to      | 0             |
 | **client_id**      | int          | client ID      | |
-| **created**        | int          | constant specifying time filtering (see *Value lists > Time filer constants*) | |
+| **created**        | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
 | **created_since**  | date         | creation date since | |
 | **created_to**     | date         | creation date to    | |
-| **delivery**       | int          | constant specifying time filtering (see *Value lists > Time filer constants*) | |
+| **delivery**       | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
 | **delivery_since** | date         | delivery date from  | |
 | **delivery_to**    | date         | delivery date to    | |
-| **delivery_type**  | string       | delivery type (see *Value lists > Delivery types*). Use <code>&#x7c;</code> as separator for multiple values. | |
+| **delivery_type**  | string       | delivery type (see [Value lists > Delivery types](value-lists.md#delivery-types)). Use <code>&#x7c;</code> as separator for multiple values. | |
 | **ignore**         | string / int | IDs of invoices to be ignored. Use <code>&#x7c;</code> as separator for multiple values. | |
-| **modified**       | int          | last modification date constant specifying time filtering (see *Value lists > Time filer constants*) | |
+| **modified**       | int          | last modification date constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
 | **modified_since** | date         | last modification date from | |
 | **modified_to**    | date         | last modification date to   | |
 | **order_no**       | string       | order number, from which invoice is created | |
-| **paid**           | int          | constant specifying time filtering (see *Value lists > Time filer constants*) | |
+| **paid**           | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
 | **paid_since**     | date         | pay date since | |
 | **paid_to**        | date         | pay date to    | |
-| **payment_type**   | string       | payment types (see *Value lists > Payment types*). Use <code>&#x7c;</code> as separator for multiple values. | |
+| **payment_type**   | string       | payment types (see [Value lists > Payment types](value-lists.md#payment-types)). Use <code>&#x7c;</code> as separator for multiple values. | |
 | **search**         | string       | base64 encoded string | |
-| **status**         | string / int | invoice status (see *Value lists > Invoice statuses*) | |
+| **status**         | string / int | invoice status (see [Value lists > Invoice statuses](value-lists.md#invoice-statuses)) | |
 
 
 
@@ -2022,9 +2022,9 @@ curl -X POST \
 | --------------------- | ------ | ----------- | ------------- |
 | **amount**            | float  | amount of money paid | invoice total price |
 | **cash_register_id**  | int    | cash register ID | |
-| **currency**          | string | currency (see *Value lists > Currencies*)| EUR in SK, CZK in CZ |
+| **currency**          | string | currency (see [Value lists > Currencies](value-lists.md#currencies))| EUR in SK, CZK in CZ |
 | **date**              | date   | date when payment was done (format: `YYYY-MM-DD`) | &lt;current date&gt; |
-| **payment_type**      | string | payment type (see *Value lists > Payment types*) | transfer |
+| **payment_type**      | string | payment type (see [Value lists > Payment types](value-lists.md#payment-types)) | transfer |
 
 
 
@@ -2098,7 +2098,7 @@ curl -X GET \
 | name           | type   | description | default value |
 | -------------- | ------ | ----------- | ------------- |
 | **invoice_id** | int    | invoice ID | |
-| **lang**       | string | invoice language (for list of possible values see *Value lists > Language list*) | |
+| **lang**       | string | invoice language (for list of possible values see [Value lists > Language list](value-lists.md#language-list)) | |
 
 #### Optional
 none
@@ -3062,7 +3062,7 @@ URL parameters:
 | ----------------- | ------ | ----------- | ------------- |
 | **language**      | string | language in which the invoice will be created | as set by `pdf_language` (language of document - language above invoice detail in web application) |
 
-For list of available languages see *Value lists > Language list*.
+For list of available languages see [Value lists > Language list](value-lists.md#language-list).
 
 
 ### Response  
@@ -3112,7 +3112,7 @@ curl -X POST \
 | **bcc**          | string[] | list of email addresses to send BCC to | |
 | **body**         | string   | message body | &lt;as defined in templates&gt; |
 | **cc**           | string[] | list of email addresses to send CC to | |
-| **pdf_language** | string   | document language (see *Value lists > Language list*) | |
+| **pdf_language** | string   | document language (see [Value lists > Language list](value-lists.md#language-list)) | |
 | **subject**      | string   | email subject | &lt;as defined in templates&gt; |
 
 ### Response

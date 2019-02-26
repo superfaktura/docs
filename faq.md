@@ -26,7 +26,7 @@ We recommend to use one of these options to filter by modification time:
 | **12** | current hour (if it's 8:36, documents modified between 8:00 - 8:36 will be found) |
 
 Information whether invoice is paid can be retrieved from `Invoice -> status`.
-For possible values of status see *Value lists > Invoice statuses*.
+For possible values of status see [Value lists > Invoice statuses](value-lists.md#invoice-statuses).
 
 Invoice list returns complete invoice data. There is no need to make additional requests to get invoice details.
 

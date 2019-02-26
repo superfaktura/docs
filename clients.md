@@ -54,13 +54,13 @@ curl -X POST \
 | **city**                  | string | city                                                            | |
 | **comment**               | string | comment                                                         | |
 | **country**               | string | country name                                                    | |
-| **country_id**            | int    | country ID (see *Value lists > Country list*)                   | 191 (Slovakia), 57 (Czech republic) |
-| **currency**              | string | currency (see *Value lists > Currencies*)                       | |
+| **country_id**            | int    | country ID (see [Value lists > Country list](value-lists.md#country-list))                   | 191 (Slovakia), 57 (Czech republic) |
+| **currency**              | string | currency (see [Value lists > Currencies](value-lists.md#currencies))                       | |
 | **default_variable**      | string | default variable symbol for client                              | |
 | **delivery_address**      | string | delivery address                                                | |
 | **delivery_city**         | string | delivery city                                                   | |
 | **delivery_country**      | string | delivery country name                                           | |
-| **delivery_country_id**   | int    | delivery country ID (see *Value lists > Country list*)          | |
+| **delivery_country_id**   | int    | delivery country ID (see [Value lists > Country list](value-lists.md#country-list))          | |
 | **delivery_name**         | string | delivery company name                                           | |
 | **delivery_phone**        | string | delivery phone                                                  | |
 | **delivery_state**        | string | delivery state (only for the USA)                               | |

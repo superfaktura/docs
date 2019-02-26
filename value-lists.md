@@ -241,7 +241,7 @@ Empty key is reserved for Warehouse.
 
 ## Tags
 
-See *Tags > Get list of tags*.
+See [Tags > Get list of tags](tags.md#get-list-of-tags).
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -494,7 +494,7 @@ Then difference between this value and value per item without VAT is added to VA
 
 
 
-## Time filer constants
+## Time filter constants
 
 | value  | description  |
 | -----: | ------------ |

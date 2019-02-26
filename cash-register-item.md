@@ -34,7 +34,7 @@ URL parameters:
 | -------------- | ------ | ----------- | ------------- |
 | **date_from**  | date   | date from, in format `YYYY-MM-DD` | |
 | **date_to**    | date   | date to, in format `YYYY-MM-DD` | |
-| **datefilter** | string | time filter (see *Value lists > Time filters*) | |
+| **datefilter** | string | time filter (see [Value lists > Time filters](value-lists.md#time-filters)) | |
 | **sum_from**   | float  | sum from    | |
 | **sum_to**     | float  | sum to      | |
 | **term**       | string | filter items in output search term (search in `description` and `cash_item_no_formatted`) | |

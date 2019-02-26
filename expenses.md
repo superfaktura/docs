@@ -37,15 +37,15 @@ curl -X POST \
 | **comment**             | string | comment                                                      | |
 | **constant**            | string | constant symbol                                              | |
 | **created**             | date   | issue date                                                   | &lt;current date&gt; |
-| **currency**            | string | currency (see *Value lists > Currencies*)                    | &lt;home currency&gt; |
+| **currency**            | string | currency (see [Value lists > Currencies](value-lists.md#currencies))                    | &lt;home currency&gt; |
 | **delivery**            | date   | delivery date                                                | &lt;current date&gt; |
 | **document_number**     | string | document number, (e.g. invoice number, bill number, ...)     | |
 | **due**                 | date   | due date                                                     | &lt;current date&gt; |
-| **expense_category_id** | int    | expense category ID (see *Value lists > Expense categories*) | |
-| **payment_type**        | string | payment type (see *Value lists > Payment types*)             | |
+| **expense_category_id** | int    | expense category ID (see [Value lists > Expense categories](value-lists.md#expense-categories)) | |
+| **payment_type**        | string | payment type (see [Value lists > Payment types](value-lists.md#payment-types))             | |
 | **specific**            | string | specific symbol                                              | |
 | **taxable_supply**      | date   | date of taxable transaction                                  | null |
-| **type**                | string | expense typ (see *Value lists > Invoice types*)              | 'invoice' |
+| **type**                | string | expense typ (see [Value lists > Invoice types](value-lists.md#invoice-types))              | 'invoice' |
 | **variable**            | string | variable symbol                                              | |
 | **vat**                 | string | VAT in percent                                               | 0 |
 
@@ -407,22 +407,22 @@ URL parameters:
 | **amount_to**          | float  | maximum amount of money | |
 | **category**           | int    | category ID  | |
 | **client_id**          | int    | client ID | |
-| **created**            | int    | constant specifying time filtering (see *Value lists > Time filer constants*) | |
+| **created**            | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
 | **created_since**      | date   | created date since | |
 | **created_to**         | date   | created date until | |
-| **delivery**           | int    | constant specifying time filtering (see *Value lists > Time filer constants*) | |
+| **delivery**           | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
 | **delivery_since**     | date   | delivery date since | |
 | **delivery_to**        | date   | delivery date until | |
 | **direction**          | string | sorting direction (ASC or DESC) | DESC |
 | **due**                | date   | due date | |
 | **list_info**          | int    | show meta data about result? (0=no, 1=yes) | 0 |
 | **page**               | int    | page number | 1 |
-| **payment_type**       | string | payment type (see *Value lists > Payment types*) | |
+| **payment_type**       | string | payment type (see [Value lists > Payment types](value-lists.md#payment-types)) | |
 | **per_page**           | int    | number of items per page (max 100) | &gt;as set in profile&lt; |
 | **search**             | string | base64 encoded string (e.g. `test` = `dGVzdA,,` | |
 | **sort**               | string | attribute to sort by, default regular_count | ASC |
-| **status**             | int / string | expense status (see *Value lists > Expense statuses*). When used as string, use pipe (<code>&#x7c;</code>) to add various statuses (e.g. <code>1&#x7c;2</code>) | |
-| **type**               | string | expense type (see *Value lists > Expense types* | |
+| **status**             | int / string | expense status (see [Value lists > Expense statuses](value-lists.md#expense-statuses)). When used as string, use pipe (<code>&#x7c;</code>) to add various statuses (e.g. <code>1&#x7c;2</code>) | |
+| **type**               | string | expense type (see [Value lists > Expense types](value-lists.md#expense-types) | |
 
 ### Response
 
@@ -592,8 +592,8 @@ curl -X POST \
 | name             | type   | description                                      | default value         |
 | ---------------- | ------ | ------------------------------------------------ | --------------------- |
 | **created**      | date   | date when payment was made  (`YYYY-MM-DD`)       | &lt;current date&gt;  |
-| **currency**     | string | currency code (see *Value lists > Currencies*)   | &lt;home currency&gt; |
-| **payment_type** | string | payment type (see *Value-lists > Payment types*) | transfer              |
+| **currency**     | string | currency code (see [Value lists > Currencies](value-lists.md#currencies))   | &lt;home currency&gt; |
+| **payment_type** | string | payment type (see [Value-lists > Payment types](value-lists.md#payment-types)) | transfer              |
 
 ### Response
 

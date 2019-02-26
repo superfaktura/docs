@@ -259,7 +259,7 @@ Fields:
 
 | name                      | type   | description                                   | default value |
 | ------------------------- | ------ | --------------------------------------------- | ------------- |
-| **created**               | int    | constant specifying time filtering (see *Value lists > Time filer constants*) |               |
+| **created**               | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) |               |
 | **created_since**         | date   | creation date since                           |               |
 | **created_to**            | date   | creation date to                              |               |
 | **description**           | string | item description (is displayed on invoice)    |               |
@@ -268,7 +268,7 @@ Fields:
 | **import_id**             | int    | import ID (if is not from import = null)      |               |
 | **import_type**           | string | import type ('efaktury' or `null`)            |               |
 | **internal_comment**      | string | internal comment (isn't displayed on invoice) |               | 
-| **modified**              | int    | constant specifying time filtering (see *Value lists > Time filer constants*) |               |
+| **modified**              | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) |               |
 | **modified_since**        | date   | last modification date from                   |               |
 | **modified_to**           | date   | last modification date to                     |               |
 | **name**                  | string | item name                                     |               |
