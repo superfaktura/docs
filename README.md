@@ -27,7 +27,7 @@ Value lists (or so called "číselníky" in Slovak and Czech), to tell you possi
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 
-### BankAccount
+### [BankAccount](bank-account.md)
 
 Manage bank accounts.
 
