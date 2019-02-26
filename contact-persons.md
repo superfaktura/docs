@@ -1,4 +1,4 @@
-# Contact people
+# Contact persons
 
 ## Add contact person to client
 
