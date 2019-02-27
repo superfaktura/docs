@@ -702,12 +702,7 @@ data='{
         "swift": "98765"
     },
     "InvoiceSetting": {
-        "language": "eng",
-        "signature": true,
-        "payment_info": true,
-        "online_payment": true,
-        "bysquare": true,
-        "paypal": true
+        "settings": "{\"language\":\"eng\",\"signature\":true,\"payment_info\":true,\"online_payment\": true,\"bysquare\": true,\"paypal\": true}"
     },
     "InvoiceExtra": {
         "pickup_point_id": 23
