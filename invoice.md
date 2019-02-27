@@ -711,6 +711,17 @@ data='{
     },
     "InvoiceExtra": {
         "pickup_point_id": 23
+    },
+    "MyData": {
+        "address": "Fiktivna 1",
+        "business_register": "-",
+        "city": "Prague",
+        "company_name": "MyData Inc.",
+        "country_id": "123",
+        "dic": "SK99999999",
+        "ic_dph": "ABCDE",
+        "update_profile": "0",
+        "zip": "999 88"
     }
 }';
 ```
@@ -826,6 +837,21 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 | **tax**                  | float  | VAT (if you are not a tax payer, use 0) | |
 | **unit**                 | string | unit (e.g. m, l, hour) | |
 | **unit_price**           | float  | price without VAT (or full price, if you are not a tax payer) | 0 |
+
+
+##### MyData
+
+| name                     | type   | description                               | default value |
+| ------------------------ | ------ | ----------------------------------------- | ------------- |
+| **address**              | string | my address                                | |
+| **business_register**    | string | business register                         | |
+| **city**                 | string | my city                                   | |
+| **company_name**         | string | my company name                           | |
+| **country_id**           | string | country ID (see [Value lists > Country list](value-lists.md#country-list)) | |
+| **dic**                  | string | tax ID (DIČ)                              | |
+| **ic_dph**               | string | VAT ID (IČ DPH)                           | |
+| **update_profile**       | itn    | should profile be updated with these data | |
+| **zip**                  | string | ZIP code                                  | |
 
 ### Response
 
