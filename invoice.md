@@ -650,10 +650,69 @@ data='{
     }
 }';
 
+
 curl -X POST \
     -d "data=$data" \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
     https://moja.superfaktura.sk/invoices/create
+```
+
+
+
+Example with invoice data, invoice items, client, invoice extras and invoice settings (full options specified):
+```
+data='{
+    "Invoice":{
+        "name": "Test API",
+        "bank_accounts": [
+            {
+                "bank_name": "New Bank",
+                "iban": "SK0000000000000000",
+                "swift": "12345"
+            }
+        ],
+        "issued_by": "John Doe",
+        "issued_by_email": "john@d.oe",
+        "issued_by_phone": "+9999999",
+        "issued_by_web": "https://superfaktura.sk",
+        "created": "2019-01-01",
+        "discount": 10,
+        "header_comment": "Header comment",
+        "internal_comment": "Internal comment",
+        "invoice_currency": "NOK",
+        "rounding": "item_ext",
+        "specific": "SS123456",
+        "type": "delivery",
+        "variable": "VS87654",
+        "created": "2019-02-28"
+    },
+    "InvoiceItem":[
+        {
+            "description": "description of item 1",
+            "name": "item 1",
+            "tax": 20,
+            "unit_price": 10
+        }
+    ],
+    "Client":{
+        "ico": "44981082",
+        "comment": "Client comment",
+        "update_addressbook": 1,
+        "iban": "XX00000000001",
+        "swift": "98765"
+    },
+    "InvoiceSetting": {
+        "language": "eng",
+        "signature": true,
+        "payment_info": true,
+        "online_payment": true,
+        "bysquare": true,
+        "paypal": true
+    },
+    "InvoiceExtra": {
+        "pickup_point_id": 23
+    }
+}';
 ```
 
 ### Attributes
