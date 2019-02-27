@@ -1,7 +1,7 @@
 # FAQ
 
 
-## How do I choose changed or paid documents?
+## How do I select changed or paid documents?
 
 Through API you can retrieve list of invoices, which were changed (any kind of change - edited, assigned payment, sent, ...)
 for selected interval of time.
