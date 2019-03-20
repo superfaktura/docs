@@ -37,8 +37,8 @@ URL parameters:
 
 | name            | type         | description                                                           | default value |
 | --------------- | ------------ | --------------------------------------------------------------------- | ------------- |
-| **invoice_id**  | int          | invoice ID                                                            |               |
 | **item_id**     | int / string | invoice item ID, if used as string, use comma to separate various IDs |               |
+| **invoice_id**  | int          | invoice ID                                                            |               |
 
 #### Optional
 none
