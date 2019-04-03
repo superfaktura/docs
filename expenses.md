@@ -41,6 +41,7 @@ curl -X POST \
 | ----------------------- | ------ | ------------------------------------------------------------ | ------------- |
 | **already_paid**        | int    | is invoice already paid? (0=no, 1=yes)                       | 0 |
 | **amount**              | float  | amount of money without VAT                                  | 0 |
+| **client_id**           | int    | client ID                                                    | |
 | **comment**             | string | comment                                                      | |
 | **constant**            | string | constant symbol                                              | |
 | **created**             | date   | issue date                                                   | &lt;current date&gt; |
