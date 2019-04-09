@@ -23,7 +23,7 @@ Decision whether clients exists or is new is explained in the following table:
     BEWARE: this decision making will be changed in near future.
     So we recommend to check for updates to avoid any problems.
 
-If you want to add tags to client, refer to *FAQ > How do I add tags to an entity?*.
+If you want to add tags to client, refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity).
 
 
 ### Request

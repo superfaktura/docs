@@ -581,7 +581,7 @@ none
 ## Add invoice
 
 Create new invoice.
-If you want to add tags to invoice, refer to *FAQ > How do I add tags to an entity?*.
+If you want to add tags to invoice, refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity).
 
 ### Request
 
@@ -1229,7 +1229,7 @@ HTTP status 403.
 ## Edit invoice
 
 Edit invoice.
-If you want to add tags to invoice, refer to *FAQ > How do I add tags to an entity?*.
+If you want to add tags to invoice, refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity).
 
 ### Request
 

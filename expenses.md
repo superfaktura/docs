@@ -11,7 +11,7 @@
 ## Add expense
 
 Add new expense.
-If you want to add tags to expense, refer to *FAQ > How do I add tags to an entity?*.
+If you want to add tags to expense, refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity).
 
 ### Request
 
@@ -126,7 +126,7 @@ HTTP status 400.
 Edit expense.
 
 It's strongly recommended to fetch data for expense, change required values, and then request edit.
-If you want to add tags to expense, refer to *FAQ > How do I add tags to an entity?*.
+If you want to add tags to expense, refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity).
 
 ### Request
 
