@@ -19,7 +19,21 @@ If you want to add tags to expense, refer to [FAQ > How do I add tags to an enti
 **HTTP method**: POST  
 
 ```sh
+# simple example
 data='{"Expense":{"name":"Foo bar","currency":"NOK","amount":12.14}}';
+
+# multiple VAT rates example
+data='{
+    "Expense":{
+        "name":"Expense with multiple VAT rates",
+        "vat": 21,
+        "amount": 100,
+        "vat2": 10,
+        "amount2": 100,
+        "vat3": 0,
+        "amount3": 100
+    }
+}';
 
 curl -X POST \
     -d "data=$data" \
@@ -37,25 +51,29 @@ curl -X POST \
 
 #### Optional
 
-| name                    | type   | description                                                  | default value |
-| ----------------------- | ------ | ------------------------------------------------------------ | ------------- |
-| **already_paid**        | int    | is invoice already paid? (0=no, 1=yes)                       | 0 |
-| **amount**              | float  | amount of money without VAT                                  | 0 |
-| **client_id**           | int    | client ID                                                    | |
-| **comment**             | string | comment                                                      | |
-| **constant**            | string | constant symbol                                              | |
-| **created**             | date   | issue date                                                   | &lt;current date&gt; |
+| name                    | type   | description                                                         | default value |
+| ----------------------- | ------ | ------------------------------------------------------------------- | ------------- |
+| **already_paid**        | int    | is invoice already paid? (0=no, 1=yes)                              | 0 |
+| **amount**              | float  | amount of money without VAT                                         | 0 |
+| **amount2**             | float  | amount of money without VAT (when multiple VAT rates are necessary) | 0 |
+| **amount3**             | float  | amount of money without VAT (when multiple VAT rates are necessary) | 0 |
+| **client_id**           | int    | client ID                                                           | |
+| **comment**             | string | comment                                                             | |
+| **constant**            | string | constant symbol                                                     | |
+| **created**             | date   | issue date                                                          | &lt;current date&gt; |
 | **currency**            | string | currency (see [Value lists > Currencies](value-lists.md#currencies))                    | &lt;home currency&gt; |
-| **delivery**            | date   | delivery date                                                | &lt;current date&gt; |
-| **document_number**     | string | document number, (e.g. invoice number, bill number, ...)     | |
-| **due**                 | date   | due date                                                     | &lt;current date&gt; |
+| **delivery**            | date   | delivery date                                                       | &lt;current date&gt; |
+| **document_number**     | string | document number, (e.g. invoice number, bill number, ...)            | |
+| **due**                 | date   | due date                                                            | &lt;current date&gt; |
 | **expense_category_id** | int    | expense category ID (see [Value lists > Expense categories](value-lists.md#expense-categories)) | |
 | **payment_type**        | string | payment type (see [Value lists > Payment types](value-lists.md#payment-types))             | |
-| **specific**            | string | specific symbol                                              | |
-| **taxable_supply**      | date   | date of taxable transaction                                  | null |
+| **specific**            | string | specific symbol                                                     | |
+| **taxable_supply**      | date   | date of taxable transaction                                         | null |
 | **type**                | string | expense typ (see [Value lists > Invoice types](value-lists.md#invoice-types))              | 'invoice' |
-| **variable**            | string | variable symbol                                              | |
-| **vat**                 | string | VAT in percent                                               | 0 |
+| **variable**            | string | variable symbol                                                     | |
+| **vat**                 | string | VAT in percent                                                      | 0 |
+| **vat2**                | string | VAT in percent (when multiple VAT rates are necessary)              | 0 |
+| **vat3**                | string | VAT in percent (when multiple VAT rates are necessary)              | 0 |
 
 
 ### Response
