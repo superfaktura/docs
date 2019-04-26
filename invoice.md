@@ -828,18 +828,6 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 
 ##### InvoiceItem
 
-| name                  | type   | description                                     | default value |
-| --------------------- | ------ | ----------------------------------------------- | ------------- |
-| **analytics_account** | string | analytics account                               |               |
-| **operation**         | string | operation                                       |               |
-| **order**             | string | order name                                      |               |
-| **place**             | string | place name                                      |               |
-| **preconfidence**     | string | preconfidence                                   |               |
-| **synthetic_account** | string | synthetic account                               |               |
-| **type**              | string | item type (`item` (goods), `service` (service)) |               |
-
-###### Accounting Detail
-
 | name                     | type   | description  | default value |
 | ------------------------ | ------ | ------------ | ------------- |
 | **description**          | string | invoice item description - will be displayed on invoice | |
@@ -853,7 +841,20 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 | **tax**                  | float  | VAT (if you are not a tax payer, use 0) | |
 | **unit**                 | string | unit (e.g. m, l, hour) | |
 | **unit_price**           | float  | price without VAT (or full price, if you are not a tax payer) | 0 |
- 
+
+
+###### Accounting Detail
+
+| name                  | type   | description                                     | default value |
+| --------------------- | ------ | ----------------------------------------------- | ------------- |
+| **analytics_account** | string | analytics account                               |               |
+| **operation**         | string | operation                                       |               |
+| **order**             | string | order name                                      |               |
+| **place**             | string | place name                                      |               |
+| **preconfidence**     | string | preconfidence                                   |               |
+| **synthetic_account** | string | synthetic account                               |               |
+| **type**              | string | item type (`item` (goods), `service` (service)) |               |
+
 
 
 ##### MyData
