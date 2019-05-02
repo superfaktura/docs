@@ -35,10 +35,36 @@ data='{
     }
 }';
 
+
 curl -X POST \
     -d "data=$data" \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
     https://moja.superfaktura.sk/expenses/add
+
+
+
+# ================================================
+
+# example with attachment
+base64_attachment=$(base64 -w 0 /tmp/foo.pdf);
+
+curl -X POST \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    -d @- \
+    https://moja.superfaktura.sk/expenses/add <<CURL_DATA
+    data={
+        "Expense":{
+            "name":"Expense with multiple VAT rates",
+            "vat": 21,
+            "amount": 100,
+            "vat2": 10,
+            "amount2": 100,
+            "vat3": 0,
+            "amount3": 100,
+            "attachment":"$base64_attachment"
+        }
+    }
+CURL_DATA
 ```  
 
 ### Attributes
@@ -53,6 +79,7 @@ curl -X POST \
 
 | name                    | type   | description                                                         | default value |
 | ----------------------- | ------ | ------------------------------------------------------------------- | ------------- |
+| **attachment**          | string | base64 encoded attachment - max file size: 4MB, allowed types: `jpg`, `jpeg`, `png`, `tif`, `tiff`, `gif`, `pdf`, `tmp`, `xls`, `xlsx`, `ods`, `doc`, `docx`, `xml`, `csv`, `msg` | |
 | **already_paid**        | int    | is invoice already paid? (0=no, 1=yes)                              | 0 |
 | **amount**              | float  | amount of money without VAT                                         | 0 |
 | **amount2**             | float  | amount of money without VAT (when multiple VAT rates are necessary) | 0 |
