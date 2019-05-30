@@ -872,6 +872,28 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 | **update_profile**       | int    | should profile be updated with these data | |
 | **zip**                  | string | ZIP code                                  | |
 
+
+
+##### Invoice Settings
+
+| name               | type   | description                               | default value |
+| ------------------ | ------ | ----------------------------------------- | ------------- |
+| **bysquare**       | bool   | show pay by square                        |               |
+| **language**       | string | invoice language  (for list of possible values see [Value lists > Language list](value-lists.md#language-list)) |               |
+| **online_payment** | bool   | show online payments                      |               |
+| **payment_info**   | bool   | show payment information                  |               |
+| **paypal**         | bool   | show PayPal                               |               |
+| **show_prices**    | bool   | show prices (only effective for delivery) |               |
+| **signature**      | bool   | show signature                            |               |
+
+
+##### Invoice Extras
+
+| name                | type   | description                               | default value |
+| ------------------- | ------ | ----------------------------------------- | ------------- |
+| **pickup_point_id** | int    | pickup point ID for Zásielkovňa           |               |
+
+
 ### Response
 
 #### Successful addition
