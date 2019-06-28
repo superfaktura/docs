@@ -245,7 +245,7 @@ data='{
 }';
 
 curl -X POST \
-     -d "$data=$data" \
+     -d "data=$data" \
      -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
      https://moja.superfaktura.sk/sms/send
 ```
