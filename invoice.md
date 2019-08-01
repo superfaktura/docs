@@ -2116,7 +2116,7 @@ curl -X GET \
     ],
     "page": 1,
     "pageCount": 7,
-    "perPage": 0
+    "perPage": 1
 }
 ```
 
