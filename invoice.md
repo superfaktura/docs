@@ -1759,6 +1759,7 @@ Filtering parameters
 | **payment_type**   | string       | payment types (see [Value lists > Payment types](value-lists.md#payment-types)). Use <code>&#x7c;</code> as separator for multiple values. | |
 | **search**         | string       | base64 encoded string | |
 | **status**         | string / int | invoice status (see [Value lists > Invoice statuses](value-lists.md#invoice-statuses)) | |
+| **tag**            | int          | tag ID | |
 
 
 
