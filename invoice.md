@@ -16,6 +16,7 @@
 - [Send invoice via post](#send-invoice-via-post)
 - [Set invoice as "will not be paid"](#set-invoice-as-will-not-be-paid)
 - [Mark invoice as sent](#mark-invoice-as-sent)
+- [Export invoices](#export-invoices)
 
 ## Delete invoice item
 
@@ -3669,3 +3670,106 @@ none
    "error" : 1
 }
 ```
+
+
+
+
+
+## Export invoices
+
+Export multiple invoices in PDF or XLS format.
+
+### Request
+
+**URL**: `/exports`  
+**HTTP method**: POST
+
+```sh
+data='{
+    "Invoice":{
+        "ids":[1562,1561,1560]
+    },
+    "Export":{
+        "is_msel":true,
+        "invoices_pdf":true,
+        "merge_pdf":true,
+        "only_merge":true
+    }
+}';
+
+curl -X POST \
+    -d "data=$data" \
+    -o /output.pdf \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/exports
+
+
+
+
+data='{
+    "Invoice":{
+        "ids":[1562,1561,1560]
+    },
+    "Export":{
+        "is_msel":true,
+        "invoices_xls":true
+    }
+}';
+
+curl -X POST \
+    -d "data=$data" \
+    -o /output.xls \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/exports
+
+
+
+
+data='{
+    "Invoice":{
+        "ids":[1562,1561,1560]
+    },
+    "Export":{
+        "is_msel":true,
+        "invoices_pdf":true
+    }
+}';
+
+curl -X POST \
+    -d "data=$data" \
+    -o /output.zip \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/exports
+```
+
+### Attributes
+#### Required
+
+##### Export
+| name                  | type | description                                         | default value |
+| --------------------- | ---- | --------------------------------------------------- | ------------- |
+| **msel**              | bool | is multiselect; needs to be `true` (required: true) |               |
+
+##### Invoice
+| name                  | type  | description | default value |
+| --------------------- | ----- | ----------- | ------------- |
+| **ids**               | array | list of IDs |               |
+
+#### Optional
+
+##### Export
+
+| name                      | type | description                        | default value |
+| ------------------------- | ---- | ---------------------------------- | ------------- |
+| **hide_pdf_payment_info** | bool | hide payment information           |             0 |
+| **hide_signature**        | bool | hide signature in invoices         |             0 |
+| **invoices_pdf**          | bool | export in PDF format               |             0 |
+| **invoices_xls**          | bool | export in XLS format               |             0 |
+| **merge_pdf**             | bool | only export merged PDF             |             0 |
+| **pdf_lang_default**      | bool | translate documents to default language (SK: Slovak, CZ: Czech) | 0 |
+| **pdf_sort_client**       | bool | sort documents by client           |             0 |
+| **pdf_sort_date**         | bool | sort documents by date             |             0 |
+
+
+### Response
+PDF document on success.
