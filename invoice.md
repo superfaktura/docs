@@ -892,7 +892,12 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 
 | name                | type   | description                               | default value |
 | ------------------- | ------ | ----------------------------------------- | ------------- |
+| **dimension**       | string | package dimensions in cm (l x w x h)      |               |
+| **insurance**       | float  | insurance price                           |               |
+| **parcel_count**    | int    | number of packages                        |               |
 | **pickup_point_id** | int    | pickup point ID for Zásielkovňa           |               |
+| **tracking_number** | string | tracking number                           |               |
+| **weight**          | float  | package weight                            |               |
 
 
 ### Response
