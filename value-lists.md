@@ -1,102 +1,22 @@
 # Value lists
 
-- [Period types](#period-types)
-- [Language list](#language-list)
-- [Currencies](#currencies)
-- [Payment types](#payment-types)
 - [Country list](#country-list)
+- [Currencies](#currencies)
+- [Delivery types](#delivery-types)
+- [Expense categories](#expense-categories)
+- [Expense types](#expense-types)
+- [Expenses statuses](#expense-statuses)
+- [Invoice statuses](#invoice-statuses)
+- [Invoice types](#invoice-types)
+- [Language list](#language-list)
+- [Logos](#logos)
+- [Payment types](#payment-types)
+- [Period types](#period-types)
+- [Rounding types](#rounding-types)
 - [Sequences](#sequences)
 - [Tags](#tags)
-- [Logos](#logos)
-- [Expense categories](#expense-categories)
-- [Time filters](#time-filters)
-- [Invoice statuses](#invoice-statuses)
-- [Expenses statuses](#expense-statuses)
-- [Expense types](#expense-types)
-- [Invoice types](#invoice-types)
-- [Rounding types](#rounding-types)
-- [Delivery types](#delivery-types)
 - [Time filter constants](#time-filter-constants)
-
-## Period types
-
-| value       | description                                           |
-| ----------- | ----------------------------------------------------- |
-| **daily**   | must contain `D`* character, is refreshed every day   |
-| **monthly** | must contain `M`* character, is refreshed every month |
-| **yearly**  | must contain `Y`* character, is refreshed every year  |
-
-&#42; - or its equivalent based on language (e.g. `J` for `Y`, in German) 
-
-
-## Language list
-
-List of languages as defined by [ISO-639-2](https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes).
-
-| value   | description         |
-| ------- | ------------------- |
-| **cze** | Czech               |
-| **deu** | German              |
-| **eng** | English             |
-| **hrv** | Croatian            |
-| **hun** | Hungarian           |
-| **pol** | Polish              |
-| **rom** | Romanian            |
-| **rus** | Russian             |
-| **slo** | Slovak              |
-| **slv** | Slovene / Slovenian |
-| **ukr** | Ukrainian           |
-
-
-## Currencies
-
-Currencies use [ISO-4217 format](https://en.wikipedia.org/wiki/ISO_4217).
-Accepted currencies are:
-
-| value   | description             |
-| ------- | ----------------------- |
-| **AUD** | Australian dollar       |
-| **BGN** | Bulgarian lev           |
-| **CAD** | Canadian dollar         |
-| **CHF** | Swiss franc             |
-| **CNY** | Renminbi (Chinese) yuan |
-| **CZK** | Czech koruna            |
-| **DKK** | Danish krone            |
-| **EUR** | Euro                    |
-| **GBP** | British pound           |
-| **HRK** | Croatian kuna           |
-| **HUF** | Hungarian forint        |
-| **JPY** | Japanese yen            |
-| **LKR** | Sri Lankan rupee        |
-| **MXN** | Mexican peso            |
-| **PLN** | Polish złoty            |
-| **RON** | Romanian leu            |
-| **RSD** | Serbian dinar           |
-| **RUB** | Russian ruble           |
-| **SEK** | Swedish krona           |
-| **USD** | United States dollar    |
-
-
-## Payment types
-
-| value               | description              | Slovak           |
-| ------------------- | ------------------------ | ---------------- |
-| **accreditation**   | mutual credit            | vzajomný zápočet |
-| **besteron**        | Besteron (on SK version) |                  |
-| **cash**            | cash                     | hotovosť         |
-| **cod**             | cash on delivery         | dobierka         |
-| **credit**          | credit card              | kreditná karta   |
-| **debit**           | debit card               | debetná karta    |
-| **gopay**           | GoPay                    |                  |
-| **other**           | other                    | iný spôsob       |
-| **paypal**          | Paypal                   |                  |
-| **postal_order**    | Postal money order       |                  |
-| **transfer**        | wire transfer            | bankový prevod   |
-| **trustpay**        | Trustpay (on SK version) |                  |
-| **viamo**           | Viamo                    |                  |
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- [Time filters](#time-filters)
 
 
 ## Country list
@@ -196,145 +116,53 @@ Example (list is shortened):
 ```
 
 
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-## Sequences
-
-Get list of sequences categorized by document type (i.e. "regular", "proforma", "reverse_order", ...).
-
-### Request
-**URL**: `/sequences/index.json`  
-**HTTP method**: GET  
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-```sh
-curl \
-    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/sequences/index.json
-```
-  
-### Attributes
+## Currencies
 
-none
+Currencies use [ISO-4217 format](https://en.wikipedia.org/wiki/ISO_4217).
+Accepted currencies are:
 
-### Response  
-
-JSON object.
-Key is name of document type. Value is an array of sequences.
-Empty key is reserved for Warehouse.
-
-```json
-{
-   "regular" : [
-      {
-         "created" : "2017-09-19 08:15:36",
-         "default" : "1", 
-         "id" : "238534",
-         "item_type" : "regular",
-         "mask" : "RRRRCCC",
-         "modified" : "2017-09-25 13:10:04",
-         "name" : "Faktúra",
-         "period_type" : "yearly",
-         "sequence" : "6",
-         "sequence_formatted" : "2017006",
-         "user_profile_id" : "123"
-      }
-   ]
-}
-
-```
-
-| name                   | type   | description | default value |
-| ---------------------- | ------ | ----------- | ------------- |
-| **created**            | date   | creation date | |
-| **default**            | int    | is sequence default for document type? (0 = no, 1 = yes) | | 
-| **id**                 | int    | sequence ID | |
-| **item_type**          | string | document type (invoice, proforma, reverse order, ...) | |
-| **mask**               | string | mask (e.g. `YYYYNNN`) | |
-| **modified**           | date   | modification date | |
-| **name**               | string | sequence name | |
-| **period_type**        | string | period type (yearly / monthly / daily) | |
-| **sequence**           | string | not formatted next sequence number of document | |
-| **sequence_formatted** | string | formatted sequence number according to document type mask | |
-| **user_profile_id**    | int    | user profile ID | | 
+| value   | description             |
+| ------- | ----------------------- |
+| **AUD** | Australian dollar       |
+| **BGN** | Bulgarian lev           |
+| **CAD** | Canadian dollar         |
+| **CHF** | Swiss franc             |
+| **CNY** | Renminbi (Chinese) yuan |
+| **CZK** | Czech koruna            |
+| **DKK** | Danish krone            |
+| **EUR** | Euro                    |
+| **GBP** | British pound           |
+| **HRK** | Croatian kuna           |
+| **HUF** | Hungarian forint        |
+| **JPY** | Japanese yen            |
+| **LKR** | Sri Lankan rupee        |
+| **MXN** | Mexican peso            |
+| **PLN** | Polish złoty            |
+| **RON** | Romanian leu            |
+| **RSD** | Serbian dinar           |
+| **RUB** | Russian ruble           |
+| **SEK** | Swedish krona           |
+| **USD** | United States dollar    |
 
 
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-## Tags
-
-See [Tags > Get list of tags](tags.md#get-list-of-tags).
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-## Logos
+## Delivery types
 
-Returns list of logos.
-
-### Request
-
-**URL**: `/users/logo`  
-**HTTP method**: GET  
-
-```sh
-    curl \
-      -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-      https://moja.superfaktura.sk/users/logo
-```
-
-### Attributes
-
-none
-
-### Response
-
-Array of logo objects containing the following information.
-
-Fields:
-
-| name              | type   | description | default value |
-| ----------------- | ------ | ----------- | ------------- |
-| **alternative**   | string | filename of user uploaded file (may not be set) | |
-| **basename**      | string | name of logo file | |
-| **checksum**      | string | checksum of logo | |
-| **created**       | date   | creation date | |
-| **default**       | string | is this logo default "0" = no, "1" = yes | |
-| **dirname**       | string | directory with logo | |
-| **foreign_key**   | int    | user profile ID | |
-| **group**         | string | attachment type ("logo", "signature", ...) | |
-| **id**            | int    | logo ID | |
-| **model**         | string | what model is logo attached to (for logos it's always "User") | |
-| **modified**      | date   | modification date | |
-| **url**           | string | full URL to logo | |
+| value            | description       | Slovak           |
+| ---------------- | ----------------- | ---------------- |
+| **courier**      | courier           | kuriér           |
+| **haulage**      | freight transport | nákladná doprava |
+| **mail**         | mail / post       | poštou           |
+| **personal**     | personal pickup   | osobný odber     |
+| **pickup_point** | pickup point      | odberné miesto   |
 
 
-Example:  
-```json
-[
-   {
-      "alternative" : null,
-      "basename" : "123_8dcd924a.png",
-      "checksum" : "9fb2a07e4ff2e1ffa091c9b38e7bf5fc",
-      "created" : "2017-09-26 12:26:05",
-      "default" : "0",
-      "dirname" : "img",
-      "foreign_key" : "123",
-      "group" : "logo",
-      "id" : "126124",
-      "model" : "User",
-      "modified" : "2017-09-26 12:26:10",
-      "url" : "https://moja.superfaktura.sk/media/transfer/img/123_8dcd924a.png"
-   }
-]
-```
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Expense categories
@@ -414,27 +242,7 @@ Example:
 ``` 
 
 
-## Time filters
-
-| value         | description    |
-| ------------- | -------------- |
-| **today**     | today          |
-| **yesterday** | yesterday      |
-| **thismonth** | this month     |
-| **thisyear**  | this year      |
-| **prevmonth** | previous month |
-| **prevyear**  | previous year  |
-
-
-
-## Invoice statuses
-
-| value  | description    |
-| -----: | -------------- |
-| **1**  | issued         |
-| **2**  | partially_paid |
-| **3**  | paid           |
-| **99** | overdue        |
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Expense statuses
@@ -445,6 +253,9 @@ Example:
 | **2**  | partially_paid |
 | **3**  | paid           |
 | **99** | overdue        |
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Expense types
@@ -459,6 +270,22 @@ Example:
 | **recieved_credit_note** | received credit note | prijatý dobropis |
 
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Invoice statuses
+
+| value  | description    |
+| -----: | -------------- |
+| **1**  | issued         |
+| **2**  | partially_paid |
+| **3**  | paid           |
+| **99** | overdue        |
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
 ## Invoice types
 | value             | description       | Slovak                        |
 | ----------------- | ----------------- | ----------------------------- |
@@ -470,6 +297,132 @@ Example:
 | **proforma**      | proforma invoice  | zálohová faktúra              |
 | **regular**       | regular invoice   | ostrá faktúra / bežná faktúra |
 | **reverse_order** | reverse order     | objednávka                    |
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Language list
+
+List of languages as defined by [ISO-639-2](https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes).
+
+| value   | description         |
+| ------- | ------------------- |
+| **cze** | Czech               |
+| **deu** | German              |
+| **eng** | English             |
+| **hrv** | Croatian            |
+| **hun** | Hungarian           |
+| **pol** | Polish              |
+| **rom** | Romanian            |
+| **rus** | Russian             |
+| **slo** | Slovak              |
+| **slv** | Slovene / Slovenian |
+| **ukr** | Ukrainian           |
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Logos
+
+Returns list of logos.
+
+### Request
+
+**URL**: `/users/logo`  
+**HTTP method**: GET  
+
+```sh
+    curl \
+      -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+      https://moja.superfaktura.sk/users/logo
+```
+
+### Attributes
+
+none
+
+### Response
+
+Array of logo objects containing the following information.
+
+Fields:
+
+| name              | type   | description | default value |
+| ----------------- | ------ | ----------- | ------------- |
+| **alternative**   | string | filename of user uploaded file (may not be set) | |
+| **basename**      | string | name of logo file | |
+| **checksum**      | string | checksum of logo | |
+| **created**       | date   | creation date | |
+| **default**       | string | is this logo default "0" = no, "1" = yes | |
+| **dirname**       | string | directory with logo | |
+| **foreign_key**   | int    | user profile ID | |
+| **group**         | string | attachment type ("logo", "signature", ...) | |
+| **id**            | int    | logo ID | |
+| **model**         | string | what model is logo attached to (for logos it's always "User") | |
+| **modified**      | date   | modification date | |
+| **url**           | string | full URL to logo | |
+
+
+Example:  
+```json
+[
+   {
+      "alternative" : null,
+      "basename" : "123_8dcd924a.png",
+      "checksum" : "9fb2a07e4ff2e1ffa091c9b38e7bf5fc",
+      "created" : "2017-09-26 12:26:05",
+      "default" : "0",
+      "dirname" : "img",
+      "foreign_key" : "123",
+      "group" : "logo",
+      "id" : "126124",
+      "model" : "User",
+      "modified" : "2017-09-26 12:26:10",
+      "url" : "https://moja.superfaktura.sk/media/transfer/img/123_8dcd924a.png"
+   }
+]
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Payment types
+
+| value               | description              | Slovak           |
+| ------------------- | ------------------------ | ---------------- |
+| **accreditation**   | mutual credit            | vzajomný zápočet |
+| **besteron**        | Besteron (on SK version) |                  |
+| **cash**            | cash                     | hotovosť         |
+| **cod**             | cash on delivery         | dobierka         |
+| **credit**          | credit card              | kreditná karta   |
+| **debit**           | debit card               | debetná karta    |
+| **gopay**           | GoPay                    |                  |
+| **other**           | other                    | iný spôsob       |
+| **paypal**          | Paypal                   |                  |
+| **postal_order**    | Postal money order       |                  |
+| **transfer**        | wire transfer            | bankový prevod   |
+| **trustpay**        | Trustpay (on SK version) |                  |
+| **viamo**           | Viamo                    |                  |
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Period types
+
+| value       | description                                           |
+| ----------- | ----------------------------------------------------- |
+| **daily**   | must contain `D`* character, is refreshed every day   |
+| **monthly** | must contain `M`* character, is refreshed every month |
+| **yearly**  | must contain `Y`* character, is refreshed every year  |
+
+&#42; - or its equivalent based on language (e.g. `J` for `Y`, in German) 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Rounding types
@@ -496,17 +449,79 @@ From each item is calculated price with VAT (rounded), than multiplied by quanti
 Then difference between this value and value per item without VAT is added to VAT.
 
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-## Delivery types
 
-| value            | description       | Slovak           |
-| ---------------- | ----------------- | ---------------- |
-| **courier**      | courier           | kuriér           |
-| **haulage**      | freight transport | nákladná doprava |
-| **mail**         | mail / post       | poštou           |
-| **personal**     | personal pickup   | osobný odber     |
-| **pickup_point** | pickup point      | odberné miesto   |
+## Sequences
 
+Get list of sequences categorized by document type (i.e. "regular", "proforma", "reverse_order", ...).
+
+### Request
+**URL**: `/sequences/index.json`  
+**HTTP method**: GET  
+
+
+```sh
+curl \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/sequences/index.json
+```
+  
+### Attributes
+
+none
+
+### Response  
+
+JSON object.
+Key is name of document type. Value is an array of sequences.
+Empty key is reserved for Warehouse.
+
+```json
+{
+   "regular" : [
+      {
+         "created" : "2017-09-19 08:15:36",
+         "default" : "1", 
+         "id" : "238534",
+         "item_type" : "regular",
+         "mask" : "RRRRCCC",
+         "modified" : "2017-09-25 13:10:04",
+         "name" : "Faktúra",
+         "period_type" : "yearly",
+         "sequence" : "6",
+         "sequence_formatted" : "2017006",
+         "user_profile_id" : "123"
+      }
+   ]
+}
+
+```
+
+| name                   | type   | description | default value |
+| ---------------------- | ------ | ----------- | ------------- |
+| **created**            | date   | creation date | |
+| **default**            | int    | is sequence default for document type? (0 = no, 1 = yes) | | 
+| **id**                 | int    | sequence ID | |
+| **item_type**          | string | document type (invoice, proforma, reverse order, ...) | |
+| **mask**               | string | mask (e.g. `YYYYNNN`) | |
+| **modified**           | date   | modification date | |
+| **name**               | string | sequence name | |
+| **period_type**        | string | period type (yearly / monthly / daily) | |
+| **sequence**           | string | not formatted next sequence number of document | |
+| **sequence_formatted** | string | formatted sequence number according to document type mask | |
+| **user_profile_id**    | int    | user profile ID | | 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Tags
+
+See [Tags > Get list of tags](tags.md#get-list-of-tags).
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Time filter constants
@@ -526,3 +541,18 @@ Then difference between this value and value per item without VAT is added to VA
 | **10** | last quarter |
 | **11** | last hour    |
 | **12** | this hour    |
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Time filters
+
+| value         | description    |
+| ------------- | -------------- |
+| **today**     | today          |
+| **yesterday** | yesterday      |
+| **thismonth** | this month     |
+| **thisyear**  | this year      |
+| **prevmonth** | previous month |
+| **prevyear**  | previous year  |

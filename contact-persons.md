@@ -1,8 +1,9 @@
 # Contact persons
 
 - [Add contact person](#add-contact-person-to-client)
-- [Delete contact person](#delete-contact-person)
 - [Get contact persons](#get-contact-persons)
+- [Delete contact person](#delete-contact-person)
+
 
 ## Add contact person to client
 
@@ -87,63 +88,8 @@ HTTP status 403
 }
 ```
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-
-## Delete contact person
-
-Deletes contact person from client.
-
-### Request
-
-**URL**: `/contact_people/delete/{ID}`  
-**HTTP method**: GET  
-
-```sh
-curl -X GET \
-    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/contact_people/delete/16
-```  
-
-### Attributes
-#### Required
-
-URL parameters:
-
-| name   | type | description | default value |
-| ------ | ---- | ----------- | ------------- |
-| **id** | int  | contact ID  |               |
-
-#### Optional
-none
-
-### Response
-
-#### Successful deletion
-```json
-{"error":0}
-```
- 
-#### Wrong contact person
-
-```json
-{"error":1}
-```
-
-
-#### Insufficient privileges
-HTTP status 403
-
-```json
-{
-   "error_message" : "Nemôžete vymazať kontaktnú osobu",
-   "error" : 1,
-   "message" : "Nemôžete vymazať kontaktnú osobu"
-}
-```
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Get contact persons
@@ -253,3 +199,59 @@ none
    }
 ]
 ```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Delete contact person
+
+Deletes contact person from client.
+
+### Request
+
+**URL**: `/contact_people/delete/{ID}`  
+**HTTP method**: GET  
+
+```sh
+curl -X GET \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/contact_people/delete/16
+```  
+
+### Attributes
+#### Required
+
+URL parameters:
+
+| name   | type | description | default value |
+| ------ | ---- | ----------- | ------------- |
+| **id** | int  | contact ID  |               |
+
+#### Optional
+none
+
+### Response
+
+#### Successful deletion
+```json
+{"error":0}
+```
+ 
+#### Wrong contact person
+
+```json
+{"error":1}
+```
+
+
+#### Insufficient privileges
+HTTP status 403
+
+```json
+{
+   "error_message" : "Nemôžete vymazať kontaktnú osobu",
+   "error" : 1,
+   "message" : "Nemôžete vymazať kontaktnú osobu"
+}
+``` 

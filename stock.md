@@ -1,11 +1,11 @@
 # Stock
 
 - [Add stock item](#add-stock-item)
-- [Delete stock item](#delete-stock-item)
-- [Get list of stock items](#get-list-of-stock-items)
 - [Edit stock item](#edit-stock-item)
-- [Add stock movement](#add-stock-movement)
 - [View stock item details](#view-stock-item-details)
+- [Get list of stock items](#get-list-of-stock-items)
+- [Delete stock item](#delete-stock-item)
+- [Add stock movement](#add-stock-movement)
 
 ## Add stock item
 
@@ -116,29 +116,107 @@ Status 403.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-## Delete stock item
+## Edit stock item
 
-Delete stock item
-
+Updates stock item
 
 ### Request
-**URL**: `/stock_items/delete/{ID}`  
-**HTTP method**: GET  
 
+**URL**: `/stock_items/edit`  
+**HTTP method**: POST  
+
+```sh
+data='{
+    "StockItem":{
+        "name":"Item B",
+        "unit":"kg",
+        "id":19
+    }
+}';
+
+curl -X POST \
+    -d "data=$data" \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/stock_items/edit
+```
+
+### Attributes
+
+#### Required
+
+| name   | type | description   | default value |
+| ------ | ---- | ------------- | ------------- |
+| **id** | int  | stock item id |               |
+
+#### Optional
+
+| name                      | type   | description | default value |
+| ------------------------- | ------ | ----------- | ------------- |
+| **description**           | string | item description | |
+| **hide_in_autocomplete**  | int    | hide item in autocomplete (0=no, 1=yes) | |
+| **internal_comment**      | string | internal comment - will not be displayed on invoice | |
+| **name**                  | string | item name | |
+| **sku**                   | string | unique identifier of stock item | |
+| **stock**                 | float  | number of units in stock. If is not set, stock movements will not be watched | |
+| **unit**                  | string | unit, e.g.: pcs, mm, m2, ... | |
+| **unit_price**            | float  | unit price | |
+| **vat**                   | float  | VAT in percent | |
+| **watch_stock**           | int    | track inventory level (0=no, 1=yes) | |
+
+
+### Response
+
+#### Successful update
+```json
+{
+   "error" : 0,
+   "error_message" : "",
+   "data" : {
+      "StockItem" : {
+         "id" : 19,
+         "name" : "Item B",
+         "unit" : "kg"
+      }
+   }
+}
+```
+
+#### Insufficient privileges
+HTTP status 403
+
+```json
+{
+   "error" : 1,
+   "error_message" : "Nemôžete editovať túto skladovú položku",
+   "message" : "Nemôžete editovať túto skladovú položku"
+}
+```
+
+#### Wrong item ID
+```json
+{
+   "error":2,
+   "error_message":"StockItem id not found."
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## View stock item details
+
+Get details about stock item.
+
+### Request
+
+**URL**: `/stock_items/view/{ID}`  
+**HTTP method**: GET  
 
 ```sh
 curl -X GET \
-     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-     https://moja.superfaktura.sk/stock_items/delete/196
-```
-
-```sh
-data='{"ids":"196,197"}';
-
-curl -X POST \
-     -d "data=$data" \
-     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-     https://moja.superfaktura.sk/stock_items/delete
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/stock_items/view/19
 ```
 
 ### Attributes
@@ -146,9 +224,9 @@ curl -X POST \
 
 URL parameters:
 
-| name    | type   | description | default value |
-| ------- | ------ | ----------- | ------------- |
-| **id**  | int    | stock item ID |             |
+| name   | type   | description | default value |
+| ------ | ------ | ----------- | ------------- |
+| **id** | int    | stock item ID |             |
 
 
 #### Optional
@@ -156,69 +234,44 @@ none
 
 ### Response
 
-#### Successful deletion
+#### Successfully showing details
+
 ```json
 {
-    "data" : {
-        "StockItem" : {
-            "created" : "2019-01-25 07:45:54",
-            "description" : "",
-            "hide_in_autocomplete" : null,
-            "id" : "18",
-            "import_id" : null,
-            "import_type" : null,
-            "internal_comment" : "",
-            "modified" : "2019-01-25 07:45:54",
-            "name" : "Vitamin A",
-            "sku" : "VitA",
-            "stock" : null,
-            "unit" : "",
-            "unit_price" : 10,
-            "user_id" : "384",
-            "user_profile_id" : "393",
-            "vat" : 20,
-            "watch_stock" : "0"
-        }
-    },
-    "error_message" : "",
-    "error" : 0
+   "0" : {
+      "StockItem" : {
+         "created" : "2019-01-25 10:55:24",
+         "description" : "Public description of this item",
+         "hide_in_autocomplete" : null,
+         "id" : "19",
+         "import_id" : null,
+         "import_type" : null,
+         "internal_comment" : "Secret comment",
+         "modified" : "2019-01-30 13:56:54",
+         "name" : "Item B",
+         "sku" : "itemb1241",
+         "stock" : 138,
+         "unit" : "kg",
+         "unit_price" : 19.95,
+         "user_id" : "384",
+         "user_profile_id" : "393",
+         "vat" : 20,
+         "watch_stock" : "1"
+      }
+   }
 }
 ```
 
-
-#### Invalid item ID
-```json
-{
-   "error_message" : "Invalid stock item id.",
-   "error" : 1
-}
-```
-
-#### Unsuccessful deletion
-```json
-{
-    "error": 2,
-    "error_message": "Error deleting stock item."
-}
-```
-
-#### Insufficient privileges
-
-Returns HTTP status 403.
+#### Wrong stock item
 
 ```json
 {
    "error" : 1,
-   "error_message" : "Nemôžete zmazať túto skladovú položku",
-   "message" : "Nemôžete zmazať túto skladovú položku"
+   "error_message" : "Skladová položka nenájdená",
+   "message" : "Skladová položka nenájdená"
 }
 ```
-
-
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Get list of stock items
@@ -352,92 +405,108 @@ Fields:
 - - - - - - - - - - - - - - - - - - - - - 
 
 
-## Edit stock item
+## Delete stock item
 
-Updates stock item
+Delete stock item
+
 
 ### Request
+**URL**: `/stock_items/delete/{ID}`  
+**HTTP method**: GET  
 
-**URL**: `/stock_items/edit`  
-**HTTP method**: POST  
 
 ```sh
-data='{
-    "StockItem":{
-        "name":"Item B",
-        "unit":"kg",
-        "id":19
-    }
-}';
+curl -X GET \
+     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+     https://moja.superfaktura.sk/stock_items/delete/196
+```
+
+```sh
+data='{"ids":"196,197"}';
 
 curl -X POST \
-    -d "data=$data" \
-    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/stock_items/edit
+     -d "data=$data" \
+     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+     https://moja.superfaktura.sk/stock_items/delete
 ```
 
 ### Attributes
-
 #### Required
 
-| name   | type | description   | default value |
-| ------ | ---- | ------------- | ------------- |
-| **id** | int  | stock item id |               |
+URL parameters:
+
+| name    | type   | description | default value |
+| ------- | ------ | ----------- | ------------- |
+| **id**  | int    | stock item ID |             |
+
 
 #### Optional
-
-| name                      | type   | description | default value |
-| ------------------------- | ------ | ----------- | ------------- |
-| **description**           | string | item description | |
-| **hide_in_autocomplete**  | int    | hide item in autocomplete (0=no, 1=yes) | |
-| **internal_comment**      | string | internal comment - will not be displayed on invoice | |
-| **name**                  | string | item name | |
-| **sku**                   | string | unique identifier of stock item | |
-| **stock**                 | float  | number of units in stock. If is not set, stock movements will not be watched | |
-| **unit**                  | string | unit, e.g.: pcs, mm, m2, ... | |
-| **unit_price**            | float  | unit price | |
-| **vat**                   | float  | VAT in percent | |
-| **watch_stock**           | int    | track inventory level (0=no, 1=yes) | |
-
+none
 
 ### Response
 
-#### Successful update
+#### Successful deletion
 ```json
 {
-   "error" : 0,
-   "error_message" : "",
-   "data" : {
-      "StockItem" : {
-         "id" : 19,
-         "name" : "Item B",
-         "unit" : "kg"
-      }
-   }
+    "data" : {
+        "StockItem" : {
+            "created" : "2019-01-25 07:45:54",
+            "description" : "",
+            "hide_in_autocomplete" : null,
+            "id" : "18",
+            "import_id" : null,
+            "import_type" : null,
+            "internal_comment" : "",
+            "modified" : "2019-01-25 07:45:54",
+            "name" : "Vitamin A",
+            "sku" : "VitA",
+            "stock" : null,
+            "unit" : "",
+            "unit_price" : 10,
+            "user_id" : "384",
+            "user_profile_id" : "393",
+            "vat" : 20,
+            "watch_stock" : "0"
+        }
+    },
+    "error_message" : "",
+    "error" : 0
+}
+```
+
+
+#### Invalid item ID
+```json
+{
+   "error_message" : "Invalid stock item id.",
+   "error" : 1
+}
+```
+
+#### Unsuccessful deletion
+```json
+{
+    "error": 2,
+    "error_message": "Error deleting stock item."
 }
 ```
 
 #### Insufficient privileges
-HTTP status 403
+
+Returns HTTP status 403.
 
 ```json
 {
    "error" : 1,
-   "error_message" : "Nemôžete editovať túto skladovú položku",
-   "message" : "Nemôžete editovať túto skladovú položku"
-}
-```
-
-#### Wrong item ID
-```json
-{
-   "error":2,
-   "error_message":"StockItem id not found."
+   "error_message" : "Nemôžete zmazať túto skladovú položku",
+   "message" : "Nemôžete zmazať túto skladovú položku"
 }
 ```
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Add stock movement
@@ -504,78 +573,5 @@ Either `sku` or `stock_item_id` is required.
 {
    "error" : 3,
    "error_message" : "StockItem empty data."
-}
-```
-
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-## View stock item details
-
-Get details about stock item.
-
-### Request
-
-**URL**: `/stock_items/view/{ID}`  
-**HTTP method**: GET  
-
-```sh
-curl -X GET \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/stock_items/view/19
-```
-
-### Attributes
-#### Required
-
-URL parameters:
-
-| name   | type   | description | default value |
-| ------ | ------ | ----------- | ------------- |
-| **id** | int    | stock item ID |             |
-
-
-#### Optional
-none
-
-### Response
-
-#### Successfully showing details
-
-```json
-{
-   "0" : {
-      "StockItem" : {
-         "created" : "2019-01-25 10:55:24",
-         "description" : "Public description of this item",
-         "hide_in_autocomplete" : null,
-         "id" : "19",
-         "import_id" : null,
-         "import_type" : null,
-         "internal_comment" : "Secret comment",
-         "modified" : "2019-01-30 13:56:54",
-         "name" : "Item B",
-         "sku" : "itemb1241",
-         "stock" : 138,
-         "unit" : "kg",
-         "unit_price" : 19.95,
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "vat" : 20,
-         "watch_stock" : "1"
-      }
-   }
-}
-```
-
-#### Wrong stock item
-
-```json
-{
-   "error" : 1,
-   "error_message" : "Skladová položka nenájdená",
-   "message" : "Skladová položka nenájdená"
 }
 ```

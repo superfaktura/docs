@@ -1,44 +1,9 @@
 # Tags
 
-- [Get list of tags](#get-list-of-tags)
 - [Add tag](#add-tag)
 - [Edit tag](#edit-tag)
+- [Get list of tags](#get-list-of-tags)
 - [Delete tag](#delete-tag)
-
-
-## Get list of tags
-
-### Request
-
-**URL**: `/tags/index.json`  
-**HTTP method**: GET  
-
-```sh
-curl \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/tags/index.json
-```
-
-### Attributes
-
-none
-
-### Response
-
-JSON object in form of `key: value`, where `key` is tag ID and `value` is tag name.
-The tags belong to logged user profile. 
-
-```json
-{
-   "2" : "hello",
-   "4" : "world",
-   "1" : "foo",
-   "3" : "bar"
-}
-```
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 
 ## Add tag
@@ -117,7 +82,7 @@ Returns HTTP status 400.
 ```
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Edit tag
@@ -196,8 +161,42 @@ Returns HTTP status 403.
 ```
 
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+## Get list of tags
+
+### Request
+
+**URL**: `/tags/index.json`  
+**HTTP method**: GET  
+
+```sh
+curl \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/tags/index.json
+```
+
+### Attributes
+
+none
+
+### Response
+
+JSON object in form of `key: value`, where `key` is tag ID and `value` is tag name.
+The tags belong to logged user profile. 
+
+```json
+{
+   "2" : "hello",
+   "4" : "world",
+   "1" : "foo",
+   "3" : "bar"
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Delete tag

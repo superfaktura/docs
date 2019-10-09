@@ -1,247 +1,8 @@
 # Cash register item
 
+- [Add cash register item](#add-cash-register-item)
 - [Get cash register items](#get-cash-register-items)
 - [Delete cash register item](#delete-cash-register-item)
-- [Add cash register item](#add-cash-register-item)
-
-## Get cash register items
-
-Get detailed information about cash register and its items.
-
-### Request
-
-**URL**: `/cash_register_items/index/{ID}`  
-**HTTP method**: GET  
-
-
-```sh
-curl -X GET \
-     -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-     https://moja.superfaktura.sk/cash_register_items/index/14/term:P201903
-```
-
-### Attributes
-
-#### Required
-
-URL parameters:
-
-| name   | type | description | default value |
-| ------ | ---- | ----------- | ------------- |
-| **id** | int  |cash register ID |           |
-
-#### Optional
-
-URL parameters:
-
-| name           | type   | description | default value |
-| -------------- | ------ | ----------- | ------------- |
-| **date_from**  | date   | date from, in format `YYYY-MM-DD` | |
-| **date_to**    | date   | date to, in format `YYYY-MM-DD` | |
-| **datefilter** | string | time filter (see [Value lists > Time filters](value-lists.md#time-filters)) | |
-| **sum_from**   | float  | sum from    | |
-| **sum_to**     | float  | sum to      | |
-| **term**       | string | filter items in output search term (search in `description` and `cash_item_no_formatted`) | |
-| **type**       | string | type filter ("in" for income and "out" for outgo) | `null` (both) |
-
-
-
-
-### Response
-
-```json
-{
-   "error" : "",
-   "itemCount" : 1,
-   "page" : 1,
-   "pageCount" : 1,
-   "perPage" : 50,
-   "CashRegister" : {
-      "currency" : "EUR",
-      "description" : "",
-      "eet_certificate_id" : null,
-      "id" : "14",
-      "id_provoz" : null,
-      "name" : "Eurova",
-      "sequence_in_no" : "P2019004",
-      "sequence_out_no" : "V2019001",
-      "sequencein_id" : "2820",
-      "sequenceout_id" : "2821",
-      "total" : "2022.14",
-      "user_id" : "384",
-      "user_profile_id" : "393"
-   },
-   "items" : [
-      {
-         "0" : {
-            "has_storno" : "0"
-         },
-         "Invoice" : {
-            "id" : null,
-            "invoice_no_formatted" : null
-         },
-         "CashRegisterItem" : {
-            "amount" : "15.00",
-            "cash_item_no_formatted" : "P2019003",
-            "client_id" : null,
-            "client_name" : "",
-            "created" : "2019-01-25 00:00:00",
-            "description" : "",
-            "eet_receipt_id" : null,
-            "expense_id" : null,
-            "id" : "198",
-            "invoice_id" : null,
-            "invoice_payment_id" : null
-         },
-         "EetReceipt" : {
-            "celk_trzba" : null,
-            "created" : null,
-            "fik" : null,
-            "id" : null,
-            "invoice_payment_id" : null,
-            "pkp" : null
-         },
-         "Expense" : {
-            "id" : null,
-            "name" : null
-         }
-      }
-   ]
-}
-```
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-
-## Delete cash register item
-
-Delete cash register item.
-
-### Request
-
-**URL**: `/cash_register_items/delete[/{ID}]`  
-**HTTP method**: GET / POST  
-
-```sh
-curl -X GET \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/cash_register_items/delete/198
-```
-
-
-```sh
-data='{"ids":"203,204"}';
-
-curl -X POST \
-    -d "data=$data" \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/cash_register_items/delete
-```
-
-### Attributes
-
-#### Required
-none
-
-But either ID or list of IDs must be specified. See *Optional attributes*.
-
-
-#### Optional
-URL parameter (GET method):
-
-| name    | type   | description | default value |
-| ------- | ------ | ----------- | ------------- |
-| **id**  | int    | cash register item ID (GET method) | |
-
-POST body parameter:
-
-| name    | type   | description | default value |
-| ------- | ------ | ----------- | ------------- |
-| **ids** | string | list of IDs separated by comma (POST method) | |
-
-### Response
-
-### Successfully deleted via GET
-
-```sh
-curl -X GET \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/cash_register_items/delete/198
-```
-
-```json
-{
-   "Summary" : {
-      "plus" : {
-         "formatted" : "2 007,14 <span class=\"currency_symbol\">€</span>",
-         "raw" : "2007.14"
-      },
-      "minus" : {
-         "formatted" : "0,00 <span class=\"currency_symbol\">€</span>",
-         "raw" : null
-      },
-      "total" : {
-         "raw" : "2007.14",
-         "formatted" : "2 007,14 <span class=\"currency_symbol\">€</span>"
-      }
-   },
-   "status" : 1
-}
-```
-
-
-### Successfully deleted via POST
-```sh
-data='{"ids":"203,204"}';
-
-curl -X POST \
-    -d "data=$data" \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/cash_register_items/delete
-```
-
-```json
-{
-   "Summary" : {
-      "total" : {
-         "raw" : "2007.14",
-         "formatted" : "2 007,14 <span class=\"currency_symbol\">€</span>"
-      },
-      "minus" : {
-         "formatted" : "0,00 <span class=\"currency_symbol\">€</span>",
-         "raw" : null
-      },
-      "plus" : {
-         "formatted" : "2 007,14 <span class=\"currency_symbol\">€</span>",
-         "raw" : "2007.14"
-      }
-   },
-   "status" : 1
-}
-```
-
-### Wrong item
-
-```json
-{
-   "status" : 1,
-   "Summary" : 0
-}
-```
-
-#### Insufficient privileges
-```json
-{
-   "message" : "Nemôžete zmazať pohyb v pokladni",
-   "error" : 1,
-   "error_message" : "Nemôžete zmazať pohyb v pokladni"
-}
-```
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
@@ -723,5 +484,244 @@ curl -X POST \
       }
    },
    "flag" : "due"
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Get cash register items
+
+Get detailed information about cash register and its items.
+
+### Request
+
+**URL**: `/cash_register_items/index/{ID}`  
+**HTTP method**: GET  
+
+
+```sh
+curl -X GET \
+     -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+     https://moja.superfaktura.sk/cash_register_items/index/14/term:P201903
+```
+
+### Attributes
+
+#### Required
+
+URL parameters:
+
+| name   | type | description | default value |
+| ------ | ---- | ----------- | ------------- |
+| **id** | int  |cash register ID |           |
+
+#### Optional
+
+URL parameters:
+
+| name           | type   | description | default value |
+| -------------- | ------ | ----------- | ------------- |
+| **date_from**  | date   | date from, in format `YYYY-MM-DD` | |
+| **date_to**    | date   | date to, in format `YYYY-MM-DD` | |
+| **datefilter** | string | time filter (see [Value lists > Time filters](value-lists.md#time-filters)) | |
+| **sum_from**   | float  | sum from    | |
+| **sum_to**     | float  | sum to      | |
+| **term**       | string | filter items in output search term (search in `description` and `cash_item_no_formatted`) | |
+| **type**       | string | type filter ("in" for income and "out" for outgo) | `null` (both) |
+
+
+
+
+### Response
+
+```json
+{
+   "error" : "",
+   "itemCount" : 1,
+   "page" : 1,
+   "pageCount" : 1,
+   "perPage" : 50,
+   "CashRegister" : {
+      "currency" : "EUR",
+      "description" : "",
+      "eet_certificate_id" : null,
+      "id" : "14",
+      "id_provoz" : null,
+      "name" : "Eurova",
+      "sequence_in_no" : "P2019004",
+      "sequence_out_no" : "V2019001",
+      "sequencein_id" : "2820",
+      "sequenceout_id" : "2821",
+      "total" : "2022.14",
+      "user_id" : "384",
+      "user_profile_id" : "393"
+   },
+   "items" : [
+      {
+         "0" : {
+            "has_storno" : "0"
+         },
+         "Invoice" : {
+            "id" : null,
+            "invoice_no_formatted" : null
+         },
+         "CashRegisterItem" : {
+            "amount" : "15.00",
+            "cash_item_no_formatted" : "P2019003",
+            "client_id" : null,
+            "client_name" : "",
+            "created" : "2019-01-25 00:00:00",
+            "description" : "",
+            "eet_receipt_id" : null,
+            "expense_id" : null,
+            "id" : "198",
+            "invoice_id" : null,
+            "invoice_payment_id" : null
+         },
+         "EetReceipt" : {
+            "celk_trzba" : null,
+            "created" : null,
+            "fik" : null,
+            "id" : null,
+            "invoice_payment_id" : null,
+            "pkp" : null
+         },
+         "Expense" : {
+            "id" : null,
+            "name" : null
+         }
+      }
+   ]
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Delete cash register item
+
+Delete cash register item.
+
+### Request
+
+**URL**: `/cash_register_items/delete[/{ID}]`  
+**HTTP method**: GET / POST  
+
+```sh
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/cash_register_items/delete/198
+```
+
+
+```sh
+data='{"ids":"203,204"}';
+
+curl -X POST \
+    -d "data=$data" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/cash_register_items/delete
+```
+
+### Attributes
+
+#### Required
+none
+
+But either ID or list of IDs must be specified. See *Optional attributes*.
+
+
+#### Optional
+URL parameter (GET method):
+
+| name    | type   | description | default value |
+| ------- | ------ | ----------- | ------------- |
+| **id**  | int    | cash register item ID (GET method) | |
+
+POST body parameter:
+
+| name    | type   | description | default value |
+| ------- | ------ | ----------- | ------------- |
+| **ids** | string | list of IDs separated by comma (POST method) | |
+
+### Response
+
+### Successfully deleted via GET
+
+```sh
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/cash_register_items/delete/198
+```
+
+```json
+{
+   "Summary" : {
+      "plus" : {
+         "formatted" : "2 007,14 <span class=\"currency_symbol\">€</span>",
+         "raw" : "2007.14"
+      },
+      "minus" : {
+         "formatted" : "0,00 <span class=\"currency_symbol\">€</span>",
+         "raw" : null
+      },
+      "total" : {
+         "raw" : "2007.14",
+         "formatted" : "2 007,14 <span class=\"currency_symbol\">€</span>"
+      }
+   },
+   "status" : 1
+}
+```
+
+
+### Successfully deleted via POST
+```sh
+data='{"ids":"203,204"}';
+
+curl -X POST \
+    -d "data=$data" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/cash_register_items/delete
+```
+
+```json
+{
+   "Summary" : {
+      "total" : {
+         "raw" : "2007.14",
+         "formatted" : "2 007,14 <span class=\"currency_symbol\">€</span>"
+      },
+      "minus" : {
+         "formatted" : "0,00 <span class=\"currency_symbol\">€</span>",
+         "raw" : null
+      },
+      "plus" : {
+         "formatted" : "2 007,14 <span class=\"currency_symbol\">€</span>",
+         "raw" : "2007.14"
+      }
+   },
+   "status" : 1
+}
+```
+
+### Wrong item
+
+```json
+{
+   "status" : 1,
+   "Summary" : 0
+}
+```
+
+#### Insufficient privileges
+```json
+{
+   "message" : "Nemôžete zmazať pohyb v pokladni",
+   "error" : 1,
+   "error_message" : "Nemôžete zmazať pohyb v pokladni"
 }
 ```

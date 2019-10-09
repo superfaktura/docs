@@ -1,582 +1,28 @@
 # Invoice
 
-- [Delete invoice item](#delete-invoice-item)
-- [Get invoice detail](#get-invoice-details)
 - [Add invoice](#add-invoice)
 - [Edit invoice](#edit-invoice)
-- [Get list of invoices](#get-list-of-invoices)
-- [Pay invoice](#pay-invoice)
 - [Set invoice language](#set-invoice-language)
-- [Mark invoice as sent via email](#mark-invoice-as-sent-via-email)
-- [Delete invoice payment](#delete-invoice-payment)
-- [Delete invoice](#delete-invoice)
-- [Get invoice details](#get-invoice-details)
 - [Get invoice PDF](#get-invoice-pdf)
-- [Send invoice via e-mail](#send-invoice-via-mail)
-- [Send invoice via post](#send-invoice-via-post)
-- [Set invoice as "will not be paid"](#set-invoice-as-will-not-be-paid)
-- [Mark invoice as sent](#mark-invoice-as-sent)
+- [Get invoice details](#get-invoice-detail)
+- [Get invoices details](#get-invoices-details)
+- [Get list of invoices](#get-list-of-invoices)
 - [Export invoices](#export-invoices)
+- [Delete invoice](#delete-invoice)
 
-## Delete invoice item
+Paying invoice  
+- [Set invoice as "will not be paid"](#set-invoice-as-will-not-be-paid)
+- [Pay invoice](#pay-invoice)
 
-### Request
-**URL**: `/invoice_items/delete/{ITEM_ID}/invoice_id:{INVOICE_ID}`  
-**HTTP method**: GET  
+Sending invoice  
+- [Send invoice via e-mail](#send-invoice-via-mail)
+- [Mark invoice as sent via email](#mark-invoice-as-sent-via-email)
+- [Send invoice via post](#send-invoice-via-post)
+- [Mark invoice as sent](#mark-invoice-as-sent)
 
-```
-curl -X GET \
-    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/invoice_items/delete/1707/invoice_id:1285
-```
-
-
-### Attributes
-#### Required
-
-URL parameters:
-
-| name            | type         | description                                                           | default value |
-| --------------- | ------------ | --------------------------------------------------------------------- | ------------- |
-| **item_id**     | int / string | invoice item ID, if used as string, use comma to separate various IDs |               |
-| **invoice_id**  | int          | invoice ID                                                            |               |
-
-#### Optional
-none
-
-### Response
-
-#### Successful deletion
-```json
-{
-   "error" : 0,
-   "data" : {
-      "InvoiceItem" : [],
-      "Invoice" : {
-         "amount" : "0.00",
-         "amount_paid" : "0.00",
-         "client_data" : "{\"Client\":{\"id\":\"431\",\"name\":\"2day, s. r. o.\",\"address\":\"Pri Suchom mlyne 6\",\"ico\":\"44981082\",\"email\":\"\",\"zip\":\"811 04\",\"dic\":\"2022903949\",\"phone\":\"\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"ic_dph\":\"\",\"fax\":\"\",\"country_id\":\"191\",\"state\":\"\",\"delivery_name\":\"\",\"delivery_zip\":\"\",\"delivery_city\":\"\",\"delivery_address\":\"\",\"delivery_phone\":\"\",\"delivery_country_id\":\"191\",\"delivery_state\":\"\",\"updateClient\":\"0\",\"country\":\"Slovensko\",\"delivery_country\":\"Slovensko\"}}",
-         "client_id" : "431",
-         "comment" : "",
-         "constant" : "",
-         "country_exchange_rate" : "1.00000000",
-         "created" : "2019-01-30 00:00:00",
-         "delivery" : "2019-01-30 00:00:00",
-         "delivery_type" : "",
-         "demo" : "0",
-         "deposit" : "0.00",
-         "discount" : "0",
-         "due" : "2019-02-13",
-         "estimate_id" : null,
-         "exchange_rate" : "1.00000000000000",
-         "header_comment" : "",
-         "home_currency" : "EUR",
-         "id" : "1285",
-         "import_id" : null,
-         "import_parent_id" : null,
-         "import_type" : null,
-         "internal_comment" : null,
-         "invoice_currency" : "EUR",
-         "invoice_no" : "3",
-         "invoice_no_formatted" : "2019003",
-         "issued_by" : "superfaktura.sk, s.r.o.",
-         "issued_by_email" : "api@example.com",
-         "issued_by_phone" : "",
-         "issued_by_web" : "",
-         "items_data" : "",
-         "items_name" : null,
-         "lang" : "slo",
-         "mask" : "YYYYNNN",
-         "modified" : "2019-01-30 12:58:58",
-         "my_data" : "{\"MyData\":{\"id\":\"393\",\"user_id\":\"384\",\"user_profile_id\":\"\",\"country_id\":\"191\",\"company_name\":\"superfaktura.sk, s.r.o.\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"tax_payer\":\"1\",\"logo_key\":\"\",\"logo_id\":\"\",\"web\":\"\",\"Logo\":\"[{\\\"id\\\":\\\"168\\\",\\\"model\\\":\\\"User\\\",\\\"foreign_key\\\":\\\"393\\\",\\\"dirname\\\":\\\"img\\\",\\\"basename\\\":\\\"9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png\\\",\\\"checksum\\\":\\\"dd3300a5a4fc754b0f1361baa2ac2e3f\\\",\\\"group\\\":\\\"logo\\\",\\\"default\\\":\\\"1\\\",\\\"alternative\\\":null,\\\"created\\\":\\\"2019-01-23 08:37:27\\\",\\\"modified\\\":\\\"2019-01-23 08:39:56\\\"}]\",\"Signature\":\"{\\\"id\\\":\\\"169\\\",\\\"model\\\":\\\"User\\\",\\\"foreign_key\\\":\\\"393\\\",\\\"dirname\\\":\\\"img\\\",\\\"basename\\\":\\\"51ee3f8bbd61561eb5f0_393_podpis_1.png\\\",\\\"checksum\\\":\\\"33b5238616646ca28ebabc02f713a59f\\\",\\\"group\\\":\\\"signature\\\",\\\"default\\\":\\\"0\\\",\\\"alternative\\\":null,\\\"created\\\":\\\"2019-01-23 08:37:27\\\",\\\"modified\\\":\\\"2019-01-23 08:37:27\\\"}\",\"travel_agencies\":\"0\",\"business_register\":\"Bratislava I, odd. Sro, vl.\\u010d.81403\\/B\",\"BankAccount\":[{\"show_account\":\"1\",\"id\":\"264\",\"default\":\"0\",\"country_id\":\"191\",\"bank_name\":\"FatraBanka\",\"bank_code\":\"\",\"account\":\"\",\"iban\":\" SK 31 1200 000019 8742637541\",\"swift\":\"9876\"},{\"show_account\":\"1\",\"id\":\"265\",\"default\":\"\",\"country_id\":\"191\",\"bank_name\":\"SuperBanka\",\"bank_code\":\"1200\",\"account\":\"8742637541\",\"iban\":\"\",\"swift\":\"\"}],\"update_profile\":\"0\",\"country\":\"Slovensko\"}}",
-         "name" : "Faktúra 2019003",
-         "order_no" : "",
-         "paid" : "0.00",
-         "parent_id" : null,
-         "paydate" : null,
-         "payment_type" : "",
-         "proforma_id" : null,
-         "recurring" : null,
-         "rounding" : "item",
-         "sequence_id" : "2815",
-         "special_vat_scheme" : null,
-         "specific" : "",
-         "status" : "1",
-         "summary_invoice" : null,
-         "tags" : "",
-         "tax_document" : "0",
-         "taxdate" : "2019-01-30",
-         "token" : "aa582995",
-         "type" : "regular",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "variable" : "2019003",
-         "vat" : "0.00",
-         "vat_transfer" : "0"
-      }
-   },
-   "error_message" : ""
-}
-```
-
-
-#### Error while deleting
-
-E.g. trying to delete already deleted item.
-
-```json
-{
-   "error" : 1,
-   "message" : "Chyba pri mazaní položky"
-}
-```
-
-
-#### Invalid request
-```json
-{
-   "error" : 3,
-   "error_message" : "Bad data format."
-}
-```
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-
-## Get invoice detail
-
-Get invoice details.
-
-### Request
-**URL**: `/invoices/view/{INVOICE_ID}.json`  
-**HTTP method**: GET  
-
-```sh
-curl -X GET \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/invoices/view/1285.json
-```
-
-### Attributes
-#### Required
-URL parameters:
-
-| name           | type | description | default value |
-| -------------- | ---- | ----------- | ------------- |
-| **invoice_id** | int  | invoice ID  |               |
-
-#### Optional
-none
-
-### Response
-
-#### Success
-```json
-{
-   "Summary" : {
-      "discount" : 0,
-      "vat_base_separate" : {
-         "20" : 30.95
-      },
-      "vat_base_total" : 30.95,
-      "invoice_total" : 37.14,
-      "vat_separate" : {
-         "20" : 6.19
-      },
-      "vat_total" : 6.19
-   },
-   "PaymentLink" : null,
-   "Invoice" : {
-      "amount" : "30.95",
-      "amount_paid" : "24.00",
-      "client_data" : "{\"Client\":{\"id\":\"431\",\"name\":\"2day, s. r. o.\",\"address\":\"Pri Suchom mlyne 6\",\"ico\":\"44981082\",\"email\":\"\",\"zip\":\"811 04\",\"dic\":\"2022903949\",\"phone\":\"\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"ic_dph\":\"\",\"fax\":\"\",\"country_id\":\"191\",\"state\":\"\",\"delivery_name\":\"\",\"delivery_zip\":\"\",\"delivery_city\":\"\",\"delivery_address\":\"\",\"delivery_phone\":\"\",\"delivery_country_id\":\"191\",\"delivery_state\":\"\",\"updateClient\":\"0\",\"country\":\"Slovensko\",\"delivery_country\":\"Slovensko\"}}",
-      "client_id" : "431",
-      "comment" : "",
-      "constant" : "",
-      "country_exchange_rate" : "0.03884249",
-      "created" : "2019-01-30 00:00:00",
-      "delivery" : "2019-01-30 00:00:00",
-      "delivery_type" : "",
-      "demo" : "0",
-      "deposit" : "0.00",
-      "discount" : "0",
-      "due" : "2019-02-13",
-      "estimate_id" : null,
-      "exchange_rate" : 1,
-      "flag" : "partially-paid",
-      "header_comment" : "",
-      "home_currency" : "EUR",
-      "id" : "1285",
-      "import_id" : null,
-      "import_parent_id" : null,
-      "import_type" : null,
-      "internal_comment" : null,
-      "invoice_currency" : "EUR",
-      "invoice_no" : "3",
-      "invoice_no_formatted" : "2019003",
-      "issued_by" : "superfaktura.sk, s.r.o.",
-      "issued_by_email" : "api@example.com",
-      "issued_by_phone" : "",
-      "issued_by_web" : "",
-      "items_data" : "asdf , Item B SKU: itemb1241\r\nPublic description of this item, ",
-      "items_name" : null,
-      "lang" : "slo",
-      "mask" : "YYYYNNN",
-      "modified" : "2019-02-06 11:43:28",
-      "my_data" : "{\"MyData\":{\"id\":\"393\",\"user_id\":\"384\",\"user_profile_id\":\"\",\"country_id\":\"191\",\"company_name\":\"superfaktura.sk, s.r.o.\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"tax_payer\":\"1\",\"logo_key\":\"\",\"logo_id\":\"\",\"web\":\"\",\"Logo\":\"[{\\\"id\\\":\\\"168\\\",\\\"model\\\":\\\"User\\\",\\\"foreign_key\\\":\\\"393\\\",\\\"dirname\\\":\\\"img\\\",\\\"basename\\\":\\\"9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png\\\",\\\"checksum\\\":\\\"dd3300a5a4fc754b0f1361baa2ac2e3f\\\",\\\"group\\\":\\\"logo\\\",\\\"default\\\":\\\"1\\\",\\\"alternative\\\":null,\\\"created\\\":\\\"2019-01-23 08:37:27\\\",\\\"modified\\\":\\\"2019-01-23 08:39:56\\\"}]\",\"Signature\":\"{\\\"id\\\":\\\"169\\\",\\\"model\\\":\\\"User\\\",\\\"foreign_key\\\":\\\"393\\\",\\\"dirname\\\":\\\"img\\\",\\\"basename\\\":\\\"51ee3f8bbd61561eb5f0_393_podpis_1.png\\\",\\\"checksum\\\":\\\"33b5238616646ca28ebabc02f713a59f\\\",\\\"group\\\":\\\"signature\\\",\\\"default\\\":\\\"0\\\",\\\"alternative\\\":null,\\\"created\\\":\\\"2019-01-23 08:37:27\\\",\\\"modified\\\":\\\"2019-01-23 08:37:27\\\"}\",\"travel_agencies\":\"0\",\"business_register\":\"Bratislava I, odd. Sro, vl.\\u010d.81403\\/B\",\"BankAccount\":[{\"show_account\":\"1\",\"id\":\"264\",\"default\":\"0\",\"country_id\":\"191\",\"bank_name\":\"FatraBanka\",\"bank_code\":\"\",\"account\":\"\",\"iban\":\" SK 31 1200 000019 8742637541\",\"swift\":\"9876\"},{\"show_account\":\"1\",\"id\":\"265\",\"default\":\"\",\"country_id\":\"191\",\"bank_name\":\"SuperBanka\",\"bank_code\":\"1200\",\"account\":\"8742637541\",\"iban\":\"\",\"swift\":\"\"}],\"update_profile\":\"0\",\"country\":\"Slovensko\"}}",
-      "name" : "Faktúra 2019003",
-      "order_no" : "",
-      "paid" : "24.00",
-      "parent_id" : null,
-      "paydate" : "2019-02-06 12:05:50",
-      "payment_type" : "cash",
-      "proforma_id" : null,
-      "recurring" : null,
-      "rounding" : "item",
-      "sequence_id" : "2815",
-      "show_items_with_dph" : true,
-      "show_special_vat" : false,
-      "special_vat_scheme" : null,
-      "specific" : "",
-      "status" : "2",
-      "summary_invoice" : null,
-      "tags" : "",
-      "tax_document" : "0",
-      "taxdate" : "2019-01-30",
-      "token" : "aa582995",
-      "type" : "regular",
-      "user_id" : "384",
-      "user_profile_id" : "393",
-      "variable" : "2019003",
-      "vat" : "6.19",
-      "vat_transfer" : "0"
-   },
-   "InvoiceItem" : [
-      {
-         "description" : "",
-         "discount" : 0,
-         "discount_description" : "Zľava",
-         "discount_no_vat" : 0,
-         "discount_no_vat_total" : 0,
-         "discount_with_vat" : 0,
-         "discount_with_vat_total" : 0,
-         "hide_in_autocomplete" : null,
-         "id" : "1708",
-         "invoice_id" : "1285",
-         "item_price" : 11,
-         "item_price_no_discount" : 11,
-         "item_price_vat" : 13.2,
-         "item_price_vat_check" : 13.2,
-         "item_price_vat_no_discount" : 13.2,
-         "name" : "asdf",
-         "ordernum" : "0",
-         "quantity" : null,
-         "sku" : null,
-         "stock_item_id" : "0",
-         "tax" : "20",
-         "tax_deposit" : "0",
-         "unit" : "",
-         "unit_price" : 11,
-         "unit_price_discount" : 11,
-         "unit_price_vat" : 13.2,
-         "unit_price_vat_no_discount" : 13.2,
-         "user_id" : "384",
-         "user_profile_id" : "393"
-      },
-      {
-         "description" : "SKU: itemb1241\r\nPublic description of this item",
-         "discount" : 0,
-         "discount_description" : "Zľava",
-         "discount_no_vat" : 0,
-         "discount_no_vat_total" : 0,
-         "discount_with_vat" : 0,
-         "discount_with_vat_total" : 0,
-         "hide_in_autocomplete" : "1",
-         "id" : "1710",
-         "invoice_id" : "1285",
-         "item_price" : 19.95,
-         "item_price_no_discount" : 19.95,
-         "item_price_vat" : 23.94,
-         "item_price_vat_check" : 23.94,
-         "item_price_vat_no_discount" : 23.94,
-         "name" : "Item B",
-         "ordernum" : "1",
-         "quantity" : null,
-         "sku" : "itemb1241",
-         "stock_item_id" : "19",
-         "tax" : "20",
-         "tax_deposit" : "0",
-         "unit" : "kg",
-         "unit_price" : 19.95,
-         "unit_price_discount" : 19.95,
-         "unit_price_vat" : 23.94,
-         "unit_price_vat_no_discount" : 23.94,
-         "user_id" : "384",
-         "user_profile_id" : "393"
-      }
-   ],
-   "SummaryInvoice" : {
-      "vat_separate_positive" : {
-         "20" : 6.19
-      },
-      "vat_base_separate_negative" : {
-         "20" : 0
-      },
-      "vat_base_separate_positive" : {
-         "20" : 30.95
-      },
-      "vat_separate_negative" : {
-         "20" : 0
-      }
-   },
-   "Tag" : [],
-   "0" : {
-      "sent_by" : "regular,regular,regular,regular,regular,regular,regular,regular",
-      "sent_to_email" : "name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk",
-      "sent_to_email_cc" : "[],[],[],[],[],[],[],[]",
-      "to_pay" : "13.140000",
-      "total" : "37.14"
-   },
-   "Client" : {
-      "address" : "Pri Suchom mlyne 6",
-      "city" : "Bratislava - mestská časť Staré Mesto",
-      "country" : "Slovensko",
-      "country_id" : "191",
-      "delivery_address" : "",
-      "delivery_city" : "",
-      "delivery_country" : "Slovensko",
-      "delivery_country_id" : "191",
-      "delivery_name" : "",
-      "delivery_phone" : "",
-      "delivery_state" : "",
-      "delivery_zip" : "",
-      "dic" : "2022903949",
-      "email" : "",
-      "fax" : "",
-      "ic_dph" : "",
-      "ico" : "44981082",
-      "id" : "431",
-      "name" : "2day, s. r. o.",
-      "phone" : "",
-      "state" : "",
-      "updateClient" : "0",
-      "zip" : "811 04",
-      "Country" : {
-         "eu" : "1",
-         "id" : "191",
-         "iso" : "sk",
-         "name" : "Slovensko"
-      },
-      "DeliveryCountry" : {
-         "eu" : "1",
-         "id" : "191",
-         "iso" : "sk",
-         "name" : "Slovensko"
-      }
-   },
-   "Paypal" : false,
-   "InvoiceEmail" : [
-      {
-         "created" : "2019-02-04 10:01:09",
-         "due" : null,
-         "email" : "name.surname@superfaktura.sk",
-         "email_cc" : "[]",
-         "id" : "134",
-         "invoice_id" : "1285",
-         "message" : "Dobrý deň,\n\nv prílohe posielame faktúru č. 2019003.\n\nSuma na úhradu: 37,14 €\nVariabilný symbol: 2019003\nČíslo účtu:  SK 31 1200 000019 8742637541\n\nĎakujeme za úhradu a prajeme príjemný deň.",
-         "phone" : null,
-         "subject" : "Faktúra 2019003",
-         "type" : "regular",
-         "user_id" : "384",
-         "user_profile_id" : "393"
-      }
-   ],
-   "UnitCount" : {
-      "kg" : 0
-   },
-   "InvoiceSetting" : {
-      "bysquare" : "1",
-      "force_iban" : true,
-      "language" : "deu",
-      "online_payment" : null,
-      "payment_info" : true,
-      "paypal" : false,
-      "show_prices" : false,
-      "show_summary" : true,
-      "signature" : true
-   },
-   "PostStamp" : [
-      {
-         "bysquare" : "1",
-         "created" : "2019-02-04 11:28:17",
-         "external_response" : null,
-         "external_service" : null,
-         "external_service_id" : null,
-         "external_status" : null,
-         "id" : "1016",
-         "invoice_id" : "1285",
-         "invoice_language" : "slo",
-         "modified" : "2019-02-04 11:56:47",
-         "no_signature" : "0",
-         "payment_info" : "1",
-         "post_stamp_package_id" : "7",
-         "recycled" : "0",
-         "requested" : "2019-02-04 11:56:47",
-         "sent" : "0000-00-00 00:00:00",
-         "sent_to" : "{\"name\":\"Mr. Incognito\",\"address\":\"Pri Vlhkom mlyne 6\",\"city\":\"Bratislava\",\"zip\":\"811 04\",\"country\":\"Slovensko\"}",
-         "status" : "waiting",
-         "user_id" : "384",
-         "user_profile_id" : "393"
-      }
-   ],
-   "InvoicePayment" : [
-      {
-         "amount" : "5.81",
-         "created" : "2019-02-06 12:05:50",
-         "document_no" : "",
-         "exchange_rate" : "1.00000000000000",
-         "home_currency" : "CZK",
-         "id" : "211",
-         "import_payment_id" : null,
-         "invoice_id" : "1285",
-         "payment_currency" : "EUR",
-         "payment_type" : "cash",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "vat" : "6.19"
-      }
-   ],
-   "MyData" : {
-      "zip" : "811 04",
-      "address" : "Pri Suchom mlyne 6",
-      "user_profile_id" : "",
-      "LogoRaw" : [
-         {
-            "alternative" : null,
-            "basename" : "9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png",
-            "checksum" : "dd3300a5a4fc754b0f1361baa2ac2e3f",
-            "created" : "2019-01-23 08:37:27",
-            "default" : "1",
-            "dirname" : "img",
-            "foreign_key" : "393",
-            "group" : "logo",
-            "id" : "168",
-            "model" : "User",
-            "modified" : "2019-01-23 08:39:56"
-         }
-      ],
-      "SignatureRaw" : {
-         "alternative" : null,
-         "basename" : "51ee3f8bbd61561eb5f0_393_podpis_1.png",
-         "checksum" : "33b5238616646ca28ebabc02f713a59f",
-         "created" : "2019-01-23 08:37:27",
-         "default" : "0",
-         "dirname" : "img",
-         "foreign_key" : "393",
-         "group" : "signature",
-         "id" : "169",
-         "model" : "User",
-         "modified" : "2019-01-23 08:37:27"
-      },
-      "business_register" : "Bratislava I, odd. Sro, vl.č.81403/B",
-      "city" : "Bratislava - mestská časť Staré Mesto",
-      "dic" : "2023513470",
-      "ic_dph" : "SK2023513470",
-      "ico" : "46655034",
-      "id" : "393",
-      "Logo" : "[{\"id\":\"168\",\"model\":\"User\",\"foreign_key\":\"393\",\"dirname\":\"img\",\"basename\":\"9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png\",\"checksum\":\"dd3300a5a4fc754b0f1361baa2ac2e3f\",\"group\":\"logo\",\"default\":\"1\",\"alternative\":null,\"created\":\"2019-01-23 08:37:27\",\"modified\":\"2019-01-23 08:39:56\"}]",
-      "logo_id" : "",
-      "logo_key" : "",
-      "Signature" : "{\"id\":\"169\",\"model\":\"User\",\"foreign_key\":\"393\",\"dirname\":\"img\",\"basename\":\"51ee3f8bbd61561eb5f0_393_podpis_1.png\",\"checksum\":\"33b5238616646ca28ebabc02f713a59f\",\"group\":\"signature\",\"default\":\"0\",\"alternative\":null,\"created\":\"2019-01-23 08:37:27\",\"modified\":\"2019-01-23 08:37:27\"}",
-      "tax_payer" : "1",
-      "travel_agencies" : "0",
-      "update_profile" : "0",
-      "user_id" : "384",
-      "web" : "",
-      "BankAccount" : [
-         {
-            "account" : "",
-            "bank_code" : "",
-            "bank_name" : "FatraBanka",
-            "country_id" : "191",
-            "default" : "0",
-            "iban" : " SK 31 1200 000019 8742637541",
-            "id" : "264",
-            "show_account" : "1",
-            "swift" : "9876"
-         },
-         {
-            "account" : "8742637541",
-            "bank_code" : "1200",
-            "bank_name" : "SuperBanka",
-            "country_id" : "191",
-            "default" : "",
-            "iban" : "",
-            "id" : "265",
-            "show_account" : "1",
-            "swift" : ""
-         }
-      ],
-      "country" : {
-         "eu" : "1",
-         "id" : "191",
-         "iso" : "sk",
-         "name" : "Slovensko"
-      },
-      "company_name" : "superfaktura.sk, s.r.o.",
-      "country_id" : "191"
-   },
-   "ClientData" : {
-      "address" : "Pri Suchom mlyne 6",
-      "city" : "Bratislava - mestská časť Staré Mesto",
-      "country" : "Slovensko",
-      "country_id" : "191",
-      "delivery_address" : "",
-      "delivery_city" : "",
-      "delivery_country" : "Slovensko",
-      "delivery_country_id" : "191",
-      "delivery_name" : "",
-      "delivery_phone" : "",
-      "delivery_state" : "",
-      "delivery_zip" : "",
-      "dic" : "2022903949",
-      "email" : "",
-      "fax" : "",
-      "ic_dph" : "",
-      "ico" : "44981082",
-      "id" : "431",
-      "name" : "2day, s. r. o.",
-      "phone" : "",
-      "state" : "",
-      "updateClient" : "0",
-      "zip" : "811 04",
-      "Country" : {
-         "name" : "Slovensko",
-         "iso" : "sk",
-         "id" : "191",
-         "eu" : "1"
-      },
-      "DeliveryCountry" : {
-         "id" : "191",
-         "eu" : "1",
-         "name" : "Slovensko",
-         "iso" : "sk"
-      }
-   }
-}
-```
-
-#### Wrong invoice
-
-```json
-{
-   "message" : "Invoice not found",
-   "error" : 1,
-   "error_message" : "Invoice not found"
-}
-```
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Delete invoice features  
+- [Delete invoice item](#delete-invoice-item)
+- [Delete invoice payment](#delete-invoice-payment)
 
 
 ## Add invoice
@@ -1275,7 +721,7 @@ HTTP status 403.
 ```
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 
 ## Edit invoice
@@ -1705,524 +1151,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
 ```
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
- 
-## Get list of invoices
-
-Get list of invoices.
-
-### Request
-
-**URL**: `/invoices/index.json[/{ATTRIBUTE}:{VALUE}]*`  
-**HTTP method**: GET  
-
-
-```sh
-curl -X GET \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/invoices/index.json/listinfo:1/per_page:1/page:2
-```  
-
-### Attributes
-#### Required
-none
-
-#### Optional
-
-URL paremeters:  
-
-| name          | type   | description                                                                          | default value |
-| ------------- | ------ | ------------------------------------------------------------------------------------ | ------------- |
-| **direction** | string | sorting direction (ASC or DESC)                                                      | 'DESC' |
-| **list_info** | int    | show meta data about result? (0=no, 1=yes)                                           | 0 |
-| **page**      | int    | page number                                                                          | 1 |
-| **per_page**  | int    | number of items per page (max 200)                                                   | |
-| **sort**      | string | attribute to sort by                                                                 | 'regular_count' |
-| **type**      | string | type of document (proforma, regular, ...). Use <code>&#x7c;</code> as separator for multiple values. | 'regular' |
-
-Filtering parameters
-
-| name               | type         | description    | default value |
-| ------------------ | ------------ | ------------   | ------------- |
-| **amount_from**    | float        | amount from    | 0             |
-| **amount_to**      | float        | amount to      | 0             |
-| **client_id**      | int          | client ID      | |
-| **created**        | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **created_since**  | date         | creation date since | |
-| **created_to**     | date         | creation date to    | |
-| **delivery**       | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **delivery_since** | date         | delivery date from  | |
-| **delivery_to**    | date         | delivery date to    | |
-| **delivery_type**  | string       | delivery type (see [Value lists > Delivery types](value-lists.md#delivery-types)). Use <code>&#x7c;</code> as separator for multiple values. | |
-| **ignore**         | string / int | IDs of invoices to be ignored. Use <code>&#x7c;</code> as separator for multiple values. | |
-| **modified**       | int          | last modification date constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **modified_since** | date         | last modification date from | |
-| **modified_to**    | date         | last modification date to   | |
-| **order_no**       | string       | order number, from which invoice is created | |
-| **paid**           | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **paid_since**     | date         | pay date since | |
-| **paid_to**        | date         | pay date to    | |
-| **payment_type**   | string       | payment types (see [Value lists > Payment types](value-lists.md#payment-types)). Use <code>&#x7c;</code> as separator for multiple values. | |
-| **search**         | string       | base64 encoded string | |
-| **status**         | string / int | invoice status (see [Value lists > Invoice statuses](value-lists.md#invoice-statuses)) | |
-| **tag**            | int          | tag ID | |
-
-
-
-### Response
-
-```sh
-curl -X GET \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/invoices/index.json/listinfo:1/per_page:1/type:regular
-```
-
-
-```json
-{
-    "filtered": false,
-    "itemCount": 7,
-    "items": [
-        {
-            "0": {
-                "to_pay": "12.000000",
-                "total": "12.00"
-            },
-            "Client": {
-                "address": "Pri Suchom mlyne 6",
-                "bank_account": "",
-                "bank_account_id": "0",
-                "bank_account_prefix": "",
-                "bank_code": "",
-                "city": "Bratislava - mestská časť Staré Mesto",
-                "comment": "Client comment",
-                "country": null,
-                "country_id": "191",
-                "created": "2019-01-23 08:41:37",
-                "currency": null,
-                "default_variable": "",
-                "delivery_address": "",
-                "delivery_city": "",
-                "delivery_country": null,
-                "delivery_country_id": "191",
-                "delivery_name": "",
-                "delivery_phone": "",
-                "delivery_state": "",
-                "delivery_zip": "",
-                "dic": "2022903949",
-                "discount": null,
-                "distance": null,
-                "dont_travel": "0",
-                "due_date": null,
-                "email": "name.surname@superfaktura.sk",
-                "fax": "",
-                "iban": "XX00000000001",
-                "ic_dph": "",
-                "ico": "44981082",
-                "id": "431",
-                "modified": "2019-02-12 12:54:50",
-                "name": "2day, s. r. o.",
-                "notices": "1",
-                "phone": "",
-                "state": "",
-                "swift": "98765",
-                "tags": null,
-                "update": "1",
-                "user_id": "384",
-                "user_profile_id": "393",
-                "uuid": "NULL",
-                "zip": "811 04"
-            },
-            "ClientData": {
-                "address": "Pri Suchom mlyne 6",
-                "city": "Bratislava - mestská časť Staré Mesto",
-                "Country": {
-                    "eu": "1",
-                    "id": "191",
-                    "iso": "sk",
-                    "name": "Slovensko"
-                },
-                "country": "Slovensko",
-                "country_id": "191",
-                "delivery_address": "",
-                "delivery_city": "",
-                "delivery_country": "Slovensko",
-                "delivery_country_id": "191",
-                "delivery_name": "",
-                "delivery_phone": "",
-                "delivery_state": "",
-                "delivery_zip": "",
-                "DeliveryCountry": {
-                    "eu": "1",
-                    "id": "191",
-                    "iso": "sk",
-                    "name": "Slovensko"
-                },
-                "dic": "2022903949",
-                "email": "name.surname@superfaktura.sk",
-                "fax": "",
-                "ic_dph": "",
-                "ico": "44981082",
-                "id": "431",
-                "name": "2day, s. r. o.",
-                "phone": "",
-                "state": "",
-                "updateClient": "0",
-                "zip": "811 04"
-            },
-            "Invoice": {
-                "amount": "10.00",
-                "amount_paid": "0.00",
-                "client_data": "{\"Client\":{\"id\":\"431\",\"name\":\"2day, s. r. o.\",\"address\":\"Pri Suchom mlyne 6\",\"ico\":\"44981082\",\"email\":\"name.surname@superfaktura.sk\",\"zip\":\"811 04\",\"dic\":\"2022903949\",\"phone\":\"\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"ic_dph\":\"\",\"fax\":\"\",\"country_id\":\"191\",\"state\":\"\",\"delivery_name\":\"\",\"delivery_zip\":\"\",\"delivery_city\":\"\",\"delivery_address\":\"\",\"delivery_phone\":\"\",\"delivery_country_id\":\"191\",\"delivery_state\":\"\",\"updateClient\":\"0\",\"country\":\"Slovensko\",\"delivery_country\":\"Slovensko\"}}",
-                "client_id": "431",
-                "comment": "",
-                "constant": "",
-                "country_exchange_rate": "1.00000000",
-                "created": "2019-02-12 00:00:00",
-                "delivery": "2019-02-12 00:00:00",
-                "delivery_type": "",
-                "demo": "0",
-                "deposit": "0.00",
-                "discount": "0",
-                "due": "2019-02-26",
-                "estimate_id": null,
-                "exchange_rate": 1,
-                "flag": "issued",
-                "header_comment": "",
-                "home_currency": "EUR",
-                "id": "1295",
-                "import_id": null,
-                "import_parent_id": null,
-                "import_type": null,
-                "internal_comment": null,
-                "invoice_currency": "EUR",
-                "invoice_no": "7",
-                "invoice_no_formatted": "2019007",
-                "issued_by": "superfaktura.sk, s.r.o.",
-                "issued_by_email": "api@example.com",
-                "issued_by_phone": "",
-                "issued_by_web": "",
-                "items_data": "item 1 description of item 1, ",
-                "items_name": null,
-                "lang": "slo",
-                "mask": "YYYYNNN",
-                "modified": "2019-02-12 12:54:50",
-                "my_data": "{\"MyData\":{\"id\":\"393\",\"user_id\":\"384\",\"user_profile_id\":\"\",\"country_id\":\"191\",\"company_name\":\"superfaktura.sk, s.r.o.\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"tax_payer\":\"1\",\"logo_key\":\"\",\"logo_id\":\"\",\"web\":\"\",\"Logo\":\"\",\"Signature\":\"\",\"travel_agencies\":\"0\",\"business_register\":\"Bratislava I, odd. Sro, vl.\\u010d.81403\\/B\",\"BankAccount\":[{\"show_account\":\"1\",\"id\":\"264\",\"default\":\"0\",\"country_id\":\"191\",\"bank_name\":\"FatraBanka\",\"bank_code\":\"\",\"account\":\"\",\"iban\":\" SK 31 1200 000019 8742637541\",\"swift\":\"9876\"},{\"show_account\":\"1\",\"id\":\"265\",\"default\":\"\",\"country_id\":\"191\",\"bank_name\":\"SuperBanka\",\"bank_code\":\"1200\",\"account\":\"8742637541\",\"iban\":\"\",\"swift\":\"\"}],\"update_profile\":\"0\",\"country\":\"Slovensko\"}}",
-                "name": "1291 - kopia",
-                "order_no": "",
-                "paid": "0.00",
-                "parent_id": null,
-                "paydate": null,
-                "payment_type": "",
-                "proforma_id": null,
-                "recurring": null,
-                "rounding": "item",
-                "sequence_id": "2815",
-                "show_items_with_dph": true,
-                "show_special_vat": false,
-                "special_vat_scheme": null,
-                "specific": "",
-                "status": "1",
-                "summary_invoice": null,
-                "tags": "",
-                "tax_document": "0",
-                "taxdate": "2019-02-12",
-                "token": "b940621e",
-                "type": "regular",
-                "user_id": "384",
-                "user_profile_id": "393",
-                "variable": "2019007",
-                "vat": "2.00",
-                "vat_transfer": "0"
-            },
-            "InvoiceEmail": [],
-            "InvoiceItem": [
-                {
-                    "description": "description of item 1",
-                    "discount": 0,
-                    "discount_description": "",
-                    "discount_no_vat": 0,
-                    "discount_no_vat_total": 0,
-                    "discount_with_vat": 0,
-                    "discount_with_vat_total": 0,
-                    "hide_in_autocomplete": null,
-                    "id": "1723",
-                    "invoice_id": "1295",
-                    "item_price": 10,
-                    "item_price_no_discount": 10,
-                    "item_price_vat": 12,
-                    "item_price_vat_check": 12,
-                    "item_price_vat_no_discount": 12,
-                    "name": "item 1",
-                    "ordernum": "0",
-                    "quantity": null,
-                    "sku": null,
-                    "stock_item_id": "0",
-                    "tax": "20",
-                    "tax_deposit": "0",
-                    "unit": "",
-                    "unit_price": 10,
-                    "unit_price_discount": 10,
-                    "unit_price_vat": 12,
-                    "unit_price_vat_no_discount": 12,
-                    "user_id": "384",
-                    "user_profile_id": "393"
-                }
-            ],
-            "InvoicePayment": [],
-            "InvoiceSetting": {
-                "bysquare": "1",
-                "force_iban": "",
-                "language": "slo",
-                "online_payment": "",
-                "payment_info": "1",
-                "paypal": "",
-                "show_prices": "",
-                "show_summary": "",
-                "signature": "1"
-            },
-            "Logo": [
-                {
-                    "alternative": null,
-                    "basename": "9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png",
-                    "checksum": "dd3300a5a4fc754b0f1361baa2ac2e3f",
-                    "created": "2019-01-23 08:37:27",
-                    "default": "1",
-                    "dirname": "img",
-                    "foreign_key": "393",
-                    "group": "logo",
-                    "id": "168",
-                    "model": "User",
-                    "modified": "2019-01-23 08:39:56"
-                }
-            ],
-            "MyData": {
-                "address": "Pri Suchom mlyne 6",
-                "BankAccount": [
-                    {
-                        "account": "",
-                        "bank_code": "",
-                        "bank_name": "FatraBanka",
-                        "country_id": "191",
-                        "default": "0",
-                        "iban": " SK 31 1200 000019 8742637541",
-                        "id": "264",
-                        "show_account": "1",
-                        "swift": "9876"
-                    },
-                    {
-                        "account": "8742637541",
-                        "bank_code": "1200",
-                        "bank_name": "SuperBanka",
-                        "country_id": "191",
-                        "default": "",
-                        "iban": "",
-                        "id": "265",
-                        "show_account": "1",
-                        "swift": ""
-                    }
-                ],
-                "business_register": "Bratislava I, odd. Sro, vl.č.81403/B",
-                "city": "Bratislava - mestská časť Staré Mesto",
-                "company_name": "superfaktura.sk, s.r.o.",
-                "country": {
-                    "eu": "1",
-                    "id": "191",
-                    "iso": "sk",
-                    "name": "Slovensko"
-                },
-                "country_id": "191",
-                "dic": "2023513470",
-                "ic_dph": "SK2023513470",
-                "ico": "46655034",
-                "id": "393",
-                "Logo": "[{\"id\":\"168\",\"model\":\"User\",\"foreign_key\":\"393\",\"dirname\":\"img\",\"basename\":\"9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png\",\"checksum\":\"dd3300a5a4fc754b0f1361baa2ac2e3f\",\"group\":\"logo\",\"default\":\"1\",\"alternative\":null,\"created\":\"2019-01-23 08:37:27\",\"modified\":\"2019-01-23 08:39:56\"}]",
-                "logo_id": "",
-                "logo_key": "",
-                "LogoRaw": [
-                    {
-                        "alternative": null,
-                        "basename": "9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png",
-                        "checksum": "dd3300a5a4fc754b0f1361baa2ac2e3f",
-                        "created": "2019-01-23 08:37:27",
-                        "default": "1",
-                        "dirname": "img",
-                        "foreign_key": "393",
-                        "group": "logo",
-                        "id": "168",
-                        "model": "User",
-                        "modified": "2019-01-23 08:39:56"
-                    }
-                ],
-                "Signature": "{\"id\":\"169\",\"model\":\"User\",\"foreign_key\":\"393\",\"dirname\":\"img\",\"basename\":\"51ee3f8bbd61561eb5f0_393_podpis_1.png\",\"checksum\":\"33b5238616646ca28ebabc02f713a59f\",\"group\":\"signature\",\"default\":\"0\",\"alternative\":null,\"created\":\"2019-01-23 08:37:27\",\"modified\":\"2019-01-23 08:37:27\"}",
-                "SignatureRaw": {
-                    "alternative": null,
-                    "basename": "51ee3f8bbd61561eb5f0_393_podpis_1.png",
-                    "checksum": "33b5238616646ca28ebabc02f713a59f",
-                    "created": "2019-01-23 08:37:27",
-                    "default": "0",
-                    "dirname": "img",
-                    "foreign_key": "393",
-                    "group": "signature",
-                    "id": "169",
-                    "model": "User",
-                    "modified": "2019-01-23 08:37:27"
-                },
-                "tax_payer": "1",
-                "travel_agencies": "0",
-                "update_profile": "0",
-                "user_id": "384",
-                "user_profile_id": "",
-                "web": "",
-                "zip": "811 04"
-            },
-            "Paypal": false,
-            "PostStamp": [],
-            "Signature": {
-                "alternative": null,
-                "basename": "51ee3f8bbd61561eb5f0_393_podpis_1.png",
-                "checksum": "33b5238616646ca28ebabc02f713a59f",
-                "created": "2019-01-23 08:37:27",
-                "default": "0",
-                "dirname": "img",
-                "foreign_key": "393",
-                "group": "signature",
-                "id": "169",
-                "model": "User",
-                "modified": "2019-01-23 08:37:27"
-            },
-            "Summary": {
-                "discount": 0,
-                "invoice_total": 12,
-                "vat_base_separate": {
-                    "20": 10
-                },
-                "vat_base_total": 10,
-                "vat_separate": {
-                    "20": 2
-                },
-                "vat_total": 2
-            },
-            "SummaryInvoice": {
-                "vat_base_separate_negative": {
-                    "20": 0
-                },
-                "vat_base_separate_positive": {
-                    "20": 10
-                },
-                "vat_separate_negative": {
-                    "20": 0
-                },
-                "vat_separate_positive": {
-                    "20": 2
-                }
-            },
-            "Tag": [],
-            "UnitCount": []
-        }
-    ],
-    "page": 1,
-    "pageCount": 7,
-    "perPage": 1
-}
-```
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
- 
-
-## Pay invoice
-
-Pay invoice
-
-### Request
-**URL**: `/invoice_payments/add/ajax:1/api:1`  
-**HTTP method**: POST  
-
-```
-data='{
-    "InvoicePayment":{
-        "invoice_id":1276,
-        "payment_type":"cash",
-        "amount":100,
-        "created":"2019-01-01",
-        "currency":"NOK"
-    }
-};
-
-curl -X POST \
-    -d "data=$data" \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/invoice_payments/add/ajax:1/api:1
-```
-
-### Attributes
-
-#### Required
-
-| name                  | type   | description | default value |
-| --------------------- | ------ | ----------- | ------------- |
-| **invoice_id**        | int    | invoice ID | |
-
-#### Optional
-
-| name                  | type   | description | default value |
-| --------------------- | ------ | ----------- | ------------- |
-| **amount**            | float  | amount of money paid | invoice total price |
-| **cash_register_id**  | int    | cash register ID | |
-| **currency**          | string | currency (see [Value lists > Currencies](value-lists.md#currencies))| EUR in SK, CZK in CZ |
-| **date**              | date   | date when payment was done (format: `YYYY-MM-DD`) | &lt;current date&gt; |
-| **payment_type**      | string | payment type (see [Value lists > Payment types](value-lists.md#payment-types)) | transfer |
-
-
-
-### Response
-
-
-#### Successfully added payment
-```json
-{
-   "overdue" : false,
-   "exchange_rate" : 9.9483,
-   "error" : 0,
-   "currency" : null,
-   "home_currency" : "€",
-   "created" : "2019-01-01",
-   "invoice_id" : 1276,
-   "to_pay_home_cur" : -0.46942693726566,
-   "status" : 3,
-   "invoice_type" : "regular",
-   "invoice_currency" : "€",
-   "to_pay" : -4.67,
-   "parent_id" : null,
-   "payment_id" : "197",
-   "flash_message" : {
-      "text" : "Úhrada bola uložená",
-      "type" : "success"
-   },
-   "paid" : 10.67
-}
-```
-
-#### Adding payment to already fully paid invoice
-```json
-{
-   "message" : "Faktúra je už plne uhradená",
-   "error_messages" : [],
-   "error" : 1
-}
-```
-
-#### Invalid ID
-```json
-{
-   "error" : 1,
-   "message" : "Payment not found"
-}
-```
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Set invoice language
@@ -2278,247 +1207,491 @@ none
 }
 ```
 
- 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-## Mark invoice as sent via email
+## Get invoice PDF
 
-Mark invoice as sent via email.
-
-### Request
-**URL**: `/invoices/mark_as_sent`  
-**HTTP method**: POST  
-
-```sh
-data='{
-    "InvoiceEmail":{
-        "invoice_id":1276,
-        "email":"user@example.com",
-        "subject":"subject",
-        "message":"hello world"
-    }
-}';
-
-curl -X POST \
-  -d "data=$data" \
-  -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-  https://moja.superfaktura.sk/invoices/mark_as_sent
-```
-
- 
-
-### Attributes
-#### Required
-
-```json
-{
-  "InvoiceEmail": {
-    "invoice_id": 1276,
-    "email": "user@example.com",
-    "subject": "subject",
-    "message": "hello world"
-  }
-}
-```
-#### Optional
-none
-
-### Response
-
-#### Successfully marked
-```json
-{
-   "error_message" : "Invoice marked as sent",
-   "error" : 0
-}
-```
-
-#### Invalid post data
-  
-```json
-{
-    "error": 1,
-    "error_message": "Invalid post data"
-}
-```
-
-#### Wrong HTTP method
-```json
-{
-    "error": 2,
-    "error_message": "This method is POST only"
-}
-```
-
-#### Invalid JSON or no data   
-```json
-{
-    "error": 3,
-    "error_message": "Invalid invoice data"
-}
-```
-
-#### Invalid data
-
-In `error_messages` is list of validation errors.
-
-```json
-{
-    "error": 4,
-    "error_message": "Invalid email data",
-    "error_messages": []
-}
-```
-
-#### Invalid invoice ID  
-```json
-{
-    "error": 5,
-    "error_message": "Invalid invoice id"
-}
-```
-
-
-- - - - - - - - - -
-
-
-## Delete invoice payment
-
-Delete invoice payment.
+Return invoice PDF file.
 
 ### Request
-**URL**: `/invoice_payments/delete/{PAYMENT_ID}`  
+**URL**: `/[{LANGUAGE}/]invoices/pdf/{INVOICE_ID}/token:{TOKEN}`  
 **HTTP method**: GET  
 
 ```sh
 curl -X GET \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/invoice_payments/delete/2
+    -o /tmp/faktura1275.pdf \
+    https://moja.superfaktura.sk/slo/invoices/pdf/1275/token:09feb1bd
+```    
+
+### Attributes
+
+#### Required
+URL parameters:
+
+| name              | type   | description   | default value |
+| ----------------- | ------ | ------------- | ------------- | 
+| **invoice_id**    | int    | invoice ID    |               |
+| **token**         | string | invoice token |               |
+
+#### Optional
+URL parameters:  
+
+| name              | type   | description | default value |
+| ----------------- | ------ | ----------- | ------------- |
+| **language**      | string | language in which the invoice will be created | as set by `pdf_language` (language of document - language above invoice detail in web application) |
+
+For list of available languages see [Value lists > Language list](value-lists.md#language-list).
+
+
+### Response  
+PDF document on success.
+Check for HTTP code 404 in case of error.
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Get invoice detail
+
+Get invoice details.
+
+### Request
+**URL**: `/invoices/view/{INVOICE_ID}.json`  
+**HTTP method**: GET  
+
+```sh
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/invoices/view/1285.json
 ```
 
 ### Attributes
 #### Required
+URL parameters:
 
 | name           | type | description | default value |
 | -------------- | ---- | ----------- | ------------- |
-| **payment_id** | int  | payment ID  |               |
-
-### Response
-
-#### Successful deletion
-```json
-{
-   "error" : 0,
-   "invoice_id" : "16",
-   "paid" : "0.00",
-   "status" : 1,
-   "to_pay" : 30
-}
-```
-
-#### Payment not found 
-```json
-{
-   "message" : "Payment not found",
-   "error" : 1
-}
-```
-
-#### Unsuccessful deletion  
-```json
-{
-    "error": 1,
-    "message": "Error deleting payment"   
-}
-```
-
-#### Invalid ID
-```json
-{
-    "error": 1,
-    "message": "Invalid id for invoice payment"   
-}
-```
-
-
-
-- - - - - - - - -
-
-## Delete invoice
-
-Delete invoice by ID.
-
-### Request
-**URL**: `/invoices/delete/{ID}`  
-**HTTP method**: GET  
-
-
-```sh
-curl -X GET \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/invoices/delete/48
-```
-
-### Attributes
-#### Required
-
-| name   | type | description | default value |
-| ------ | ---- | ----------- | ------------- |
-| **ID** | int  | invoice ID  |               |
+| **invoice_id** | int  | invoice ID  |               |
 
 #### Optional
 none
 
 ### Response
 
-#### Successful deletion
-
+#### Success
 ```json
 {
-   "error" : 0,
-   "message" : "Invoice deleted"
+   "Summary" : {
+      "discount" : 0,
+      "vat_base_separate" : {
+         "20" : 30.95
+      },
+      "vat_base_total" : 30.95,
+      "invoice_total" : 37.14,
+      "vat_separate" : {
+         "20" : 6.19
+      },
+      "vat_total" : 6.19
+   },
+   "PaymentLink" : null,
+   "Invoice" : {
+      "amount" : "30.95",
+      "amount_paid" : "24.00",
+      "client_data" : "{\"Client\":{\"id\":\"431\",\"name\":\"2day, s. r. o.\",\"address\":\"Pri Suchom mlyne 6\",\"ico\":\"44981082\",\"email\":\"\",\"zip\":\"811 04\",\"dic\":\"2022903949\",\"phone\":\"\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"ic_dph\":\"\",\"fax\":\"\",\"country_id\":\"191\",\"state\":\"\",\"delivery_name\":\"\",\"delivery_zip\":\"\",\"delivery_city\":\"\",\"delivery_address\":\"\",\"delivery_phone\":\"\",\"delivery_country_id\":\"191\",\"delivery_state\":\"\",\"updateClient\":\"0\",\"country\":\"Slovensko\",\"delivery_country\":\"Slovensko\"}}",
+      "client_id" : "431",
+      "comment" : "",
+      "constant" : "",
+      "country_exchange_rate" : "0.03884249",
+      "created" : "2019-01-30 00:00:00",
+      "delivery" : "2019-01-30 00:00:00",
+      "delivery_type" : "",
+      "demo" : "0",
+      "deposit" : "0.00",
+      "discount" : "0",
+      "due" : "2019-02-13",
+      "estimate_id" : null,
+      "exchange_rate" : 1,
+      "flag" : "partially-paid",
+      "header_comment" : "",
+      "home_currency" : "EUR",
+      "id" : "1285",
+      "import_id" : null,
+      "import_parent_id" : null,
+      "import_type" : null,
+      "internal_comment" : null,
+      "invoice_currency" : "EUR",
+      "invoice_no" : "3",
+      "invoice_no_formatted" : "2019003",
+      "issued_by" : "superfaktura.sk, s.r.o.",
+      "issued_by_email" : "api@example.com",
+      "issued_by_phone" : "",
+      "issued_by_web" : "",
+      "items_data" : "asdf , Item B SKU: itemb1241\r\nPublic description of this item, ",
+      "items_name" : null,
+      "lang" : "slo",
+      "mask" : "YYYYNNN",
+      "modified" : "2019-02-06 11:43:28",
+      "my_data" : "{\"MyData\":{\"id\":\"393\",\"user_id\":\"384\",\"user_profile_id\":\"\",\"country_id\":\"191\",\"company_name\":\"superfaktura.sk, s.r.o.\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"tax_payer\":\"1\",\"logo_key\":\"\",\"logo_id\":\"\",\"web\":\"\",\"Logo\":\"[{\\\"id\\\":\\\"168\\\",\\\"model\\\":\\\"User\\\",\\\"foreign_key\\\":\\\"393\\\",\\\"dirname\\\":\\\"img\\\",\\\"basename\\\":\\\"9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png\\\",\\\"checksum\\\":\\\"dd3300a5a4fc754b0f1361baa2ac2e3f\\\",\\\"group\\\":\\\"logo\\\",\\\"default\\\":\\\"1\\\",\\\"alternative\\\":null,\\\"created\\\":\\\"2019-01-23 08:37:27\\\",\\\"modified\\\":\\\"2019-01-23 08:39:56\\\"}]\",\"Signature\":\"{\\\"id\\\":\\\"169\\\",\\\"model\\\":\\\"User\\\",\\\"foreign_key\\\":\\\"393\\\",\\\"dirname\\\":\\\"img\\\",\\\"basename\\\":\\\"51ee3f8bbd61561eb5f0_393_podpis_1.png\\\",\\\"checksum\\\":\\\"33b5238616646ca28ebabc02f713a59f\\\",\\\"group\\\":\\\"signature\\\",\\\"default\\\":\\\"0\\\",\\\"alternative\\\":null,\\\"created\\\":\\\"2019-01-23 08:37:27\\\",\\\"modified\\\":\\\"2019-01-23 08:37:27\\\"}\",\"travel_agencies\":\"0\",\"business_register\":\"Bratislava I, odd. Sro, vl.\\u010d.81403\\/B\",\"BankAccount\":[{\"show_account\":\"1\",\"id\":\"264\",\"default\":\"0\",\"country_id\":\"191\",\"bank_name\":\"FatraBanka\",\"bank_code\":\"\",\"account\":\"\",\"iban\":\" SK 31 1200 000019 8742637541\",\"swift\":\"9876\"},{\"show_account\":\"1\",\"id\":\"265\",\"default\":\"\",\"country_id\":\"191\",\"bank_name\":\"SuperBanka\",\"bank_code\":\"1200\",\"account\":\"8742637541\",\"iban\":\"\",\"swift\":\"\"}],\"update_profile\":\"0\",\"country\":\"Slovensko\"}}",
+      "name" : "Faktúra 2019003",
+      "order_no" : "",
+      "paid" : "24.00",
+      "parent_id" : null,
+      "paydate" : "2019-02-06 12:05:50",
+      "payment_type" : "cash",
+      "proforma_id" : null,
+      "recurring" : null,
+      "rounding" : "item",
+      "sequence_id" : "2815",
+      "show_items_with_dph" : true,
+      "show_special_vat" : false,
+      "special_vat_scheme" : null,
+      "specific" : "",
+      "status" : "2",
+      "summary_invoice" : null,
+      "tags" : "",
+      "tax_document" : "0",
+      "taxdate" : "2019-01-30",
+      "token" : "aa582995",
+      "type" : "regular",
+      "user_id" : "384",
+      "user_profile_id" : "393",
+      "variable" : "2019003",
+      "vat" : "6.19",
+      "vat_transfer" : "0"
+   },
+   "InvoiceItem" : [
+      {
+         "description" : "",
+         "discount" : 0,
+         "discount_description" : "Zľava",
+         "discount_no_vat" : 0,
+         "discount_no_vat_total" : 0,
+         "discount_with_vat" : 0,
+         "discount_with_vat_total" : 0,
+         "hide_in_autocomplete" : null,
+         "id" : "1708",
+         "invoice_id" : "1285",
+         "item_price" : 11,
+         "item_price_no_discount" : 11,
+         "item_price_vat" : 13.2,
+         "item_price_vat_check" : 13.2,
+         "item_price_vat_no_discount" : 13.2,
+         "name" : "asdf",
+         "ordernum" : "0",
+         "quantity" : null,
+         "sku" : null,
+         "stock_item_id" : "0",
+         "tax" : "20",
+         "tax_deposit" : "0",
+         "unit" : "",
+         "unit_price" : 11,
+         "unit_price_discount" : 11,
+         "unit_price_vat" : 13.2,
+         "unit_price_vat_no_discount" : 13.2,
+         "user_id" : "384",
+         "user_profile_id" : "393"
+      },
+      {
+         "description" : "SKU: itemb1241\r\nPublic description of this item",
+         "discount" : 0,
+         "discount_description" : "Zľava",
+         "discount_no_vat" : 0,
+         "discount_no_vat_total" : 0,
+         "discount_with_vat" : 0,
+         "discount_with_vat_total" : 0,
+         "hide_in_autocomplete" : "1",
+         "id" : "1710",
+         "invoice_id" : "1285",
+         "item_price" : 19.95,
+         "item_price_no_discount" : 19.95,
+         "item_price_vat" : 23.94,
+         "item_price_vat_check" : 23.94,
+         "item_price_vat_no_discount" : 23.94,
+         "name" : "Item B",
+         "ordernum" : "1",
+         "quantity" : null,
+         "sku" : "itemb1241",
+         "stock_item_id" : "19",
+         "tax" : "20",
+         "tax_deposit" : "0",
+         "unit" : "kg",
+         "unit_price" : 19.95,
+         "unit_price_discount" : 19.95,
+         "unit_price_vat" : 23.94,
+         "unit_price_vat_no_discount" : 23.94,
+         "user_id" : "384",
+         "user_profile_id" : "393"
+      }
+   ],
+   "SummaryInvoice" : {
+      "vat_separate_positive" : {
+         "20" : 6.19
+      },
+      "vat_base_separate_negative" : {
+         "20" : 0
+      },
+      "vat_base_separate_positive" : {
+         "20" : 30.95
+      },
+      "vat_separate_negative" : {
+         "20" : 0
+      }
+   },
+   "Tag" : [],
+   "0" : {
+      "sent_by" : "regular,regular,regular,regular,regular,regular,regular,regular",
+      "sent_to_email" : "name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk,name.surname@superfaktura.sk",
+      "sent_to_email_cc" : "[],[],[],[],[],[],[],[]",
+      "to_pay" : "13.140000",
+      "total" : "37.14"
+   },
+   "Client" : {
+      "address" : "Pri Suchom mlyne 6",
+      "city" : "Bratislava - mestská časť Staré Mesto",
+      "country" : "Slovensko",
+      "country_id" : "191",
+      "delivery_address" : "",
+      "delivery_city" : "",
+      "delivery_country" : "Slovensko",
+      "delivery_country_id" : "191",
+      "delivery_name" : "",
+      "delivery_phone" : "",
+      "delivery_state" : "",
+      "delivery_zip" : "",
+      "dic" : "2022903949",
+      "email" : "",
+      "fax" : "",
+      "ic_dph" : "",
+      "ico" : "44981082",
+      "id" : "431",
+      "name" : "2day, s. r. o.",
+      "phone" : "",
+      "state" : "",
+      "updateClient" : "0",
+      "zip" : "811 04",
+      "Country" : {
+         "eu" : "1",
+         "id" : "191",
+         "iso" : "sk",
+         "name" : "Slovensko"
+      },
+      "DeliveryCountry" : {
+         "eu" : "1",
+         "id" : "191",
+         "iso" : "sk",
+         "name" : "Slovensko"
+      }
+   },
+   "Paypal" : false,
+   "InvoiceEmail" : [
+      {
+         "created" : "2019-02-04 10:01:09",
+         "due" : null,
+         "email" : "name.surname@superfaktura.sk",
+         "email_cc" : "[]",
+         "id" : "134",
+         "invoice_id" : "1285",
+         "message" : "Dobrý deň,\n\nv prílohe posielame faktúru č. 2019003.\n\nSuma na úhradu: 37,14 €\nVariabilný symbol: 2019003\nČíslo účtu:  SK 31 1200 000019 8742637541\n\nĎakujeme za úhradu a prajeme príjemný deň.",
+         "phone" : null,
+         "subject" : "Faktúra 2019003",
+         "type" : "regular",
+         "user_id" : "384",
+         "user_profile_id" : "393"
+      }
+   ],
+   "UnitCount" : {
+      "kg" : 0
+   },
+   "InvoiceSetting" : {
+      "bysquare" : "1",
+      "force_iban" : true,
+      "language" : "deu",
+      "online_payment" : null,
+      "payment_info" : true,
+      "paypal" : false,
+      "show_prices" : false,
+      "show_summary" : true,
+      "signature" : true
+   },
+   "PostStamp" : [
+      {
+         "bysquare" : "1",
+         "created" : "2019-02-04 11:28:17",
+         "external_response" : null,
+         "external_service" : null,
+         "external_service_id" : null,
+         "external_status" : null,
+         "id" : "1016",
+         "invoice_id" : "1285",
+         "invoice_language" : "slo",
+         "modified" : "2019-02-04 11:56:47",
+         "no_signature" : "0",
+         "payment_info" : "1",
+         "post_stamp_package_id" : "7",
+         "recycled" : "0",
+         "requested" : "2019-02-04 11:56:47",
+         "sent" : "0000-00-00 00:00:00",
+         "sent_to" : "{\"name\":\"Mr. Incognito\",\"address\":\"Pri Vlhkom mlyne 6\",\"city\":\"Bratislava\",\"zip\":\"811 04\",\"country\":\"Slovensko\"}",
+         "status" : "waiting",
+         "user_id" : "384",
+         "user_profile_id" : "393"
+      }
+   ],
+   "InvoicePayment" : [
+      {
+         "amount" : "5.81",
+         "created" : "2019-02-06 12:05:50",
+         "document_no" : "",
+         "exchange_rate" : "1.00000000000000",
+         "home_currency" : "CZK",
+         "id" : "211",
+         "import_payment_id" : null,
+         "invoice_id" : "1285",
+         "payment_currency" : "EUR",
+         "payment_type" : "cash",
+         "user_id" : "384",
+         "user_profile_id" : "393",
+         "vat" : "6.19"
+      }
+   ],
+   "MyData" : {
+      "zip" : "811 04",
+      "address" : "Pri Suchom mlyne 6",
+      "user_profile_id" : "",
+      "LogoRaw" : [
+         {
+            "alternative" : null,
+            "basename" : "9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png",
+            "checksum" : "dd3300a5a4fc754b0f1361baa2ac2e3f",
+            "created" : "2019-01-23 08:37:27",
+            "default" : "1",
+            "dirname" : "img",
+            "foreign_key" : "393",
+            "group" : "logo",
+            "id" : "168",
+            "model" : "User",
+            "modified" : "2019-01-23 08:39:56"
+         }
+      ],
+      "SignatureRaw" : {
+         "alternative" : null,
+         "basename" : "51ee3f8bbd61561eb5f0_393_podpis_1.png",
+         "checksum" : "33b5238616646ca28ebabc02f713a59f",
+         "created" : "2019-01-23 08:37:27",
+         "default" : "0",
+         "dirname" : "img",
+         "foreign_key" : "393",
+         "group" : "signature",
+         "id" : "169",
+         "model" : "User",
+         "modified" : "2019-01-23 08:37:27"
+      },
+      "business_register" : "Bratislava I, odd. Sro, vl.č.81403/B",
+      "city" : "Bratislava - mestská časť Staré Mesto",
+      "dic" : "2023513470",
+      "ic_dph" : "SK2023513470",
+      "ico" : "46655034",
+      "id" : "393",
+      "Logo" : "[{\"id\":\"168\",\"model\":\"User\",\"foreign_key\":\"393\",\"dirname\":\"img\",\"basename\":\"9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png\",\"checksum\":\"dd3300a5a4fc754b0f1361baa2ac2e3f\",\"group\":\"logo\",\"default\":\"1\",\"alternative\":null,\"created\":\"2019-01-23 08:37:27\",\"modified\":\"2019-01-23 08:39:56\"}]",
+      "logo_id" : "",
+      "logo_key" : "",
+      "Signature" : "{\"id\":\"169\",\"model\":\"User\",\"foreign_key\":\"393\",\"dirname\":\"img\",\"basename\":\"51ee3f8bbd61561eb5f0_393_podpis_1.png\",\"checksum\":\"33b5238616646ca28ebabc02f713a59f\",\"group\":\"signature\",\"default\":\"0\",\"alternative\":null,\"created\":\"2019-01-23 08:37:27\",\"modified\":\"2019-01-23 08:37:27\"}",
+      "tax_payer" : "1",
+      "travel_agencies" : "0",
+      "update_profile" : "0",
+      "user_id" : "384",
+      "web" : "",
+      "BankAccount" : [
+         {
+            "account" : "",
+            "bank_code" : "",
+            "bank_name" : "FatraBanka",
+            "country_id" : "191",
+            "default" : "0",
+            "iban" : " SK 31 1200 000019 8742637541",
+            "id" : "264",
+            "show_account" : "1",
+            "swift" : "9876"
+         },
+         {
+            "account" : "8742637541",
+            "bank_code" : "1200",
+            "bank_name" : "SuperBanka",
+            "country_id" : "191",
+            "default" : "",
+            "iban" : "",
+            "id" : "265",
+            "show_account" : "1",
+            "swift" : ""
+         }
+      ],
+      "country" : {
+         "eu" : "1",
+         "id" : "191",
+         "iso" : "sk",
+         "name" : "Slovensko"
+      },
+      "company_name" : "superfaktura.sk, s.r.o.",
+      "country_id" : "191"
+   },
+   "ClientData" : {
+      "address" : "Pri Suchom mlyne 6",
+      "city" : "Bratislava - mestská časť Staré Mesto",
+      "country" : "Slovensko",
+      "country_id" : "191",
+      "delivery_address" : "",
+      "delivery_city" : "",
+      "delivery_country" : "Slovensko",
+      "delivery_country_id" : "191",
+      "delivery_name" : "",
+      "delivery_phone" : "",
+      "delivery_state" : "",
+      "delivery_zip" : "",
+      "dic" : "2022903949",
+      "email" : "",
+      "fax" : "",
+      "ic_dph" : "",
+      "ico" : "44981082",
+      "id" : "431",
+      "name" : "2day, s. r. o.",
+      "phone" : "",
+      "state" : "",
+      "updateClient" : "0",
+      "zip" : "811 04",
+      "Country" : {
+         "name" : "Slovensko",
+         "iso" : "sk",
+         "id" : "191",
+         "eu" : "1"
+      },
+      "DeliveryCountry" : {
+         "id" : "191",
+         "eu" : "1",
+         "name" : "Slovensko",
+         "iso" : "sk"
+      }
+   }
 }
 ```
 
-#### Wrong ID
-Returns HTTP status 404.
+#### Wrong invoice
 
 ```json
 {
-  "message" : "Invoice not found",
-  "error" : 1,
-  "error_message" : "Invoice not found"
-}
-```
-
-#### Deleting locked invoice
-```json
-{
-   "error_message" : "Invoice locked for editing",
+   "message" : "Invoice not found",
    "error" : 1,
-   "message" : "Invoice locked for editing"
-}
-```
-
-#### Error during deletion
-If an error occurs, HTTP status 404 is returned.
-
-```json
-{
-   "message" : "Invoice could not be deleted",
-   "error" : 1,
-   "error_message" : "Invoice could not be deleted"
+   "error_message" : "Invoice not found"
 }
 ```
 
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-## Get invoice details
+## Get invoices details
 
 Get information about multiple invoices at once.
 You can specify up to 100 invoice IDs.
@@ -3176,50 +2349,827 @@ For more details about fields present in result see example response.
 ```
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-## Get invoice PDF
 
-Return invoice PDF file.
+## Get list of invoices
+
+Get list of invoices.
 
 ### Request
-**URL**: `/[{LANGUAGE}/]invoices/pdf/{INVOICE_ID}/token:{TOKEN}`  
+
+**URL**: `/invoices/index.json[/{ATTRIBUTE}:{VALUE}]*`  
+**HTTP method**: GET  
+
+
+```sh
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/invoices/index.json/listinfo:1/per_page:1/page:2
+```  
+
+### Attributes
+#### Required
+none
+
+#### Optional
+
+URL paremeters:  
+
+| name          | type   | description                                                                          | default value |
+| ------------- | ------ | ------------------------------------------------------------------------------------ | ------------- |
+| **direction** | string | sorting direction (ASC or DESC)                                                      | 'DESC' |
+| **list_info** | int    | show meta data about result? (0=no, 1=yes)                                           | 0 |
+| **page**      | int    | page number                                                                          | 1 |
+| **per_page**  | int    | number of items per page (max 200)                                                   | |
+| **sort**      | string | attribute to sort by                                                                 | 'regular_count' |
+| **type**      | string | type of document (proforma, regular, ...). Use <code>&#x7c;</code> as separator for multiple values. | 'regular' |
+
+Filtering parameters
+
+| name               | type         | description    | default value |
+| ------------------ | ------------ | ------------   | ------------- |
+| **amount_from**    | float        | amount from    | 0             |
+| **amount_to**      | float        | amount to      | 0             |
+| **client_id**      | int          | client ID      | |
+| **created**        | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
+| **created_since**  | date         | creation date since | |
+| **created_to**     | date         | creation date to    | |
+| **delivery**       | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
+| **delivery_since** | date         | delivery date from  | |
+| **delivery_to**    | date         | delivery date to    | |
+| **delivery_type**  | string       | delivery type (see [Value lists > Delivery types](value-lists.md#delivery-types)). Use <code>&#x7c;</code> as separator for multiple values. | |
+| **ignore**         | string / int | IDs of invoices to be ignored. Use <code>&#x7c;</code> as separator for multiple values. | |
+| **modified**       | int          | last modification date constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
+| **modified_since** | date         | last modification date from | |
+| **modified_to**    | date         | last modification date to   | |
+| **order_no**       | string       | order number, from which invoice is created | |
+| **paid**           | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
+| **paid_since**     | date         | pay date since | |
+| **paid_to**        | date         | pay date to    | |
+| **payment_type**   | string       | payment types (see [Value lists > Payment types](value-lists.md#payment-types)). Use <code>&#x7c;</code> as separator for multiple values. | |
+| **search**         | string       | base64 encoded string | |
+| **status**         | string / int | invoice status (see [Value lists > Invoice statuses](value-lists.md#invoice-statuses)) | |
+| **tag**            | int          | tag ID | |
+
+
+
+### Response
+
+```sh
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/invoices/index.json/listinfo:1/per_page:1/type:regular
+```
+
+
+```json
+{
+    "filtered": false,
+    "itemCount": 7,
+    "items": [
+        {
+            "0": {
+                "to_pay": "12.000000",
+                "total": "12.00"
+            },
+            "Client": {
+                "address": "Pri Suchom mlyne 6",
+                "bank_account": "",
+                "bank_account_id": "0",
+                "bank_account_prefix": "",
+                "bank_code": "",
+                "city": "Bratislava - mestská časť Staré Mesto",
+                "comment": "Client comment",
+                "country": null,
+                "country_id": "191",
+                "created": "2019-01-23 08:41:37",
+                "currency": null,
+                "default_variable": "",
+                "delivery_address": "",
+                "delivery_city": "",
+                "delivery_country": null,
+                "delivery_country_id": "191",
+                "delivery_name": "",
+                "delivery_phone": "",
+                "delivery_state": "",
+                "delivery_zip": "",
+                "dic": "2022903949",
+                "discount": null,
+                "distance": null,
+                "dont_travel": "0",
+                "due_date": null,
+                "email": "name.surname@superfaktura.sk",
+                "fax": "",
+                "iban": "XX00000000001",
+                "ic_dph": "",
+                "ico": "44981082",
+                "id": "431",
+                "modified": "2019-02-12 12:54:50",
+                "name": "2day, s. r. o.",
+                "notices": "1",
+                "phone": "",
+                "state": "",
+                "swift": "98765",
+                "tags": null,
+                "update": "1",
+                "user_id": "384",
+                "user_profile_id": "393",
+                "uuid": "NULL",
+                "zip": "811 04"
+            },
+            "ClientData": {
+                "address": "Pri Suchom mlyne 6",
+                "city": "Bratislava - mestská časť Staré Mesto",
+                "Country": {
+                    "eu": "1",
+                    "id": "191",
+                    "iso": "sk",
+                    "name": "Slovensko"
+                },
+                "country": "Slovensko",
+                "country_id": "191",
+                "delivery_address": "",
+                "delivery_city": "",
+                "delivery_country": "Slovensko",
+                "delivery_country_id": "191",
+                "delivery_name": "",
+                "delivery_phone": "",
+                "delivery_state": "",
+                "delivery_zip": "",
+                "DeliveryCountry": {
+                    "eu": "1",
+                    "id": "191",
+                    "iso": "sk",
+                    "name": "Slovensko"
+                },
+                "dic": "2022903949",
+                "email": "name.surname@superfaktura.sk",
+                "fax": "",
+                "ic_dph": "",
+                "ico": "44981082",
+                "id": "431",
+                "name": "2day, s. r. o.",
+                "phone": "",
+                "state": "",
+                "updateClient": "0",
+                "zip": "811 04"
+            },
+            "Invoice": {
+                "amount": "10.00",
+                "amount_paid": "0.00",
+                "client_data": "{\"Client\":{\"id\":\"431\",\"name\":\"2day, s. r. o.\",\"address\":\"Pri Suchom mlyne 6\",\"ico\":\"44981082\",\"email\":\"name.surname@superfaktura.sk\",\"zip\":\"811 04\",\"dic\":\"2022903949\",\"phone\":\"\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"ic_dph\":\"\",\"fax\":\"\",\"country_id\":\"191\",\"state\":\"\",\"delivery_name\":\"\",\"delivery_zip\":\"\",\"delivery_city\":\"\",\"delivery_address\":\"\",\"delivery_phone\":\"\",\"delivery_country_id\":\"191\",\"delivery_state\":\"\",\"updateClient\":\"0\",\"country\":\"Slovensko\",\"delivery_country\":\"Slovensko\"}}",
+                "client_id": "431",
+                "comment": "",
+                "constant": "",
+                "country_exchange_rate": "1.00000000",
+                "created": "2019-02-12 00:00:00",
+                "delivery": "2019-02-12 00:00:00",
+                "delivery_type": "",
+                "demo": "0",
+                "deposit": "0.00",
+                "discount": "0",
+                "due": "2019-02-26",
+                "estimate_id": null,
+                "exchange_rate": 1,
+                "flag": "issued",
+                "header_comment": "",
+                "home_currency": "EUR",
+                "id": "1295",
+                "import_id": null,
+                "import_parent_id": null,
+                "import_type": null,
+                "internal_comment": null,
+                "invoice_currency": "EUR",
+                "invoice_no": "7",
+                "invoice_no_formatted": "2019007",
+                "issued_by": "superfaktura.sk, s.r.o.",
+                "issued_by_email": "api@example.com",
+                "issued_by_phone": "",
+                "issued_by_web": "",
+                "items_data": "item 1 description of item 1, ",
+                "items_name": null,
+                "lang": "slo",
+                "mask": "YYYYNNN",
+                "modified": "2019-02-12 12:54:50",
+                "my_data": "{\"MyData\":{\"id\":\"393\",\"user_id\":\"384\",\"user_profile_id\":\"\",\"country_id\":\"191\",\"company_name\":\"superfaktura.sk, s.r.o.\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"tax_payer\":\"1\",\"logo_key\":\"\",\"logo_id\":\"\",\"web\":\"\",\"Logo\":\"\",\"Signature\":\"\",\"travel_agencies\":\"0\",\"business_register\":\"Bratislava I, odd. Sro, vl.\\u010d.81403\\/B\",\"BankAccount\":[{\"show_account\":\"1\",\"id\":\"264\",\"default\":\"0\",\"country_id\":\"191\",\"bank_name\":\"FatraBanka\",\"bank_code\":\"\",\"account\":\"\",\"iban\":\" SK 31 1200 000019 8742637541\",\"swift\":\"9876\"},{\"show_account\":\"1\",\"id\":\"265\",\"default\":\"\",\"country_id\":\"191\",\"bank_name\":\"SuperBanka\",\"bank_code\":\"1200\",\"account\":\"8742637541\",\"iban\":\"\",\"swift\":\"\"}],\"update_profile\":\"0\",\"country\":\"Slovensko\"}}",
+                "name": "1291 - kopia",
+                "order_no": "",
+                "paid": "0.00",
+                "parent_id": null,
+                "paydate": null,
+                "payment_type": "",
+                "proforma_id": null,
+                "recurring": null,
+                "rounding": "item",
+                "sequence_id": "2815",
+                "show_items_with_dph": true,
+                "show_special_vat": false,
+                "special_vat_scheme": null,
+                "specific": "",
+                "status": "1",
+                "summary_invoice": null,
+                "tags": "",
+                "tax_document": "0",
+                "taxdate": "2019-02-12",
+                "token": "b940621e",
+                "type": "regular",
+                "user_id": "384",
+                "user_profile_id": "393",
+                "variable": "2019007",
+                "vat": "2.00",
+                "vat_transfer": "0"
+            },
+            "InvoiceEmail": [],
+            "InvoiceItem": [
+                {
+                    "description": "description of item 1",
+                    "discount": 0,
+                    "discount_description": "",
+                    "discount_no_vat": 0,
+                    "discount_no_vat_total": 0,
+                    "discount_with_vat": 0,
+                    "discount_with_vat_total": 0,
+                    "hide_in_autocomplete": null,
+                    "id": "1723",
+                    "invoice_id": "1295",
+                    "item_price": 10,
+                    "item_price_no_discount": 10,
+                    "item_price_vat": 12,
+                    "item_price_vat_check": 12,
+                    "item_price_vat_no_discount": 12,
+                    "name": "item 1",
+                    "ordernum": "0",
+                    "quantity": null,
+                    "sku": null,
+                    "stock_item_id": "0",
+                    "tax": "20",
+                    "tax_deposit": "0",
+                    "unit": "",
+                    "unit_price": 10,
+                    "unit_price_discount": 10,
+                    "unit_price_vat": 12,
+                    "unit_price_vat_no_discount": 12,
+                    "user_id": "384",
+                    "user_profile_id": "393"
+                }
+            ],
+            "InvoicePayment": [],
+            "InvoiceSetting": {
+                "bysquare": "1",
+                "force_iban": "",
+                "language": "slo",
+                "online_payment": "",
+                "payment_info": "1",
+                "paypal": "",
+                "show_prices": "",
+                "show_summary": "",
+                "signature": "1"
+            },
+            "Logo": [
+                {
+                    "alternative": null,
+                    "basename": "9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png",
+                    "checksum": "dd3300a5a4fc754b0f1361baa2ac2e3f",
+                    "created": "2019-01-23 08:37:27",
+                    "default": "1",
+                    "dirname": "img",
+                    "foreign_key": "393",
+                    "group": "logo",
+                    "id": "168",
+                    "model": "User",
+                    "modified": "2019-01-23 08:39:56"
+                }
+            ],
+            "MyData": {
+                "address": "Pri Suchom mlyne 6",
+                "BankAccount": [
+                    {
+                        "account": "",
+                        "bank_code": "",
+                        "bank_name": "FatraBanka",
+                        "country_id": "191",
+                        "default": "0",
+                        "iban": " SK 31 1200 000019 8742637541",
+                        "id": "264",
+                        "show_account": "1",
+                        "swift": "9876"
+                    },
+                    {
+                        "account": "8742637541",
+                        "bank_code": "1200",
+                        "bank_name": "SuperBanka",
+                        "country_id": "191",
+                        "default": "",
+                        "iban": "",
+                        "id": "265",
+                        "show_account": "1",
+                        "swift": ""
+                    }
+                ],
+                "business_register": "Bratislava I, odd. Sro, vl.č.81403/B",
+                "city": "Bratislava - mestská časť Staré Mesto",
+                "company_name": "superfaktura.sk, s.r.o.",
+                "country": {
+                    "eu": "1",
+                    "id": "191",
+                    "iso": "sk",
+                    "name": "Slovensko"
+                },
+                "country_id": "191",
+                "dic": "2023513470",
+                "ic_dph": "SK2023513470",
+                "ico": "46655034",
+                "id": "393",
+                "Logo": "[{\"id\":\"168\",\"model\":\"User\",\"foreign_key\":\"393\",\"dirname\":\"img\",\"basename\":\"9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png\",\"checksum\":\"dd3300a5a4fc754b0f1361baa2ac2e3f\",\"group\":\"logo\",\"default\":\"1\",\"alternative\":null,\"created\":\"2019-01-23 08:37:27\",\"modified\":\"2019-01-23 08:39:56\"}]",
+                "logo_id": "",
+                "logo_key": "",
+                "LogoRaw": [
+                    {
+                        "alternative": null,
+                        "basename": "9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png",
+                        "checksum": "dd3300a5a4fc754b0f1361baa2ac2e3f",
+                        "created": "2019-01-23 08:37:27",
+                        "default": "1",
+                        "dirname": "img",
+                        "foreign_key": "393",
+                        "group": "logo",
+                        "id": "168",
+                        "model": "User",
+                        "modified": "2019-01-23 08:39:56"
+                    }
+                ],
+                "Signature": "{\"id\":\"169\",\"model\":\"User\",\"foreign_key\":\"393\",\"dirname\":\"img\",\"basename\":\"51ee3f8bbd61561eb5f0_393_podpis_1.png\",\"checksum\":\"33b5238616646ca28ebabc02f713a59f\",\"group\":\"signature\",\"default\":\"0\",\"alternative\":null,\"created\":\"2019-01-23 08:37:27\",\"modified\":\"2019-01-23 08:37:27\"}",
+                "SignatureRaw": {
+                    "alternative": null,
+                    "basename": "51ee3f8bbd61561eb5f0_393_podpis_1.png",
+                    "checksum": "33b5238616646ca28ebabc02f713a59f",
+                    "created": "2019-01-23 08:37:27",
+                    "default": "0",
+                    "dirname": "img",
+                    "foreign_key": "393",
+                    "group": "signature",
+                    "id": "169",
+                    "model": "User",
+                    "modified": "2019-01-23 08:37:27"
+                },
+                "tax_payer": "1",
+                "travel_agencies": "0",
+                "update_profile": "0",
+                "user_id": "384",
+                "user_profile_id": "",
+                "web": "",
+                "zip": "811 04"
+            },
+            "Paypal": false,
+            "PostStamp": [],
+            "Signature": {
+                "alternative": null,
+                "basename": "51ee3f8bbd61561eb5f0_393_podpis_1.png",
+                "checksum": "33b5238616646ca28ebabc02f713a59f",
+                "created": "2019-01-23 08:37:27",
+                "default": "0",
+                "dirname": "img",
+                "foreign_key": "393",
+                "group": "signature",
+                "id": "169",
+                "model": "User",
+                "modified": "2019-01-23 08:37:27"
+            },
+            "Summary": {
+                "discount": 0,
+                "invoice_total": 12,
+                "vat_base_separate": {
+                    "20": 10
+                },
+                "vat_base_total": 10,
+                "vat_separate": {
+                    "20": 2
+                },
+                "vat_total": 2
+            },
+            "SummaryInvoice": {
+                "vat_base_separate_negative": {
+                    "20": 0
+                },
+                "vat_base_separate_positive": {
+                    "20": 10
+                },
+                "vat_separate_negative": {
+                    "20": 0
+                },
+                "vat_separate_positive": {
+                    "20": 2
+                }
+            },
+            "Tag": [],
+            "UnitCount": []
+        }
+    ],
+    "page": 1,
+    "pageCount": 7,
+    "perPage": 1
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Export invoices
+
+Export multiple invoices in PDF or XLS format.
+
+### Request
+
+**URL**: `/exports`  
+**HTTP method**: POST
+
+```sh
+data='{
+    "Invoice":{
+        "ids":[1562,1561,1560]
+    },
+    "Export":{
+        "is_msel":true,
+        "invoices_pdf":true,
+        "merge_pdf":true,
+        "only_merge":true
+    }
+}';
+
+curl -X POST \
+    -d "data=$data" \
+    -o /output.pdf \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/exports
+
+
+
+
+data='{
+    "Invoice":{
+        "ids":[1562,1561,1560]
+    },
+    "Export":{
+        "is_msel":true,
+        "invoices_xls":true
+    }
+}';
+
+curl -X POST \
+    -d "data=$data" \
+    -o /output.xls \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/exports
+
+
+
+
+data='{
+    "Invoice":{
+        "ids":[1562,1561,1560]
+    },
+    "Export":{
+        "is_msel":true,
+        "invoices_pdf":true
+    }
+}';
+
+curl -X POST \
+    -d "data=$data" \
+    -o /output.zip \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/exports
+```
+
+### Attributes
+#### Required
+
+##### Export
+| name                  | type | description                                         | default value |
+| --------------------- | ---- | --------------------------------------------------- | ------------- |
+| **msel**              | bool | is multiselect; needs to be `true` (required: true) |               |
+
+##### Invoice
+| name                  | type  | description | default value |
+| --------------------- | ----- | ----------- | ------------- |
+| **ids**               | array | list of IDs |               |
+
+#### Optional
+
+##### Export
+
+| name                      | type | description                        | default value |
+| ------------------------- | ---- | ---------------------------------- | ------------- |
+| **hide_pdf_payment_info** | bool | hide payment information           |             0 |
+| **hide_signature**        | bool | hide signature in invoices         |             0 |
+| **invoices_pdf**          | bool | export in PDF format               |             0 |
+| **invoices_xls**          | bool | export in XLS format               |             0 |
+| **merge_pdf**             | bool | only export merged PDF             |             0 |
+| **pdf_lang_default**      | bool | translate documents to default language (SK: Slovak, CZ: Czech) | 0 |
+| **pdf_sort_client**       | bool | sort documents by client           |             0 |
+| **pdf_sort_date**         | bool | sort documents by date             |             0 |
+
+
+### Response
+PDF document on success.
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Delete invoice
+
+Delete invoice by ID.
+
+### Request
+**URL**: `/invoices/delete/{ID}`  
+**HTTP method**: GET  
+
+
+```sh
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/invoices/delete/48
+```
+
+### Attributes
+#### Required
+
+| name   | type | description | default value |
+| ------ | ---- | ----------- | ------------- |
+| **ID** | int  | invoice ID  |               |
+
+#### Optional
+none
+
+### Response
+
+#### Successful deletion
+
+```json
+{
+   "error" : 0,
+   "message" : "Invoice deleted"
+}
+```
+
+#### Wrong ID
+Returns HTTP status 404.
+
+```json
+{
+  "message" : "Invoice not found",
+  "error" : 1,
+  "error_message" : "Invoice not found"
+}
+```
+
+#### Deleting locked invoice
+```json
+{
+   "error_message" : "Invoice locked for editing",
+   "error" : 1,
+   "message" : "Invoice locked for editing"
+}
+```
+
+#### Error during deletion
+If an error occurs, HTTP status 404 is returned.
+
+```json
+{
+   "message" : "Invoice could not be deleted",
+   "error" : 1,
+   "error_message" : "Invoice could not be deleted"
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Set invoice as "will not be paid"
+
+Set invoice as "will not be paid".
+Only works for regular and proforma invoices.
+
+### Request
+
+**URL**: `/invoices/will_not_be_paid/{ID}`  
 **HTTP method**: GET  
 
 ```sh
 curl -X GET \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    -o /tmp/faktura1275.pdf \
-    https://moja.superfaktura.sk/slo/invoices/pdf/1275/token:09feb1bd
-```    
+    https://moja.superfaktura.sk/invoices/will_not_be_paid/1295
+```
+
+### Attributes
+#### Required
+
+URL parameters:
+
+| name   | type     | description | default value |
+| ------ | -------- | ----------- | ------------- |
+| **id** | int      | invoice ID  |               |
+
+#### Optional
+
+none
+
+### Response
+
+#### Successfully marked
+
+```json
+{
+    "data": {
+        "Invoice": {
+            "amount": "10.00",
+            "amount_paid": "0.00",
+            "client_data": "{\"Client\":{\"id\":\"431\",\"name\":\"2day, s. r. o.\",\"address\":\"Pri Suchom mlyne 6\",\"ico\":\"44981082\",\"email\":\"name.surname@superfaktura.sk\",\"zip\":\"811 04\",\"dic\":\"2022903949\",\"phone\":\"\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"ic_dph\":\"\",\"fax\":\"\",\"country_id\":\"191\",\"state\":\"\",\"delivery_name\":\"\",\"delivery_zip\":\"\",\"delivery_city\":\"\",\"delivery_address\":\"\",\"delivery_phone\":\"\",\"delivery_country_id\":\"191\",\"delivery_state\":\"\",\"updateClient\":\"0\",\"country\":\"Slovensko\",\"delivery_country\":\"Slovensko\"}}",
+            "client_id": "431",
+            "comment": "",
+            "constant": "",
+            "country_exchange_rate": "1.00000000",
+            "created": "2019-02-12 00:00:00",
+            "delivery": "2019-02-12 00:00:00",
+            "delivery_type": "",
+            "demo": "0",
+            "deposit": "0.00",
+            "discount": "0",
+            "due": "2019-02-26",
+            "estimate_id": null,
+            "exchange_rate": "1.00000000000000",
+            "header_comment": "",
+            "home_currency": "EUR",
+            "id": "1295",
+            "import_id": null,
+            "import_parent_id": null,
+            "import_type": null,
+            "internal_comment": null,
+            "invoice_currency": "EUR",
+            "invoice_no": "7",
+            "invoice_no_formatted": "2019007",
+            "issued_by": "superfaktura.sk, s.r.o.",
+            "issued_by_email": "api@example.com",
+            "issued_by_phone": "",
+            "issued_by_web": "",
+            "items_data": "item 1 description of item 1, ",
+            "items_name": null,
+            "lang": "slo",
+            "mask": "YYYYNNN",
+            "modified": "2019-02-18 09:31:47",
+            "my_data": "{\"MyData\":{\"id\":\"393\",\"user_id\":\"384\",\"user_profile_id\":\"\",\"country_id\":\"191\",\"company_name\":\"superfaktura.sk, s.r.o.\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"tax_payer\":\"1\",\"logo_key\":\"\",\"logo_id\":\"\",\"web\":\"\",\"Logo\":\"\",\"Signature\":\"\",\"travel_agencies\":\"0\",\"business_register\":\"Bratislava I, odd. Sro, vl.\\u010d.81403\\/B\",\"BankAccount\":[{\"show_account\":\"1\",\"id\":\"264\",\"default\":\"0\",\"country_id\":\"191\",\"bank_name\":\"FatraBanka\",\"bank_code\":\"\",\"account\":\"\",\"iban\":\" SK 31 1200 000019 8742637541\",\"swift\":\"9876\"},{\"show_account\":\"1\",\"id\":\"265\",\"default\":\"\",\"country_id\":\"191\",\"bank_name\":\"SuperBanka\",\"bank_code\":\"1200\",\"account\":\"8742637541\",\"iban\":\"\",\"swift\":\"\"}],\"update_profile\":\"0\",\"country\":\"Slovensko\"}}",
+            "name": "1291 - kopia",
+            "order_no": "",
+            "paid": "0.00",
+            "parent_id": null,
+            "paydate": null,
+            "payment_type": "",
+            "proforma_id": null,
+            "recurring": null,
+            "rounding": "item",
+            "sequence_id": "2815",
+            "special_vat_scheme": null,
+            "specific": "",
+            "status": "4",
+            "summary_invoice": null,
+            "tags": "",
+            "tax_document": "0",
+            "taxdate": "2019-02-12",
+            "token": "b940621e",
+            "type": "regular",
+            "user_id": "384",
+            "user_profile_id": "393",
+            "variable": "2019007",
+            "vat": "2.00",
+            "vat_transfer": "0"
+        }
+    },
+    "error": 0,
+    "error_message": "Document marked as \"will not be paid\""
+}
+```
+
+#### Wrong invoice
+
+```json
+{
+   "error" : 1,
+   "error_message" : "Document can not be canceled"
+}
+```
+
+#### Insufficient privileges
+
+```json
+{
+   "message" : "Nemáte právo meniť faktúru",
+   "error" : 1,
+   "error_message" : "Nemáte právo meniť faktúru"
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+## Pay invoice
+
+Pay invoice
+
+### Request
+**URL**: `/invoice_payments/add/ajax:1/api:1`  
+**HTTP method**: POST  
+
+```
+data='{
+    "InvoicePayment":{
+        "invoice_id":1276,
+        "payment_type":"cash",
+        "amount":100,
+        "created":"2019-01-01",
+        "currency":"NOK"
+    }
+};
+
+curl -X POST \
+    -d "data=$data" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/invoice_payments/add/ajax:1/api:1
+```
 
 ### Attributes
 
 #### Required
-URL parameters:
 
-| name              | type   | description   | default value |
-| ----------------- | ------ | ------------- | ------------- | 
-| **invoice_id**    | int    | invoice ID    |               |
-| **token**         | string | invoice token |               |
+| name                  | type   | description | default value |
+| --------------------- | ------ | ----------- | ------------- |
+| **invoice_id**        | int    | invoice ID | |
 
 #### Optional
-URL parameters:  
 
-| name              | type   | description | default value |
-| ----------------- | ------ | ----------- | ------------- |
-| **language**      | string | language in which the invoice will be created | as set by `pdf_language` (language of document - language above invoice detail in web application) |
-
-For list of available languages see [Value lists > Language list](value-lists.md#language-list).
-
-
-### Response  
-PDF document on success.
-Check for HTTP code 404 in case of error.
+| name                  | type   | description | default value |
+| --------------------- | ------ | ----------- | ------------- |
+| **amount**            | float  | amount of money paid | invoice total price |
+| **cash_register_id**  | int    | cash register ID | |
+| **currency**          | string | currency (see [Value lists > Currencies](value-lists.md#currencies))| EUR in SK, CZK in CZ |
+| **date**              | date   | date when payment was done (format: `YYYY-MM-DD`) | &lt;current date&gt; |
+| **payment_type**      | string | payment type (see [Value lists > Payment types](value-lists.md#payment-types)) | transfer |
 
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+### Response
+
+
+#### Successfully added payment
+```json
+{
+   "overdue" : false,
+   "exchange_rate" : 9.9483,
+   "error" : 0,
+   "currency" : null,
+   "home_currency" : "€",
+   "created" : "2019-01-01",
+   "invoice_id" : 1276,
+   "to_pay_home_cur" : -0.46942693726566,
+   "status" : 3,
+   "invoice_type" : "regular",
+   "invoice_currency" : "€",
+   "to_pay" : -4.67,
+   "parent_id" : null,
+   "payment_id" : "197",
+   "flash_message" : {
+      "text" : "Úhrada bola uložená",
+      "type" : "success"
+   },
+   "paid" : 10.67
+}
+```
+
+#### Adding payment to already fully paid invoice
+```json
+{
+   "message" : "Faktúra je už plne uhradená",
+   "error_messages" : [],
+   "error" : 1
+}
+```
+
+#### Invalid ID
+```json
+{
+   "error" : 1,
+   "message" : "Payment not found"
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 
 ## Send invoice via mail
 
@@ -3361,7 +3311,108 @@ curl -X POST \
 ```
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Mark invoice as sent via email
+
+Mark invoice as sent via email.
+
+### Request
+**URL**: `/invoices/mark_as_sent`  
+**HTTP method**: POST  
+
+```sh
+data='{
+    "InvoiceEmail":{
+        "invoice_id":1276,
+        "email":"user@example.com",
+        "subject":"subject",
+        "message":"hello world"
+    }
+}';
+
+curl -X POST \
+  -d "data=$data" \
+  -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+  https://moja.superfaktura.sk/invoices/mark_as_sent
+```
+
+ 
+
+### Attributes
+#### Required
+
+```json
+{
+  "InvoiceEmail": {
+    "invoice_id": 1276,
+    "email": "user@example.com",
+    "subject": "subject",
+    "message": "hello world"
+  }
+}
+```
+#### Optional
+none
+
+### Response
+
+#### Successfully marked
+```json
+{
+   "error_message" : "Invoice marked as sent",
+   "error" : 0
+}
+```
+
+#### Invalid post data
+  
+```json
+{
+    "error": 1,
+    "error_message": "Invalid post data"
+}
+```
+
+#### Wrong HTTP method
+```json
+{
+    "error": 2,
+    "error_message": "This method is POST only"
+}
+```
+
+#### Invalid JSON or no data   
+```json
+{
+    "error": 3,
+    "error_message": "Invalid invoice data"
+}
+```
+
+#### Invalid data
+
+In `error_messages` is list of validation errors.
+
+```json
+{
+    "error": 4,
+    "error_message": "Invalid email data",
+    "error_messages": []
+}
+```
+
+#### Invalid invoice ID  
+```json
+{
+    "error": 5,
+    "error_message": "Invalid invoice id"
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Send invoice via post
@@ -3498,132 +3549,7 @@ curl -X POST \
 ```
 
 
-
-## Set invoice as "will not be paid"
-
-Set invoice as "will not be paid".
-Only works for regular and proforma invoices.
-
-### Request
-
-**URL**: `/invoices/will_not_be_paid/{ID}`  
-**HTTP method**: GET  
-
-```sh
-curl -X GET \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/invoices/will_not_be_paid/1295
-```
-
-### Attributes
-#### Required
-
-URL parameters:
-
-| name   | type     | description | default value |
-| ------ | -------- | ----------- | ------------- |
-| **id** | int      | invoice ID  |               |
-
-#### Optional
-
-none
-
-### Response
-
-#### Successfully marked
-
-```json
-{
-    "data": {
-        "Invoice": {
-            "amount": "10.00",
-            "amount_paid": "0.00",
-            "client_data": "{\"Client\":{\"id\":\"431\",\"name\":\"2day, s. r. o.\",\"address\":\"Pri Suchom mlyne 6\",\"ico\":\"44981082\",\"email\":\"name.surname@superfaktura.sk\",\"zip\":\"811 04\",\"dic\":\"2022903949\",\"phone\":\"\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"ic_dph\":\"\",\"fax\":\"\",\"country_id\":\"191\",\"state\":\"\",\"delivery_name\":\"\",\"delivery_zip\":\"\",\"delivery_city\":\"\",\"delivery_address\":\"\",\"delivery_phone\":\"\",\"delivery_country_id\":\"191\",\"delivery_state\":\"\",\"updateClient\":\"0\",\"country\":\"Slovensko\",\"delivery_country\":\"Slovensko\"}}",
-            "client_id": "431",
-            "comment": "",
-            "constant": "",
-            "country_exchange_rate": "1.00000000",
-            "created": "2019-02-12 00:00:00",
-            "delivery": "2019-02-12 00:00:00",
-            "delivery_type": "",
-            "demo": "0",
-            "deposit": "0.00",
-            "discount": "0",
-            "due": "2019-02-26",
-            "estimate_id": null,
-            "exchange_rate": "1.00000000000000",
-            "header_comment": "",
-            "home_currency": "EUR",
-            "id": "1295",
-            "import_id": null,
-            "import_parent_id": null,
-            "import_type": null,
-            "internal_comment": null,
-            "invoice_currency": "EUR",
-            "invoice_no": "7",
-            "invoice_no_formatted": "2019007",
-            "issued_by": "superfaktura.sk, s.r.o.",
-            "issued_by_email": "api@example.com",
-            "issued_by_phone": "",
-            "issued_by_web": "",
-            "items_data": "item 1 description of item 1, ",
-            "items_name": null,
-            "lang": "slo",
-            "mask": "YYYYNNN",
-            "modified": "2019-02-18 09:31:47",
-            "my_data": "{\"MyData\":{\"id\":\"393\",\"user_id\":\"384\",\"user_profile_id\":\"\",\"country_id\":\"191\",\"company_name\":\"superfaktura.sk, s.r.o.\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"tax_payer\":\"1\",\"logo_key\":\"\",\"logo_id\":\"\",\"web\":\"\",\"Logo\":\"\",\"Signature\":\"\",\"travel_agencies\":\"0\",\"business_register\":\"Bratislava I, odd. Sro, vl.\\u010d.81403\\/B\",\"BankAccount\":[{\"show_account\":\"1\",\"id\":\"264\",\"default\":\"0\",\"country_id\":\"191\",\"bank_name\":\"FatraBanka\",\"bank_code\":\"\",\"account\":\"\",\"iban\":\" SK 31 1200 000019 8742637541\",\"swift\":\"9876\"},{\"show_account\":\"1\",\"id\":\"265\",\"default\":\"\",\"country_id\":\"191\",\"bank_name\":\"SuperBanka\",\"bank_code\":\"1200\",\"account\":\"8742637541\",\"iban\":\"\",\"swift\":\"\"}],\"update_profile\":\"0\",\"country\":\"Slovensko\"}}",
-            "name": "1291 - kopia",
-            "order_no": "",
-            "paid": "0.00",
-            "parent_id": null,
-            "paydate": null,
-            "payment_type": "",
-            "proforma_id": null,
-            "recurring": null,
-            "rounding": "item",
-            "sequence_id": "2815",
-            "special_vat_scheme": null,
-            "specific": "",
-            "status": "4",
-            "summary_invoice": null,
-            "tags": "",
-            "tax_document": "0",
-            "taxdate": "2019-02-12",
-            "token": "b940621e",
-            "type": "regular",
-            "user_id": "384",
-            "user_profile_id": "393",
-            "variable": "2019007",
-            "vat": "2.00",
-            "vat_transfer": "0"
-        }
-    },
-    "error": 0,
-    "error_message": "Document marked as \"will not be paid\""
-}
-```
-
-#### Wrong invoice
-
-```json
-{
-   "error" : 1,
-   "error_message" : "Document can not be canceled"
-}
-```
-
-#### Insufficient privileges
-
-```json
-{
-   "message" : "Nemáte právo meniť faktúru",
-   "error" : 1,
-   "error_message" : "Nemáte právo meniť faktúru"
-}
-```
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Mark invoice as sent
@@ -3677,104 +3603,189 @@ none
 ```
 
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-
-## Export invoices
-
-Export multiple invoices in PDF or XLS format.
+## Delete invoice item
 
 ### Request
+**URL**: `/invoice_items/delete/{ITEM_ID}/invoice_id:{INVOICE_ID}`  
+**HTTP method**: GET  
 
-**URL**: `/exports`  
-**HTTP method**: POST
+```
+curl -X GET \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/invoice_items/delete/1707/invoice_id:1285
+```
+
+
+### Attributes
+#### Required
+
+URL parameters:
+
+| name            | type         | description                                                           | default value |
+| --------------- | ------------ | --------------------------------------------------------------------- | ------------- |
+| **item_id**     | int / string | invoice item ID, if used as string, use comma to separate various IDs |               |
+| **invoice_id**  | int          | invoice ID                                                            |               |
+
+#### Optional
+none
+
+### Response
+
+#### Successful deletion
+```json
+{
+   "error" : 0,
+   "data" : {
+      "InvoiceItem" : [],
+      "Invoice" : {
+         "amount" : "0.00",
+         "amount_paid" : "0.00",
+         "client_data" : "{\"Client\":{\"id\":\"431\",\"name\":\"2day, s. r. o.\",\"address\":\"Pri Suchom mlyne 6\",\"ico\":\"44981082\",\"email\":\"\",\"zip\":\"811 04\",\"dic\":\"2022903949\",\"phone\":\"\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"ic_dph\":\"\",\"fax\":\"\",\"country_id\":\"191\",\"state\":\"\",\"delivery_name\":\"\",\"delivery_zip\":\"\",\"delivery_city\":\"\",\"delivery_address\":\"\",\"delivery_phone\":\"\",\"delivery_country_id\":\"191\",\"delivery_state\":\"\",\"updateClient\":\"0\",\"country\":\"Slovensko\",\"delivery_country\":\"Slovensko\"}}",
+         "client_id" : "431",
+         "comment" : "",
+         "constant" : "",
+         "country_exchange_rate" : "1.00000000",
+         "created" : "2019-01-30 00:00:00",
+         "delivery" : "2019-01-30 00:00:00",
+         "delivery_type" : "",
+         "demo" : "0",
+         "deposit" : "0.00",
+         "discount" : "0",
+         "due" : "2019-02-13",
+         "estimate_id" : null,
+         "exchange_rate" : "1.00000000000000",
+         "header_comment" : "",
+         "home_currency" : "EUR",
+         "id" : "1285",
+         "import_id" : null,
+         "import_parent_id" : null,
+         "import_type" : null,
+         "internal_comment" : null,
+         "invoice_currency" : "EUR",
+         "invoice_no" : "3",
+         "invoice_no_formatted" : "2019003",
+         "issued_by" : "superfaktura.sk, s.r.o.",
+         "issued_by_email" : "api@example.com",
+         "issued_by_phone" : "",
+         "issued_by_web" : "",
+         "items_data" : "",
+         "items_name" : null,
+         "lang" : "slo",
+         "mask" : "YYYYNNN",
+         "modified" : "2019-01-30 12:58:58",
+         "my_data" : "{\"MyData\":{\"id\":\"393\",\"user_id\":\"384\",\"user_profile_id\":\"\",\"country_id\":\"191\",\"company_name\":\"superfaktura.sk, s.r.o.\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"tax_payer\":\"1\",\"logo_key\":\"\",\"logo_id\":\"\",\"web\":\"\",\"Logo\":\"[{\\\"id\\\":\\\"168\\\",\\\"model\\\":\\\"User\\\",\\\"foreign_key\\\":\\\"393\\\",\\\"dirname\\\":\\\"img\\\",\\\"basename\\\":\\\"9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png\\\",\\\"checksum\\\":\\\"dd3300a5a4fc754b0f1361baa2ac2e3f\\\",\\\"group\\\":\\\"logo\\\",\\\"default\\\":\\\"1\\\",\\\"alternative\\\":null,\\\"created\\\":\\\"2019-01-23 08:37:27\\\",\\\"modified\\\":\\\"2019-01-23 08:39:56\\\"}]\",\"Signature\":\"{\\\"id\\\":\\\"169\\\",\\\"model\\\":\\\"User\\\",\\\"foreign_key\\\":\\\"393\\\",\\\"dirname\\\":\\\"img\\\",\\\"basename\\\":\\\"51ee3f8bbd61561eb5f0_393_podpis_1.png\\\",\\\"checksum\\\":\\\"33b5238616646ca28ebabc02f713a59f\\\",\\\"group\\\":\\\"signature\\\",\\\"default\\\":\\\"0\\\",\\\"alternative\\\":null,\\\"created\\\":\\\"2019-01-23 08:37:27\\\",\\\"modified\\\":\\\"2019-01-23 08:37:27\\\"}\",\"travel_agencies\":\"0\",\"business_register\":\"Bratislava I, odd. Sro, vl.\\u010d.81403\\/B\",\"BankAccount\":[{\"show_account\":\"1\",\"id\":\"264\",\"default\":\"0\",\"country_id\":\"191\",\"bank_name\":\"FatraBanka\",\"bank_code\":\"\",\"account\":\"\",\"iban\":\" SK 31 1200 000019 8742637541\",\"swift\":\"9876\"},{\"show_account\":\"1\",\"id\":\"265\",\"default\":\"\",\"country_id\":\"191\",\"bank_name\":\"SuperBanka\",\"bank_code\":\"1200\",\"account\":\"8742637541\",\"iban\":\"\",\"swift\":\"\"}],\"update_profile\":\"0\",\"country\":\"Slovensko\"}}",
+         "name" : "Faktúra 2019003",
+         "order_no" : "",
+         "paid" : "0.00",
+         "parent_id" : null,
+         "paydate" : null,
+         "payment_type" : "",
+         "proforma_id" : null,
+         "recurring" : null,
+         "rounding" : "item",
+         "sequence_id" : "2815",
+         "special_vat_scheme" : null,
+         "specific" : "",
+         "status" : "1",
+         "summary_invoice" : null,
+         "tags" : "",
+         "tax_document" : "0",
+         "taxdate" : "2019-01-30",
+         "token" : "aa582995",
+         "type" : "regular",
+         "user_id" : "384",
+         "user_profile_id" : "393",
+         "variable" : "2019003",
+         "vat" : "0.00",
+         "vat_transfer" : "0"
+      }
+   },
+   "error_message" : ""
+}
+```
+
+
+#### Error while deleting
+
+E.g. trying to delete already deleted item.
+
+```json
+{
+   "error" : 1,
+   "message" : "Chyba pri mazaní položky"
+}
+```
+
+
+#### Invalid request
+```json
+{
+   "error" : 3,
+   "error_message" : "Bad data format."
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Delete invoice payment
+
+Delete invoice payment.
+
+### Request
+**URL**: `/invoice_payments/delete/{PAYMENT_ID}`  
+**HTTP method**: GET  
 
 ```sh
-data='{
-    "Invoice":{
-        "ids":[1562,1561,1560]
-    },
-    "Export":{
-        "is_msel":true,
-        "invoices_pdf":true,
-        "merge_pdf":true,
-        "only_merge":true
-    }
-}';
-
-curl -X POST \
-    -d "data=$data" \
-    -o /output.pdf \
-    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/exports
-
-
-
-
-data='{
-    "Invoice":{
-        "ids":[1562,1561,1560]
-    },
-    "Export":{
-        "is_msel":true,
-        "invoices_xls":true
-    }
-}';
-
-curl -X POST \
-    -d "data=$data" \
-    -o /output.xls \
-    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/exports
-
-
-
-
-data='{
-    "Invoice":{
-        "ids":[1562,1561,1560]
-    },
-    "Export":{
-        "is_msel":true,
-        "invoices_pdf":true
-    }
-}';
-
-curl -X POST \
-    -d "data=$data" \
-    -o /output.zip \
-    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/exports
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/invoice_payments/delete/2
 ```
 
 ### Attributes
 #### Required
 
-##### Export
-| name                  | type | description                                         | default value |
-| --------------------- | ---- | --------------------------------------------------- | ------------- |
-| **msel**              | bool | is multiselect; needs to be `true` (required: true) |               |
-
-##### Invoice
-| name                  | type  | description | default value |
-| --------------------- | ----- | ----------- | ------------- |
-| **ids**               | array | list of IDs |               |
-
-#### Optional
-
-##### Export
-
-| name                      | type | description                        | default value |
-| ------------------------- | ---- | ---------------------------------- | ------------- |
-| **hide_pdf_payment_info** | bool | hide payment information           |             0 |
-| **hide_signature**        | bool | hide signature in invoices         |             0 |
-| **invoices_pdf**          | bool | export in PDF format               |             0 |
-| **invoices_xls**          | bool | export in XLS format               |             0 |
-| **merge_pdf**             | bool | only export merged PDF             |             0 |
-| **pdf_lang_default**      | bool | translate documents to default language (SK: Slovak, CZ: Czech) | 0 |
-| **pdf_sort_client**       | bool | sort documents by client           |             0 |
-| **pdf_sort_date**         | bool | sort documents by date             |             0 |
-
+| name           | type | description | default value |
+| -------------- | ---- | ----------- | ------------- |
+| **payment_id** | int  | payment ID  |               |
 
 ### Response
-PDF document on success.
+
+#### Successful deletion
+```json
+{
+   "error" : 0,
+   "invoice_id" : "16",
+   "paid" : "0.00",
+   "status" : 1,
+   "to_pay" : 30
+}
+```
+
+#### Payment not found 
+```json
+{
+   "message" : "Payment not found",
+   "error" : 1
+}
+```
+
+#### Unsuccessful deletion  
+```json
+{
+    "error": 1,
+    "message": "Error deleting payment"   
+}
+```
+
+#### Invalid ID
+```json
+{
+    "error": 1,
+    "message": "Invalid id for invoice payment"   
+}
+```

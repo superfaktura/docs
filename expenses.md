@@ -2,11 +2,14 @@
 
 - [Add expense](#add-expense)
 - [Edit expense](#edit-expense)
-- [Delete expense](#delete-expense)
-- [Delete expense payment](#delete-expense-payment)
-- [Get list of expenses](#get-list-of-expenses)
-- [Add expense payment](#add-expense-payment)
 - [Expense detail](#expense-detail)
+- [Get list of expenses](#get-list-of-expenses)
+- [Delete expense](#delete-expense)
+
+Expense payments  
+- [Add expense payment](#add-expense-payment)
+- [Delete expense payment](#delete-expense-payment)
+
 
 ## Add expense
 
@@ -163,7 +166,7 @@ HTTP status 400.
 ```
 
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Edit expense
@@ -268,164 +271,159 @@ HTTP status 403.
 }
 ```
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-## Delete expense
-
-Delete expense.
+## Expense detail
 
 ### Request
 
-**URL**: `/expenses/delete/{ID}`  
+**URL**: `/expense/edit/{ID}.json`  
 **HTTP method**: GET  
 
 ```sh
 curl -X GET \
-    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/expenses/delete/63
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/expenses/edit/64.json
 ```
 
-
 ### Attributes
-
 #### Required
+
 URL parameters:
 
 | name   | type   | description | default value |
 | ------ | ------ | ----------- | ------------- |
 | **id** | int    | expense ID  |               |
 
+#### Optional
+none
+
 ### Response
-#### Successful deletion
+
+#### Successfully show details
 ```json
 {
-   "data" : {
-      "Expense" : {
-         "amount" : "122.0000",
-         "amount2" : "0.0000",
-         "amount3" : "0.0000",
-         "amount_paid" : "0.00",
-         "client_id" : null,
-         "comment" : "",
-         "constant" : "",
-         "country_exchange_rate" : "1.00000000000000",
-         "created" : "2019-01-31 00:00:00",
+   "Tag" : [],
+   "ExpensePayment" : [
+      {
+         "amount" : "0.0000",
+         "created" : "31.01.2019",
          "currency" : "EUR",
-         "delivery" : "2019-01-31 00:00:00",
-         "demo" : "0",
-         "document_number" : "",
-         "due" : "2019-01-31 00:00:00",
-         "exchange_rate" : "1.00000000000000",
-         "expense_category_id" : null,
-         "id" : "63",
-         "modified" : "2019-01-31 10:14:37",
-         "name" : "test",
-         "paid" : "0.00",
-         "paydate" : null,
-         "recurring" : null,
-         "specific" : "",
-         "status" : "1",
-         "tags" : "",
-         "taxable_supply" : null,
-         "taxdate" : "2019-01-31",
-         "type" : "invoice",
+         "document_no" : "",
+         "exchange_rate" : 1,
+         "expense_id" : "64",
+         "force_paid" : "0",
+         "id" : "134",
+         "payment_type" : "transfer",
          "user_id" : "384",
          "user_profile_id" : "393",
-         "variable" : "",
-         "vat" : "20",
-         "vat2" : "0",
-         "vat3" : "10"
+         "vat" : "20.0000"
+      },
+      {
+         "amount" : "0.0000",
+         "created" : "31.01.2019",
+         "currency" : "EUR",
+         "document_no" : "",
+         "exchange_rate" : 1,
+         "expense_id" : "64",
+         "force_paid" : "0",
+         "id" : "137",
+         "payment_type" : "",
+         "user_id" : "384",
+         "user_profile_id" : "393",
+         "vat" : "0.0000"
+      },
+      {
+         "amount" : "11.0000",
+         "created" : "31.01.2019",
+         "currency" : "EUR",
+         "document_no" : "",
+         "exchange_rate" : 1,
+         "expense_id" : "64",
+         "force_paid" : "0",
+         "id" : "138",
+         "payment_type" : "",
+         "user_id" : "384",
+         "user_profile_id" : "393",
+         "vat" : "0.0000"
+      },
+      {
+         "amount" : "11.0000",
+         "created" : "31.01.2019",
+         "currency" : "AUD",
+         "document_no" : "",
+         "exchange_rate" : 1,
+         "expense_id" : "64",
+         "force_paid" : "0",
+         "id" : "139",
+         "payment_type" : "",
+         "user_id" : "384",
+         "user_profile_id" : "393",
+         "vat" : "0.0000"
       }
-   },
-   "error_message" : "",
-   "error" : 0
-}
-```
-
-#### Non existent ID
-```json
-{
-   "error": 1,
-   "error_message": "Expense id not found."
-}
-```
-
-#### Unsuccessful deletion  
-```json
-{
-    "error": 2,
-    "error_message": "Error deleting expense."
+   ],
+   "Client" : null,
+   "Expense" : {
+      "amount" : 100,
+      "amount2" : 0,
+      "amount3" : 0,
+      "amount_paid" : "37.92",
+      "client_id" : null,
+      "comment" : "",
+      "constant" : "",
+      "country_exchange_rate" : "1.00000000000000",
+      "created" : "2019-01-31 00:00:00",
+      "currency" : "EUR",
+      "delivery" : "2019-01-31 00:00:00",
+      "demo" : "0",
+      "document_number" : "",
+      "due" : "2019-01-31 00:00:00",
+      "exchange_rate" : "1.00000000000000",
+      "expense_category_id" : null,
+      "id" : "64",
+      "modified" : "2019-01-31 12:40:16",
+      "name" : "Nakladka",
+      "paid" : "37.92",
+      "paydate" : "2019-01-31 00:00:00",
+      "recurring" : null,
+      "specific" : "",
+      "status" : "2",
+      "tags" : "",
+      "taxable_supply" : null,
+      "taxdate" : "2019-01-31",
+      "type" : "invoice",
+      "user_id" : "384",
+      "user_profile_id" : "393",
+      "variable" : "",
+      "vat" : "20",
+      "vat2" : "0",
+      "vat3" : "10"
+   }
 }
 ```
 
 #### Insufficient privileges
 ```json
 {
+   "error_message" : "K tejto stránke nemáte prístup!",
    "error" : 1,
-   "message" : "Nemôžete zmazať túto položku",
-   "error_message" : "Nemôžete zmazať túto položku"
+   "message" : "K tejto stránke nemáte prístup!"
 }
 ```
 
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-
-## Delete expense payment
-
-Delete expense payment.
-
-### Request
-
-**URL**: `/expense_payments/delete/{PAYMENT_ID}`  
-**HTTP method**: GET  
-
-```sh
-curl -X GET \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/expense_payments/delete/133
-```
-
-### Attributes
-
-#### Required
-
-URL parameters:
-
-| name           | type | description | default value |
-| -------------- | ---- | ----------- | ------------- |
-| **payment_id** | int  | payment ID  |               |
-
-#### Optional
-none  
-
-### Response
-
-#### Successful deletion
+#### Wrong expense
 ```json
 {
-   "message": "Úhrada nákladu bola zmazaná",
-   "error": 0
+   "error_message" : "K tejto stránke nemáte prístup!",
+   "error" : 1,
+   "message" : "K tejto stránke nemáte prístup!"
 }
 ```
 
-#### Payment not found
-```json
-{
-   "message": "Payment not found",
-   "error": 1
-}
-```
 
-#### Unsuccessful deletion
-```json
-{
-   "error": 1,
-   "message": "Expense payment was not deleted"
-}
-```
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 ## Get list of expenses
@@ -599,6 +597,109 @@ URL parameters:
 ```
 
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Delete expense
+
+Delete expense.
+
+### Request
+
+**URL**: `/expenses/delete/{ID}`  
+**HTTP method**: GET  
+
+```sh
+curl -X GET \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/expenses/delete/63
+```
+
+
+### Attributes
+
+#### Required
+URL parameters:
+
+| name   | type   | description | default value |
+| ------ | ------ | ----------- | ------------- |
+| **id** | int    | expense ID  |               |
+
+### Response
+#### Successful deletion
+```json
+{
+   "data" : {
+      "Expense" : {
+         "amount" : "122.0000",
+         "amount2" : "0.0000",
+         "amount3" : "0.0000",
+         "amount_paid" : "0.00",
+         "client_id" : null,
+         "comment" : "",
+         "constant" : "",
+         "country_exchange_rate" : "1.00000000000000",
+         "created" : "2019-01-31 00:00:00",
+         "currency" : "EUR",
+         "delivery" : "2019-01-31 00:00:00",
+         "demo" : "0",
+         "document_number" : "",
+         "due" : "2019-01-31 00:00:00",
+         "exchange_rate" : "1.00000000000000",
+         "expense_category_id" : null,
+         "id" : "63",
+         "modified" : "2019-01-31 10:14:37",
+         "name" : "test",
+         "paid" : "0.00",
+         "paydate" : null,
+         "recurring" : null,
+         "specific" : "",
+         "status" : "1",
+         "tags" : "",
+         "taxable_supply" : null,
+         "taxdate" : "2019-01-31",
+         "type" : "invoice",
+         "user_id" : "384",
+         "user_profile_id" : "393",
+         "variable" : "",
+         "vat" : "20",
+         "vat2" : "0",
+         "vat3" : "10"
+      }
+   },
+   "error_message" : "",
+   "error" : 0
+}
+```
+
+#### Non existent ID
+```json
+{
+   "error": 1,
+   "error_message": "Expense id not found."
+}
+```
+
+#### Unsuccessful deletion  
+```json
+{
+    "error": 2,
+    "error_message": "Error deleting expense."
+}
+```
+
+#### Insufficient privileges
+```json
+{
+   "error" : 1,
+   "message" : "Nemôžete zmazať túto položku",
+   "error_message" : "Nemôžete zmazať túto položku"
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 
 ## Add expense payment
 
@@ -723,149 +824,59 @@ curl -X POST \
 ```
 
 
-## Expense detail
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Delete expense payment
+
+Delete expense payment.
 
 ### Request
 
-**URL**: `/expense/edit/{ID}.json`  
+**URL**: `/expense_payments/delete/{PAYMENT_ID}`  
 **HTTP method**: GET  
 
 ```sh
 curl -X GET \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/expenses/edit/64.json
+    https://moja.superfaktura.sk/expense_payments/delete/133
 ```
 
 ### Attributes
+
 #### Required
 
 URL parameters:
 
-| name   | type   | description | default value |
-| ------ | ------ | ----------- | ------------- |
-| **id** | int    | expense ID  |               |
+| name           | type | description | default value |
+| -------------- | ---- | ----------- | ------------- |
+| **payment_id** | int  | payment ID  |               |
 
 #### Optional
-none
+none  
 
 ### Response
 
-#### Successfully show details
+#### Successful deletion
 ```json
 {
-   "Tag" : [],
-   "ExpensePayment" : [
-      {
-         "amount" : "0.0000",
-         "created" : "31.01.2019",
-         "currency" : "EUR",
-         "document_no" : "",
-         "exchange_rate" : 1,
-         "expense_id" : "64",
-         "force_paid" : "0",
-         "id" : "134",
-         "payment_type" : "transfer",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "vat" : "20.0000"
-      },
-      {
-         "amount" : "0.0000",
-         "created" : "31.01.2019",
-         "currency" : "EUR",
-         "document_no" : "",
-         "exchange_rate" : 1,
-         "expense_id" : "64",
-         "force_paid" : "0",
-         "id" : "137",
-         "payment_type" : "",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "vat" : "0.0000"
-      },
-      {
-         "amount" : "11.0000",
-         "created" : "31.01.2019",
-         "currency" : "EUR",
-         "document_no" : "",
-         "exchange_rate" : 1,
-         "expense_id" : "64",
-         "force_paid" : "0",
-         "id" : "138",
-         "payment_type" : "",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "vat" : "0.0000"
-      },
-      {
-         "amount" : "11.0000",
-         "created" : "31.01.2019",
-         "currency" : "AUD",
-         "document_no" : "",
-         "exchange_rate" : 1,
-         "expense_id" : "64",
-         "force_paid" : "0",
-         "id" : "139",
-         "payment_type" : "",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "vat" : "0.0000"
-      }
-   ],
-   "Client" : null,
-   "Expense" : {
-      "amount" : 100,
-      "amount2" : 0,
-      "amount3" : 0,
-      "amount_paid" : "37.92",
-      "client_id" : null,
-      "comment" : "",
-      "constant" : "",
-      "country_exchange_rate" : "1.00000000000000",
-      "created" : "2019-01-31 00:00:00",
-      "currency" : "EUR",
-      "delivery" : "2019-01-31 00:00:00",
-      "demo" : "0",
-      "document_number" : "",
-      "due" : "2019-01-31 00:00:00",
-      "exchange_rate" : "1.00000000000000",
-      "expense_category_id" : null,
-      "id" : "64",
-      "modified" : "2019-01-31 12:40:16",
-      "name" : "Nakladka",
-      "paid" : "37.92",
-      "paydate" : "2019-01-31 00:00:00",
-      "recurring" : null,
-      "specific" : "",
-      "status" : "2",
-      "tags" : "",
-      "taxable_supply" : null,
-      "taxdate" : "2019-01-31",
-      "type" : "invoice",
-      "user_id" : "384",
-      "user_profile_id" : "393",
-      "variable" : "",
-      "vat" : "20",
-      "vat2" : "0",
-      "vat3" : "10"
-   }
+   "message": "Úhrada nákladu bola zmazaná",
+   "error": 0
 }
 ```
 
-#### Insufficient privileges
+#### Payment not found
 ```json
 {
-   "error_message" : "K tejto stránke nemáte prístup!",
-   "error" : 1,
-   "message" : "K tejto stránke nemáte prístup!"
+   "message": "Payment not found",
+   "error": 1
 }
 ```
 
-#### Wrong expense
+#### Unsuccessful deletion
 ```json
 {
-   "error_message" : "K tejto stránke nemáte prístup!",
-   "error" : 1,
-   "message" : "K tejto stránke nemáte prístup!"
+   "error": 1,
+   "message": "Expense payment was not deleted"
 }
 ```
