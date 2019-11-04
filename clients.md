@@ -14,7 +14,7 @@ Decision whether clients exists or is new is explained in the following table:
 | ----------------------- | ------ |
 | UUID                    | exists |
 | ID (IČO)                | exists |
-| Tax ID (DIČ)            | exists |
+| Tax ID (DIČ-sk)         | exists |
 | client ID               | exists |
 | client name and address | exists |
 | client name and email   | exists |
@@ -69,7 +69,7 @@ curl -X POST \
 | **delivery_phone**        | string | delivery phone                                                  | |
 | **delivery_state**        | string | delivery state (only for the USA)                               | |
 | **delivery_zip**          | string | delivery ZIP                                                    | |
-| **dic**                   | string | Tax ID (DIČ)                                                    | |
+| **dic**                   | string | Tax ID (DIČ-sk)                                                 | |
 | **discount**              | float  | discount                                                        | |
 | **distance**              | float  | distance from you to client (used in Logbook)                   | |
 | **dont_travel**           | int    | don't use this client in rides reconstruction (0 = no, 1 = yes) | |
@@ -77,7 +77,7 @@ curl -X POST \
 | **email**                 | string | email                                                           | |
 | **fax**                   | string | fax                                                             | |
 | **iban**                  | string | IBAN                                                            | |
-| **ic_dph**                | string | VAT ID (IČ DPH)                                                 | |
+| **ic_dph**                | string | VAT ID (IČ DPH🇸🇰, DIČ-cz)                                      | |
 | **ico**                   | string | ID (IČO)                                                        | |
 | **id**                    | int    | client ID                                                       | |
 | **name**                  | string | client name                                                     | |

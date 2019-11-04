@@ -217,11 +217,11 @@ At least one Invoice item must be specified.
 | **delivery_name**           | string | delivery country name | |
 | **delivery_phone**          | string | delivery phone number | |
 | **delivery_zip**            | string | delivery ZIP code | |
-| **dic**                     | string | Tax ID (DIČ) | |
+| **dic**                     | string | Tax ID (DIČ-sk) | |
 | **email**                   | string | email | |
 | **fax**                     | string | fax | |
 | **iban**                    | string | IBAN | |
-| **ic_dph**                  | string | VAT ID (IČ DPH) | |
+| **ic_dph**                  | string | VAT ID (IČ DPH🇸🇰, DIČ-cz) | |
 | **ico**                     | string | ID (IČO) | |
 | **match_address**           | int    | if this parameter is set, address is included in client searching | |
 | **phone**                   | string | phone number | |
@@ -314,8 +314,8 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 | **city**                 | string | my city                                   | |
 | **company_name**         | string | my company name                           | |
 | **country_id**           | string | country ID (see [Value lists > Country list](value-lists.md#country-list)) | |
-| **dic**                  | string | tax ID (DIČ)                              | |
-| **ic_dph**               | string | VAT ID (IČ DPH)                           | |
+| **dic**                  | string | tax ID (DIČ-sk)                           | |
+| **ic_dph**               | string | VAT ID (IČ DPH🇸🇰, DIČ-cz)                | |
 | **update_profile**       | int    | should profile be updated with these data | |
 | **zip**                  | string | ZIP code                                  | |
 

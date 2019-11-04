@@ -12,7 +12,7 @@ Examples are using `curl` (tip: if you are testing via `curl`, you can use `json
 
 ### [Intro](intro.md)
 
-General information - authentication, URLs, how to form request and `X-`headers.
+General information - authentication, URLs, DIČ, how to form request and `X-`headers.
 
 
 ### [FAQ](faq.md)

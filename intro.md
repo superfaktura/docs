@@ -87,3 +87,16 @@ You can get information about API requests limit with the following headers:
 ## Error messages
 
 Error messages can be translated to other languages, based on user account settings.
+
+
+## DIČ
+
+In our documentation we provide abbreviations _DIČ_ and _IČ DPH_ to help people unfamiliar with Tax ID and VAT ID.
+However, there is a difference between Slovak and Czech DIČ, so we decided to differentiate them with country suffix.
+
+| field    | English | 🇸🇰    | 🇨🇿 | in documentation      |
+| -------- | ------- | ------ | --- | --------------------- |
+| `ic_dph` | VAT ID  | IČ DPH | DIČ | `DIČ-cz`, `IČ DPH🇸🇰` |
+| `dic`    | Tax ID  | DIČ    |   - | `DIČ-sk`              |
+
+(https://en.wikipedia.org/wiki/VAT_identification_number)

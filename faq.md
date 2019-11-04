@@ -59,7 +59,7 @@ Thus you might see English / Czech / Slovak error messages.
 
 ## Have you got any testing account?
 
-No. You can however create a new company - fill just Tax ID (DIČ) (leave ID (IČO) empty),
+No. You can however create a new company - fill just VAT ID (or Tax ID in Slovak version) (leave ID (IČO) empty),
 and you get 30 days free premium account.
 If you need more time for testing, you can always write us an email :-)
 
