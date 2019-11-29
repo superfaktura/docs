@@ -4,17 +4,27 @@
 
 All API requests need authentication header. The header looks like this:
 ```
-Authorization: SFAPI email=YOUR@EMAIL.TLD&apikey=YOURTOKEN
+Authorization: SFAPI email=YOUR@EMAIL.TLD&apikey=YOURTOKEN&module=MODULE
 ```
 
 Third attribute, which is optional, is `company_id`.
 Then the header looks the following:
 
 ```
-Authorization: SFAPI email=YOUR@EMAIL.TLD&apikey=YOURTOKEN&company_id=YOUR_COMPANY_ID
+Authorization: SFAPI email=YOUR@EMAIL.TLD&apikey=YOURTOKEN&module=MODULE&company_id=YOUR_COMPANY_ID
 ```
 
-All 3 attributes can be found in your SuperFaktura account (*Tools > API access*)
+Attributes `email`, `apikey` and `company_id` can be found in your SuperFaktura account (*Tools > API access*).  
+Attribute `module` is name of your API module. If you are using a 3rd party module, use its name - e.g. `WordPress 5.2.3 (WC 3.8.0, WC SF 1.9.17)`.
+If you are making your own module, use some descriptive name, such as `MyCustomModule 1.0`.
+
+
+| Attribute  | required | Can be found in SuperFaktura? |
+| ---------- | -------- | ----------------------------- |
+| email      | yes      | yes                           |
+| apikey     | yes      | yes                           |
+| module     | yes      | no                            |
+| company_id | no       | yes                           |
 
 We recommend to create dedicated API user with role Administrator for using API.
 You can manage users in *Settings > Users*.
