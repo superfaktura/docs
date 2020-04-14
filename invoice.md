@@ -291,7 +291,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 | **unit_price**           | float  | price without VAT (or full price, if you are not a tax payer) | 0 |
 
 
-###### Accounting Detail
+###### AccountingDetail
 
 | name                  | type   | description                                     | default value |
 | --------------------- | ------ | ----------------------------------------------- | ------------- |
@@ -321,20 +321,21 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 
 
 
-##### Invoice Settings
+##### InvoiceSettings
 
-| name               | type   | description                               | default value |
-| ------------------ | ------ | ----------------------------------------- | ------------- |
-| **bysquare**       | bool   | show pay by square                        |               |
-| **language**       | string | invoice language  (for list of possible values see [Value lists > Language list](value-lists.md#language-list)) |               |
-| **online_payment** | bool   | show online payments                      |               |
-| **payment_info**   | bool   | show payment information                  |               |
-| **paypal**         | bool   | show PayPal                               |               |
-| **show_prices**    | bool   | show prices (only effective for delivery) |               |
-| **signature**      | bool   | show signature                            |               |
+| name                 | type   | description                                                                                                     | default value |
+| -------------------- | ------ | --------------------------------------------------------------------------------------------------------------- | ------------- |
+| **bysquare**         | bool   | show pay by square                                                                                              |               |
+| **callback_payment** | string | URL, which will be automatically called after adding payment to the invoice                                     |               |
+| **language**         | string | invoice language  (for list of possible values see [Value lists > Language list](value-lists.md#language-list)) |               |
+| **online_payment**   | bool   | show online payments                                                                                            |               |
+| **payment_info**     | bool   | show payment information                                                                                        |               |
+| **paypal**           | bool   | show PayPal                                                                                                     |               |
+| **show_prices**      | bool   | show prices (only effective for delivery)                                                                       |               |
+| **signature**        | bool   | show signature                                                                                                  |               |
 
 
-##### Invoice Extras
+##### InvoiceExtras
 
 | name                | type   | description                               | default value |
 | ------------------- | ------ | ----------------------------------------- | ------------- |
