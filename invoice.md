@@ -326,7 +326,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 | name                 | type   | description                                                                                                     | default value |
 | -------------------- | ------ | --------------------------------------------------------------------------------------------------------------- | ------------- |
 | **bysquare**         | bool   | show pay by square                                                                                              |               |
-| **callback_payment** | string | URL, which will be automatically called after adding payment to the invoice                                     |               |
+| **callback_payment** | string | URL, which will be automatically called after adding payment to the invoice. GET parameter `invoice_id` will be appended to the URL. If you send URL `https://example.com/callback/`, the callback URL for invoice_id 123 will be `https://example.com/callback/?invoice_id=123` or `https://example.com/callback/?invoice_id=123&secret_key={KEY}`. Parameter `secret_key` can be part of sent URL (`https://example.com/callback/?secret_key=SECRET-KEY`) or set in your profile. |               |
 | **language**         | string | invoice language  (for list of possible values see [Value lists > Language list](value-lists.md#language-list)) |               |
 | **online_payment**   | bool   | show online payments                                                                                            |               |
 | **payment_info**     | bool   | show payment information                                                                                        |               |
