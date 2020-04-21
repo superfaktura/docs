@@ -32,8 +32,22 @@ You can manage users in *Settings > Users*.
 
 ## POST data format
 
-Data sent via POST method are in `data` key, which holds a JSON object.
-Examples of data:
+Sent data are **not** in JSON format.
+Therefor you should set *Content-Type* to `application/x-www-form-urlencoded;charset=UTF-8`.
+You can find more in [examples section](examples/).
+
+How to form data:
+1. create JSON from data you want to send
+2. assign this JSON as string to POST `data` parameter
+
+Example:
+You want to send data `foo=bar`.
+Steps:
+1. JSON: `{foo:"bar"}`
+2. assign to `data` parameter `data={foo:"bar"}`
+
+
+Examples of data formats:
 
 ```
 data={"key":"value"}
