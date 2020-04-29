@@ -51,7 +51,7 @@ Sequence mask depends on language. You might see:
 - `RRRRCCC` (Slovak / Czech).
 
 
-## My error messages are different than those in examples
+## My error messages are different from those in examples
 
 Error messages might be localized based on your account settings.
 Thus you might see English / Czech / Slovak error messages.
@@ -120,3 +120,72 @@ data='{
 ```
 
 Get list of your tags via `/tags/index.json` (*Tags > Get list of tags*).
+
+
+
+## I did not receive response. What do I do?
+
+In case invoice creation did not return response - because of Internet failure, timeout or similar - it's possible to obtain response for this request and prevent duplicate creation of the same invoice.
+
+You can get a unique identifier (not `invoice_id`).
+This identifier is created on client side.
+Its maximum length is 32 characters.
+You can store there any original token you choose.
+
+
+**Steps:**
+1. build invoice data
+2. calculate checksum from data (preferably with unique piece of data - like order number)
+3. set `data[checksum]` in request
+
+
+If you fail to receive response, you can then call `/api_logs/getResponseByChecksum/CHECKSUM`.
+Response contains original response, which you didn't receive for the first time.
+Original response is possible to get for requests up to 3 months ago.
+`getResponseByChecksum` has to be checked for possible error response as well :)
+
+
+**Example:**  
+This example extends the minimal example of [invoice creation](invoice.md#add-invoice).
+
+```
+data='{
+    "checksum": "MY-UNIQUE-IDENTIFIER",
+    "Invoice":{
+        "name": "Test API"
+    },
+    "InvoiceItem":[
+        {
+            "description": "description of item 1",
+            "name": "item 1",
+            "tax": 20,
+            "unit_price": 10
+        }
+    ],
+    "Client":{
+        "ico": "44981082"
+    }
+}';
+
+#
+# This request won't return response
+#
+curl -X POST \
+    -d "data=$data" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/invoices/create
+
+
+#
+# Let's request the original response
+# You can actually try it even if the original responds successfully
+#
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/api_logs/getResponseByChecksum/MY-UNIQUE-IDENTIFIER
+
+#
+# Based on the result you can repeat creating the invoice
+# or not, if it was successfully created the first time
+#
+```
