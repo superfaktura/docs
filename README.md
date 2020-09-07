@@ -32,6 +32,10 @@ Value lists (also called "číselníky" in Slovak and Czech), to tell you possib
 
 Manage bank accounts.
 
+### [Cash register](cash-register.md)
+
+Manage cash registers.
+
 
 ### [Cash register item](cash-register-item.md)
 
