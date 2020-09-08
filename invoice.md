@@ -276,19 +276,20 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 
 ##### InvoiceItem
 
-| name                     | type   | description  | default value |
-| ------------------------ | ------ | ------------ | ------------- |
-| **description**          | string | invoice item description - will be displayed on invoice | |
-| **discount**             | float  | discount in percent | 0 |
-| **discount_description** | string | discount description | |
-| **load_data_from_stock** | int    | load data from stock? (0=no, 1=yes) | 0 |
-| **name**                 | string | item name | |
-| **quantity**             | float  | quantity | 1 |
-| **sku**                  | string | stock number | |
-| **stock_item_id**        | int    | 123 | |
-| **tax**                  | float  | VAT (if you are not a tax payer, use 0) | |
-| **unit**                 | string | unit (e.g. m, l, hour) | |
-| **unit_price**           | float  | price without VAT (or full price, if you are not a tax payer) | 0 |
+| name                      | type   | description  | default value |
+| ------------------------- | ------ | ------------ | ------------- |
+| **description**           | string | invoice item description - will be displayed on invoice | |
+| **discount**              | float  | discount in percent | 0 |
+| **discount_description**  | string | discount description | |
+| **load_data_from_stock**  | int    | load data from stock? (0=no, 1=yes) | 0 |
+| **name**                  | string | item name | |
+| **quantity**              | float  | quantity | 1 |
+| **sku**                   | string | stock number | |
+| **stock_item_id**         | int    | 123 | |
+| **tax**                   | float  | VAT (if you are not a tax payer, use 0) | |
+| **unit**                  | string | unit (e.g. m, l, hour) | |
+| **unit_price**            | float  | price without VAT (or full price, if you are not a tax payer) | 0 |
+| **use_document_currency** | int    | convert stock item to invoice currency (1 = enabled, 0 = disabled) | |
 
 
 ###### AccountingDetail
