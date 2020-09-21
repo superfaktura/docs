@@ -38,6 +38,19 @@ data='{
     }
 }';
 
+# example with Expense extra
+data='{
+    "Expense":{
+        "name": "Foo bar 2",
+        "currency": "NOK",
+        "amount": 12.14,
+        "vat": 21
+    },
+    "ExpenseExtra":{
+        "vat_transfer": 1
+    }
+}';
+
 
 curl -X POST \
     -d "data=$data" \
@@ -80,6 +93,8 @@ CURL_DATA
 
 #### Optional
 
+##### Expense
+
 | name                    | type   | description                                                         | default value |
 | ----------------------- | ------ | ------------------------------------------------------------------- | ------------- |
 | **attachment**          | string | base64 encoded attachment - max file size: 4MB, allowed types: `jpg`, `jpeg`, `png`, `tif`, `tiff`, `gif`, `pdf`, `tmp`, `xls`, `xlsx`, `ods`, `doc`, `docx`, `xml`, `csv`, `msg` | |
@@ -104,6 +119,12 @@ CURL_DATA
 | **vat**                 | string | VAT in percent                                                      | 0 |
 | **vat2**                | string | VAT in percent (when multiple VAT rates are necessary)              | 0 |
 | **vat3**                | string | VAT in percent (when multiple VAT rates are necessary)              | 0 |
+
+##### Expense extras
+
+| name                    | type   | description                                                         | default value |
+| ----------------------- | ------ | ------------------------------------------------------------------- | ------------- |
+| **vat_transfer**        | int    | Flag determines whether the document VAT is transfered to supplier  | |
 
 
 ### Response
