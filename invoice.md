@@ -260,8 +260,9 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 | **issued_by_phone**      | string   | who issued invoice (phone) | |
 | **issued_by_web**        | string   | website displayed on invoice | |
 | **logo_id**              | int      | logo ID | |
-| **order_no**             | string   | order number | |
+| **mark_sent**            | int      | mark invoice as sent via email (0=no, 1=yes) | |
 | **name**                 | string   | invoice name | |
+| **order_no**             | string   | order number | |
 | **parent_id**            | int      | invoice ID, that we want to cancel | |
 | **paydate**              | datetime | payment date (if set together with `already_paid=1`, the set date will be used) | |
 | **payment_type**         | string   | payment type (see [Value lists > Payment types](value-lists.md#payment-types))| |
