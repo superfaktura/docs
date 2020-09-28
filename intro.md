@@ -21,10 +21,10 @@ If you are making your own module, use some descriptive name, such as `MyCustomM
 
 | Attribute  | required | Can be found in SuperFaktura? |
 | ---------- | -------- | ----------------------------- |
-| email      | yes      | yes                           |
-| apikey     | yes      | yes                           |
-| module     | yes      | no                            |
-| company_id | no       | yes                           |
+| email      | ✅ yes    | ✅ yes                         |
+| apikey     | ✅ yes    | ✅ yes                         |
+| module     | ✅ yes    | ❌ no                          |
+| company_id | ❌ no     | ✅ yes                         |
 
 We recommend to create dedicated API user with role Administrator for using API.
 You can manage users in *Settings > Users*.

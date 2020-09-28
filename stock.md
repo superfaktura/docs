@@ -18,17 +18,18 @@ Adds item to stock
 
 ```sh
 data='{
-    "StockItem":{
-        "description":"Public description of this item",
-        "hide_in_autocomplete":1,
-        "internal_comment":"Secret comment",
-        "sku":"itemb1241",
-        "unit":"m",
-        "unit_price":19.95,
-        "vat":20,
-        "watch_stock":1,
-        "stock":123
-    }
+  "StockItem":{
+    "description":"Public description of this item",
+    "hide_in_autocomplete":1,
+    "internal_comment":"Secret comment",
+    "name":"Item B",
+    "sku":"itemb1241",
+    "unit":"m",
+    "unit_price":19.95,
+    "vat":20,
+    "watch_stock":1,
+    "stock":123
+  }
 }';
 
 curl -X POST \
@@ -65,28 +66,30 @@ none
 
 ```json
 {
-   "error" : 0,
-   "error_message" : "",
-   "data" : {
-      "StockItem" : {
-         "description" : "Public description of this item",
-         "hide_in_autocomplete" : 1,
-         "id" : "19",
-         "internal_comment" : "Secret comment",
-         "sku" : "itemb1241",
-         "stock" : 123,
-         "unit" : "m",
-         "unit_price" : 19.95,
-         "vat" : 20,
-         "watch_stock" : 1
-      },
-      "StockLog" : [
-         {
-            "quantity" : 123,
-            "note" : "Počiatočný stav skladu"
-         }
-      ]
-   }
+  "data": {
+    "StockItem": {
+      "description": "Public description of this item",
+      "hide_in_autocomplete": 1,
+      "id": "1",
+      "internal_comment": "Secret comment",
+      "name": "Item B",
+      "sku": "itemb1241",
+      "stock": 123,
+      "unit": "m",
+      "unit_price": 19.95,
+      "vat": 20,
+      "watch_stock": 1
+    },
+    "StockLog": [
+      {
+        "log_data": "{\"purchase_unit_price\":null,\"purchase_vat\":null,\"purchase_currency\":null,\"unit_price\":19.95,\"vat\":20,\"currency\":null}",
+        "note": "Počiatočný stav skladu",
+        "quantity": 123
+      }
+    ]
+  },
+  "error": 0,
+  "error_message": ""
 }
 ```
 
@@ -95,9 +98,9 @@ Status 400.
 
 ```sh
 {
-   "error" : 1,
-   "message" : "Chýbajúce údaje",
-   "error_message" : "Chýbajúce údaje"
+  "error": 1,
+  "error_message": "Chýbajúce údaje",
+  "message": "Chýbajúce údaje"
 }
 ```
 
@@ -106,9 +109,9 @@ Status 403.
 
 ```sh
 {
-   "error" : 1,
-   "message" : "Chýbajúce údaje",
-   "error_message" : "Chýbajúce údaje"
+  "error": 1,
+  "error_message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu.",
+  "message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu."
 }
 ```
 
@@ -127,11 +130,11 @@ Updates stock item
 
 ```sh
 data='{
-    "StockItem":{
-        "name":"Item B",
-        "unit":"kg",
-        "id":19
-    }
+  "StockItem":{
+    "name":"Item B",
+    "unit":"kg",
+    "id":1
+  }
 }';
 
 curl -X POST \
@@ -169,15 +172,33 @@ curl -X POST \
 #### Successful update
 ```json
 {
-   "error" : 0,
-   "error_message" : "",
-   "data" : {
-      "StockItem" : {
-         "id" : 19,
-         "name" : "Item B",
-         "unit" : "kg"
-      }
-   }
+  "data": {
+    "StockItem": {
+      "created": "2050-01-01 23:59:59",
+      "description": "Public description of this item",
+      "hide_in_autocomplete": true,
+      "id": 1,
+      "import_id": null,
+      "import_type": null,
+      "internal_comment": "Secret comment",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Item B",
+      "purchase_currency": null,
+      "purchase_unit_price": null,
+      "purchase_vat": null,
+      "sku": "itemb1241",
+      "stock": 123,
+      "stock_previous": 123,
+      "unit": "kg",
+      "unit_price": 19.95,
+      "user_id": "1",
+      "user_profile_id": "1",
+      "vat": 20,
+      "watch_stock": true
+    }
+  },
+  "error": 0,
+  "error_message": ""
 }
 ```
 
@@ -186,17 +207,17 @@ HTTP status 403
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Nemôžete editovať túto skladovú položku",
-   "message" : "Nemôžete editovať túto skladovú položku"
+  "error": 1,
+  "error_message": "Vaša <a href=\"https://pomoc.superfaktura.sk/mozu-moj-ucet-pouzivat-aj-moji-spolupracovnici/\">používateľská rola</a> nemôže vykonať túto akciu.",
+  "message": "Vaša <a href=\"https://pomoc.superfaktura.sk/mozu-moj-ucet-pouzivat-aj-moji-spolupracovnici/\">používateľská rola</a> nemôže vykonať túto akciu."
 }
 ```
 
 #### Wrong item ID
 ```json
 {
-   "error":2,
-   "error_message":"StockItem id not found."
+  "error": 2,
+  "error_message": "StockItem id not found."
 }
 ```
 
@@ -216,7 +237,7 @@ Get details about stock item.
 ```sh
 curl -X GET \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/stock_items/view/19
+    https://moja.superfaktura.sk/stock_items/view/1
 ```
 
 ### Attributes
@@ -238,27 +259,28 @@ none
 
 ```json
 {
-   "0" : {
-      "StockItem" : {
-         "created" : "2019-01-25 10:55:24",
-         "description" : "Public description of this item",
-         "hide_in_autocomplete" : null,
-         "id" : "19",
-         "import_id" : null,
-         "import_type" : null,
-         "internal_comment" : "Secret comment",
-         "modified" : "2019-01-30 13:56:54",
-         "name" : "Item B",
-         "sku" : "itemb1241",
-         "stock" : 138,
-         "unit" : "kg",
-         "unit_price" : 19.95,
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "vat" : 20,
-         "watch_stock" : "1"
-      }
-   }
+  "StockItem": {
+    "created": "2050-01-01 23:59:59",
+    "description": "Public description of this item",
+    "hide_in_autocomplete": true,
+    "id": "1",
+    "import_id": null,
+    "import_type": null,
+    "internal_comment": "Secret comment",
+    "modified": "2050-01-01 23:59:59",
+    "name": "Item B",
+    "purchase_currency": null,
+    "purchase_unit_price": null,
+    "purchase_vat": null,
+    "sku": "itemb1241",
+    "stock": 123,
+    "unit": "m",
+    "unit_price": 19.95,
+    "user_id": "1",
+    "user_profile_id": "1",
+    "vat": 20,
+    "watch_stock": true
+  }
 }
 ```
 
@@ -266,9 +288,9 @@ none
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Skladová položka nenájdená",
-   "message" : "Skladová položka nenájdená"
+  "error": 1,
+  "error_message": "Skladová položka nenájdená",
+  "message": "Skladová položka nenájdená"
 }
 ```
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -323,7 +345,7 @@ Fields:
 | **created_since**         | date   | creation date since  (requires `created:3`)   |               |
 | **created_to**            | date   | creation date to  (requires `created:3`)      |               |
 | **description**           | string | item description (is displayed on invoice)    |               |
-| **hide_in_autocomplete**  | int    | hide in autocomplete (null = no)              |               |
+| **hide_in_autocomplete**  | bool   | hide in autocomplete (null = no)              |               |
 | **id**                    | int    | item ID                                       |               |
 | **import_id**             | int    | import ID (if is not from import = null)      |               |
 | **import_type**           | string | import type ('efaktury' or `null`)            |               |
@@ -339,32 +361,35 @@ Fields:
 | **user_id**               | int    | user ID                                       |               |
 | **user_profile_id**       | int    | user profile ID                               |               |
 | **vat**                   | float  | VAT in percent (e.g. 20)                      |               |
-| **watch_stock**           | int    | track inventory level (0=no, 1=yes)           |               |
+| **watch_stock**           | bool   | track inventory level                         |               |
 
 ### Success
 ```json
 [
-   {
-      "StockItem" : {
-         "created" : "2017-09-27 12:40:02",
-         "description" : "",
-         "hide_in_autocomplete" : null,
-         "id" : "1234",
-         "import_id" : null,
-         "import_type" : null,
-         "internal_comment" : "",
-         "modified" : "2017-09-27 12:40:02",
-         "name" : "Maslo",
-         "sku" : "",
-         "stock" : 0,
-         "unit" : "ks",
-         "unit_price" : 4.5,
-         "user_id" : "111",
-         "user_profile_id" : "123",
-         "vat" : 0,
-         "watch_stock" : "1"
-      }
-   }
+  {
+    "StockItem": {
+      "created": "2050-01-01 23:59:59",
+      "description": "Public description of this item",
+      "hide_in_autocomplete": true,
+      "id": "1",
+      "import_id": null,
+      "import_type": null,
+      "internal_comment": "Secret comment",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Item B",
+      "purchase_currency": null,
+      "purchase_unit_price": null,
+      "purchase_vat": null,
+      "sku": "itemb1241",
+      "stock": 123,
+      "unit": "m",
+      "unit_price": 19.95,
+      "user_id": "1",
+      "user_profile_id": "1",
+      "vat": 20,
+      "watch_stock": true
+    }
+  }
 ]
 ```
 
@@ -372,33 +397,36 @@ Fields:
 
 ```json
 {
-   "page" : 1,
-   "perPage" : 50,
-   "pageCount" : 1,
-   "items" : [
-      {
-         "StockItem" : {
-            "created" : "2019-01-25 10:55:24",
-            "description" : "Public description of this item",
-            "hide_in_autocomplete" : "1",
-            "id" : "19",
-            "import_id" : null,
-            "import_type" : null,
-            "internal_comment" : "Secret comment",
-            "modified" : "2019-01-25 10:55:24",
-            "name" : "",
-            "sku" : "itemb1241",
-            "stock" : 123,
-            "unit" : "m",
-            "unit_price" : 19.95,
-            "user_id" : "384",
-            "user_profile_id" : "393",
-            "vat" : 20,
-            "watch_stock" : "1"
-         }
+  "itemCount": 1,
+  "items": [
+    {
+      "StockItem": {
+        "created": "2050-01-01 23:59:59",
+        "description": "Public description of this item",
+        "hide_in_autocomplete": true,
+        "id": "1",
+        "import_id": null,
+        "import_type": null,
+        "internal_comment": "Secret comment",
+        "modified": "2050-01-01 23:59:59",
+        "name": "Item B",
+        "purchase_currency": null,
+        "purchase_unit_price": null,
+        "purchase_vat": null,
+        "sku": "itemb1241",
+        "stock": 123,
+        "unit": "m",
+        "unit_price": 19.95,
+        "user_id": "1",
+        "user_profile_id": "1",
+        "vat": 20,
+        "watch_stock": true
       }
-   ],
-   "itemCount" : 1
+    }
+  ],
+  "page": 1,
+  "pageCount": 1,
+  "perPage": 50
 }
 ```
 
@@ -418,11 +446,11 @@ Delete stock item
 ```sh
 curl -X GET \
      -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-     https://moja.superfaktura.sk/stock_items/delete/196
+     https://moja.superfaktura.sk/stock_items/delete/1
 ```
 
 ```sh
-data='{"ids":"196,197"}';
+data='{"ids":"1,2"}';
 
 curl -X POST \
      -d "data=$data" \
@@ -448,38 +476,40 @@ none
 #### Successful deletion
 ```json
 {
-    "data" : {
-        "StockItem" : {
-            "created" : "2019-01-25 07:45:54",
-            "description" : "",
-            "hide_in_autocomplete" : null,
-            "id" : "18",
-            "import_id" : null,
-            "import_type" : null,
-            "internal_comment" : "",
-            "modified" : "2019-01-25 07:45:54",
-            "name" : "Vitamin A",
-            "sku" : "VitA",
-            "stock" : null,
-            "unit" : "",
-            "unit_price" : 10,
-            "user_id" : "384",
-            "user_profile_id" : "393",
-            "vat" : 20,
-            "watch_stock" : "0"
-        }
-    },
-    "error_message" : "",
-    "error" : 0
+  "data": {
+    "StockItem": {
+      "created": "2050-01-01 23:59:59",
+      "description": "Public description of this item",
+      "hide_in_autocomplete": true,
+      "id": "1",
+      "import_id": null,
+      "import_type": null,
+      "internal_comment": "Secret comment",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Item B",
+      "purchase_currency": null,
+      "purchase_unit_price": null,
+      "purchase_vat": null,
+      "sku": "itemb1241",
+      "stock": 123,
+      "unit": "m",
+      "unit_price": 19.95,
+      "user_id": "1",
+      "user_profile_id": "1",
+      "vat": 20,
+      "watch_stock": true
+    }
+  },
+  "error": 0,
+  "error_message": ""
 }
 ```
-
 
 #### Invalid item ID
 ```json
 {
-   "error_message" : "Invalid stock item id.",
-   "error" : 1
+  "error": 1,
+  "error_message": "Invalid stock item id."
 }
 ```
 
@@ -497,9 +527,9 @@ Returns HTTP status 403.
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Nemôžete zmazať túto skladovú položku",
-   "message" : "Nemôžete zmazať túto skladovú položku"
+  "error": 1,
+  "error_message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu.",
+  "message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu."
 }
 ```
 
@@ -554,24 +584,25 @@ Either `sku` or `stock_item_id` is required.
 
 ```json
 {
-   "error" : 0,
-   "error_message" : "",
-   "data" : {
-      "StockLog" : [
-         {
-            "id" : 0,
-            "quantity" : 2,
-            "stock_item_id" : "19"
-         }
-      ]
-   }
+  "data": {
+    "StockLog": [
+      {
+        "id": 0,
+        "quantity": 5,
+        "sku": "itemb1241",
+        "stock_item_id": "1"
+      }
+    ]
+  },
+  "error": 0,
+  "error_message": ""
 }
 ```
 
 #### Invalid data
 ```json
 {
-   "error" : 3,
-   "error_message" : "StockItem empty data."
+  "error": 3,
+  "error_message": "StockItem empty data."
 }
 ```

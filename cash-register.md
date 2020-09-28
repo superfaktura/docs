@@ -24,37 +24,37 @@ curl -X GET \
 
 ```json
 [
-   {
-      "CashRegister":{
-         "id":"1",
-         "user_id":"1",
-         "user_profile_id":"1",
-         "sequencein_id":"6",
-         "sequenceout_id":"7",
-         "eet_certificate_id":null,
-         "id_provoz":null,
-         "name":"cr2",
-         "currency":"EUR",
-         "description":"My Cash Register",
-         "items":"21",
-         "total":"106.00"
-      }
-   },
-   {
-      "CashRegister":{
-         "id":"6",
-         "user_id":"1",
-         "user_profile_id":"1",
-         "sequencein_id":"6",
-         "sequenceout_id":"7",
-         "eet_certificate_id":"1",
-         "id_provoz":"123234",
-         "name":"cr1",
-         "currency":"EUR",
-         "description":"My EET Cash Register",
-         "items":"3",
-         "total":"7.00"
-      }
-   }
+  {
+    "CashRegister": {
+      "currency": "CZK",
+      "description": "My EET Cash Register",
+      "eet_certificate_id": "1",
+      "id": "2",
+      "id_provoz": "123234",
+      "items": "2",
+      "name": "CR2-EET",
+      "sequencein_id": "6",
+      "sequenceout_id": "7",
+      "total": "1248.00",
+      "user_id": "1",
+      "user_profile_id": "1"
+    }
+  },
+  {
+    "CashRegister": {
+      "currency": "EUR",
+      "description": "My Cash Register",
+      "eet_certificate_id": null,
+      "id": "1",
+      "id_provoz": null,
+      "items": "3",
+      "name": "CR1",
+      "sequencein_id": "6",
+      "sequenceout_id": "7",
+      "total": "106.00",
+      "user_id": "1",
+      "user_profile_id": "1"
+    }
+  }
 ]
 ```

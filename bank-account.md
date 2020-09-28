@@ -16,12 +16,12 @@ Add new bank account.
 
 ```sh
 data='{
-    "bank_name":"NovaBanka",
-    "iban":"SK000011112222333344",
-    "swift":"suzuki",
-    "default":1,
-    "show":1,
-    "show_account":1
+    "bank_name": "NovaBanka",
+    "iban": "SK000011112222333344",
+    "swift": "suzuki",
+    "default": 1,
+    "show": 1,
+    "show_account": 1
 }';
 
 curl -X POST \
@@ -53,21 +53,21 @@ At least one of: `bank_name`, `iban`, `swift`, `bank_account`, `bank_code` is re
 #### Successful creation
 ```json
 {
-   "id" : {
-      "bank_name" : "NovaBanka",
-      "country_id" : "191",
-      "created" : "2019-01-23 09:37:20",
-      "default" : 1,
-      "iban" : "SK000011112222333344",
-      "id" : "267",
-      "modified" : "2019-01-23 09:37:20",
-      "show" : 1,
-      "show_account" : 1,
-      "swift" : "suzuki",
-      "user_id" : "384",
-      "user_profile_id" : "393"
-   },
-   "error" : 0
+  "BankAccount": {
+    "bank_name": "NovaBanka",
+    "country_id": "191",
+    "created": "2050-01-01 23:59:59",
+    "default": 1,
+    "iban": "SK000011112222333344",
+    "id": "2",
+    "modified": "2050-01-01 23:59:59",
+    "show": 1,
+    "show_account": 1,
+    "swift": "suzuki",
+    "user_id": "1",
+    "user_profile_id": "1"
+  },
+  "error": 0
 }
 ```
 
@@ -107,13 +107,13 @@ Update bank account specified by ID.
 ```sh
 data='{
     "bank_name":"StaroNovaBanka",
-    "swift":"99999"
+    "swift":"77777"
 }';
 
 curl -X POST \
      -d "data=$data" \
      -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-     https://moja.superfaktura.sk/bank_accounts/update/267
+     https://moja.superfaktura.sk/bank_accounts/update/1
 ```
 
 ### Attributes
@@ -132,8 +132,8 @@ none
 #### Successful update
 ```json
 {
-   "error" : "0",
-   "message" : "{\"BankAccount\":{\"id\":\"267\",\"user_id\":\"384\",\"user_profile_id\":\"393\",\"default\":\"1\",\"show\":\"1\",\"country_id\":\"191\",\"bank_name\":\"StaroNovaBanka\",\"bank_code\":\"\",\"account\":\"\",\"iban\":\"SK000011112222333344\",\"swift\":\"99999\",\"created\":\"2019-01-23 09:37:20\",\"modified\":\"2019-01-23 09:37:20\"}}"
+  "error": "0",
+  "message": "{\"BankAccount\":{\"account\":\"\",\"bank_code\":\"\",\"bank_name\":\"StaroNovaBanka\",\"default\":true,\"iban\":\"SK012345678901234567890000\",\"show\":true,\"swift\":\"77777\",\"id\":\"1\",\"user_id\":\"1\",\"user_profile_id\":\"1\",\"modified\":\"2050-01-01 23:59:59\"}}"
 }
 ```
 
@@ -141,9 +141,9 @@ none
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Nemáte právo meniť účet",
-   "message" : "Nemáte právo meniť účet"
+  "error": 1,
+  "error_message": "Nemáte právo meniť účet",
+  "message": "Nemáte právo meniť účet"
 }
 ```
 
@@ -151,9 +151,9 @@ none
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Chýbajúce údaje",
-   "message" : "Chýbajúce údaje"
+  "error": 1,
+  "error_message": "Chýbajúce údaje",
+  "message": "Chýbajúce údaje"
 }
 ```
 
@@ -161,9 +161,9 @@ none
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Účet neexistuje",
-   "message" : "Účet neexistuje"
+  "error": 1,
+  "error_message": "Účet neexistuje",
+  "message": "Účet neexistuje"
 }
 ```
 
@@ -185,7 +185,7 @@ Delete bank account specified by ID.
 ```sh
 curl -X POST \
      -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-     https://moja.superfaktura.sk/bank_accounts/delete/267
+     https://moja.superfaktura.sk/bank_accounts/delete/1
 ```
 
 ### Attributes
@@ -206,8 +206,8 @@ none
 #### Successful deletion
 ```json
 {
-   "error" : "0",
-   "message" : "{\"message\":\"Bankov\\u00fd \\u00fa\\u010det zmazan\\u00fd\"}"
+  "error": "0",
+  "message": "{\"message\":\"Bankov\\u00fd \\u00fa\\u010det zmazan\\u00fd\"}"
 }
 ```
 
@@ -215,9 +215,9 @@ none
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Nemáte právo zmazať účet",
-   "message" : "Nemáte právo zmazať účet"
+  "error": 1,
+  "error_message": "Nemáte právo zmazať účet",
+  "message": "Nemáte právo zmazať účet"
 }
 ```
 
@@ -225,9 +225,9 @@ none
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Účet neexistuje",
-   "message" : "Účet neexistuje"
+  "error": 1,
+  "error_message": "Účet neexistuje",
+  "message": "Účet neexistuje"
 }
 ```
 
@@ -262,43 +262,27 @@ none
 #### Success
 ```json
 {
-   "error" : 0,
-   "BankAccounts" : [
-      {
-         "BankAccount" : {
-            "account" : "",
-            "bank_code" : "",
-            "bank_name" : "FatraBanka",
-            "country_id" : "191",
-            "created" : "2019-01-23 08:38:47",
-            "default" : "0",
-            "iban" : " SK 31 1200 000019 8742637541",
-            "id" : "264",
-            "modified" : "2019-01-23 09:35:38",
-            "show" : "1",
-            "swift" : "9876",
-            "user_id" : "384",
-            "user_profile_id" : "393"
-         }
-      },
-      {
-         "BankAccount" : {
-            "account" : "8742637541",
-            "bank_code" : "1200",
-            "bank_name" : "SuperBanka",
-            "country_id" : "191",
-            "created" : "2019-01-23 08:39:56",
-            "default" : null,
-            "iban" : "",
-            "id" : "265",
-            "modified" : "2019-01-23 08:39:56",
-            "show" : "1",
-            "swift" : "",
-            "user_id" : "384",
-            "user_profile_id" : "393"
-         }
+  "BankAccounts": [
+    {
+      "BankAccount": {
+        "account": "",
+        "bank_code": "",
+        "bank_name": "FatraBanka",
+        "country_id": "191",
+        "created": "2050-01-01 23:59:59",
+        "currency": null,
+        "default": true,
+        "iban": "SK012345678901234567890000",
+        "id": "1",
+        "modified": "2050-01-01 23:59:59",
+        "show": true,
+        "swift": "SUZUKI",
+        "user_id": "1",
+        "user_profile_id": "1"
       }
-   ]
+    }
+  ],
+  "error": 0
 }
 ```
 
@@ -306,7 +290,7 @@ none
 
 ```json
 {
-   "error" : 1,
-   "message" : "No bank account found"
+  "error": 1,
+  "message": "Nenašiel sa žiaden bankový účet"
 }
 ```

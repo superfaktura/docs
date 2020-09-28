@@ -15,11 +15,11 @@ Add new contact person to existing client.
 
 ```sh
 data='{
-    "ContactPerson":{
-        "client_id":431,
-        "name":"John",
-        "email":"john@example.com"
-    }
+  "ContactPerson":{
+    "client_id":1,
+    "name":"John",
+    "email":"john@example.com"
+  }
 }';
 
 curl -X POST \
@@ -50,19 +50,19 @@ curl -X POST \
 
 ```json
 {
-   "state" : "SUCCESS",
-   "data" : {
-      "ContactPerson" : {
-         "modified" : "2019-02-05 08:31:49",
-         "user_profile_id" : "393",
-         "name" : "John",
-         "client_id" : 431,
-         "id" : "13",
-         "created" : "2019-02-05 08:31:49",
-         "user_id" : "384",
-         "email" : "john@example.com"
-      }
-   }
+  "data": {
+    "ContactPerson": {
+      "client_id": 1,
+      "created": "2050-01-01 23:59:59",
+      "email": "john@example.com",
+      "id": "2",
+      "modified": "2050-01-01 23:59:59",
+      "name": "John",
+      "user_id": "1",
+      "user_profile_id": "1"
+    }
+  },
+  "state": "SUCCESS"
 }
 ```
 
@@ -70,9 +70,9 @@ curl -X POST \
 
 ```json
 {
-   "state" : "ERROR",
-   "error" : 1,
-   "message" : "Client not found. Please check client_id field."
+  "error": 1,
+  "message": "Client not found. Please check client_id field.",
+  "state": "ERROR"
 }
 ```
 
@@ -82,9 +82,9 @@ HTTP status 403
 
 ```json
 {
-   "error" : 1,
-   "message" : "Nemôžete pridať kontaktnú osobu",
-   "error_message" : "Nemôžete pridať kontaktnú osobu"
+  "error": 1,
+  "error_message": "Nemôžete pridať kontaktnú osobu",
+  "message": "Nemôžete pridať kontaktnú osobu"
 }
 ```
 
@@ -104,7 +104,7 @@ Get list of contact persons for client.
 ```sh
 curl -X GET \
     -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/contact_people/getContactPeople/431
+    https://moja.superfaktura.sk/contact_people/getContactPeople/3
 ```  
 
 ### Attributes
@@ -124,79 +124,80 @@ none
 #### Successful
 ```json
 [
-   {
-      "ContactPerson" : {
-         "client_id" : "431",
-         "created" : "2019-02-05 08:31:49",
-         "email" : "john@example.com",
-         "id" : "13",
-         "modified" : "2019-02-05 08:31:49",
-         "name" : "John",
-         "phone" : null,
-         "user_id" : "384",
-         "user_profile_id" : "393"
-      }
-   },
-   {
-      "ContactPerson" : {
-         "address" : "Pri Suchom mlyne 6",
-         "bank_account" : "",
-         "bank_account_id" : null,
-         "bank_account_prefix" : null,
-         "bank_code" : "",
-         "city" : "Bratislava - mestská časť Staré Mesto",
-         "client" : true,
-         "comment" : "",
-         "country" : null,
-         "country_id" : "191",
-         "created" : "2019-01-23 08:41:37",
-         "currency" : null,
-         "default_variable" : "",
-         "delivery_address" : "",
-         "delivery_city" : "",
-         "delivery_country" : null,
-         "delivery_country_id" : "191",
-         "delivery_name" : "",
-         "delivery_phone" : "",
-         "delivery_state" : "",
-         "delivery_zip" : "",
-         "dic" : "2022903949",
-         "discount" : null,
-         "distance" : null,
-         "dont_travel" : null,
-         "due_date" : null,
-         "email" : "name.surname@superfaktura.sk",
-         "fax" : "",
-         "iban" : "",
-         "ic_dph" : "",
-         "ico" : "44981082",
-         "id" : "431",
-         "modified" : "2019-02-04 12:21:27",
-         "name" : "2day, s. r. o.",
-         "notices" : "1",
-         "phone" : "",
-         "state" : "",
-         "swift" : "",
-         "tags" : null,
-         "update" : "1",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "uuid" : "NULL",
-         "zip" : "811 04"
-      }
-   }
+  {
+    "ContactPerson": {
+      "client_id": "3",
+      "created": "2050-01-01 23:59:59",
+      "email": "janko.hrasko@example.com",
+      "id": "1",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Janko Hrasko",
+      "phone": null,
+      "user_id": "1",
+      "user_profile_id": "1"
+    }
+  },
+  {
+    "ContactPerson": {
+      "account": null,
+      "address": "Pri Suchom mlyne 6",
+      "bank_account": "",
+      "bank_account_id": "0",
+      "bank_account_prefix": null,
+      "bank_code": "",
+      "city": "Bratislava - mestská časť Staré Mesto",
+      "client": true,
+      "comment": "",
+      "country": "Slovensko",
+      "country_id": "191",
+      "created": "2050-01-01 23:59:59",
+      "currency": null,
+      "default_variable": "",
+      "delivery_address": "",
+      "delivery_city": "",
+      "delivery_country": "Slovensko",
+      "delivery_country_id": "191",
+      "delivery_name": "",
+      "delivery_phone": "",
+      "delivery_state": "",
+      "delivery_zip": "",
+      "dic": "2023513470",
+      "discount": null,
+      "distance": null,
+      "dont_travel": false,
+      "due_date": null,
+      "email": "",
+      "fax": "",
+      "iban": "",
+      "ic_dph": "SK2023513470",
+      "ico": "46655034",
+      "id": "3",
+      "modified": "2050-01-01 23:59:59",
+      "name": "SuperFaktura, s.r.o.",
+      "notices": true,
+      "phone": "",
+      "state": "",
+      "swift": "",
+      "tags": null,
+      "update": "4",
+      "user_id": "1",
+      "user_profile_id": "1",
+      "uuid": null,
+      "zip": "811 04"
+    }
+  }
 ]
 ```
- 
+
 #### Wrong client
 
 ```json
 [
-   {
-      "ContactPerson" : {
-         "client" : true
-      }
-   }
+  {
+    "ContactPerson": {
+      "client": true
+    }
+  }
 ]
 ```
 
@@ -216,7 +217,7 @@ Deletes contact person from client.
 ```sh
 curl -X GET \
     -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/contact_people/delete/16
+    https://moja.superfaktura.sk/contact_people/delete/1
 ```  
 
 ### Attributes
@@ -235,13 +236,18 @@ none
 
 #### Successful deletion
 ```json
-{"error":0}
+{
+  "error": 0
+}
 ```
- 
+
+
 #### Wrong contact person
 
 ```json
-{"error":1}
+{
+  "error": 1
+}
 ```
 
 
@@ -250,8 +256,8 @@ HTTP status 403
 
 ```json
 {
-   "error_message" : "Nemôžete vymazať kontaktnú osobu",
-   "error" : 1,
-   "message" : "Nemôžete vymazať kontaktnú osobu"
+  "error": 1,
+  "error_message": "Nemôžete vymazať kontaktnú osobu",
+  "message": "Nemôžete vymazať kontaktnú osobu"
 }
 ``` 

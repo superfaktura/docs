@@ -23,7 +23,13 @@ If you want to add tags to expense, refer to [FAQ > How do I add tags to an enti
 
 ```sh
 # simple example
-data='{"Expense":{"name":"Foo bar","currency":"NOK","amount":12.14}}';
+data='{
+  "Expense": {
+    "name": "Foo bar",
+    "currency": "EUR",
+    "amount": 12.14
+  }
+}';
 
 # multiple VAT rates example
 data='{
@@ -132,25 +138,128 @@ CURL_DATA
 #### Successful creation
 ```json
 {
-   "data" : {
-      "Expense" : {
-         "amount" : 12.14,
-         "created" : "2019-02-11 00:00:00",
-         "currency" : "NOK",
-         "delivery" : "2019-02-11 00:00:00",
-         "due" : "2019-02-11 00:00:00",
-         "exchange_rate" : 9.7693,
-         "id" : "75",
-         "name" : "Foo bar",
-         "taxable_supply" : null,
-         "type" : "invoice",
-         "variable" : "",
-         "vat" : 0
+  "data": {
+    "Client": [],
+    "Document": [],
+    "Expense": {
+      "amount": 12.14,
+      "amount2": null,
+      "amount3": null,
+      "amount_country_home": "12.1400",
+      "amount_home": "12.1400",
+      "amount_paid": 0,
+      "amount_paid_vat": 0,
+      "client_data": null,
+      "client_id": null,
+      "comment": null,
+      "constant": null,
+      "country_exchange_rate": "1.00000000000000",
+      "created": "2050-01-01 23:59:59",
+      "currency": "EUR",
+      "delivery": "2050-01-01 23:59:59",
+      "demo": "0",
+      "discount": "0",
+      "discount_total": "0.0000",
+      "document_number": null,
+      "due": "2050-01-01 23:59:59",
+      "exchange_rate": "1.00000000000000",
+      "expense_category_id": null,
+      "expense_no": "1",
+      "flag": "issued",
+      "home_currency": "EUR",
+      "id": "1",
+      "missing_bank_account": true,
+      "modified": "2050-01-01 23:59:59",
+      "my_data": "{\"id\":\"1\",\"user_id\":\"1\",\"country_id\":\"191\",\"company_name\":\"SuperFaktura, s.r.o.\",\"name\":null,\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"business_register\":\"Obchodn\\u00fd register Okresn\\u00e9ho s\\u00fadu Bratislava I, oddiel: Sro, vlo\\u017eka \\u010d. 81403\\/B\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"tax_payer\":\"1\",\"vat_interval\":null,\"company_type\":\"ltd\"}",
+      "name": "Foo bar",
+      "number": "2020001",
+      "paid": 0,
+      "paid_vat": 0,
+      "paydate": null,
+      "qr": "",
+      "qr_type": "",
+      "qr_url": "",
+      "qr_url_max": "",
+      "rates": [],
+      "recurring": null,
+      "sequence_id": "9",
+      "specific": null,
+      "status": "1",
+      "tags": null,
+      "tax": null,
+      "tax_code": null,
+      "taxable_supply": null,
+      "taxdate": "2050-01-01",
+      "total": "12.1400",
+      "total_country_home": "12.1400",
+      "total_home": "12.1400",
+      "type": "invoice",
+      "user_id": "1",
+      "user_profile_id": "1",
+      "variable": null,
+      "vat": 0,
+      "vat2": null,
+      "vat3": null,
+      "version": "basic"
+    },
+    "ExpenseBasicRate": [
+      {
+        "amount": "12.1400",
+        "id": "1",
+        "tax": "0.00",
+        "total": "12.1400"
       }
-   },
-   "error" : 0,
-   "error_message" : "",
-   "status" : 1
+    ],
+    "ExpenseExtra": [],
+    "ExpenseItem": [
+      {
+        "description": null,
+        "discount": "0.00000",
+        "discount_description": null,
+        "id": "1",
+        "name": null,
+        "ordernum": "0",
+        "quantity": "1.00000",
+        "stock_item_id": null,
+        "tax": "0.00",
+        "total": "12.1400",
+        "type": "rate",
+        "unit": null,
+        "unit_price": "12.1400",
+        "unit_total": "12.1400"
+      }
+    ],
+    "ExpensePayment": [],
+    "MyData": {
+      "address": "Pri Suchom mlyne 6",
+      "business_register": "Obchodný register Okresného súdu Bratislava I, oddiel: Sro, vložka č. 81403/B",
+      "city": "Bratislava - mestská časť Staré Mesto",
+      "company_name": "SuperFaktura, s.r.o.",
+      "company_type": "ltd",
+      "country_id": "191",
+      "dic": "2023513470",
+      "ic_dph": "SK2023513470",
+      "ico": "46655034",
+      "id": "1",
+      "name": null,
+      "tax_payer": "1",
+      "user_id": "1",
+      "vat_interval": null,
+      "zip": "811 04"
+    },
+    "RelatedItem": [],
+    "Tag": [],
+    "VatSummary": [
+      {
+        "base": 12.14,
+        "vat": 0
+      }
+    ],
+    "attachments": []
+  },
+  "error": 0,
+  "error_message": "",
+  "status": 1
 }
 ```
 
@@ -159,19 +268,21 @@ HTTP status 403.
 
 ```json
 {
-   "error_message" : "Nemáte právo vytvárať náklady",
-   "message" : "Nemáte právo vytvárať náklady",
-   "error" : 1
+  "error": 1,
+  "error_message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu.",
+  "message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu."
 }
 ```
 
 #### Not enough data
 ```json
 {
-   "error_message" : {
-      "name" : "Táto položka nemôže ostať nevyplnená"
-   },
-   "error" : 1
+  "error": 1,
+  "error_message": {
+    "name": [
+      "Zadajte názov"
+    ]
+  }
 }
 ```
 
@@ -180,9 +291,9 @@ HTTP status 400.
 
 ```json
 {
-   "error" : 1,
-   "message" : "Chýbajúce údaje",
-   "error_message" : "Chýbajúce údaje"
+  "error": 1,
+  "error_message": "Chýbajúce údaje",
+  "message": "Chýbajúce údaje"
 }
 ```
 
@@ -194,7 +305,7 @@ HTTP status 400.
 
 Edit expense.
 
-It's strongly recommended to fetch data for expense, change required values, and then request edit.
+It's strongly recommended fetching data for expense, change required values, and then request edit.
 If you want to add tags to expense, refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity).
 
 ### Request
@@ -204,13 +315,13 @@ If you want to add tags to expense, refer to [FAQ > How do I add tags to an enti
 
 ```sh
 data='{
-    "Expense":{
-        "id":"77",
-        "name":"Foo bar",
-        "currency":"NOK",
-        "amount":19.95,
-        "due":"2014-01-01"
-    }
+  "Expense":{
+    "id":"1",
+    "name":"Foo bar",
+    "currency":"EUR",
+    "amount":19.95,
+    "due":"2148-01-01"
+  }
 }';
 
 curl -X POST \
@@ -235,39 +346,145 @@ Same as for **Add expense**. With the exception of *name* is optional.
 #### Successfully edited
 ```json
 {
-   "data" : {
-      "Expense" : {
-         "amount" : 19.95,
-         "created" : "2019-02-11 00:00:00",
-         "currency" : "NOK",
-         "delivery" : "2019-02-11 00:00:00",
-         "due" : "2014-01-01 00:00:00",
-         "expense_category_id" : null,
-         "id" : "77",
-         "name" : "Foo bar",
-         "taxable_supply" : null,
-         "vat" : 0
-      },
-      "Document" : null
-   },
-   "error_message" : "",
-   "error" : 0
+  "data": {
+    "Client": [],
+    "Document": [],
+    "Expense": {
+      "amount": 19.95,
+      "amount2": null,
+      "amount3": null,
+      "amount_country_home": "19.9500",
+      "amount_home": "19.9500",
+      "amount_paid": 0,
+      "amount_paid_vat": 0,
+      "client_data": null,
+      "client_id": null,
+      "comment": null,
+      "constant": null,
+      "country_exchange_rate": "1.00000000000000",
+      "created": "2050-01-01 23:59:59",
+      "currency": "EUR",
+      "delivery": "2050-01-01 23:59:59",
+      "demo": "0",
+      "discount": "0",
+      "discount_total": "0.0000",
+      "document_number": null,
+      "due": "2148-01-01 00:00:00",
+      "exchange_rate": "1.00000000000000",
+      "expense_category_id": null,
+      "expense_no": "1",
+      "flag": "issued",
+      "home_currency": "EUR",
+      "id": "1",
+      "missing_bank_account": true,
+      "modified": "2050-01-01 23:59:59",
+      "my_data": "{\"id\":\"1\",\"user_id\":\"1\",\"country_id\":\"191\",\"company_name\":\"SuperFaktura, s.r.o.\",\"name\":null,\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"business_register\":\"Obchodn\\u00fd register Okresn\\u00e9ho s\\u00fadu Bratislava I, oddiel: Sro, vlo\\u017eka \\u010d. 81403\\/B\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"tax_payer\":\"1\",\"vat_interval\":null,\"company_type\":\"ltd\"}",
+      "name": "Foo bar",
+      "number": "2020001",
+      "paid": 0,
+      "paid_vat": 0,
+      "paydate": null,
+      "qr": "",
+      "qr_type": "",
+      "qr_url": "",
+      "qr_url_max": "",
+      "rates": [],
+      "recurring": null,
+      "sequence_id": "9",
+      "specific": null,
+      "status": "1",
+      "tags": null,
+      "tax": null,
+      "tax_code": null,
+      "taxable_supply": null,
+      "taxdate": "2050-01-01",
+      "total": "19.9500",
+      "total_country_home": "19.9500",
+      "total_home": "19.9500",
+      "type": "invoice",
+      "user_id": "1",
+      "user_profile_id": "1",
+      "variable": null,
+      "vat": 0,
+      "vat2": null,
+      "vat3": null,
+      "version": "basic"
+    },
+    "ExpenseBasicRate": [
+      {
+        "amount": "19.9500",
+        "id": "1",
+        "tax": "0.00",
+        "total": "19.9500"
+      }
+    ],
+    "ExpenseExtra": [],
+    "ExpenseItem": [
+      {
+        "description": null,
+        "discount": "0.00000",
+        "discount_description": null,
+        "id": "1",
+        "name": null,
+        "ordernum": "0",
+        "quantity": "1.00000",
+        "stock_item_id": null,
+        "tax": "0.00",
+        "total": "19.9500",
+        "type": "rate",
+        "unit": null,
+        "unit_price": "19.9500",
+        "unit_total": "19.9500"
+      }
+    ],
+    "ExpensePayment": [],
+    "MyData": {
+      "address": "Pri Suchom mlyne 6",
+      "business_register": "Obchodný register Okresného súdu Bratislava I, oddiel: Sro, vložka č. 81403/B",
+      "city": "Bratislava - mestská časť Staré Mesto",
+      "company_name": "SuperFaktura, s.r.o.",
+      "company_type": "ltd",
+      "country_id": "191",
+      "dic": "2023513470",
+      "ic_dph": "SK2023513470",
+      "ico": "46655034",
+      "id": "1",
+      "name": null,
+      "tax_payer": "1",
+      "user_id": "1",
+      "vat_interval": null,
+      "zip": "811 04"
+    },
+    "RelatedItem": [],
+    "Tag": [],
+    "VatSummary": [
+      {
+        "base": 19.95,
+        "vat": 0
+      }
+    ],
+    "attachments": []
+  },
+  "error": 0,
+  "error_message": "",
+  "status": 1
 }
 ```
 
 #### Bad data format / missing expense ID
 ```json
 {
-   "error" : "3",
-   "message" : "Bad data format."
+  "error": 3,
+  "error_message": "Bad data format."
 }
 ```
 
 #### Wrong expense
 ```json
 {
-   "error" : "2",
-   "message" : "Expense id no found."
+  "error": 1,
+  "error_message": "Expense not found",
+  "message": "Expense not found"
 }
 ```
 
@@ -277,9 +494,9 @@ HTTP status 403.
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Nemáte právo editovať tento náklad",
-   "message" : "Nemáte právo editovať tento náklad"
+  "error": 1,
+  "error_message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu.",
+  "message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu."
 }
 ```
 
@@ -300,13 +517,13 @@ HTTP status 403.
 
 ### Request
 
-**URL**: `/expense/edit/{ID}.json`  
+**URL**: `/expense/view/{ID}.json`  
 **HTTP method**: GET  
 
 ```sh
 curl -X GET \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/expenses/edit/64.json
+    https://moja.superfaktura.sk/expenses/view/1.json
 ```
 
 ### Attributes
@@ -326,120 +543,137 @@ none
 #### Successfully show details
 ```json
 {
-   "Tag" : [],
-   "ExpensePayment" : [
-      {
-         "amount" : "0.0000",
-         "created" : "31.01.2019",
-         "currency" : "EUR",
-         "document_no" : "",
-         "exchange_rate" : 1,
-         "expense_id" : "64",
-         "force_paid" : "0",
-         "id" : "134",
-         "payment_type" : "transfer",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "vat" : "20.0000"
-      },
-      {
-         "amount" : "0.0000",
-         "created" : "31.01.2019",
-         "currency" : "EUR",
-         "document_no" : "",
-         "exchange_rate" : 1,
-         "expense_id" : "64",
-         "force_paid" : "0",
-         "id" : "137",
-         "payment_type" : "",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "vat" : "0.0000"
-      },
-      {
-         "amount" : "11.0000",
-         "created" : "31.01.2019",
-         "currency" : "EUR",
-         "document_no" : "",
-         "exchange_rate" : 1,
-         "expense_id" : "64",
-         "force_paid" : "0",
-         "id" : "138",
-         "payment_type" : "",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "vat" : "0.0000"
-      },
-      {
-         "amount" : "11.0000",
-         "created" : "31.01.2019",
-         "currency" : "AUD",
-         "document_no" : "",
-         "exchange_rate" : 1,
-         "expense_id" : "64",
-         "force_paid" : "0",
-         "id" : "139",
-         "payment_type" : "",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "vat" : "0.0000"
+  "Client": [],
+  "Document": [],
+  "Expense": {
+    "amount": 12.14,
+    "amount2": null,
+    "amount3": null,
+    "amount_country_home": "12.1400",
+    "amount_home": "12.1400",
+    "amount_paid": 0,
+    "amount_paid_vat": 0,
+    "client_data": null,
+    "client_id": null,
+    "comment": null,
+    "constant": null,
+    "country_exchange_rate": "1.00000000000000",
+    "created": "2050-01-01 23:59:59",
+    "currency": "EUR",
+    "delivery": "2050-01-01 23:59:59",
+    "demo": "0",
+    "discount": "0",
+    "discount_total": "0.0000",
+    "document_number": null,
+    "due": "2050-01-01 23:59:59",
+    "exchange_rate": "1.00000000000000",
+    "expense_category_id": null,
+    "expense_no": "1",
+    "flag": "issued",
+    "home_currency": "EUR",
+    "id": "1",
+    "missing_bank_account": true,
+    "modified": "2050-01-01 23:59:59",
+    "my_data": "{\"id\":\"1\",\"user_id\":\"1\",\"country_id\":\"191\",\"company_name\":\"SuperFaktura, s.r.o.\",\"name\":null,\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"business_register\":\"Obchodn\\u00fd register Okresn\\u00e9ho s\\u00fadu Bratislava I, oddiel: Sro, vlo\\u017eka \\u010d. 81403\\/B\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"tax_payer\":\"1\",\"vat_interval\":null,\"company_type\":\"ltd\"}",
+    "name": "Foo bar",
+    "number": "2020001",
+    "paid": 0,
+    "paid_vat": 0,
+    "paydate": null,
+    "qr": "",
+    "qr_type": "",
+    "qr_url": "",
+    "qr_url_max": "",
+    "rates": {
+      "0.00": {
+        "base": 12.14,
+        "vat": 0
       }
-   ],
-   "Client" : null,
-   "Expense" : {
-      "amount" : 100,
-      "amount2" : 0,
-      "amount3" : 0,
-      "amount_paid" : "37.92",
-      "client_id" : null,
-      "comment" : "",
-      "constant" : "",
-      "country_exchange_rate" : "1.00000000000000",
-      "created" : "2019-01-31 00:00:00",
-      "currency" : "EUR",
-      "delivery" : "2019-01-31 00:00:00",
-      "demo" : "0",
-      "document_number" : "",
-      "due" : "2019-01-31 00:00:00",
-      "exchange_rate" : "1.00000000000000",
-      "expense_category_id" : null,
-      "id" : "64",
-      "modified" : "2019-01-31 12:40:16",
-      "name" : "Nakladka",
-      "paid" : "37.92",
-      "paydate" : "2019-01-31 00:00:00",
-      "recurring" : null,
-      "specific" : "",
-      "status" : "2",
-      "tags" : "",
-      "taxable_supply" : null,
-      "taxdate" : "2019-01-31",
-      "type" : "invoice",
-      "user_id" : "384",
-      "user_profile_id" : "393",
-      "variable" : "",
-      "vat" : "20",
-      "vat2" : "0",
-      "vat3" : "10"
-   }
-}
-```
-
-#### Insufficient privileges
-```json
-{
-   "error_message" : "K tejto stránke nemáte prístup!",
-   "error" : 1,
-   "message" : "K tejto stránke nemáte prístup!"
+    },
+    "recurring": null,
+    "sequence_id": "9",
+    "specific": null,
+    "status": "1",
+    "tags": null,
+    "tax": null,
+    "tax_code": null,
+    "taxable_supply": null,
+    "taxdate": "2050-01-01",
+    "total": "12.1400",
+    "total_country_home": "12.1400",
+    "total_home": "12.1400",
+    "type": "invoice",
+    "user_id": "1",
+    "user_profile_id": "1",
+    "variable": null,
+    "vat": 0,
+    "vat2": null,
+    "vat3": null,
+    "version": "basic"
+  },
+  "ExpenseBasicRate": [
+    {
+      "amount": "12.1400",
+      "id": "1",
+      "tax": "0.00",
+      "total": "12.1400"
+    }
+  ],
+  "ExpenseExtra": [],
+  "ExpenseItem": [
+    {
+      "description": null,
+      "discount": "0.00000",
+      "discount_description": null,
+      "id": "1",
+      "name": null,
+      "ordernum": "0",
+      "quantity": "1.00000",
+      "stock_item_id": null,
+      "tax": "0.00",
+      "total": "12.1400",
+      "type": "rate",
+      "unit": null,
+      "unit_price": "12.1400",
+      "unit_total": "12.1400"
+    }
+  ],
+  "ExpensePayment": [],
+  "MyData": {
+    "address": "Pri Suchom mlyne 6",
+    "business_register": "Obchodný register Okresného súdu Bratislava I, oddiel: Sro, vložka č. 81403/B",
+    "city": "Bratislava - mestská časť Staré Mesto",
+    "company_name": "SuperFaktura, s.r.o.",
+    "company_type": "ltd",
+    "country_id": "191",
+    "dic": "2023513470",
+    "ic_dph": "SK2023513470",
+    "ico": "46655034",
+    "id": "1",
+    "name": null,
+    "tax_payer": "1",
+    "user_id": "1",
+    "vat_interval": null,
+    "zip": "811 04"
+  },
+  "RelatedItem": [],
+  "Tag": [],
+  "VatSummary": [
+    {
+      "base": 12.14,
+      "vat": 0
+    }
+  ],
+  "attachments": []
 }
 ```
 
 #### Wrong expense
 ```json
 {
-   "error_message" : "K tejto stránke nemáte prístup!",
-   "error" : 1,
-   "message" : "K tejto stránke nemáte prístup!"
+  "error": 1,
+  "error_message": "Expense not found",
+  "message": "Expense not found"
 }
 ```
 
@@ -500,120 +734,147 @@ URL parameters:
 
 ```json
 {
-   "items" : [
-      {
-         "0" : {
-            "paid" : "0.0000",
-            "paid_date" : null,
-            "to_pay" : "12.000000",
-            "total" : "12.00"
-         },
-         "Expense" : {
-            "amount" : "10.0000",
-            "amount2" : "0.0000",
-            "amount3" : "0.0000",
-            "amount_paid" : "0.00",
-            "client_id" : null,
-            "comment" : "",
-            "constant" : "",
-            "country_exchange_rate" : "1.00000000000000",
-            "created" : "2019-02-01 00:00:00",
-            "currency" : "EUR",
-            "delivery" : "2019-02-01 00:00:00",
-            "demo" : "0",
-            "document_number" : "",
-            "due" : "2019-02-01 00:00:00",
-            "exchange_rate" : "1.00000000000000",
-            "expense_category_id" : null,
-            "flag" : "issued",
-            "id" : "65",
-            "modified" : "2019-02-01 10:05:47",
-            "name" : "naklad 1",
-            "paid" : "0.00",
-            "paydate" : null,
-            "recurring" : null,
-            "specific" : "",
-            "status" : "1",
-            "tags" : "",
-            "taxable_supply" : null,
-            "taxdate" : "2019-02-01",
-            "type" : "bill",
-            "user_id" : "384",
-            "user_profile_id" : "393",
-            "variable" : "",
-            "vat" : "20",
-            "vat2" : "0",
-            "vat3" : "10"
-         },
-         "Client" : {
-            "address" : null,
-            "bank_account" : null,
-            "bank_account_id" : null,
-            "bank_account_prefix" : null,
-            "bank_code" : null,
-            "city" : null,
-            "comment" : null,
-            "country" : null,
-            "country_id" : null,
-            "created" : null,
-            "currency" : null,
-            "default_variable" : null,
-            "delivery_address" : null,
-            "delivery_city" : null,
-            "delivery_country" : null,
-            "delivery_country_id" : null,
-            "delivery_name" : null,
-            "delivery_phone" : null,
-            "delivery_state" : null,
-            "delivery_zip" : null,
-            "dic" : null,
-            "discount" : null,
-            "distance" : null,
-            "dont_travel" : null,
-            "due_date" : null,
-            "email" : null,
-            "fax" : null,
-            "iban" : null,
-            "ic_dph" : null,
-            "ico" : null,
-            "id" : null,
-            "modified" : null,
-            "name" : null,
-            "notices" : null,
-            "phone" : null,
-            "state" : null,
-            "swift" : null,
-            "tags" : null,
-            "update" : null,
-            "user_id" : null,
-            "user_profile_id" : null,
-            "uuid" : null,
-            "zip" : null
-         },
-         "Document" : {
-            "alternative" : null,
-            "basename" : null,
-            "checksum" : null,
-            "created" : null,
-            "default" : null,
-            "dirname" : null,
-            "foreign_key" : null,
-            "group" : null,
-            "id" : null,
-            "model" : null,
-            "modified" : null
-         },
-         "ExpenseCategory" : {
-            "id" : null,
-            "name" : null
-         }
-      }
-   ],
-   "filtered" : false,
-   "page" : 2,
-   "perPage" : 1,
-   "pageCount" : 5,
-   "itemCount" : 5
+  "itemCount": 3,
+  "items": [
+    {
+      "ActivityLog": [
+        {
+          "ActivityLog": {
+            "client_id": "0",
+            "created": "2050-01-01 23:59:59",
+            "data": "{\"Expense\":{\"amount\":\"12.14\",\"currency\":\"EUR\",\"name\":\"Foo bar\",\"created\":\"2050-01-01\",\"sequence_id\":\"9\",\"number\":\"2020002\",\"expense_no\":2,\"delivery\":\"2050-01-01\",\"due\":\"2050-01-01\",\"my_data\":\"{\\\"id\\\":\\\"1\\\",\\\"user_id\\\":\\\"1\\\",\\\"country_id\\\":\\\"191\\\",\\\"company_name\\\":\\\"SuperFaktura, s.r.o.\\\",\\\"name\\\":null,\\\"ico\\\":\\\"46655034\\\",\\\"dic\\\":\\\"2023513470\\\",\\\"ic_dph\\\":\\\"SK2023513470\\\",\\\"business_register\\\":\\\"Obchodn\\\\u00fd register Okresn\\\\u00e9ho s\\\\u00fadu Bratislava I, oddiel: Sro, vlo\\\\u017eka \\\\u010d. 81403\\\\\\/B\\\",\\\"address\\\":\\\"Pri Suchom mlyne 6\\\",\\\"city\\\":\\\"Bratislava - mestsk\\\\u00e1 \\\\u010das\\\\u0165 Star\\\\u00e9 Mesto\\\",\\\"zip\\\":\\\"811 04\\\",\\\"tax_payer\\\":\\\"1\\\",\\\"vat_interval\\\":null,\\\"company_type\\\":\\\"ltd\\\"}\",\"type\":\"invoice\",\"home_currency\":\"EUR\",\"user_id\":\"1\",\"user_profile_id\":\"1\",\"modified\":\"2050-01-01 23:59:59\",\"taxdate\":\"2050-01-01\",\"id\":\"2\"},\"ExpenseItem\":[{\"ExpenseItem\":{\"id\":0,\"type\":\"rate\",\"name\":\"\",\"description\":\"\",\"quantity\":\"1\",\"unit\":\"\",\"discount\":\"0\",\"unit_price\":\"12.14\",\"tax\":\"0\",\"unit_total\":12.14,\"total\":\"12.14\",\"quantity_previous\":0,\"ordernum\":0,\"user_id\":\"1\",\"user_profile_id\":\"1\"}}],\"source\":\"API\"}",
+            "event_type": "create",
+            "item_id": "2",
+            "item_type": "expense",
+            "user_id": "1"
+          },
+          "User": {
+            "email": "api@example.com",
+            "name": null
+          }
+        }
+      ],
+      "Client": [],
+      "Document": [],
+      "Expense": {
+        "amount": "12.1400",
+        "amount2": null,
+        "amount3": null,
+        "amount_country_home": "12.1400",
+        "amount_home": "12.1400",
+        "amount_paid": 0,
+        "amount_paid_vat": 0,
+        "client_data": null,
+        "client_id": null,
+        "comment": null,
+        "constant": null,
+        "country_exchange_rate": "1.00000000000000",
+        "created": "2050-01-01",
+        "currency": "EUR",
+        "delivery": "2050-01-01",
+        "demo": "0",
+        "discount": "0",
+        "discount_total": "0.0000",
+        "document_number": null,
+        "due": "2050-01-01",
+        "exchange_rate": "1.00000000000000",
+        "expense_category_id": null,
+        "expense_no": "2",
+        "flag": "issued",
+        "home_currency": "EUR",
+        "id": "2",
+        "missing_bank_account": true,
+        "modified": "2050-01-01 23:59:59",
+        "my_data": "{\"id\":\"1\",\"user_id\":\"1\",\"country_id\":\"191\",\"company_name\":\"SuperFaktura, s.r.o.\",\"name\":null,\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"business_register\":\"Obchodn\\u00fd register Okresn\\u00e9ho s\\u00fadu Bratislava I, oddiel: Sro, vlo\\u017eka \\u010d. 81403\\/B\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"tax_payer\":\"1\",\"vat_interval\":null,\"company_type\":\"ltd\"}",
+        "name": "Foo bar",
+        "number": "2020002",
+        "paid": 0,
+        "paid_vat": 0,
+        "paydate": null,
+        "qr": "",
+        "qr_type": "",
+        "qr_url": "",
+        "qr_url_max": "",
+        "rates": [],
+        "recurring": null,
+        "sequence_id": "9",
+        "specific": null,
+        "status": "1",
+        "tags": null,
+        "tax": null,
+        "tax_code": null,
+        "taxable_supply": null,
+        "taxdate": "2050-01-01",
+        "total": "12.1400",
+        "total_country_home": "12.1400",
+        "total_home": "12.1400",
+        "type": "invoice",
+        "user_id": "1",
+        "user_profile_id": "1",
+        "variable": null,
+        "vat": "0.0000",
+        "vat2": null,
+        "vat3": null,
+        "version": "basic"
+      },
+      "ExpenseBasicRate": [
+        {
+          "amount": "12.1400",
+          "id": "2",
+          "tax": "0.00",
+          "total": "12.1400"
+        }
+      ],
+      "ExpenseExtra": [],
+      "ExpenseItem": [
+        {
+          "description": null,
+          "discount": "0.00000",
+          "discount_description": null,
+          "id": "2",
+          "name": null,
+          "ordernum": "0",
+          "quantity": "1.00000",
+          "stock_item_id": null,
+          "tax": "0.00",
+          "total": "12.1400",
+          "type": "rate",
+          "unit": null,
+          "unit_price": "12.1400",
+          "unit_total": "12.1400"
+        }
+      ],
+      "ExpensePayment": [],
+      "MyData": {
+        "address": "Pri Suchom mlyne 6",
+        "business_register": "Obchodný register Okresného súdu Bratislava I, oddiel: Sro, vložka č. 81403/B",
+        "city": "Bratislava - mestská časť Staré Mesto",
+        "company_name": "SuperFaktura, s.r.o.",
+        "company_type": "ltd",
+        "country_id": "191",
+        "dic": "2023513470",
+        "ic_dph": "SK2023513470",
+        "ico": "46655034",
+        "id": "1",
+        "name": null,
+        "tax_payer": "1",
+        "user_id": "1",
+        "vat_interval": null,
+        "zip": "811 04"
+      },
+      "RelatedItem": [],
+      "Tag": [],
+      "VatSummary": [
+        {
+          "base": 12.14,
+          "vat": 0
+        }
+      ]
+    }
+  ],
+  "page": 2,
+  "pageCount": 3,
+  "perPage": 1
 }
 ```
 
@@ -633,7 +894,7 @@ Delete expense.
 ```sh
 curl -X GET \
     -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/expenses/delete/63
+    https://moja.superfaktura.sk/expenses/delete/1
 ```
 
 
@@ -650,71 +911,33 @@ URL parameters:
 #### Successful deletion
 ```json
 {
-   "data" : {
-      "Expense" : {
-         "amount" : "122.0000",
-         "amount2" : "0.0000",
-         "amount3" : "0.0000",
-         "amount_paid" : "0.00",
-         "client_id" : null,
-         "comment" : "",
-         "constant" : "",
-         "country_exchange_rate" : "1.00000000000000",
-         "created" : "2019-01-31 00:00:00",
-         "currency" : "EUR",
-         "delivery" : "2019-01-31 00:00:00",
-         "demo" : "0",
-         "document_number" : "",
-         "due" : "2019-01-31 00:00:00",
-         "exchange_rate" : "1.00000000000000",
-         "expense_category_id" : null,
-         "id" : "63",
-         "modified" : "2019-01-31 10:14:37",
-         "name" : "test",
-         "paid" : "0.00",
-         "paydate" : null,
-         "recurring" : null,
-         "specific" : "",
-         "status" : "1",
-         "tags" : "",
-         "taxable_supply" : null,
-         "taxdate" : "2019-01-31",
-         "type" : "invoice",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "variable" : "",
-         "vat" : "20",
-         "vat2" : "0",
-         "vat3" : "10"
-      }
-   },
-   "error_message" : "",
-   "error" : 0
+  "message": "Expense deleted",
+  "status": "success"
 }
 ```
 
 #### Non existent ID
 ```json
 {
-   "error": 1,
-   "error_message": "Expense id not found."
-}
-```
-
-#### Unsuccessful deletion  
-```json
-{
-    "error": 2,
-    "error_message": "Error deleting expense."
+  "error": 1,
+  "error_message": "Expense not found",
+  "message": "Expense not found"
 }
 ```
 
 #### Insufficient privileges
 ```json
 {
-   "error" : 1,
-   "message" : "Nemôžete zmazať túto položku",
-   "error_message" : "Nemôžete zmazať túto položku"
+  "message": "Expense was not deleted",
+  "status": "error"
+}
+```
+
+#### Unsuccessful deletion
+```json
+{
+    "error": 2,
+    "error_message": "Error deleting expense."
 }
 ```
 
@@ -733,18 +956,11 @@ Pays expense.
 
 ```sh
 data='{
-    "ExpensePayment":{
-        "expense_id":64
-    }
-}';
-
-# another data example
-data='{
-    "ExpensePayment":{
-        "expense_id":64,
-        "currency":"NOK",
-        "amount":12
-    }
+  "ExpensePayment":{
+    "expense_id":1,
+    "currency":"EUR",
+    "amount":12
+  }
 }';
 
 curl -X POST \
@@ -776,71 +992,94 @@ curl -X POST \
 #### Successfully added
 ```json
 {
-   "error_message" : "Úhrada bola uložená",
-   "error" : 0,
-   "data" : {
-      "ExpensePayment" : {
-         "amount" : 11,
-         "created" : "2019-01-31",
-         "currency" : "AUD",
-         "exchange_rate" : 1,
-         "expense_id" : 64,
-         "id" : "139"
-      },
-      "Expense" : {
-         "amount" : "100.0000",
-         "amount2" : "0.0000",
-         "amount3" : "0.0000",
-         "amount_paid" : "37.92",
-         "client_id" : null,
-         "comment" : "",
-         "constant" : "",
-         "country_exchange_rate" : "1.00000000000000",
-         "created" : "2019-01-31 00:00:00",
-         "currency" : "EUR",
-         "delivery" : "2019-01-31 00:00:00",
-         "demo" : "0",
-         "document_number" : "",
-         "due" : "2019-01-31 00:00:00",
-         "exchange_rate" : "1.00000000000000",
-         "expense_category_id" : null,
-         "id" : "64",
-         "modified" : "2019-01-31 12:40:16",
-         "name" : "Nakladka",
-         "paid" : "37.92",
-         "paydate" : "2019-01-31 00:00:00",
-         "recurring" : null,
-         "specific" : "",
-         "status" : "2",
-         "tags" : "",
-         "taxable_supply" : null,
-         "taxdate" : "2019-01-31",
-         "type" : "invoice",
-         "user_id" : "384",
-         "user_profile_id" : "393",
-         "variable" : "",
-         "vat" : "20",
-         "vat2" : "0",
-         "vat3" : "10"
-      }
-   }
+  "data": {
+    "ExpensePayment": {
+      "amount": 12,
+      "currency": "EUR",
+      "expense_id": 1,
+      "id": "1"
+    }
+  },
+  "error": 0,
+  "expense": {
+    "amount": "12.1400",
+    "amount2": null,
+    "amount3": null,
+    "amount_country_home": "12.1400",
+    "amount_home": "12.1400",
+    "amount_paid": 12,
+    "amount_paid_vat": 12,
+    "client_data": null,
+    "client_id": null,
+    "comment": null,
+    "constant": null,
+    "country_exchange_rate": "1.00000000000000",
+    "created": "2050-01-01",
+    "currency": "EUR",
+    "delivery": "2050-01-01",
+    "demo": "0",
+    "discount": "0",
+    "discount_total": "0.0000",
+    "document_number": null,
+    "due": "2050-01-01",
+    "exchange_rate": "1.00000000000000",
+    "expense_category_id": null,
+    "expense_no": "1",
+    "flag": "partially-paid",
+    "home_currency": "EUR",
+    "id": "1",
+    "missing_bank_account": true,
+    "modified": "2050-01-01 23:59:59",
+    "my_data": "{\"id\":\"1\",\"user_id\":\"1\",\"country_id\":\"191\",\"company_name\":\"SuperFaktura, s.r.o.\",\"name\":null,\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"business_register\":\"Obchodn\\u00fd register Okresn\\u00e9ho s\\u00fadu Bratislava I, oddiel: Sro, vlo\\u017eka \\u010d. 81403\\/B\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"tax_payer\":\"1\",\"vat_interval\":null,\"company_type\":\"ltd\"}",
+    "name": "Foo bar",
+    "number": "2020001",
+    "paid": 12,
+    "paid_vat": 12,
+    "paydate": "2050-01-01",
+    "qr": "",
+    "qr_type": "",
+    "qr_url": "",
+    "qr_url_max": "",
+    "rates": [],
+    "recurring": null,
+    "sequence_id": "9",
+    "specific": null,
+    "status": "2",
+    "tags": null,
+    "tax": null,
+    "tax_code": null,
+    "taxable_supply": null,
+    "taxdate": "2050-01-01",
+    "total": "12.1400",
+    "total_country_home": "12.1400",
+    "total_home": "12.1400",
+    "type": "invoice",
+    "user_id": "1",
+    "user_profile_id": "1",
+    "variable": null,
+    "vat": "0.0000",
+    "vat2": null,
+    "vat3": null,
+    "version": "basic"
+  },
+  "message": "Úhrada bola uložená"
 }
 ```
 
 #### Missing data
 ```json
 {
-   "error_message" : "Chýbajúce údaje",
-   "message" : "Chýbajúce údaje",
-   "error" : 1
+  "error": 1,
+  "error_message": "Chýbajúce údaje",
+  "message": "Chýbajúce údaje"
 }
 ```
 
 #### Wrong expense
 ```json
 {
-   "error" : 1,
-   "error_message" : "Expense not found."
+  "error": 1,
+  "message": "Expense not found"
 }
 ```
 
@@ -860,7 +1099,7 @@ Delete expense payment.
 ```sh
 curl -X GET \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/expense_payments/delete/133
+    https://moja.superfaktura.sk/expense_payments/delete/1
 ```
 
 ### Attributes
@@ -881,16 +1120,16 @@ none
 #### Successful deletion
 ```json
 {
-   "message": "Úhrada nákladu bola zmazaná",
-   "error": 0
+  "error": 0,
+  "message": "Úhrada nákladu bola zmazaná"
 }
 ```
 
 #### Payment not found
 ```json
 {
-   "message": "Payment not found",
-   "error": 1
+  "error": 1,
+  "message": "Platba sa nenašla"
 }
 ```
 

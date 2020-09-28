@@ -31,97 +31,164 @@ none
 
 ```json
 {
-   "user_name" : null,
-   "apikey" : "c0a4cdcdfe98ca660942d60cf7896de6",
-   "companies" : [
-      {
-         "Logo" : {
-            "url" : "https://moja.superfaktura.sk/img/no-logo.png",
-            "size" : {
-               "3" : "width=\"75\" height=\"57\"",
-               "bits" : 8,
-               "2" : 3,
-               "mime" : "image/png",
-               "0" : 75,
-               "1" : 57
-            },
-            "0" : {
-               "alternative" : null,
-               "basename" : "9997f862be767814ce9b_393_screen_shot_2018_10_03_at_10_03_19.png",
-               "checksum" : "dd3300a5a4fc754b0f1361baa2ac2e3f",
-               "created" : "2019-01-23 08:37:27",
-               "default" : "1",
-               "dirname" : "img",
-               "foreign_key" : "393",
-               "group" : "logo",
-               "id" : "168",
-               "model" : "User",
-               "modified" : "2019-01-23 08:39:56"
-            }
-         },
-         "UserProfile" : {
-            "account_purged" : "0",
-            "address" : "Pri Suchom mlyne 6",
-            "aff_visitor_id" : null,
-            "affiliate_id" : null,
-            "business_register" : "Bratislava I, odd. Sro, vl.č.81403/B",
-            "bysquare" : "1",
-            "city" : "Bratislava - mestská časť Staré Mesto",
-            "company_name" : "superfaktura.sk, s.r.o.",
-            "company_type" : "ltd",
-            "converted" : null,
-            "country_id" : "191",
-            "created" : "2019-01-23 08:31:56",
-            "date_mask" : "d.m.Y",
-            "default_constant" : "",
-            "default_delivery" : "created",
-            "default_payment_type" : null,
-            "dic" : "2023513470",
-            "disable_footer" : null,
-            "due_warning_subject" : null,
-            "due_warning_template" : null,
-            "expense_rate" : "40.00",
-            "external_apikey" : null,
-            "fax" : "",
-            "header_logo" : "0",
-            "help" : "1",
-            "home_currency" : "EUR",
-            "ic_dph" : "SK2023513470",
-            "ico" : "46655034",
-            "ico_raw" : "46655034",
-            "id" : "393",
-            "invoice_comment" : null,
-            "invoice_email_subject" : null,
-            "invoice_email_template" : "",
-            "invoice_header_comment" : null,
-            "invoice_item_limit" : "50",
-            "invoice_items_name" : null,
-            "invoice_no_mask" : "YYYYNNN",
-            "invoice_sequence" : "1",
-            "invoice_sequence_type" : "yearly",
-            "items_per_page" : "50",
-            "modified" : "2019-01-23 08:39:56",
-            "name" : null,
-            "online_payments" : "0",
-            "payment_thankyou_subject" : null,
-            "payment_thankyou_template" : null,
-            "phone" : "",
-            "rounding" : "item",
-            "setup_finished" : "0",
-            "sk_nace" : null,
-            "tax_base" : "0.00",
-            "tax_payer" : "1",
-            "update_taxdate" : "1",
-            "user_id" : "384",
-            "vat_interval" : "",
-            "verification_token" : "3ff77f",
-            "web" : "",
-            "zip" : "811 04"
-         }
+  "apikey": "9771ef49cd922da79b20745b7bc0fc24",
+  "companies": [
+    {
+      "Logo": {
+        "0": {
+          "alternative": null,
+          "basename": "4311c1895aa334d39ac8_1_exads_logo_rgb.png",
+          "checksum": "a1dcdc392d08d6d1caaf148225f2a7d4",
+          "created": "2050-01-01 23:59:59",
+          "default": true,
+          "delete_flag": false,
+          "dirname": "img",
+          "extern_file": "0",
+          "foreign_key": "1",
+          "group": "logo",
+          "id": "1",
+          "model": "User",
+          "modified": "2050-01-01 23:59:59",
+          "path": "img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
+          "size": "49743"
+        },
+        "size": {
+          "0": 75,
+          "1": 57,
+          "2": 3,
+          "3": "width=\"75\" height=\"57\"",
+          "bits": 8,
+          "mime": "image/png"
+        },
+        "url": "https://moja.superfaktura.sk/img/no-logo.png"
+      },
+      "UserProfile": {
+        "account_purged": "0",
+        "address": "Pri Suchom mlyne 6",
+        "aff_visitor_id": null,
+        "affiliate_id": null,
+        "business_register": "Obchodný register Okresného súdu Bratislava I, oddiel: Sro, vložka č. 81403/B",
+        "bysquare": true,
+        "city": "Bratislava - mestská časť Staré Mesto",
+        "company_name": "SuperFaktura, s.r.o.",
+        "company_type": "ltd",
+        "converted": null,
+        "country_id": "191",
+        "created": "2050-01-01 23:59:59",
+        "date_mask": "d.m.Y",
+        "default_constant": "",
+        "default_delivery": "created",
+        "default_payment_type": null,
+        "dic": "2023513470",
+        "disable_footer": null,
+        "due_warning_subject": null,
+        "due_warning_template": null,
+        "expense_rate": "40.00",
+        "external_apikey": null,
+        "fax": "",
+        "header_logo": false,
+        "help": "1",
+        "home_currency": "EUR",
+        "ic_dph": "SK2023513470",
+        "ico": "46655034",
+        "ico_raw": "46655034",
+        "id": "1",
+        "invoice_comment": null,
+        "invoice_email_subject": null,
+        "invoice_email_template": "",
+        "invoice_header_comment": null,
+        "invoice_item_limit": "50",
+        "invoice_items_name": null,
+        "invoice_no_mask": "YYYYNNN",
+        "invoice_sequence": "1",
+        "invoice_sequence_type": "yearly",
+        "items_per_page": "50",
+        "last_login": "2050-01-01",
+        "modified": "2050-01-01 23:59:59",
+        "name": null,
+        "newsletter": "0",
+        "online_payments": false,
+        "payment_thankyou_subject": null,
+        "payment_thankyou_template": null,
+        "phone": "",
+        "rounding": "item",
+        "setup_finished": false,
+        "sk_nace": null,
+        "tax_base": "0.00",
+        "tax_payer": "1",
+        "update_taxdate": true,
+        "user_id": "1",
+        "vat_interval": null,
+        "web": "",
+        "zip": "811 04"
       }
-   ]
+    }
+  ],
+  "email": "api@example.com",
+  "language": "slo",
+  "user_name": null
 }
-``` 
+```
+
+
+Or when you have multiple companies
+```json
+{
+  "apikey": "9771ef49cd922da79b20745b7bc0fc24",
+  "companies": {
+    "1": {
+      "Logo": {
+        "size": false,
+        "url": "https://moja.superfaktura.sk/"
+      },
+      "Multiaccount": {
+        "enabled": true,
+        "id": "1",
+        "role": "owner",
+        "user_profile_id": "1"
+      },
+      "UserProfile": {
+        "Logo": [
+          {
+            "basename": "4311c1895aa334d39ac8_1_exads_logo_rgb.png",
+            "dirname": "img",
+            "file": "/var/www/superfaktura/app/webroot/media/transfer/img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
+            "foreign_key": "1"
+          }
+        ],
+        "company_name": "SuperFaktura, s.r.o.",
+        "id": "1"
+      }
+    },
+    "2": {
+      "Logo": {
+        "size": {
+          "0": 75,
+          "1": 57,
+          "2": 3,
+          "3": "width=\"75\" height=\"57\"",
+          "bits": 8,
+          "mime": "image/png"
+        },
+        "url": "https://moja.superfaktura.sk/img/no-logo.png"
+      },
+      "Multiaccount": {
+        "enabled": true,
+        "id": "2",
+        "role": "owner",
+        "user_profile_id": "2"
+      },
+      "UserProfile": {
+        "company_name": "Test a.s.",
+        "id": "2"
+      }
+    }
+  },
+  "email": "api@example.com",
+  "language": "slo",
+  "user_name": null
+}
+```
 
 
 ## Get user companies data
@@ -158,70 +225,48 @@ URL parameters:
 
 ```json
 {
-   "data" : {
-      "1" : {
-         "BankAccount" : [
-            {
-               "account" : "",
-               "bank_code" : "",
-               "bank_name" : "FatraBanka",
-               "country_id" : "191",
-               "created" : "2018-01-15 08:00:29",
-               "default" : null,
-               "iban" : "sk00 1111 2222 3333 4444",
-               "id" : "28",
-               "modified" : "2018-11-09 11:52:48",
-               "show" : "0",
-               "swift" : "",
-               "user_id" : "3",
-               "user_profile_id" : "1"
-            },
-            {
-               "account" : "951214",
-               "bank_code" : "",
-               "bank_name" : "AbcBank",
-               "country_id" : "191",
-               "created" : "2018-01-22 11:32:13",
-               "default" : null,
-               "iban" : "",
-               "id" : "30",
-               "modified" : "2018-11-09 11:52:48",
-               "show" : "0",
-               "swift" : "",
-               "user_id" : "3",
-               "user_profile_id" : "1"
-            }
-         ],
-         "UserProfile" : {
-            "address" : "Fakturova 1",
-            "business_register" : "Číslo živn.registra: 000-111222, okresný úrad Bratislava",
-            "city" : "Bratislava",
-            "company_name" : "SuperFaktura",
-            "company_type" : "trade",
-            "country_id" : "191",
-            "dic" : "040903",
-            "ic_dph" : "090304",
-            "ico" : "123456789",
-            "id" : "1",
-            "modified" : "2019-01-10 11:20:34",
-            "phone" : "0900123456",
-            "tax_payer" : "1",
-            "user_id" : "3",
-            "web" : "https://superfaktura.sk",
-            "zip" : "123 45"
-         }
+  "data": {
+    "1": {
+      "BankAccount": [
+        {
+          "account": "",
+          "bank_code": "",
+          "bank_name": "FatraBanka",
+          "country_id": "191",
+          "created": "2050-01-01 23:59:59",
+          "currency": null,
+          "default": true,
+          "iban": "SK012345678901234567890000",
+          "id": "1",
+          "modified": "2050-01-01 23:59:59",
+          "show": true,
+          "swift": "SUZUKI",
+          "user_id": "1",
+          "user_profile_id": "1"
+        }
+      ],
+      "UserProfile": {
+        "address": "Pri Suchom mlyne 6",
+        "business_register": "Obchodný register Okresného súdu Bratislava I, oddiel: Sro, vložka č. 81403/B",
+        "city": "Bratislava - mestská časť Staré Mesto",
+        "company_name": "SuperFaktura, s.r.o.",
+        "company_type": "ltd",
+        "country_id": "191",
+        "dic": "2023513470",
+        "ic_dph": "SK2023513470",
+        "ico": "46655034",
+        "id": "1",
+        "modified": "2050-01-01 23:59:59",
+        "phone": "",
+        "tax_payer": "1",
+        "user_id": "1",
+        "web": "",
+        "zip": "811 04"
       }
-   },
-   "error_message" : "",
-   "error" : 0
-}
-```
-
-#### No company in your account
-```json
-{
-   "error" : 1,
-   "error_message" : "You have no company in your account"
+    }
+  },
+  "error": 0,
+  "error_message": ""
 }
 ```
 
@@ -230,7 +275,7 @@ URL parameters:
 
 ## Send SMS reminder
 
-Send reminder before or after the maturity of invoices via SMS.
+Send a reminder before or after the maturity of invoices via SMS.
 This feature requires you to have bought SMS messages (*Tools > SMS*).
 
 ### Request
@@ -239,9 +284,9 @@ This feature requires you to have bought SMS messages (*Tools > SMS*).
 
 ```sh
 data='{
-    "invoice_id":"1275",
-    "text":"helloworld",
-    "phone":"123000456"
+  "invoice_id":1,
+  "text":"helloworld",
+  "phone":"123000456"
 }';
 
 curl -X POST \
@@ -267,67 +312,59 @@ curl -X POST \
 #### Successfully sent
 ```json
 {
-   "data" : {
-      "text" : "helloworld",
-      "phone" : "123000456",
-      "invoice_id" : "1275"
-   },
-   "error" : 0,
-   "error_message" : "SMS sent"
+  "data": {
+    "invoice_id": "1275",
+    "phone": "123000456",
+    "text": "helloworld"
+  },
+  "error": 0,
+  "error_message": "SMS sent"
 }
 ```
 
 #### Not having prepaid SMS
 ```json
 {
-   "message" : "SMS not sent: Nedostatok voľných sms",
-   "error" : 3
-}
-```
-
-#### Empty message
-```json
-{
-   "message" : "SMS not sent: Text sms je prázdny",
-   "error" : 3
+  "error": 3,
+  "message": "SMS not sent: Nedostatok voľných sms"
 }
 ```
 
 #### Invalid phone number
 ```json
 {
-   "message" : "SMS not sent: Neplatné tel. číslo",
-   "error" : 3
+  "error": 3,
+  "message": "SMS not sent: Neplatné tel. číslo"
 }
 ```
 
 #### Invoice not found
 ```json
 {
-   "message" : "Invoice not found",
-   "error" : 2
+  "error": 2,
+  "message": "Invoice not found"
 }
 ```
 
 #### Empty required fields
 ```json
 {
-   "message" : "Invoice ID and text cannot be empty",
-   "error" : 1
+  "error": 1,
+  "message": "Invoice ID and text cannot be empty"
 }
 ```
 
 ```json
 {
-   "message" : "Text cannot be empty",
-   "error" : 1
+  "error": 1,
+  "message": "Text cannot be empty"
 }
 ```
 
 ```json
 {
-   "message" : "Invoice ID cannot be empty",
-   "error" : 1
+  "error": 1,
+  "message": "Invoice ID cannot be empty"
 }
 ```
 

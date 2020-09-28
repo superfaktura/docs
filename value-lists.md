@@ -46,9 +46,9 @@ JSON object containing list of countries in key-value format: `country_id: count
 Example (list is shortened):  
 ```json
 {
-  "191":"Slovensko",
-  "1":"Afganistan",
-  "2":"Albania"
+  "1": "Afganistan",
+  "10": "Argentina",
+  "100": "Iceland"
 }
 ```
 
@@ -88,30 +88,30 @@ Array containing JSON objects.
 Example (list is shortened):  
 ```json
 [
-   {
-    "Country" : {
-          "eu" : "0",
-          "iso" : "tp",
-          "name" : "East Timor",
-          "id": "62"
-       }
-   },
-   {
-    "Country" : {
-          "iso" : "cz",
-          "name" : "Česká republika",
-          "eu" : "1",
-          "id": "57"
-       }
-   },
-   {
-    "Country" : {
-          "name" : "Slovensko",
-          "iso" : "sk",
-          "eu" : "1",
-          "id": "191"
-       }
-   }
+  {
+    "Country": {
+      "eu": true,
+      "id": "191",
+      "iso": "sk",
+      "name": "Slovensko"
+    }
+  },
+  {
+    "Country": {
+      "eu": false,
+      "id": "1",
+      "iso": "af",
+      "name": "Afganistan"
+    }
+  },
+  {
+    "Country": {
+      "eu": false,
+      "id": "2",
+      "iso": "al",
+      "name": "Albania"
+    }
+  }
 ]
 ```
 
@@ -213,33 +213,173 @@ For more information see [*Modified Preorder Tree Traversal*](https://www.sitepo
 Example:  
 ```json
 [
-   {
-      "ExpenseCategory" : {
-         "rght" : "2145138936",
-         "id" : "639970",
-         "user_profile_id" : "27821",
-         "lft" : "2145138935",
-         "name" : "Administrácia",
-         "user_id" : "33559",
-         "parent_id" : null
+  {
+    "children": [
+      {
+        "children": [],
+        "icon": "bolt",
+        "icon_color": "#1c212b",
+        "id": 2,
+        "name": "Nájomné / energie"
       },
-      "children" : [
-        {
-          "ExpenseCategory" : {
-               "rght" : "2145138936",
-               "id" : "639971",
-               "user_profile_id" : "27821",
-               "lft" : "2145138935",
-               "name" : "Vnorená administrácia",
-               "user_id" : "33559",
-               "parent_id" : "639970"
-          },
-          "children": []
-        }
-      ]
-   }
+      {
+        "children": [],
+        "icon": "paperclip",
+        "icon_color": "#2d3239",
+        "id": 3,
+        "name": "Kancelárske potreby"
+      },
+      {
+        "children": [],
+        "icon": "wifi",
+        "icon_color": "#585d65",
+        "id": 4,
+        "name": "Internet"
+      },
+      {
+        "children": [],
+        "icon": "phone",
+        "icon_color": "#999fab",
+        "id": 5,
+        "name": "Telefón"
+      },
+      {
+        "children": [],
+        "icon": "laptop",
+        "icon_color": "#b9c1cf",
+        "id": 6,
+        "name": "Hardware"
+      },
+      {
+        "children": [],
+        "icon": "mouse-pointer",
+        "icon_color": "#cfd7e6",
+        "id": 7,
+        "name": "Software"
+      }
+    ],
+    "icon": "building",
+    "icon_color": "#3a4345",
+    "id": 1,
+    "name": "Kancelária"
+  },
+  {
+    "children": [
+      {
+        "children": [],
+        "icon": "abacus",
+        "icon_color": "#004159",
+        "id": 9,
+        "name": "Účtovníctvo"
+      },
+      {
+        "children": [],
+        "icon": "user-tie",
+        "icon_color": "#006083",
+        "id": 10,
+        "name": "Právne služby"
+      },
+      {
+        "children": [],
+        "icon": "landmark",
+        "icon_color": "#007eac",
+        "id": 11,
+        "name": "Bankové poplatky a poistné"
+      },
+      {
+        "children": [],
+        "icon": "ad",
+        "icon_color": "#4bb1d6",
+        "id": 12,
+        "name": "Reklama a marketing"
+      },
+      {
+        "children": [],
+        "icon": "envelope-open-text",
+        "icon_color": "#87d0ea",
+        "id": 13,
+        "name": "Pošta"
+      },
+      {
+        "children": [],
+        "icon": "cloud",
+        "icon_color": "#c2e5f2",
+        "id": 14,
+        "name": "Prevádzka"
+      }
+    ],
+    "icon": "handshake",
+    "icon_color": "#4cc3d9",
+    "id": 8,
+    "name": "Služby"
+  },
+  {
+    "children": [
+      {
+        "children": [],
+        "icon": "gas-pump",
+        "icon_color": "#00594a",
+        "id": 16,
+        "name": "Palivo"
+      },
+      {
+        "children": [],
+        "icon": "car-mechanic",
+        "icon_color": "#00836d",
+        "id": 17,
+        "name": "Servis"
+      },
+      {
+        "children": [],
+        "icon": "shield",
+        "icon_color": "#00ac8f",
+        "id": 18,
+        "name": "Poistenie"
+      },
+      {
+        "children": [],
+        "icon": "money-bill",
+        "icon_color": "#4bd6be",
+        "id": 19,
+        "name": "Odpisy"
+      }
+    ],
+    "icon": "car",
+    "icon_color": "#79c8a3",
+    "id": 15,
+    "name": "Auto"
+  },
+  {
+    "children": [
+      {
+        "children": [],
+        "icon": "laugh",
+        "icon_color": "#5e2400",
+        "id": 21,
+        "name": "Mzdy"
+      },
+      {
+        "children": [],
+        "icon": "toilet",
+        "icon_color": "#803706",
+        "id": 22,
+        "name": "Odvody"
+      },
+      {
+        "children": [],
+        "icon": "gift",
+        "icon_color": "#cc5b0a",
+        "id": 23,
+        "name": "Ostatné"
+      }
+    ],
+    "icon": "user",
+    "icon_color": "#fdc65d",
+    "id": 20,
+    "name": "Zamestnanci"
+  }
 ]
-``` 
+```
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -355,7 +495,7 @@ Fields:
 | **basename**      | string | name of logo file | |
 | **checksum**      | string | checksum of logo | |
 | **created**       | date   | creation date | |
-| **default**       | string | is this logo default "0" = no, "1" = yes | |
+| **default**       | bool   | is this logo default | |
 | **dirname**       | string | directory with logo | |
 | **foreign_key**   | int    | user profile ID | |
 | **group**         | string | attachment type ("logo", "signature", ...) | |
@@ -368,20 +508,24 @@ Fields:
 Example:  
 ```json
 [
-   {
-      "alternative" : null,
-      "basename" : "123_8dcd924a.png",
-      "checksum" : "9fb2a07e4ff2e1ffa091c9b38e7bf5fc",
-      "created" : "2017-09-26 12:26:05",
-      "default" : "0",
-      "dirname" : "img",
-      "foreign_key" : "123",
-      "group" : "logo",
-      "id" : "126124",
-      "model" : "User",
-      "modified" : "2017-09-26 12:26:10",
-      "url" : "https://moja.superfaktura.sk/media/transfer/img/123_8dcd924a.png"
-   }
+  {
+    "alternative": null,
+    "basename": "4311c1895aa334d39ac8_1_exads_logo_rgb.png",
+    "checksum": "a1dcdc392d08d6d1caaf148225f2a7d4",
+    "created": "2050-01-01 23:59:59",
+    "default": true,
+    "delete_flag": false,
+    "dirname": "img",
+    "extern_file": "0",
+    "foreign_key": "1",
+    "group": "logo",
+    "id": "1",
+    "model": "User",
+    "modified": "2050-01-01 23:59:59",
+    "path": "img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
+    "size": "49743",
+    "url": "http://moja.superfaktura.sk/media/transfer/img/4311c1895aa334d39ac8_1_exads_logo_rgb.png"
+  }
 ]
 ```
 
@@ -479,29 +623,148 @@ Empty key is reserved for Warehouse.
 
 ```json
 {
-   "regular" : [
-      {
-         "created" : "2017-09-19 08:15:36",
-         "default" : "1", 
-         "id" : "238534",
-         "item_type" : "regular",
-         "mask" : "RRRRCCC",
-         "modified" : "2017-09-25 13:10:04",
-         "name" : "Faktúra",
-         "period_type" : "yearly",
-         "sequence" : "6",
-         "sequence_formatted" : "2017006",
-         "user_profile_id" : "123"
-      }
-   ]
+  "cash_register_in": [
+    {
+      "created": "2050-01-01 23:59:59",
+      "default": true,
+      "id": "6",
+      "item_type": "cash_register_in",
+      "mask": "PRRRRCCC",
+      "modified": "2050-01-01 23:59:59",
+      "name": "PPD",
+      "period_type": "yearly",
+      "sequence": "1",
+      "sequence_formatted": "P2020001",
+      "user_profile_id": "1"
+    }
+  ],
+  "cash_register_out": [
+    {
+      "created": "2050-01-01 23:59:59",
+      "default": true,
+      "id": "7",
+      "item_type": "cash_register_out",
+      "mask": "VRRRRCCC",
+      "modified": "2050-01-01 23:59:59",
+      "name": "VPD",
+      "period_type": "yearly",
+      "sequence": "1",
+      "sequence_formatted": "V2020001",
+      "user_profile_id": "1"
+    }
+  ],
+  "delivery": [
+    {
+      "created": "2050-01-01 23:59:59",
+      "default": true,
+      "id": "8",
+      "item_type": "delivery",
+      "mask": "DODRRRRCCC",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Dodací list",
+      "period_type": "yearly",
+      "sequence": "1",
+      "sequence_formatted": "DOD2020001",
+      "user_profile_id": "1"
+    }
+  ],
+  "estimate": [
+    {
+      "created": "2050-01-01 23:59:59",
+      "default": true,
+      "id": "5",
+      "item_type": "estimate",
+      "mask": "PONRRRRCCC",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Cenová ponuka",
+      "period_type": "yearly",
+      "sequence": "1",
+      "sequence_formatted": "PON2020001",
+      "user_profile_id": "1"
+    }
+  ],
+  "expense": [
+    {
+      "created": "2050-01-01 23:59:59",
+      "default": true,
+      "id": "9",
+      "item_type": "expense",
+      "mask": "RRRRCCC",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Náklad",
+      "period_type": "yearly",
+      "sequence": "1",
+      "sequence_formatted": "2020001",
+      "user_profile_id": "1"
+    }
+  ],
+  "order": [
+    {
+      "created": "2050-01-01 23:59:59",
+      "default": true,
+      "id": "3",
+      "item_type": "order",
+      "mask": "OBJRRRRCCC",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Prijatá objednávka",
+      "period_type": "yearly",
+      "sequence": "1",
+      "sequence_formatted": "OBJ2020001",
+      "user_profile_id": "1"
+    }
+  ],
+  "proforma": [
+    {
+      "created": "2050-01-01 23:59:59",
+      "default": true,
+      "id": "2",
+      "item_type": "proforma",
+      "mask": "ZAL1RRRRCCC",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Zálohová faktúra",
+      "period_type": "yearly",
+      "sequence": "1",
+      "sequence_formatted": "ZAL12020001",
+      "user_profile_id": "1"
+    }
+  ],
+  "regular": [
+    {
+      "created": "2050-01-01 23:59:59",
+      "default": true,
+      "id": "1",
+      "item_type": "regular",
+      "mask": "RRRRCCC",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Faktúra",
+      "period_type": "yearly",
+      "sequence": "1",
+      "sequence_formatted": "2020001",
+      "user_profile_id": "1"
+    }
+  ],
+  "reverse_order": [
+    {
+      "created": "2050-01-01 23:59:59",
+      "default": true,
+      "id": "4",
+      "item_type": "reverse_order",
+      "mask": "VOBJRRRRCCC",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Vydaná objednávka",
+      "period_type": "yearly",
+      "sequence": "1",
+      "sequence_formatted": "VOBJ2020001",
+      "user_profile_id": "1"
+    }
+  ]
 }
-
 ```
 
 | name                   | type   | description | default value |
 | ---------------------- | ------ | ----------- | ------------- |
 | **created**            | date   | creation date | |
-| **default**            | int    | is sequence default for document type? (0 = no, 1 = yes) | | 
+| **default**            | bool   | is sequence default for document type? | | 
 | **id**                 | int    | sequence ID | |
 | **item_type**          | string | document type (invoice, proforma, reverse order, ...) | |
 | **mask**               | string | mask (e.g. `YYYYNNN`) | |

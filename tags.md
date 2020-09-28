@@ -38,10 +38,10 @@ Returns HTTP status 201.
 
 ```json
 {
-   "error" : 0,
-   "message" : "Tag bol uložený",
-   "tag_id" : "235",
-   "tag_name" : "abc"
+  "error": 0,
+  "message": "Tag bol uložený",
+  "tag_id": "1",
+  "tag_name": "abc"
 }
 ```
 
@@ -51,9 +51,9 @@ Returns HTTP status 403.
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "You cannot add tags",
-   "message" : "You cannot add tags"
+  "error": 1,
+  "error_message": "Nemôžete pridávať tagy",
+  "message": "Nemôžete pridávať tagy"
 }
 ```
 
@@ -63,9 +63,9 @@ Returns HTTP status 409.
 
 ```json
 {
-   "error" : 1,
-   "message" : "This tag already exists",
-   "error_message" : "This tag already exists"
+  "error": 1,
+  "error_message": "Tento tag už existuje",
+  "message": "Tento tag už existuje"
 }
 ```
 
@@ -75,9 +75,9 @@ Returns HTTP status 400.
 
 ```json
 {
-   "error" : 1,
-   "message" : "Chýbajúce údaje",
-   "error_message" : "Chýbajúce údaje"
+  "error": 1,
+  "error_message": "Chýbajúce údaje",
+  "message": "Chýbajúce údaje"
 }
 ```
 
@@ -98,7 +98,7 @@ data='{"name":"xyz"}';
 curl -X POST \
     -d "data=$data" \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/tags/edit/233
+    https://moja.superfaktura.sk/tags/edit/1
 ```
 
 ### Attributes
@@ -118,9 +118,9 @@ none
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Tag bol uložený",
-   "message" : "Tag bol uložený"
+  "error": 0,
+  "message": "Tag bol uložený",
+  "tag_id": "1"
 }
 ```
 
@@ -130,9 +130,9 @@ Returns HTTP status 404.
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "No tag found",
-   "message" : "No tag found"
+  "error": 1,
+  "error_message": "Žiadny tag sa nenašiel",
+  "message": "Žiadny tag sa nenašiel"
 }
 ```
 
@@ -142,9 +142,9 @@ Returns HTTP status 400.
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Chýbajúce údaje",
-   "message" : "Chýbajúce údaje"
+  "error": 1,
+  "error_message": "Chýbajúce údaje",
+  "message": "Chýbajúce údaje"
 }
 ```
 
@@ -154,9 +154,9 @@ Returns HTTP status 403.
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "You cannot edit tags",
-   "message" : "You cannot edit tags"
+  "error": 1,
+  "error_message": "Nemôžete editovať tagy",
+  "message": "Nemôžete editovať tagy"
 }
 ```
 
@@ -184,14 +184,12 @@ none
 ### Response
 
 JSON object in form of `key: value`, where `key` is tag ID and `value` is tag name.
-The tags belong to logged user profile. 
+The tags belong to logged user profile.
+If no tags are found, empty array is returned `[]`.
 
 ```json
 {
-   "2" : "hello",
-   "4" : "world",
-   "1" : "foo",
-   "3" : "bar"
+  "1": "abc"
 }
 ```
 
@@ -209,7 +207,7 @@ The tags belong to logged user profile.
 ```sh
 curl -X GET \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-    https://moja.superfaktura.sk/tags/delete/236
+    https://moja.superfaktura.sk/tags/delete/1
 ```
 
 ### Attributes
@@ -231,11 +229,9 @@ none
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "Tag zmazaný",
-   "message" : "Tag zmazaný"
+  "error": 0,
+  "message": "Tag zmazaný"
 }
-
 ```
 
 #### Wrong tag
@@ -244,9 +240,9 @@ Returns HTTP status 404.
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "No tag found",
-   "message" : "No tag found"
+  "error": 1,
+  "error_message": "Žiadny tag sa nenašiel",
+  "message": "Žiadny tag sa nenašiel"
 }
 ```
 
@@ -256,8 +252,8 @@ Returns HTTP status 403.
 
 ```json
 {
-   "error" : 1,
-   "error_message" : "You cannot remove tags",
-   "message" : "You cannot remove tags"
+  "error": 1,
+  "error_message": "Nemôžete mazať tagy",
+  "message": "Nemôžete mazať tagy"
 }
 ```
