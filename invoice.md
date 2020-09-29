@@ -261,6 +261,8 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 | **issued_by_web**        | string   | website displayed on invoice | |
 | **logo_id**              | int      | logo ID | |
 | **mark_sent**            | int      | mark invoice as sent via email (0=no, 1=yes) | |
+| **mark_sent_message**    | string   | set mail message for _mark_sent_ flag | |
+| **mark_sent_subject**    | string   | set mail subject for _mark_sent_ flag | |
 | **name**                 | string   | invoice name | |
 | **order_no**             | string   | order number | |
 | **parent_id**            | int      | invoice ID, that we want to cancel | |
