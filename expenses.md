@@ -480,11 +480,11 @@ URL parameters:
 | **category**           | int    | category ID  | |
 | **client_id**          | int    | client ID | |
 | **created**            | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **created_since**      | date   | created date since | |
-| **created_to**         | date   | created date until | |
+| **created_since**      | date   | created date since (requires `created:3`) | |
+| **created_to**         | date   | created date until (requires `created:3`) | |
 | **delivery**           | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **delivery_since**     | date   | delivery date since | |
-| **delivery_to**        | date   | delivery date until | |
+| **delivery_since**     | date   | delivery date since (requires `delivery:3`) | |
+| **delivery_to**        | date   | delivery date until (requires `delivery:3`) | |
 | **direction**          | string | sorting direction (ASC or DESC) | DESC |
 | **due**                | date   | due date | |
 | **list_info**          | int    | show meta data about result? (0=no, 1=yes) | 0 |

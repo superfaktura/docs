@@ -320,8 +320,8 @@ Fields:
 | name                      | type   | description                                   | default value |
 | ------------------------- | ------ | --------------------------------------------- | ------------- |
 | **created**               | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) |               |
-| **created_since**         | date   | creation date since                           |               |
-| **created_to**            | date   | creation date to                              |               |
+| **created_since**         | date   | creation date since  (requires `created:3`)   |               |
+| **created_to**            | date   | creation date to  (requires `created:3`)      |               |
 | **description**           | string | item description (is displayed on invoice)    |               |
 | **hide_in_autocomplete**  | int    | hide in autocomplete (null = no)              |               |
 | **id**                    | int    | item ID                                       |               |
@@ -329,8 +329,8 @@ Fields:
 | **import_type**           | string | import type ('efaktury' or `null`)            |               |
 | **internal_comment**      | string | internal comment (isn't displayed on invoice) |               | 
 | **modified**              | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) |               |
-| **modified_since**        | date   | last modification date from                   |               |
-| **modified_to**           | date   | last modification date to                     |               |
+| **modified_since**        | date   | last modification date from (requires `modified:3`) |               |
+| **modified_to**           | date   | last modification date to (requires `modified:3`) |               |
 | **name**                  | string | item name                                     |               |
 | **sku**                   | int    | stock item identifier (e.g. ABC123)           |               |
 | **stock**                 | float  | number of items in stock                      |               |

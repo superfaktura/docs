@@ -2398,20 +2398,20 @@ Filtering parameters
 | **amount_to**      | float        | amount to      | 0             |
 | **client_id**      | int          | client ID      | |
 | **created**        | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **created_since**  | date         | creation date since | |
-| **created_to**     | date         | creation date to    | |
+| **created_since**  | date         | creation date since (requires `created:3`) | |
+| **created_to**     | date         | creation date to (requires `created:3`) | |
 | **delivery**       | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **delivery_since** | date         | delivery date from  | |
-| **delivery_to**    | date         | delivery date to    | |
+| **delivery_since** | date         | delivery date from (requires `delivery:3`) | |
+| **delivery_to**    | date         | delivery date to (requires `delivery:3`)   | |
 | **delivery_type**  | string       | delivery type (see [Value lists > Delivery types](value-lists.md#delivery-types)). Use <code>&#x7c;</code> as separator for multiple values. | |
 | **ignore**         | string / int | IDs of invoices to be ignored. Use <code>&#x7c;</code> as separator for multiple values. | |
 | **modified**       | int          | last modification date constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **modified_since** | date         | last modification date from | |
-| **modified_to**    | date         | last modification date to   | |
+| **modified_since** | date         | last modification date from (requires `modified:3`) | |
+| **modified_to**    | date         | last modification date to (requires `modified:3`)   | |
 | **order_no**       | string       | order number, from which invoice is created | |
 | **paid**           | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **paid_since**     | date         | pay date since | |
-| **paid_to**        | date         | pay date to    | |
+| **paid_since**     | date         | pay date since (requires `paid:3`) | |
+| **paid_to**        | date         | pay date to (requires `paid:3`)   | |
 | **payment_type**   | string       | payment types (see [Value lists > Payment types](value-lists.md#payment-types)). Use <code>&#x7c;</code> as separator for multiple values. | |
 | **search**         | string       | base64 encoded string | |
 | **status**         | string / int | invoice status (see [Value lists > Invoice statuses](value-lists.md#invoice-statuses)) | |
