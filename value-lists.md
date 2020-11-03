@@ -453,11 +453,13 @@ List of languages as defined by [ISO-639-2](https://en.wikipedia.org/wiki/List_o
 | **eng** | English             |
 | **hrv** | Croatian            |
 | **hun** | Hungarian           |
+| **ita** | Italian             |
 | **pol** | Polish              |
 | **rom** | Romanian            |
 | **rus** | Russian             |
 | **slo** | Slovak              |
 | **slv** | Slovene / Slovenian |
+| **spa** | Spanish             |
 | **ukr** | Ukrainian           |
 
 
