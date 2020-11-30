@@ -688,7 +688,7 @@ curl -X GET \
       "raw": "102.00"
     }
   },
-  "status": 0
+  "status": 1
 }
 ```
 
@@ -718,7 +718,7 @@ curl -X POST \
       "raw": "2.00"
     }
   },
-  "status": 0
+  "status": 1
 }
 ```
 
