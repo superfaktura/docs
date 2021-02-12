@@ -112,8 +112,8 @@ curl -X POST \
 ```json
 {
   "CashRegister": {
-    "sequence_in_no": "P1970004",
-    "sequence_out_no": "V1970001"
+    "sequence_in_no": "P2020004",
+    "sequence_out_no": "V2020001"
   },
   "CashRegisterItem": {
     "amount": 14,
@@ -157,8 +157,8 @@ curl -X POST \
 ```json
 {
   "CashRegister": {
-    "sequence_in_no": "P1970003",
-    "sequence_out_no": "V1970001"
+    "sequence_in_no": "P2020003",
+    "sequence_out_no": "V2020001"
   },
   "CashRegisterItem": {
     "amount": 14,
@@ -283,8 +283,8 @@ curl -X POST \
 ```json
 {
   "CashRegister": {
-    "sequence_in_no": "P1970003",
-    "sequence_out_no": "V1970001"
+    "sequence_in_no": "P2020003",
+    "sequence_out_no": "V2020001"
   },
   "CashRegisterItem": {
     "amount": 12,
@@ -395,8 +395,8 @@ curl -X POST \
 ```json
 {
   "CashRegister": {
-    "sequence_in_no": "P1970003",
-    "sequence_out_no": "V1970001"
+    "sequence_in_no": "P2020003",
+    "sequence_out_no": "V2020001"
   },
   "CashRegisterItem": {
     "amount": 12,
@@ -559,8 +559,8 @@ URL parameters:
     "id": "2",
     "id_provoz": "123234",
     "name": "CR2-EET",
-    "sequence_in_no": "P1970002",
-    "sequence_out_no": "V1970001",
+    "sequence_in_no": "P2020002",
+    "sequence_out_no": "V2020001",
     "sequencein_id": "6",
     "sequenceout_id": "7",
     "total": "1248.00",
