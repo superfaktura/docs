@@ -68,11 +68,13 @@ data={
 
 Base URLs for different SuperFaktura versions.
 
-| Country        | URL                           |
-| -------------- | ----------------------------- |
-| Slovakia       | https://moja.superfaktura.sk  |
-| Czech republic | https://moje.superfaktura.cz  |
-| Austria        | https://meine.superfaktura.at |
+| Country        | URL                             |
+| -------------- | ------------------------------- |
+| Slovakia       | https://moja.superfaktura.sk    |
+| Czech republic | https://moje.superfaktura.cz    |
+| Austria        | https://meine.superfaktura.at   |
+| Sandbox (SK)   | https://sandbox.superfaktura.sk |
+| Sandbox (CZ)   | https://sandbox.superfaktura.cz |
 
 ## Data types
 

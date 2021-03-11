@@ -189,3 +189,8 @@ curl -X GET \
 # or not, if it was successfully created the first time
 #
 ```
+
+## Do you have a testing environment?
+
+Yes, you can use our [Slovak 🇸🇰](https://sandbox.superfaktura.sk/)
+or [Czech 🇨🇿](https://sandbox.superfaktura.cz/) **sandbox**.

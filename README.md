@@ -6,6 +6,10 @@ It is different from documentation for our [PHP API client](https://github.com/s
 
 Examples are using `curl` (tip: if you are testing via `curl`, you can use `json_pp` or `json_xs` to pretty print responses).
 
+When you want to **test your implementation**,
+we have [Slovak 🇸🇰](https://sandbox.superfaktura.sk/)
+and [Czech 🇨🇿](https://sandbox.superfaktura.cz/) **sandboxes**.
+
 
 ## Content
 
