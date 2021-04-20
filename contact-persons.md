@@ -179,7 +179,6 @@ none
       "state": "",
       "swift": "",
       "tags": null,
-      "update": "4",
       "user_id": "1",
       "user_profile_id": "1",
       "uuid": null,
