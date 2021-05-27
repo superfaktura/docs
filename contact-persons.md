@@ -164,7 +164,7 @@ none
       "dic": "2023513470",
       "discount": null,
       "distance": null,
-      "dont_travel": false,
+      "dont_travel": null,
       "due_date": null,
       "email": "",
       "fax": "",

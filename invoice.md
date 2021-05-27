@@ -385,7 +385,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
       "dic": "2023513470",
       "discount": null,
       "distance": null,
-      "dont_travel": false,
+      "dont_travel": null,
       "due_date": null,
       "email": "",
       "fax": "",
@@ -442,7 +442,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
       "dic": "2023513470",
       "discount": null,
       "distance": null,
-      "dont_travel": false,
+      "dont_travel": null,
       "due_date": null,
       "email": "",
       "fax": "",
@@ -466,7 +466,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
       "accounting_date": "2050-01-01",
       "amount": "9.00",
       "amount_paid": "0.00",
-      "client_data": "{\"Client\":{\"id\":\"3\",\"user_id\":\"1\",\"user_profile_id\":\"1\",\"uuid\":null,\"country_id\":\"191\",\"name\":\"SuperFaktura, s.r.o.\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"iban\":\"XX00000000001\",\"swift\":\"98765\",\"bank_account_prefix\":null,\"bank_account\":\"\",\"bank_code\":\"\",\"account\":null,\"email\":\"\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"state\":\"\",\"country\":\"Slovensko\",\"delivery_name\":\"\",\"delivery_address\":\"\",\"delivery_city\":\"\",\"delivery_zip\":\"\",\"delivery_state\":\"\",\"delivery_country\":\"Slovensko\",\"delivery_country_id\":\"191\",\"phone\":\"\",\"delivery_phone\":\"\",\"fax\":\"\",\"due_date\":null,\"default_variable\":\"\",\"discount\":null,\"currency\":null,\"bank_account_id\":\"0\",\"comment\":\"Client comment\",\"tags\":null,\"distance\":null,\"dont_travel\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"notices\":true}}",
+      "client_data": "{\"Client\":{\"id\":\"3\",\"user_id\":\"1\",\"user_profile_id\":\"1\",\"uuid\":null,\"country_id\":\"191\",\"name\":\"SuperFaktura, s.r.o.\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"iban\":\"XX00000000001\",\"swift\":\"98765\",\"bank_account_prefix\":null,\"bank_account\":\"\",\"bank_code\":\"\",\"account\":null,\"email\":\"\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"state\":\"\",\"country\":\"Slovensko\",\"delivery_name\":\"\",\"delivery_address\":\"\",\"delivery_city\":\"\",\"delivery_zip\":\"\",\"delivery_state\":\"\",\"delivery_country\":\"Slovensko\",\"delivery_country_id\":\"191\",\"phone\":\"\",\"delivery_phone\":\"\",\"fax\":\"\",\"due_date\":null,\"default_variable\":\"\",\"discount\":null,\"currency\":null,\"bank_account_id\":\"0\",\"comment\":\"Client comment\",\"tags\":null,\"distance\":null,\"dont_travel\":null,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"notices\":true}}",
       "client_id": "3",
       "comment": "",
       "constant": "",
@@ -518,7 +518,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
       "special_vat_scheme": null,
       "specific": "SS123456",
       "status": "1",
-      "summary_invoice": "0",
+      "summary_invoice": null,
       "tags": null,
       "tax_document": null,
       "taxdate": null,
@@ -571,7 +571,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
         "sku": null,
         "stock_item_id": null,
         "tax": 20,
-        "tax_deposit": false,
+        "tax_deposit": null,
         "unit": "",
         "unit_price": 10,
         "unit_price_discount": 10,
@@ -840,7 +840,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
       "dic": "2023513470",
       "discount": null,
       "distance": null,
-      "dont_travel": false,
+      "dont_travel": null,
       "due_date": null,
       "email": "",
       "fax": "",
@@ -897,7 +897,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
       "dic": "2023513470",
       "discount": null,
       "distance": null,
-      "dont_travel": false,
+      "dont_travel": null,
       "due_date": null,
       "email": "",
       "fax": "",
@@ -921,7 +921,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
       "accounting_date": "2050-01-01",
       "amount": "9.50",
       "amount_paid": "0.00",
-      "client_data": "{\"id\":\"3\",\"user_id\":\"1\",\"user_profile_id\":\"1\",\"uuid\":null,\"country_id\":\"191\",\"name\":\"SuperFaktura, s.r.o.\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"iban\":\"XX00000000001\",\"swift\":\"98765\",\"bank_account_prefix\":null,\"bank_account\":\"\",\"bank_code\":\"\",\"account\":null,\"email\":\"\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"state\":\"\",\"country\":\"Slovensko\",\"delivery_name\":\"\",\"delivery_address\":\"\",\"delivery_city\":\"\",\"delivery_zip\":\"\",\"delivery_state\":\"\",\"delivery_country\":\"Slovensko\",\"delivery_country_id\":\"191\",\"phone\":\"\",\"delivery_phone\":\"\",\"fax\":\"\",\"due_date\":null,\"default_variable\":\"\",\"discount\":null,\"currency\":null,\"bank_account_id\":\"0\",\"comment\":\"Client comment\",\"tags\":null,\"distance\":null,\"dont_travel\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"notices\":true,\"Client\":{\"id\":\"3\",\"user_id\":\"1\",\"user_profile_id\":\"1\",\"uuid\":null,\"country_id\":\"191\",\"name\":\"SuperFaktura, s.r.o.\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"iban\":\"XX00000000001\",\"swift\":\"98765\",\"bank_account_prefix\":null,\"bank_account\":\"\",\"bank_code\":\"\",\"account\":null,\"email\":\"\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"state\":\"\",\"country\":\"Slovensko\",\"delivery_name\":\"\",\"delivery_address\":\"\",\"delivery_city\":\"\",\"delivery_zip\":\"\",\"delivery_state\":\"\",\"delivery_country\":\"Slovensko\",\"delivery_country_id\":\"191\",\"phone\":\"\",\"delivery_phone\":\"\",\"fax\":\"\",\"due_date\":null,\"default_variable\":\"\",\"discount\":null,\"currency\":null,\"bank_account_id\":\"0\",\"comment\":\"Client comment\",\"tags\":null,\"distance\":null,\"dont_travel\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"notices\":true}}",
+      "client_data": "{\"id\":\"3\",\"user_id\":\"1\",\"user_profile_id\":\"1\",\"uuid\":null,\"country_id\":\"191\",\"name\":\"SuperFaktura, s.r.o.\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"iban\":\"XX00000000001\",\"swift\":\"98765\",\"bank_account_prefix\":null,\"bank_account\":\"\",\"bank_code\":\"\",\"account\":null,\"email\":\"\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"state\":\"\",\"country\":\"Slovensko\",\"delivery_name\":\"\",\"delivery_address\":\"\",\"delivery_city\":\"\",\"delivery_zip\":\"\",\"delivery_state\":\"\",\"delivery_country\":\"Slovensko\",\"delivery_country_id\":\"191\",\"phone\":\"\",\"delivery_phone\":\"\",\"fax\":\"\",\"due_date\":null,\"default_variable\":\"\",\"discount\":null,\"currency\":null,\"bank_account_id\":\"0\",\"comment\":\"Client comment\",\"tags\":null,\"distance\":null,\"dont_travel\":null,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"notices\":true,\"Client\":{\"id\":\"3\",\"user_id\":\"1\",\"user_profile_id\":\"1\",\"uuid\":null,\"country_id\":\"191\",\"name\":\"SuperFaktura, s.r.o.\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"iban\":\"XX00000000001\",\"swift\":\"98765\",\"bank_account_prefix\":null,\"bank_account\":\"\",\"bank_code\":\"\",\"account\":null,\"email\":\"\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"state\":\"\",\"country\":\"Slovensko\",\"delivery_name\":\"\",\"delivery_address\":\"\",\"delivery_city\":\"\",\"delivery_zip\":\"\",\"delivery_state\":\"\",\"delivery_country\":\"Slovensko\",\"delivery_country_id\":\"191\",\"phone\":\"\",\"delivery_phone\":\"\",\"fax\":\"\",\"due_date\":null,\"default_variable\":\"\",\"discount\":null,\"currency\":null,\"bank_account_id\":\"0\",\"comment\":\"Client comment\",\"tags\":null,\"distance\":null,\"dont_travel\":null,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"notices\":true}}",
       "client_id": "3",
       "comment": "",
       "constant": "",
@@ -973,7 +973,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
       "special_vat_scheme": null,
       "specific": "SS123456",
       "status": "1",
-      "summary_invoice": "0",
+      "summary_invoice": null,
       "tags": "",
       "tax_document": null,
       "taxdate": null,
@@ -1026,7 +1026,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
         "sku": null,
         "stock_item_id": null,
         "tax": 20,
-        "tax_deposit": false,
+        "tax_deposit": null,
         "unit": "",
         "unit_price": 10,
         "unit_price_discount": 10,
@@ -1491,7 +1491,7 @@ none
     "variable": "2020001",
     "variable_raw": "2020001",
     "vat": "2.00",
-    "vat_transfer": "0"
+    "vat_transfer": null
   },
   "InvoiceEmail": [],
   "InvoiceItem": [
@@ -1517,7 +1517,7 @@ none
       "sku": null,
       "stock_item_id": null,
       "tax": 20,
-      "tax_deposit": false,
+      "tax_deposit": null,
       "unit": "",
       "unit_price": 10,
       "unit_price_discount": 10,
@@ -1732,7 +1732,7 @@ For more details about fields present in result see example response.
       "dic": "123456",
       "discount": null,
       "distance": null,
-      "dont_travel": false,
+      "dont_travel": true,
       "due_date": null,
       "email": "",
       "fax": "",
@@ -1857,7 +1857,7 @@ For more details about fields present in result see example response.
       "variable": "2020001",
       "variable_raw": "2020001",
       "vat": "2.00",
-      "vat_transfer": "0"
+      "vat_transfer": null
     },
     "InvoiceEmail": [],
     "InvoiceItem": [
@@ -1883,7 +1883,7 @@ For more details about fields present in result see example response.
         "sku": null,
         "stock_item_id": null,
         "tax": 20,
-        "tax_deposit": false,
+        "tax_deposit": null,
         "unit": "",
         "unit_price": 10,
         "unit_price_discount": 10,
@@ -2164,7 +2164,7 @@ curl -X GET \
         "dic": "123456",
         "discount": null,
         "distance": null,
-        "dont_travel": false,
+        "dont_travel": true,
         "due_date": null,
         "email": "",
         "fax": "",
@@ -2289,7 +2289,7 @@ curl -X GET \
         "variable": "2020001",
         "variable_raw": "2020001",
         "vat": "2.00",
-        "vat_transfer": "0"
+        "vat_transfer": null
       },
       "InvoiceEmail": [],
       "InvoiceItem": [
@@ -2315,7 +2315,7 @@ curl -X GET \
           "sku": null,
           "stock_item_id": null,
           "tax": 20,
-          "tax_deposit": false,
+          "tax_deposit": null,
           "unit": "",
           "unit_price": 10,
           "unit_price_discount": 10,
@@ -2768,7 +2768,7 @@ none
       "variable": "2020001",
       "variable_raw": "2020001",
       "vat": "2.00",
-      "vat_transfer": "0"
+      "vat_transfer": null
     }
   },
   "error": 0,
@@ -3252,7 +3252,7 @@ curl -X POST \
       "variable": "2020001",
       "variable_raw": "2020001",
       "vat": "2.00",
-      "vat_transfer": "0"
+      "vat_transfer": null
     }
   },
   "error": 0,
@@ -3430,7 +3430,7 @@ none
       "variable": "2020001",
       "variable_raw": "2020001",
       "vat": "0.00",
-      "vat_transfer": "0"
+      "vat_transfer": null
     },
     "InvoiceItem": []
   },

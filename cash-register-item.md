@@ -245,7 +245,7 @@ curl -X POST \
     "variable": "2020001",
     "variable_raw": "2020001",
     "vat": "2.00",
-    "vat_transfer": "0"
+    "vat_transfer": null
   },
   "Summary": {
     "minus": {
