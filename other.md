@@ -79,6 +79,7 @@ none
         "default_constant": "",
         "default_delivery": "created",
         "default_payment_type": null,
+        "delete_status": "0",
         "dic": "2023513470",
         "disable_footer": null,
         "due_warning_subject": null,
