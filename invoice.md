@@ -2647,9 +2647,8 @@ Returns HTTP status 404.
 #### Deleting locked invoice
 ```json
 {
-  "error": 1,
-  "error_message": "Invoice locked for editing",
-  "message": "Invoice locked for editing"
+  "error": 0,
+  "message": "Invoice deleted"
 }
 ```
 
