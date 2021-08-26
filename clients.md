@@ -144,15 +144,29 @@ none
 
 #### Optional
 
+URL parameters:
+
 | name            | type   | description | default value |
 | --------------- | ------ | ----------- | ------------- |
-| **char_filter** | string | search by first letter of client name (non letter characters are under `#`) | |
 | **direction**   | string | sorting type, `ASC` or `DESC`| `DESC` |
 | **list_info**   | int    | should meta information be returned? <ul><li>page number</li><li>number of pages</li><li>number of results per page</li><li>number of results</li></ul> | |
+| **page**        | int    | page number | 1 |
 | **per_page**    | int    | number of results per page | |
+| **sort**        | string | sorting attribute | `regular_count` 
+
+Filtering parameters
+
+| name               | type         | description    | default value |
+| ------------------ | ------------ | ------------   | ------------- |
+| **char_filter** | string | search by first letter of client name (non letter characters are under `#`) | |
+| **created**        | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
+| **created_since**  | date         | creation date since (requires `created:3`) | |
+| **created_to**     | date         | creation date to (requires `created:3`) | |
+| **modified**       | int          | last modification date constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
+| **modified_since** | date         | last modification date from (requires `modified:3`) | |
+| **modified_to**    | date         | last modification date to (requires `modified:3`)   | |
 | **search**      | string | search by base64 encoded substring in the following fields: <ul><li>name</li><li>ID (ICO)</li><li>Tax ID (DIC)</li><li>VAT ID (IC_DPH)</li><li>bank_account</li><li>email</li><li>address</li><li>city</li><li>zip</li><li>state</li><li>country</li><li>phone</li><li>fax</li><li>comment</li><li>tags</li><li>UUID</li></ul> | |
 | **search_uuid** | string | search by UUID | | 
-| **sort**        | string | sorting attribute | `regular_count` |
 | **tag**         | int    | tag ID | |
 
 
