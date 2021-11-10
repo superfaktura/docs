@@ -603,6 +603,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
         "foreign_key": "1",
         "group": "logo",
         "id": "1",
+        "mobile_path": "",
         "model": "User",
         "modified": "2050-01-01 23:59:59",
         "path": "img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
@@ -621,7 +622,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
           "swift": "12345"
         }
       ],
-      "Logo": "[{\"id\":\"1\",\"model\":\"User\",\"foreign_key\":\"1\",\"dirname\":\"img\",\"basename\":\"4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"checksum\":\"a1dcdc392d08d6d1caaf148225f2a7d4\",\"group\":\"logo\",\"default\":true,\"alternative\":null,\"size\":\"49743\",\"extern_file\":\"0\",\"delete_flag\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"path\":\"img\\/4311c1895aa334d39ac8_1_exads_logo_rgb.png\"}]",
+      "Logo": "[{\"id\":\"1\",\"model\":\"User\",\"foreign_key\":\"1\",\"dirname\":\"img\",\"basename\":\"4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"checksum\":\"a1dcdc392d08d6d1caaf148225f2a7d4\",\"group\":\"logo\",\"default\":true,\"alternative\":null,\"size\":\"49743\",\"extern_file\":\"0\",\"delete_flag\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"path\":\"img\\/4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"mobile_path\":\"\"}]",
       "LogoRaw": [
         {
           "alternative": null,
@@ -635,6 +636,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
           "foreign_key": "1",
           "group": "logo",
           "id": "1",
+          "mobile_path": "",
           "model": "User",
           "modified": "2050-01-01 23:59:59",
           "path": "img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
@@ -1058,6 +1060,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
         "foreign_key": "1",
         "group": "logo",
         "id": "1",
+        "mobile_path": "",
         "model": "User",
         "modified": "2050-01-01 23:59:59",
         "path": "img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
@@ -1076,7 +1079,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
           "swift": "12345"
         }
       ],
-      "Logo": "[{\"id\":\"1\",\"model\":\"User\",\"foreign_key\":\"1\",\"dirname\":\"img\",\"basename\":\"4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"checksum\":\"a1dcdc392d08d6d1caaf148225f2a7d4\",\"group\":\"logo\",\"default\":true,\"alternative\":null,\"size\":\"49743\",\"extern_file\":\"0\",\"delete_flag\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"path\":\"img\\/4311c1895aa334d39ac8_1_exads_logo_rgb.png\"}]",
+      "Logo": "[{\"id\":\"1\",\"model\":\"User\",\"foreign_key\":\"1\",\"dirname\":\"img\",\"basename\":\"4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"checksum\":\"a1dcdc392d08d6d1caaf148225f2a7d4\",\"group\":\"logo\",\"default\":true,\"alternative\":null,\"size\":\"49743\",\"extern_file\":\"0\",\"delete_flag\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"path\":\"img\\/4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"mobile_path\":\"\"}]",
       "LogoRaw": [
         {
           "alternative": null,
@@ -1090,6 +1093,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
           "foreign_key": "1",
           "group": "logo",
           "id": "1",
+          "mobile_path": "",
           "model": "User",
           "modified": "2050-01-01 23:59:59",
           "path": "img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
@@ -1554,7 +1558,7 @@ none
         "swift": "SUZUKI"
       }
     ],
-    "Logo": "[{\"id\":\"1\",\"model\":\"User\",\"foreign_key\":\"1\",\"dirname\":\"img\",\"basename\":\"4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"checksum\":\"a1dcdc392d08d6d1caaf148225f2a7d4\",\"group\":\"logo\",\"default\":true,\"alternative\":null,\"size\":\"49743\",\"extern_file\":\"0\",\"delete_flag\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"path\":\"img\\/4311c1895aa334d39ac8_1_exads_logo_rgb.png\"}]",
+    "Logo": "[{\"id\":\"1\",\"model\":\"User\",\"foreign_key\":\"1\",\"dirname\":\"img\",\"basename\":\"4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"checksum\":\"a1dcdc392d08d6d1caaf148225f2a7d4\",\"group\":\"logo\",\"default\":true,\"alternative\":null,\"size\":\"49743\",\"extern_file\":\"0\",\"delete_flag\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"path\":\"img\\/4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"mobile_path\":\"\"}]",
     "LogoRaw": [
       {
         "alternative": null,
@@ -1568,6 +1572,7 @@ none
         "foreign_key": "1",
         "group": "logo",
         "id": "1",
+        "mobile_path": "",
         "model": "User",
         "modified": "2050-01-01 23:59:59",
         "path": "img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
@@ -1919,6 +1924,7 @@ For more details about fields present in result see example response.
         "foreign_key": "1",
         "group": "logo",
         "id": "1",
+        "mobile_path": "",
         "model": "User",
         "modified": "2050-01-01 23:59:59",
         "path": "img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
@@ -1939,7 +1945,7 @@ For more details about fields present in result see example response.
           "swift": "SUZUKI"
         }
       ],
-      "Logo": "[{\"id\":\"1\",\"model\":\"User\",\"foreign_key\":\"1\",\"dirname\":\"img\",\"basename\":\"4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"checksum\":\"a1dcdc392d08d6d1caaf148225f2a7d4\",\"group\":\"logo\",\"default\":true,\"alternative\":null,\"size\":\"49743\",\"extern_file\":\"0\",\"delete_flag\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"path\":\"img\\/4311c1895aa334d39ac8_1_exads_logo_rgb.png\"}]",
+      "Logo": "[{\"id\":\"1\",\"model\":\"User\",\"foreign_key\":\"1\",\"dirname\":\"img\",\"basename\":\"4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"checksum\":\"a1dcdc392d08d6d1caaf148225f2a7d4\",\"group\":\"logo\",\"default\":true,\"alternative\":null,\"size\":\"49743\",\"extern_file\":\"0\",\"delete_flag\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"path\":\"img\\/4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"mobile_path\":\"\"}]",
       "LogoRaw": [
         {
           "alternative": null,
@@ -1953,6 +1959,7 @@ For more details about fields present in result see example response.
           "foreign_key": "1",
           "group": "logo",
           "id": "1",
+          "mobile_path": "",
           "model": "User",
           "modified": "2050-01-01 23:59:59",
           "path": "img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
@@ -2351,6 +2358,7 @@ curl -X GET \
           "foreign_key": "1",
           "group": "logo",
           "id": "1",
+          "mobile_path": "",
           "model": "User",
           "modified": "2050-01-01 23:59:59",
           "path": "img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
@@ -2371,7 +2379,7 @@ curl -X GET \
             "swift": "SUZUKI"
           }
         ],
-        "Logo": "[{\"id\":\"1\",\"model\":\"User\",\"foreign_key\":\"1\",\"dirname\":\"img\",\"basename\":\"4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"checksum\":\"a1dcdc392d08d6d1caaf148225f2a7d4\",\"group\":\"logo\",\"default\":true,\"alternative\":null,\"size\":\"49743\",\"extern_file\":\"0\",\"delete_flag\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"path\":\"img\\/4311c1895aa334d39ac8_1_exads_logo_rgb.png\"}]",
+        "Logo": "[{\"id\":\"1\",\"model\":\"User\",\"foreign_key\":\"1\",\"dirname\":\"img\",\"basename\":\"4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"checksum\":\"a1dcdc392d08d6d1caaf148225f2a7d4\",\"group\":\"logo\",\"default\":true,\"alternative\":null,\"size\":\"49743\",\"extern_file\":\"0\",\"delete_flag\":false,\"created\":\"2050-01-01 23:59:59\",\"modified\":\"2050-01-01 23:59:59\",\"path\":\"img\\/4311c1895aa334d39ac8_1_exads_logo_rgb.png\",\"mobile_path\":\"\"}]",
         "LogoRaw": [
           {
             "alternative": null,
@@ -2385,6 +2393,7 @@ curl -X GET \
             "foreign_key": "1",
             "group": "logo",
             "id": "1",
+            "mobile_path": "",
             "model": "User",
             "modified": "2050-01-01 23:59:59",
             "path": "img/4311c1895aa334d39ac8_1_exads_logo_rgb.png",
