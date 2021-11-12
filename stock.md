@@ -339,29 +339,25 @@ JSON array of objects
 
 Fields:
 
-| name                      | type   | description                                   | default value |
-| ------------------------- | ------ | --------------------------------------------- | ------------- |
-| **created**               | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) |               |
-| **created_since**         | date   | creation date since  (requires `created:3`)   |               |
-| **created_to**            | date   | creation date to  (requires `created:3`)      |               |
-| **description**           | string | item description (is displayed on invoice)    |               |
-| **hide_in_autocomplete**  | bool   | hide in autocomplete (null = no)              |               |
-| **id**                    | int    | item ID                                       |               |
-| **import_id**             | int    | import ID (if is not from import = null)      |               |
-| **import_type**           | string | import type ('efaktury' or `null`)            |               |
-| **internal_comment**      | string | internal comment (isn't displayed on invoice) |               | 
-| **modified**              | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) |               |
-| **modified_since**        | date   | last modification date from (requires `modified:3`) |               |
-| **modified_to**           | date   | last modification date to (requires `modified:3`) |               |
-| **name**                  | string | item name                                     |               |
-| **sku**                   | int    | stock item identifier (e.g. ABC123)           |               |
-| **stock**                 | float  | number of items in stock                      |               |
-| **unit**                  | string | unit (e.g. ks, kg)                            |               |
-| **unit_price**            | float  | unit price                                    |               |
-| **user_id**               | int    | user ID                                       |               |
-| **user_profile_id**       | int    | user profile ID                               |               |
-| **vat**                   | float  | VAT in percent (e.g. 20)                      |               |
-| **watch_stock**           | bool   | track inventory level                         |               |
+| name                      | type     | description                                   | default value |
+| ------------------------- | -------- | --------------------------------------------- | ------------- |
+| **created**               | datetime | date and time of creation                     |               |
+| **description**           | string   | item description (is displayed on invoice)    |               |
+| **hide_in_autocomplete**  | bool     | hide in autocomplete (null = no)              |               |
+| **id**                    | int      | item ID                                       |               |
+| **import_id**             | int      | import ID (if is not from import = null)      |               |
+| **import_type**           | string   | import type ('efaktury' or `null`)            |               |
+| **internal_comment**      | string   | internal comment (isn't displayed on invoice) |               | 
+| **modified**              | datetime | date and time of modification                 |               |
+| **name**                  | string   | item name                                     |               |
+| **sku**                   | int      | stock item identifier (e.g. ABC123)           |               |
+| **stock**                 | float    | number of items in stock                      |               |
+| **unit**                  | string   | unit (e.g. ks, kg)                            |               |
+| **unit_price**            | float    | unit price                                    |               |
+| **user_id**               | int      | user ID                                       |               |
+| **user_profile_id**       | int      | user profile ID                               |               |
+| **vat**                   | float    | VAT in percent (e.g. 20)                      |               |
+| **watch_stock**           | bool     | track inventory level                         |               |
 
 ### Success
 ```json

@@ -126,26 +126,161 @@ Accepted currencies are:
 
 | value   | description             |
 | ------- | ----------------------- |
-| **AUD** | Australian dollar       |
-| **BGN** | Bulgarian lev           |
-| **CAD** | Canadian dollar         |
-| **CHF** | Swiss franc             |
-| **CNY** | Renminbi (Chinese) yuan |
-| **CZK** | Czech koruna            |
-| **DKK** | Danish krone            |
-| **EUR** | Euro                    |
-| **GBP** | British pound           |
-| **HRK** | Croatian kuna           |
-| **HUF** | Hungarian forint        |
-| **JPY** | Japanese yen            |
-| **LKR** | Sri Lankan rupee        |
-| **MXN** | Mexican peso            |
-| **PLN** | Polish złoty            |
-| **RON** | Romanian leu            |
-| **RSD** | Serbian dinar           |
-| **RUB** | Russian ruble           |
-| **SEK** | Swedish krona           |
-| **USD** | United States dollar    |
+| **AED** |  Uae Dirham             |
+| **AFN** |  Afghani                |
+| **AMD** |  Armenian Dram          |
+| **ANG** |  Antily gulden          |
+| **AOA** |  Angolan Kwanza         |
+| **ARS** |  Argentine Peso         |
+| **AUD** |  Australian Dollar      |
+| **AWG** |  Aruban florin          |
+| **AZN** |  Azerbaijanian Manat    |
+| **BAM** |  Convertible Marks      |
+| **BBD** |  Barbados Dollar        |
+| **BDT** |  Bangladeshi Taka       |
+| **BGN** |  Bulgarian lev          |
+| **BHD** |  Bahraini Dinar         |
+| **BIF** |  Burundi Franc          |
+| **BMD** |  Bermuda Dollar         |
+| **BND** |  Brunei Dollar          |
+| **BOB** |  Boliviano              |
+| **BRL** |  Brazilian real         |
+| **BSD** |  Bahamian Dollar        |
+| **BTN** |  Bhutanese Ngultrum     |
+| **BWP** |  Botswana Pula          |
+| **BYN** |  Belarussian Ruble      |
+| **BZD** |  Belize Dollar          |
+| **CAD** |  Canadian dollar        |
+| **CDF** |  Franc Congolais        |
+| **CHF** |  Swiss Franc            |
+| **CLP** |  Chilean Peso           |
+| **CNY** |  Chinese Yuan           |
+| **COP** |  Colombian Peso         |
+| **CRC** |  Costa Rican Colon      |
+| **CUP** |  Cuban Peso             |
+| **CVE** |  Cape Verde Escudo      |
+| **CZK** |  Czech Crown            |
+| **DJF** |  Djibouti Franc         |
+| **DKK** |  Danish krone           |
+| **DOP** |  Dominican Peso         |
+| **DZD** |  Algerian Dinar         |
+| **EGP** |  Egyptian Pound         |
+| **ERN** |  Eritrean Nakfa         |
+| **ETB** |  Ethiopian Birr         |
+| **EUR** |  Euro                   |
+| **FJD** |  Fiji Dollar            |
+| **FKP** |  Falkland Islands pound |
+| **GBP** |  British pound          |
+| **GEL** |  Georgian lari          |
+| **GHS** |  Chana Cedi             |
+| **GIP** |  Gibraltar pound        |
+| **GMD** |  Gambian Dalasi         |
+| **GNF** |  Guinea Franc           |
+| **GTQ** |  Guatemalan quetzal     |
+| **GYD** |  Guyana Dollar          |
+| **HKD** |  Hong Kong Dollar       |
+| **HNL** |  Honduran lempira       |
+| **HRK** |  Croatian kuna          |
+| **HTG** |  Haitian gourde         |
+| **HUF** |  Hungarian forint       |
+| **IDR** |  Indonesian Rupiah      |
+| **ILS** |  Israeli shekel         |
+| **INR** |  Indian Rupee           |
+| **IQD** |  Iraqi Dinar            |
+| **IRR** |  Iranian Rial           |
+| **ISK** |  Icelandic króna        |
+| **JMD** |  Jamaican Dollar        |
+| **JOD** |  Jordanian Dinar        |
+| **JPY** |  Japanese yen           |
+| **KES** |  Kenyan Shilling        |
+| **KGS** |  Kirghiz Som            |
+| **KHR** |  Cambodian Riel         |
+| **KMF** |  Comorian Franc         |
+| **KPW** |  North Korean Won       |
+| **KRW** |  South Korean won       |
+| **KWD** |  Kuwaiti Dinar          |
+| **KYD** |  Cayman Islands Dollar  |
+| **KZT** |  Kazakhstani tenge      |
+| **LAK** |  Laotian kip            |
+| **LBP** |  Lebanese Pound         |
+| **LKR** |  Sri Lanka Rupee        |
+| **LRD** |  Liberian Dollar        |
+| **LSL** |  Lesotho loti           |
+| **LYD** |  Lybian Dinar           |
+| **MAD** |  Moroccan Dirham        |
+| **MDL** |  Moldovan Leu           |
+| **MGA** |  Malagascy Ariary       |
+| **MKD** |  North Macedonian Denar |
+| **MMK** |  Myanmar kyat           |
+| **MNT** |  Mongolian tugrik       |
+| **MOP** |  Macau pataca           |
+| **MRO** |  Mauritian Ouguiya      |
+| **MUR** |  Mauritian rupee        |
+| **MVR** |  Maldivian Rupee        |
+| **MWK** |  Malawian Kwacha        |
+| **MXN** |  Mexican peso           |
+| **MYR** |  Malaysian ringgit      |
+| **MZN** |  Metical                |
+| **NAD** |  Namibia Dollar         |
+| **NGN** |  Nigerian naira         |
+| **NIO** |  Cordoba Oro            |
+| **NOK** |  Norwegian krone        |
+| **NPR** |  Nepalese Rupee         |
+| **NZD** |  New Zealand Dollar     |
+| **OMR** |  Rial Omani             |
+| **PAB** |  Balboa                 |
+| **PEN** |  Peruvian Nuevo Sol     |
+| **PGK** |  Kina Papua New Guinea  |
+| **PHP** |  Philippine Peso        |
+| **PKR** |  Pakistan Rupee         |
+| **PLN** |  Polish zloty           |
+| **PYG** |  Paraguayan guarani     |
+| **QAR** |  Qatari Rial            |
+| **RON** |  Romanian Leu (new)     |
+| **RSD** |  Serbian Dinar          |
+| **RUB** |  Russian ruble          |
+| **RWF** |  Rwanda Franc           |
+| **SAR** |  Saudi Riyal            |
+| **SBD** |  Solomon Islands Dollar |
+| **SCR** |  Seychelles Rupee       |
+| **SDG** |  Sudanese Pound         |
+| **SEK** |  Swedish Krona          |
+| **SGD** |  Singapore dollar       |
+| **SHP** |  St. Helena Pound       |
+| **SLL** |  Sierra Leone           |
+| **SOS** |  Somali Shilling        |
+| **SRD** |  Surinam Dollar         |
+| **SSP** |  South Sudanese Pound   |
+| **STN** |  Dobra                  |
+| **SVC** |  El Salvador Colon      |
+| **SYP** |  Syrian Pound           |
+| **SZL** |  Lilangeni              |
+| **THB** |  Thai baht              |
+| **TJS** |  Tajikistani Somoni     |
+| **TMT** |  Turkmen Manat          |
+| **TND** |  Tunisian Dinar         |
+| **TOP** |  Tongan paʻanga         |
+| **TRY** |  Turkish lira           |
+| **TTD** |  Trinidad And Tobago Dollar |
+| **TWD** |  New Taiwan Dollar      |
+| **TZS** |  Tanzanian Shilling     |
+| **UAH** |  Ukrainian Hryvnia      |
+| **UGX** |  Uganda Shilling        |
+| **USD** |  US Dollar              |
+| **UYU** |  Peso Urugayo           |
+| **UZS** |  Uzbekistan Sum         |
+| **VEF** |  Venezuelan Bolivar     |
+| **VND** |  Vietnamese Dong        |
+| **VUV** |  Vanuatu Vatu           |
+| **WST** |  Samoan tala            |
+| **XAF** |  CFA Franc              |
+| **XCD** |  East Caribbean Dollar  |
+| **XOF** |  Franc BCEAO / CFA      |
+| **XPF** |  Frank CFP              |
+| **YER** |  Yemeni Rial            |
+| **ZAR** |  South African Rand     |
+| **ZMW** |  Zambian Kwacha         |
+| **ZWL** |  Zimbabwe Dollar        |
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -427,16 +562,17 @@ Example:
 
 
 ## Invoice types
-| value             | description       | Slovak                        |
-| ----------------- | ----------------- | ----------------------------- |
-| **cancel**        | credit note       | dobropis                      |
-| **delivery**      | delivery note     | dodací list                   |
-| **draft**         | concept           | koncept                       |
-| **estimate**      | price estimate    | cenová ponuka                 |
-| **order**         | order             | prijatá objednávka            |
-| **proforma**      | proforma invoice  | zálohová faktúra              |
-| **regular**       | regular invoice   | ostrá faktúra / bežná faktúra |
-| **reverse_order** | reverse order     | objednávka                    |
+| value             | description                  | Slovak                          |
+| ----------------- | ---------------------------- | ------------------------------- |
+| **cancel**        | credit note                  | dobropis                        |
+| **delivery**      | delivery note                | dodací list                     |
+| **draft**         | concept                      | koncept                         |
+| **estimate**      | price estimate               | cenová ponuka                   |
+| **order**         | order                        | prijatá objednávka              |
+| **proforma**      | proforma invoice             | zálohová faktúra                |
+| **regular**       | regular invoice              | ostrá faktúra / bežná faktúra   |
+| **reverse_order** | reverse order                | objednávka                      |
+| **tax_document**  | receipt for received payment | daňový doklad k prijatej platbe |
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -540,11 +676,14 @@ Example:
 | value               | description              | Slovak           |
 | ------------------- | ------------------------ | ---------------- |
 | **accreditation**   | mutual credit            | vzajomný zápočet |
+| **barion**          | Barion                   |                  |
 | **besteron**        | Besteron (on SK version) |                  |
 | **cash**            | cash                     | hotovosť         |
+| **card**            | card                     | karta            |
 | **cod**             | cash on delivery         | dobierka         |
 | **credit**          | credit card              | kreditná karta   |
 | **debit**           | debit card               | debetná karta    |
+| **inkaso**          | encashment               | inkaso           |
 | **gopay**           | GoPay                    |                  |
 | **other**           | other                    | iný spôsob       |
 | **paypal**          | Paypal                   |                  |

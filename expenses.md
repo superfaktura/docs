@@ -306,7 +306,7 @@ HTTP status 400.
 Edit expense.
 
 It's strongly recommended fetching data for expense, change required values, and then request edit.
-If you want to add tags to expense, refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity).
+If you want to add tags to expense, refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity)
 
 ### Request
 
@@ -339,7 +339,7 @@ curl -X POST \
 
 #### Optional
 
-Same as for **Add expense**. With the exception of *name* is optional.
+Same as for [Add expense](#add-expense). With the exception of *name* being optional.
 
 ### Response
 
@@ -721,14 +721,14 @@ URL parameters:
 | **delivery_to**        | date   | delivery date until (requires `delivery:3`) | |
 | **direction**          | string | sorting direction (ASC or DESC) | DESC |
 | **due**                | date   | due date | |
-| **list_info**          | int    | show meta data about result? (0=no, 1=yes) | 0 |
+| **listinfo**           | int    | show meta data about result? (0=no, 1=yes) | 0 |
 | **page**               | int    | page number | 1 |
 | **payment_type**       | string | payment type (see [Value lists > Payment types](value-lists.md#payment-types)) | |
 | **per_page**           | int    | number of items per page (max 100) | &gt;as set in profile&lt; |
-| **search**             | string | base64 encoded string (e.g. `test` = `dGVzdA,,` | |
+| **search**             | string | base64 encoded string (e.g. `test` = `dGVzdA,,`) | |
 | **sort**               | string | attribute to sort by, default regular_count | ASC |
 | **status**             | int / string | expense status (see [Value lists > Expense statuses](value-lists.md#expense-statuses)). When used as string, use pipe (<code>&#x7c;</code>) to add various statuses (e.g. <code>1&#x7c;2</code>) | |
-| **type**               | string | expense type (see [Value lists > Expense types](value-lists.md#expense-types) | |
+| **type**               | string | expense type (see [Value lists > Expense types](value-lists.md#expense-types)) | |
 
 ### Response
 

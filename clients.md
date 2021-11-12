@@ -149,7 +149,7 @@ URL parameters:
 | name            | type   | description | default value |
 | --------------- | ------ | ----------- | ------------- |
 | **direction**   | string | sorting type, `ASC` or `DESC`| `DESC` |
-| **list_info**   | int    | should meta information be returned? <ul><li>page number</li><li>number of pages</li><li>number of results per page</li><li>number of results</li></ul> | |
+| **listinfo**    | int    | should meta information be returned? <ul><li>page number</li><li>number of pages</li><li>number of results per page</li><li>number of results</li></ul> | |
 | **page**        | int    | page number | 1 |
 | **per_page**    | int    | number of results per page | |
 | **sort**        | string | sorting attribute | `regular_count` 

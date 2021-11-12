@@ -28,7 +28,7 @@ Delete invoice features
 ## Add invoice
 
 Create new invoice.
-If you want to add tags to invoice, refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity).
+If you want to add tags to invoice, refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity)
 
 ### Request
 
@@ -340,14 +340,15 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 
 ##### InvoiceExtras
 
-| name                | type   | description                               | default value |
-| ------------------- | ------ | ----------------------------------------- | ------------- |
-| **dimension**       | string | package dimensions in cm (l x w x h)      |               |
-| **insurance**       | float  | insurance price                           |               |
-| **parcel_count**    | int    | number of packages                        |               |
-| **pickup_point_id** | int    | pickup point ID for Zásielkovňa           |               |
-| **tracking_number** | string | tracking number                           |               |
-| **weight**          | float  | package weight                            |               |
+| name                | type   | description                          | default value |
+| ------------------- | ------ | ------------------------------------ | ------------- |
+| **dimension**       | string | package dimensions in cm (l x w x h) |               |
+| **insurance**       | float  | insurance price                      |               |
+| **oss**             | bool   | one-stop shop                        |               |
+| **parcel_count**    | int    | number of packages                   |               |
+| **pickup_point_id** | int    | pickup point ID for Zásielkovňa      |               |
+| **tracking_number** | string | tracking number                      |               |
+| **weight**          | float  | package weight                       |               |
 
 
 ### Response
@@ -2092,7 +2093,7 @@ URL parameters:
 | name          | type   | description                                                                          | default value |
 | ------------- | ------ | ------------------------------------------------------------------------------------ | ------------- |
 | **direction** | string | sorting direction (ASC or DESC)                                                      | 'DESC' |
-| **list_info** | int    | show meta data about result? (0=no, 1=yes)                                           | 0 |
+| **listinfo**  | int    | show meta data about result? (0=no, 1=yes)                                           | 0 |
 | **page**      | int    | page number                                                                          | 1 |
 | **per_page**  | int    | number of items per page (max 200)                                                   | |
 | **sort**      | string | attribute to sort by                                                                 | 'regular_count' |
@@ -2809,7 +2810,8 @@ none
 
 ## Pay invoice
 
-Pay invoice
+Pay invoice.
+Only `regular`, `proforma` and `cancel` invoice types can be paid.
 
 ### Request
 **URL**: `/invoice_payments/add/ajax:1/api:1`  
@@ -2895,6 +2897,14 @@ curl -X POST \
 {
   "error": 1,
   "message": "Payment not found"
+}
+```
+
+#### Paying invalid invoice type
+```json
+{
+  "error": 1,
+  "message": "Invalid document type"
 }
 ```
 
@@ -3179,13 +3189,13 @@ curl -X POST \
 
 ### Optional
 
-| name                  | type   | description                                                      | default value |
-| --------------------- | ------ | ---------------------------------------------------------------- | ------------- |
-| **delivery_address**  | string | delivery address (are not required, if invoice contains address) |               |
-| **delivery_city**     | string | delivery city (are not required, if invoice contains city)       |               |
-| **delivery_country**  | string | delivery country (are not required, if invoice contains country) |               |
-| **delivery_state**    | string | delivery state (are not required, if invoice contains state)     |               |
-| **delivery_zip**      | string | delivery zip (are not required, if invoice contains zip)         |               |
+| name                  | type   | description                                                     | default value |
+| --------------------- | ------ | --------------------------------------------------------------- | ------------- |
+| **delivery_address**  | string | delivery address (is not required, if invoice contains address) |               |
+| **delivery_city**     | string | delivery city (is not required, if invoice contains city)       |               |
+| **delivery_country**  | string | delivery country (is not required, if invoice contains country) |               |
+| **delivery_state**    | string | delivery state (is not required, if invoice contains state)     |               |
+| **delivery_zip**      | string | delivery zip (is not required, if invoice contains zip)         |               |
 
 ### Response
 
