@@ -142,6 +142,7 @@ CURL_DATA
     "Client": [],
     "Document": [],
     "Expense": {
+      "accounting_date": "2050-01-01 23:59:59",
       "amount": 12.14,
       "amount2": null,
       "amount3": null,
@@ -350,6 +351,7 @@ Same as for [Add expense](#add-expense). With the exception of *name* being opti
     "Client": [],
     "Document": [],
     "Expense": {
+      "accounting_date": "2050-01-01 23:59:59",
       "amount": 19.95,
       "amount2": null,
       "amount3": null,
@@ -546,6 +548,7 @@ none
   "Client": [],
   "Document": [],
   "Expense": {
+    "accounting_date": "2050-01-01 23:59:59",
     "amount": 12.14,
     "amount2": null,
     "amount3": null,
@@ -740,6 +743,7 @@ URL parameters:
       "Client": [],
       "Document": [],
       "Expense": {
+        "accounting_date": "2050-01-01 23:59:59",
         "amount": 12.14,
         "amount2": null,
         "amount3": null,
@@ -986,6 +990,7 @@ curl -X POST \
   },
   "error": 0,
   "expense": {
+    "accounting_date": "2050-01-01",
     "amount": "12.1400",
     "amount2": null,
     "amount3": null,
