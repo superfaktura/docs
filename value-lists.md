@@ -590,6 +590,7 @@ List of languages as defined by [ISO-639-2](https://en.wikipedia.org/wiki/List_o
 | **hrv** | Croatian            |
 | **hun** | Hungarian           |
 | **ita** | Italian             |
+| **nld** | Dutch               |
 | **pol** | Polish              |
 | **rom** | Romanian            |
 | **rus** | Russian             |
