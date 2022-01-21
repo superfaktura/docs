@@ -2106,7 +2106,7 @@ Filtering parameters
 | **amount_from**    | float        | amount from    | 0             |
 | **amount_to**      | float        | amount to      | 0             |
 | **client_id**      | int          | client ID      | |
-| **created**        | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
+| **created**        | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | 6 |
 | **created_since**  | date         | creation date since (requires `created:3`) | |
 | **created_to**     | date         | creation date to (requires `created:3`) | |
 | **delivery**       | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
