@@ -57,6 +57,21 @@ data='{
     }
 }';
 
+# example with items
+data='{
+    "Expense":{
+        "name":"Expense with items"
+    },
+    "ExpenseItem":[
+        {
+            "description": "description of item 1",
+            "name": "item 1",
+            "tax": 20,
+            "unit_price": 10
+        }
+    ]
+}';
+
 
 curl -X POST \
     -d "data=$data" \
@@ -330,6 +345,37 @@ curl -X POST \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
     https://moja.superfaktura.sk/expenses/edit
 ```  
+
+Edit expense with items:
+```sh
+data='{
+    "Expense":{
+        "id": 30,
+        "name":"Expense with items edited"
+    },
+    "ExpenseItem":[
+        {
+            "id": 32,
+            "description": "Description of item 1",
+            "name": "Item 1",
+            "tax": 25,
+            "unit_price": 100
+        },
+        {
+            "description": "Description of new item",
+            "name": "Item 2",
+            "tax": 15,
+            "quantity": 1,
+            "unit_price": 100
+        }
+    ]
+}';
+
+curl -X POST \
+    -d "data=$data" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/expenses/edit
+```
 
 ### Attributes
 #### Required
