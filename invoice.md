@@ -359,6 +359,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
   "data": {
     "0": {
       "to_pay": "10.800000",
+      "to_pay_in_invoice_currency": "10.80",
       "total": "10.80"
     },
     "Client": {
@@ -816,6 +817,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
   "data": {
     "0": {
       "to_pay": "11.400000",
+      "to_pay_in_invoice_currency": "11.40",
       "total": "11.40"
     },
     "Client": {
@@ -1351,6 +1353,7 @@ none
 {
   "0": {
     "to_pay": "12.000000",
+    "to_pay_in_invoice_currency": "12.00",
     "total": "12.00"
   },
   "Client": {
@@ -1711,6 +1714,7 @@ For more details about fields present in result see example response.
   "1": {
     "0": {
       "to_pay": "12.000000",
+      "to_pay_in_invoice_currency": "12.00",
       "total": "12.00"
     },
     "Client": {
@@ -2145,6 +2149,7 @@ curl -X GET \
     {
       "0": {
         "to_pay": "12.000000",
+        "to_pay_in_invoice_currency": "12.00",
         "total": "12.00"
       },
       "Client": {
