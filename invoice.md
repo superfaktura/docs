@@ -2129,6 +2129,7 @@ Filtering parameters
 | **search**         | string       | base64 encoded string | |
 | **status**         | string / int | invoice status (see [Value lists > Invoice statuses](value-lists.md#invoice-statuses)) | |
 | **tag**            | int          | tag ID | |
+| **variable**       | string       | variable symbol | |
 
 
 
