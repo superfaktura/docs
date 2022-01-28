@@ -2118,6 +2118,7 @@ Filtering parameters
 | **delivery_to**    | date         | delivery date to (requires `delivery:3`)   | |
 | **delivery_type**  | string       | delivery type (see [Value lists > Delivery types](value-lists.md#delivery-types)). Use <code>&#x7c;</code> as separator for multiple values. | |
 | **ignore**         | string / int | IDs of invoices to be ignored. Use <code>&#x7c;</code> as separator for multiple values. | |
+| **invoice_no_formatted** | string | formatted invoice number | |
 | **modified**       | int          | last modification date constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
 | **modified_since** | date         | last modification date from (requires `modified:3`) | |
 | **modified_to**    | date         | last modification date to (requires `modified:3`)   | |
