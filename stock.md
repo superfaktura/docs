@@ -195,7 +195,14 @@ curl -X POST \
       "user_profile_id": "1",
       "vat": 20,
       "watch_stock": true
-    }
+    },
+    "StockLog": [
+      {
+        "log_data": "{\"purchase_unit_price\":\"\",\"purchase_tax\":null,\"purchase_exchange_rate\":1,\"purchase_country_exchange_rate\":1,\"purchase_currency\":null,\"unit_price\":\"19.95\",\"tax\":20,\"exchange_rate\":1,\"country_exchange_rate\":1,\"currency\":\"EUR\",\"home_currency\":\"EUR\"}",
+        "note": "Ručná úprava stavu na sklade",
+        "quantity": 0
+      }
+    ]
   },
   "error": 0,
   "error_message": ""
