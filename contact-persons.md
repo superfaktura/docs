@@ -71,7 +71,7 @@ curl -X POST \
 ```json
 {
   "error": 1,
-  "message": "Client not found. Please check client_id field.",
+  "message": "Klient sa nenašiel. Prosím skontrolujte kľúč client_id.",
   "state": "ERROR"
 }
 ```
