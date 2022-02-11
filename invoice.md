@@ -2857,6 +2857,7 @@ curl -X POST \
 | **cash_register_id**  | int    | cash register ID | |
 | **currency**          | string | currency (see [Value lists > Currencies](value-lists.md#currencies))| EUR in SK, CZK in CZ |
 | **date**              | date   | date when payment was done (format: `YYYY-MM-DD`) | &lt;current date&gt; |
+| **document_no**       | string | document number | |
 | **payment_type**      | string | payment type (see [Value lists > Payment types](value-lists.md#payment-types)) | transfer |
 
 
