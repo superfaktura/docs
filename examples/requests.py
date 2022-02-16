@@ -51,7 +51,7 @@ invoiceBody ={
            "internal_comment": "Internal comment",
            "invoice_currency": "NOK",
            "rounding": "item_ext",
-           "specific": "SS123456",
+           "specific": "123456",
            "variable": "VS87654"
        },
        "InvoiceItem":[
