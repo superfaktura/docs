@@ -295,8 +295,8 @@ HTTP status 403.
 {
   "error": 1,
   "error_message": {
-    "name": [
-      "Zadajte názov"
+    "number": [
+      "Číslo dokladu sa nezhoduje s uvedeným obdobím"
     ]
   }
 }
