@@ -81,16 +81,6 @@ At least one of: `bank_name`, `iban`, `swift`, `bank_account`, `bank_code` is re
 }
 ```
 
-#### Missing data
-
-```json
-{
-   "error" : 1,
-   "error_message" : "Chýbajúce údaje",
-   "message" : "Chýbajúce údaje"
-}
-```
-
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -133,7 +123,21 @@ none
 ```json
 {
   "error": "0",
-  "message": "{\"BankAccount\":{\"account\":\"\",\"bank_code\":\"\",\"bank_name\":\"StaroNovaBanka\",\"default\":true,\"iban\":\"SK012345678901234567890000\",\"show\":true,\"swift\":\"77777\",\"id\":\"1\",\"user_id\":\"1\",\"user_profile_id\":\"1\",\"modified\":\"2050-01-01 23:59:59\"}}"
+  "message": {
+    "BankAccount": {
+      "account": "",
+      "bank_code": "",
+      "bank_name": "StaroNovaBanka",
+      "default": true,
+      "iban": "SK012345678901234567890000",
+      "id":1,
+      "modified": "2050-01-01 23:59:59",
+      "show": true,
+      "swift": "77777",
+      "user_id": "1",
+      "user_profile_id": "1"
+    }
+  }
 }
 ```
 
@@ -147,23 +151,13 @@ none
 }
 ```
 
-#### Missing data
-
-```json
-{
-  "error": 1,
-  "error_message": "Chýbajúce údaje",
-  "message": "Chýbajúce údaje"
-}
-```
-
 #### Wrong bank account
 
 ```json
 {
   "error": 1,
-  "error_message": "Účet neexistuje",
-  "message": "Účet neexistuje"
+  "error_message": "Bankový účet sa nenašiel",
+  "message": "Bankový účet sa nenašiel"
 }
 ```
 
@@ -207,7 +201,7 @@ none
 ```json
 {
   "error": "0",
-  "message": "{\"message\":\"Bankov\\u00fd \\u00fa\\u010det zmazan\\u00fd\"}"
+  "message": "Bankový účet zmazaný"
 }
 ```
 
