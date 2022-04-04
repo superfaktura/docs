@@ -63,7 +63,6 @@ none
         "url": "https://moja.superfaktura.sk/img/no-logo.png"
       },
       "UserProfile": {
-        "account_purged": "0",
         "address": "Pri Suchom mlyne 6",
         "aff_visitor_id": null,
         "affiliate_id": null,
@@ -72,7 +71,6 @@ none
         "city": "Bratislava - mestská časť Staré Mesto",
         "company_name": "SuperFaktura, s.r.o.",
         "company_type": "ltd",
-        "converted": null,
         "country_id": "191",
         "created": "2050-01-01 23:59:59",
         "date_mask": "d.m.Y",
@@ -85,7 +83,6 @@ none
         "due_warning_subject": null,
         "due_warning_template": null,
         "expense_rate": "40.00",
-        "external_apikey": null,
         "fax": "",
         "header_logo": false,
         "help": "1",
@@ -114,7 +111,6 @@ none
         "phone": "",
         "rounding": "item",
         "setup_finished": false,
-        "sk_nace": null,
         "tax_base": "0.00",
         "tax_payer": "1",
         "update_taxdate": true,
