@@ -816,6 +816,7 @@ URL parameters:
         "flag": "issued",
         "home_currency": "EUR",
         "id": "2",
+        "is_payable_by_tatrabanka": false,
         "missing_bank_account": true,
         "modified": "2050-01-01 23:59:59",
         "my_data": "{\"id\":\"1\",\"user_id\":1,\"country_id\":\"191\",\"company_name\":\"SuperFaktura, s.r.o.\",\"name\":null,\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"business_register\":\"Obchodn\\u00fd register Okresn\\u00e9ho s\\u00fadu Bratislava I, oddiel: Sro, vlo\\u017eka \\u010d. 81403\\/B\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"tax_payer\":\"1\",\"vat_interval\":null,\"company_type\":\"ltd\"}",
