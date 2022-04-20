@@ -342,7 +342,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 
 | name                    | type   | description                          | default value |
 | ----------------------- | ------ | ------------------------------------ | ------------- |
-| **custom_payment_link** | string | Automatically enables online payments for sent invoice. This behavior can be disabled by sending `online_payment: false` in [`InvoiceSettings`](#invoicesettings) | |
+| **custom_payment_link** | string | Sets custom link for payment button. Is prioritized over other options (e.g. Barion, Besteron) Automatically enables online payments for invoice. This behavior can be disabled by sending `online_payment: false` in [`InvoiceSettings`](#invoicesettings) | |
 | **dimension**           | string | package dimensions in cm (l x w x h) |               |
 | **insurance**           | float  | insurance price                      |               |
 | **oss**                 | bool   | one-stop shop                        |               |
