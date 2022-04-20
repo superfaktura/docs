@@ -340,15 +340,16 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 
 ##### InvoiceExtras
 
-| name                | type   | description                          | default value |
-| ------------------- | ------ | ------------------------------------ | ------------- |
-| **dimension**       | string | package dimensions in cm (l x w x h) |               |
-| **insurance**       | float  | insurance price                      |               |
-| **oss**             | bool   | one-stop shop                        |               |
-| **parcel_count**    | int    | number of packages                   |               |
-| **pickup_point_id** | int    | pickup point ID for Zásielkovňa      |               |
-| **tracking_number** | string | tracking number                      |               |
-| **weight**          | float  | package weight                       |               |
+| name                    | type   | description                          | default value |
+| ----------------------- | ------ | ------------------------------------ | ------------- |
+| **custom_payment_link** | string | Automatically enables online payments for sent invoice. This behavior can be disabled by sending `online_payment: false` in [`InvoiceSettings`](#invoicesettings) | |
+| **dimension**           | string | package dimensions in cm (l x w x h) |               |
+| **insurance**           | float  | insurance price                      |               |
+| **oss**                 | bool   | one-stop shop                        |               |
+| **parcel_count**        | int    | number of packages                   |               |
+| **pickup_point_id**     | int    | pickup point ID for Zásielkovňa      |               |
+| **tracking_number**     | string | tracking number                      |               |
+| **weight**              | float  | package weight                       |               |
 
 
 ### Response
