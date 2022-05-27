@@ -128,6 +128,7 @@ Accepted currencies are:
 | ------- | ----------------------- |
 | **AED** |  Uae Dirham             |
 | **AFN** |  Afghani                |
+| **ALL** |  Albanian lek           |
 | **AMD** |  Armenian Dram          |
 | **ANG** |  Antily gulden          |
 | **AOA** |  Angolan Kwanza         |
