@@ -127,9 +127,9 @@ curl -X POST \
     "exchange_rate": 1,
     "id": "6",
     "sequence_cnt": 3,
-    "sequence_id": "6",
-    "sequencein_id": "6",
-    "sequenceout_id": "7",
+    "sequence_id": 6,
+    "sequencein_id": 6,
+    "sequenceout_id": 7,
     "type": 0
   },
   "Summary": {
@@ -176,9 +176,9 @@ curl -X POST \
     "id": "6",
     "invoice_id": 1,
     "sequence_cnt": 1,
-    "sequence_id": "6",
-    "sequencein_id": "6",
-    "sequenceout_id": "7",
+    "sequence_id": 6,
+    "sequencein_id": 6,
+    "sequenceout_id": 7,
     "type": 0
   },
   "Invoice": {
@@ -299,9 +299,9 @@ curl -X POST \
     "id": "6",
     "is_eet": true,
     "sequence_cnt": 2,
-    "sequence_id": "6",
-    "sequencein_id": "6",
-    "sequenceout_id": "7",
+    "sequence_id": 6,
+    "sequencein_id": 6,
+    "sequenceout_id": 7,
     "type": 0
   },
   "EetReceipt": {
@@ -411,9 +411,9 @@ curl -X POST \
     "id": "6",
     "is_eet": true,
     "sequence_cnt": 2,
-    "sequence_id": "6",
-    "sequencein_id": "6",
-    "sequenceout_id": "7",
+    "sequence_id": 6,
+    "sequencein_id": 6,
+    "sequenceout_id": 7,
     "type": 0
   },
   "EetReceipt": {
