@@ -91,11 +91,9 @@ none
     }
   ],
   "Country": {
-    "created": null,
     "eu": true,
     "id": "191",
     "iso": "sk",
-    "modified": null,
     "name": "Slovensko",
     "order": "1"
   },

@@ -91,7 +91,7 @@ Example (list is shortened):
   {
     "Country": {
       "eu": true,
-      "id": "191",
+      "id": 191,
       "iso": "sk",
       "name": "Slovensko"
     }
@@ -99,7 +99,7 @@ Example (list is shortened):
   {
     "Country": {
       "eu": false,
-      "id": "1",
+      "id": 1,
       "iso": "af",
       "name": "Afganistan"
     }
@@ -107,7 +107,7 @@ Example (list is shortened):
   {
     "Country": {
       "eu": false,
-      "id": "2",
+      "id": 2,
       "iso": "al",
       "name": "Albania"
     }

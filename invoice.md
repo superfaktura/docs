@@ -411,13 +411,13 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
     "ClientData": {
       "Country": {
         "eu": true,
-        "id": "191",
+        "id": 191,
         "iso": "sk",
         "name": "Slovensko"
       },
       "DeliveryCountry": {
         "eu": true,
-        "id": "191",
+        "id": 191,
         "iso": "sk",
         "name": "Slovensko"
       },
@@ -670,7 +670,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
       "company_name": "MyData Inc.",
       "country": {
         "eu": true,
-        "id": "191",
+        "id": 191,
         "iso": "sk",
         "name": "Slovensko"
       },
@@ -869,13 +869,13 @@ Same as for **Add invoice**. With the exception of *name* being optional.
     "ClientData": {
       "Country": {
         "eu": true,
-        "id": "191",
+        "id": 191,
         "iso": "sk",
         "name": "Slovensko"
       },
       "DeliveryCountry": {
         "eu": true,
-        "id": "191",
+        "id": 191,
         "iso": "sk",
         "name": "Slovensko"
       },
@@ -1128,7 +1128,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
       "company_name": "MyData Inc.",
       "country": {
         "eu": true,
-        "id": "191",
+        "id": 191,
         "iso": "sk",
         "name": "Slovensko"
       },
@@ -1360,13 +1360,13 @@ none
   "Client": {
     "Country": {
       "eu": true,
-      "id": "191",
+      "id": 191,
       "iso": "sk",
       "name": "Slovensko"
     },
     "DeliveryCountry": {
       "eu": true,
-      "id": "191",
+      "id": 191,
       "iso": "sk",
       "name": "Slovensko"
     },
@@ -1398,13 +1398,13 @@ none
   "ClientData": {
     "Country": {
       "eu": true,
-      "id": "191",
+      "id": 191,
       "iso": "sk",
       "name": "Slovensko"
     },
     "DeliveryCountry": {
       "eu": true,
-      "id": "191",
+      "id": 191,
       "iso": "sk",
       "name": "Slovensko"
     },
@@ -1608,7 +1608,7 @@ none
     "company_name": "SuperFaktura, s.r.o.",
     "country": {
       "eu": true,
-      "id": "191",
+      "id": 191,
       "iso": "sk",
       "name": "Slovensko"
     },
@@ -1766,13 +1766,13 @@ For more details about fields present in result see example response.
     "ClientData": {
       "Country": {
         "eu": true,
-        "id": "191",
+        "id": 191,
         "iso": "sk",
         "name": "Slovensko"
       },
       "DeliveryCountry": {
         "eu": true,
-        "id": "191",
+        "id": 191,
         "iso": "sk",
         "name": "Slovensko"
       },
@@ -1996,7 +1996,7 @@ For more details about fields present in result see example response.
       "company_name": "SuperFaktura, s.r.o.",
       "country": {
         "eu": true,
-        "id": "191",
+        "id": 191,
         "iso": "sk",
         "name": "Slovensko"
       },
@@ -2203,13 +2203,13 @@ curl -X GET \
       "ClientData": {
         "Country": {
           "eu": true,
-          "id": "191",
+          "id": 191,
           "iso": "sk",
           "name": "Slovensko"
         },
         "DeliveryCountry": {
           "eu": true,
-          "id": "191",
+          "id": 191,
           "iso": "sk",
           "name": "Slovensko"
         },
@@ -2433,7 +2433,7 @@ curl -X GET \
         "company_name": "SuperFaktura, s.r.o.",
         "country": {
           "eu": true,
-          "id": "191",
+          "id": 191,
           "iso": "sk",
           "name": "Slovensko"
         },
