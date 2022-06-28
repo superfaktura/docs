@@ -238,6 +238,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 
 | name                     | type     | description  | default value |
 | ------------------------ | -------- | ------------ | ------------- |
+| **add_rounding_item**    | int      | add rounding item to invoice (EUR is rounded to 5 cents and CZK is rounded to integer) (0=no, 1=yes) | 0 |
 | **already_paid**         | int      | is invoice already paid (0=no, 1=yes) | |
 | **bank_accounts**        | array    | list of bank accounts | |
 | **comment**              | string   | comment | |
