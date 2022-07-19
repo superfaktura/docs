@@ -275,6 +275,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 | **tax_document**         | int      | is there a receipt? (for correct connection with proforma invoice is necessary to fill `proforma_id`) (0=no, 1=yes) | |
 | **type**                 | string   | invoice type (see [Value lists > Invoice types](value-lists.md#invoice-types)) | |
 | **variable**             | string   | variable symbol (if left empty, invoice number will be used) | |
+| **vat_transfer**         | int      | VAT reverse charge (0=no, 1=yes) | |
 
 
 ##### InvoiceItem
