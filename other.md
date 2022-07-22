@@ -153,6 +153,7 @@ Or when you have multiple companies
           }
         ],
         "company_name": "SuperFaktura, s.r.o.",
+        "delete_status": "default",
         "id": "1"
       }
     },
@@ -176,6 +177,7 @@ Or when you have multiple companies
       },
       "UserProfile": {
         "company_name": "Test a.s.",
+        "delete_status": "",
         "id": "2"
       }
     }
