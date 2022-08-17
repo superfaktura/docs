@@ -24,6 +24,10 @@ Delete invoice features
 - [Delete invoice item](#delete-invoice-item)
 - [Delete invoice payment](#delete-invoice-payment)
 
+Related item
+- [Add related item](#add-related-item)
+- [Delete related item](#delete-related-item)
+
 
 ## Add invoice
 
@@ -3548,5 +3552,174 @@ curl -X GET \
 {
     "error": 1,
     "message": "Invalid id for invoice payment"   
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Add related item
+
+Add related item (document).
+
+### Request
+**URL**: `/invoices/addRelatedItem`  
+**HTTP method**: POST
+
+```sh
+data='{
+  "parent_id": 1,
+  "parent_type": "invoice",
+  "child_id": 2,
+  "child_type": "invoice"
+}'
+
+curl -X POST \
+    -d "data=$data" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/invoices/addRelatedItem
+```
+
+### Attributes
+#### Required
+
+| name            | type   | description                         | default value |
+|-----------------|--------|-------------------------------------|---------------|
+| **parent_id**   | int    | parent document ID                  |               |
+| **parent_type** | string | type of document (invoice,expense)  |               |
+| **child_id**    | int    | child document ID                   |               |
+| **child_type**  | string | type of document (invoice,expense)  |               |
+
+
+### Response
+
+#### Successful linking of documents
+```json
+{
+  "data": {
+    "Invoice": {
+      "accounting_date": "2022-08-17",
+      "amount": "9.00",
+      "amount_paid": "0.00",
+      "client_data": "{\"Client\":{\"id\":\"3\",\"user_id\":\"1\",\"user_profile_id\":\"1\",\"uuid\":null,\"country_id\":\"191\",\"name\":\"SuperFaktura, s.r.o.\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"iban\":\"XX00000000001\",\"swift\":\"98765\",\"bank_account_prefix\":null,\"bank_account\":\"\",\"bank_code\":\"\",\"account\":null,\"email\":\"\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"state\":\"\",\"country\":\"Slovensko\",\"delivery_name\":\"\",\"delivery_address\":\"\",\"delivery_city\":\"\",\"delivery_zip\":\"\",\"delivery_state\":\"\",\"delivery_country\":\"Slovensko\",\"delivery_country_id\":\"191\",\"phone\":\"\",\"delivery_phone\":\"\",\"fax\":\"\",\"due_date\":null,\"default_variable\":\"\",\"discount\":null,\"currency\":null,\"bank_account_id\":\"0\",\"comment\":\"Client comment\",\"tags\":null,\"distance\":null,\"dont_travel\":null,\"created\":\"2022-08-17 01:23:45\",\"modified\":\"2022-08-17 01:23:45\",\"notices\":true}}",
+      "client_id": "3",
+      "comment": "",
+      "constant": "",
+      "country_exchange_rate": "1.00000000000000",
+      "created": "2022-08-17 01:23:45",
+      "delivery": null,
+      "delivery_type": "",
+      "demo": "0",
+      "deposit": "0.00",
+      "discount": "10",
+      "display_name": "ZAL12019001",
+      "due": "2022-08-17",
+      "estimate_id": null,
+      "exchange_rate": "1.00000000000000",
+      "header_comment": "Header comment",
+      "home_currency": "EUR",
+      "id": "2",
+      "import_id": null,
+      "import_parent_id": null,
+      "import_type": null,
+      "internal_comment": "Internal comment",
+      "invoice_currency": "EUR",
+      "invoice_no": "1",
+      "invoice_no_formatted": "ZAL12019001",
+      "invoice_no_formatted_length": "11",
+      "invoice_no_formatted_raw": "12019001",
+      "issued_by": "John Doe",
+      "issued_by_email": "john@d.oe",
+      "issued_by_phone": " 9999999",
+      "issued_by_web": "https://superfaktura.sk",
+      "items_data": "item 1 description of item 1, ",
+      "items_name": null,
+      "lang": null,
+      "mask": "YYYYNNN",
+      "modified": "2022-08-17 01:23:45",
+      "my_data": "{\"MyData\":{\"id\":\"1\",\"user_id\":\"1\",\"country_id\":191,\"company_name\":\"MyData Inc.\",\"address\":\"Fiktivna 1\",\"city\":\"Prague\",\"zip\":\"999 88\",\"ico\":\"46655034\",\"dic\":\"SK99999999\",\"ic_dph\":\"ABCDE\",\"tax_payer\":\"1\",\"country\":\"Slovensko\",\"BankAccount\":[{\"bank_name\":\"New Bank\",\"iban\":\"SK0000000000000000\",\"swift\":\"12345\",\"show_account\":true,\"country_id\":\"\",\"account\":\"\",\"bank_code\":\"\"}],\"Logo\":\"[{\\\"id\\\":\\\"1\\\",\\\"model\\\":\\\"User\\\",\\\"foreign_key\\\":\\\"1\\\",\\\"dirname\\\":\\\"img\\\",\\\"basename\\\":\\\"4311c1895aa334d39ac8_1_exads_logo_rgb.png\\\",\\\"checksum\\\":\\\"a1dcdc392d08d6d1caaf148225f2a7d4\\\",\\\"group\\\":\\\"logo\\\",\\\"default\\\":true,\\\"alternative\\\":null,\\\"size\\\":\\\"49743\\\",\\\"extern_file\\\":\\\"0\\\",\\\"delete_flag\\\":false,\\\"created\\\":\\\"2022-08-17 01:23:45\\\",\\\"modified\\\":\\\"2022-08-17 01:23:45\\\",\\\"path\\\":\\\"img\\\\\\/4311c1895aa334d39ac8_1_exads_logo_rgb.png\\\"}]\",\"Signature\":\"{\\\"id\\\":\\\"2\\\",\\\"model\\\":\\\"User\\\",\\\"foreign_key\\\":\\\"1\\\",\\\"dirname\\\":\\\"img\\\",\\\"basename\\\":\\\"9b7c9830cb6b6afa7b16_1_podpis_1.png\\\",\\\"checksum\\\":\\\"33b5238616646ca28ebabc02f713a59f\\\",\\\"group\\\":\\\"signature\\\",\\\"default\\\":false,\\\"alternative\\\":null,\\\"size\\\":\\\"2689\\\",\\\"extern_file\\\":\\\"0\\\",\\\"delete_flag\\\":false,\\\"created\\\":\\\"2022-08-17 01:23:45\\\",\\\"modified\\\":\\\"2022-08-17 01:23:45\\\",\\\"path\\\":\\\"img\\\\\\/9b7c9830cb6b6afa7b16_1_podpis_1.png\\\"}\",\"business_register\":\"-\"}}",
+      "name": "Test API",
+      "order_no": null,
+      "paid": "0.00",
+      "parent_id": null,
+      "paydate": null,
+      "payment_type": null,
+      "proforma_id": null,
+      "recurring": null,
+      "rounding": "item_ext",
+      "sequence_id": "2",
+      "special_vat_scheme": null,
+      "specific": "123456",
+      "status": "1",
+      "summary_invoice": null,
+      "tags": null,
+      "tax_document": null,
+      "taxdate": null,
+      "token": "c3b05c50",
+      "type": "proforma",
+      "type_translated": "Zálohová faktúra",
+      "user_id": "1",
+      "user_profile_id": "1",
+      "variable": "VS87654",
+      "variable_raw": "VS87654",
+      "vat": "1.80",
+      "vat_transfer": null
+    },
+    "RelatedItem": {
+      "id": "2"
+    }
+  },
+  "error": 0,
+  "error_message": ""
+}
+```
+
+#### Invalid ID
+```json
+{
+  "error": 1,
+  "error_message": "Invalid id"
+}
+```
+
+#### Invalid data
+```json
+{
+  "error": 1,
+  "error_message": "invalid data"
+}
+```
+
+## Delete related item
+
+Delete relation between 2 documents.
+
+### Request
+**URL**: `/invoices/deleteRelatedItem/{RELATION_ID}`  
+**HTTP method**: POST
+
+```sh
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/invoices/deleteRelatedItem/2
+```
+
+### Attributes
+#### Required
+
+| name            | type   | description | default value |
+|-----------------|--------|-------------|---------------|
+| **relation_id** | int    | relation ID |               |
+
+
+### Response
+
+#### Successful removal
+
+```json
+{
+  "error": 0,
+  "error_message": ""
 }
 ```

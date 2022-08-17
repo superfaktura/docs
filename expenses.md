@@ -10,6 +10,10 @@ Expense payments
 - [Add expense payment](#add-expense-payment)
 - [Delete expense payment](#delete-expense-payment)
 
+Related item
+- [Add related item](#add-related-item)
+- [Delete related item](#delete-related-item)
+
 
 ## Add expense
 
@@ -1174,5 +1178,161 @@ none
 {
    "error": 1,
    "message": "Expense payment was not deleted"
+}
+```
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Add related item
+
+Add related item (document).
+
+### Request
+**URL**: `/expenses/addRelatedItem`  
+**HTTP method**: POST
+
+```sh
+data='{
+  "parent_id": 1,
+  "parent_type": "expense",
+  "child_id": 2,
+  "child_type": "invoice"
+}'
+
+curl -X POST \
+    -d "data=$data" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/expenses/addRelatedItem
+```
+
+### Attributes
+#### Required
+
+| name            | type   | description                         | default value |
+|-----------------|--------|-------------------------------------|---------------|
+| **parent_id**   | int    | parent document ID                  |               |
+| **parent_type** | string | type of document (invoice,expense)  |               |
+| **child_id**    | int    | child document ID                   |               |
+| **child_type**  | string | type of document (invoice,expense)  |               |
+
+
+### Response
+
+#### Successful linking of documents
+```json
+{
+  "data": {
+    "Expense": {
+      "accounting_date": "2022-08-17",
+      "amount": "12.1400",
+      "amount2": null,
+      "amount3": null,
+      "amount_country_home": "12.1400",
+      "amount_home": "12.1400",
+      "amount_paid": "0.0000",
+      "amount_paid_vat": "0.0000",
+      "client_data": null,
+      "client_id": null,
+      "comment": null,
+      "constant": null,
+      "country_exchange_rate": "1.00000000000000",
+      "created": "2022-08-17",
+      "currency": "EUR",
+      "delivery": "2022-08-17",
+      "demo": "0",
+      "discount": "0",
+      "discount_total": "0.0000",
+      "display_name": "Foo bar",
+      "document_number": null,
+      "due": "2022-08-17",
+      "exchange_rate": "1.00000000000000",
+      "expense_category_id": null,
+      "expense_no": "2",
+      "home_currency": "EUR",
+      "id": "2",
+      "modified": "2022-08-17 01:23:45",
+      "my_data": "{\"id\":\"1\",\"user_id\":1,\"country_id\":\"191\",\"company_name\":\"SuperFaktura, s.r.o.\",\"name\":null,\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"business_register\":\"Obchodn\\u00fd register Okresn\\u00e9ho s\\u00fadu Bratislava I, oddiel: Sro, vlo\\u017eka \\u010d. 81403\\/B\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"tax_payer\":\"1\",\"vat_interval\":null,\"company_type\":\"ltd\"}",
+      "name": "Foo bar",
+      "number": "2022002",
+      "paid": "0.0000",
+      "paid_vat": "0.0000",
+      "paydate": null,
+      "recurring": null,
+      "sequence_id": "9",
+      "specific": null,
+      "status": "1",
+      "tags": null,
+      "tax": null,
+      "tax_code": null,
+      "taxable_supply": null,
+      "taxdate": "2022-08-17",
+      "total": "12.1400",
+      "total_country_home": "12.1400",
+      "total_home": "12.1400",
+      "type": "invoice",
+      "type_translated": "Náklad",
+      "user_id": "1",
+      "user_profile_id": "1",
+      "variable": null,
+      "vat": "0.0000",
+      "vat2": null,
+      "vat3": null
+    },
+    "RelatedItem": {
+      "id": "2"
+    }
+  },
+  "error": 0,
+  "error_message": ""
+}
+```
+
+#### Invalid ID
+```json
+{
+  "error": 1,
+  "error_message": "Invalid id"
+}
+```
+
+#### Invalid data
+```json
+{
+  "error": 1,
+  "error_message": "invalid data"
+}
+```
+
+## Delete related item
+
+Delete relation between 2 documents.
+
+### Request
+**URL**: `/expenses/deleteRelatedItem/{RELATION_ID}`  
+**HTTP method**: POST
+
+```sh
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/expenses/deleteRelatedItem/2
+```
+
+### Attributes
+#### Required
+
+| name            | type   | description | default value |
+|-----------------|--------|-------------|---------------|
+| **relation_id** | int    | relation ID |               |
+
+
+### Response
+
+#### Successful removal
+
+```json
+{
+  "error": 0,
+  "error_message": ""
 }
 ```
