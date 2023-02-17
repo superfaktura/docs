@@ -766,7 +766,8 @@ URL parameters:
 | **amount_to**          | float  | maximum amount of money | |
 | **category**           | int    | category ID  | |
 | **client_id**          | int    | client ID | |
-| **created**            | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | | **modified**           | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
+| **created**            | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | | 
+| **modified**           | int    | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
 | **created_since**      | date   | created date since (requires `created:3`) | |
 | **created_to**         | date   | created date until (requires `created:3`) | |
 | **modified_since**     | date   | modified date since (requires `modified:3`) | |
