@@ -26,6 +26,7 @@ data='{
     "sku":"itemb1241",
     "unit":"m",
     "unit_price":19.95,
+    "purchase_unit_price":10.99,
     "vat":20,
     "watch_stock":1,
     "stock":123
@@ -56,6 +57,7 @@ none
 | **stock**                 | float  | number of units in stock. If is not set, stock movements will not be watched | |
 | **unit**                  | string | unit, e.g.: pcs, mm, m2, ...                                                 | |
 | **unit_price**            | float  | unit price                                                                   | |
+| **purchase_unit_price**   | float  | purchase unit price                                                          | |
 | **vat**                   | float  | VAT in percent                                                               | |
 | **watch_stock**           | int    | track inventory level (0=no, 1=yes)                                          | |
 
@@ -77,12 +79,13 @@ none
       "stock": 123,
       "unit": "m",
       "unit_price": 19.95,
+      "purchase_unit_price":10.99,
       "vat": 20,
       "watch_stock": 1
     },
     "StockLog": [
       {
-        "log_data": "{\"purchase_unit_price\":null,\"purchase_vat\":null,\"purchase_currency\":null,\"unit_price\":19.95,\"vat\":20,\"currency\":null}",
+        "log_data": "{\"purchase_unit_price\":10.99,\"purchase_vat\":null,\"purchase_currency\":null,\"unit_price\":19.95,\"vat\":20,\"currency\":null}",
         "note": "Počiatočný stav skladu",
         "quantity": 123
       }
