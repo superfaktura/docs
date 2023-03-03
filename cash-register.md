@@ -28,7 +28,6 @@ curl -X GET \
     "CashRegister": {
       "currency": "CZK",
       "description": "My EET Cash Register",
-      "eet_certificate_id": "1",
       "id": "2",
       "id_provoz": "123234",
       "items": "2",
@@ -44,7 +43,6 @@ curl -X GET \
     "CashRegister": {
       "currency": "EUR",
       "description": "My Cash Register",
-      "eet_certificate_id": null,
       "id": "1",
       "id_provoz": null,
       "items": "3",

@@ -146,7 +146,6 @@ curl -X POST \
       "value": "120.00"
     }
   },
-  "flag": "",
   "status": "1"
 }
 ```
@@ -261,7 +260,6 @@ curl -X POST \
       "value": "120.00"
     }
   },
-  "flag": "",
   "status": "1"
 }
 ```
@@ -555,7 +553,6 @@ URL parameters:
   "CashRegister": {
     "currency": "CZK",
     "description": "My EET Cash Register",
-    "eet_certificate_id": "1",
     "id": "2",
     "id_provoz": "123234",
     "name": "CR2-EET",
