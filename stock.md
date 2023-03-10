@@ -556,8 +556,14 @@ Returns HTTP status 403.
 data='{
     "StockLog":[
         {
-            "quantity":5,
-            "sku":"itemb1241"
+          "currency":"EUR",
+          "purchase_currency":"SEK",
+          "purchase_unit_price":0.97,
+          "purchase_tax":22,
+          "quantity":5,
+          "sku":"itemb1241",
+          "unit_price":1.23,
+          "tax":25
         }
     ]
 }';
@@ -576,13 +582,18 @@ Either `sku` or `stock_item_id` is required.
 
 ### Optional
 
-| name              | type   | description | default value |
-| ----------------- | ------ | ----------- | ------------- |
-| **created**       | date   | date of movement in `YYYY-MM-DD` | &lt;current&gt; |
-| **note**          | string | description of movement |   |
-| **quantity**      | float  | negative number = outgo, positive = income | 1 |
-| **sku**           | string | unique stock item identifier | |
-| **stock_item_id** | int    | stock item ID to which movement will be assigned | |
+| name                    | type   | description                                      | default value   |
+|-------------------------|--------|--------------------------------------------------|-----------------|
+| **created**             | date   | date of movement in `YYYY-MM-DD`                 | &lt;current&gt; |
+| **note**                | string | description of movement                          |                 |
+| **purchase_currency**   | string |                                                  |                 |
+| **purchase_unit_price** | float  |                                                  |                 |
+| **purchase_tax**        | float  | VAT                                              |                 |
+| **quantity**            | float  | negative number = outgo, positive = income       | 1               |
+| **sku**                 | string | unique stock item identifier                     |                 |
+| **stock_item_id**       | int    | stock item ID to which movement will be assigned |                 |
+| **unit_price**          | float  | stock item ID to which movement will be assigned |                 |
+| **tax**                 | float  | VAT                                              |                 |
 
 ### Response
 
@@ -593,10 +604,17 @@ Either `sku` or `stock_item_id` is required.
   "data": {
     "StockLog": [
       {
+        "currency": "EUR",
         "id": 0,
+        "log_data": "{\"purchase_unit_price\":0.97,\"purchase_tax\":22,\"purchase_currency\":\"SEK\",\"unit_price\":1.23,\"tax\":25,\"currency\":\"EUR\"}",
+        "purchase_currency": "SEK",
+        "purchase_tax": 22,
+        "purchase_unit_price": 0.97,
         "quantity": 5,
         "sku": "itemb1241",
-        "stock_item_id": "1"
+        "stock_item_id": "1",
+        "tax": 25,
+        "unit_price": 1.23
       }
     ]
   },
