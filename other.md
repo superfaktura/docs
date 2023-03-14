@@ -64,7 +64,6 @@ none
       },
       "UserProfile": {
         "address": "Pri Suchom mlyne 6",
-        "aff_visitor_id": null,
         "affiliate_id": null,
         "business_register": "Obchodný register Okresného súdu Bratislava I, oddiel: Sro, vložka č. 81403/B",
         "bysquare": true,
