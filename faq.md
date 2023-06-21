@@ -1,5 +1,9 @@
 # FAQ
 
+## I am not authenticated but my credentials are correct
+
+Check that your email is correctly encoded.
+For example email `hello+world@example.com` will become `hello%2Bworld%40example.com`.
 
 ## How do I select changed or paid documents?
 

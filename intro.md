@@ -18,6 +18,8 @@ Attributes `email`, `apikey` and `company_id` can be found in your SuperFaktura 
 Attribute `module` is name of your API module. If you are using a 3rd party module, use its name - e.g. `WordPress 5.2.3 (WC 3.8.0, WC SF 1.9.17)`.
 If you are making your own module, use some descriptive name, such as `MyCustomModule 1.0`.
 
+All values need to be URL encoded.
+So for example email `hello+world@example.com` will become `hello%2Bworld%40example.com`.
 
 | Attribute  | required | Can be found in SuperFaktura? |
 | ---------- | -------- | ----------------------------- |
