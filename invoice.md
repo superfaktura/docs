@@ -161,7 +161,12 @@ data='{
     "swift": "98765"
   },
   "InvoiceSetting": {
-    "settings": "{\"language\":\"eng\",\"signature\":true,\"payment_info\":true,\"online_payment\": true,\"bysquare\": true,\"paypal\": true}"
+    "language": "eng",
+    "signature": true,
+    "payment_info": true,
+    "online_payment": true,
+    "bysquare": true,
+    "paypal": true
   },
   "InvoiceExtra": {
     "pickup_point_id": 23
@@ -332,16 +337,17 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 
 ##### InvoiceSettings
 
-| name                 | type   | description                                                                                                     | default value |
-| -------------------- | ------ | --------------------------------------------------------------------------------------------------------------- | ------------- |
-| **bysquare**         | bool   | show pay by square                                                                                              |               |
+| name                 | type   | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | default value |
+|----------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------- |
+| **bysquare**         | bool   | show pay by square                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |               |
 | **callback_payment** | string | URL, which will be automatically called after adding payment to the invoice. GET parameter `invoice_id` will be appended to the URL. If you send URL `https://example.com/callback/`, the callback URL for invoice_id 123 will be `https://example.com/callback/?invoice_id=123` or `https://example.com/callback/?invoice_id=123&secret_key={KEY}`. Parameter `secret_key` can be part of sent URL (`https://example.com/callback/?secret_key=SECRET-KEY`) or set in your profile. |               |
-| **language**         | string | invoice language  (for list of possible values see [Value lists > Language list](value-lists.md#language-list)) |               |
-| **online_payment**   | bool   | show online payments                                                                                            |               |
-| **payment_info**     | bool   | show payment information                                                                                        |               |
-| **paypal**           | bool   | show PayPal                                                                                                     |               |
-| **show_prices**      | bool   | show prices (only effective for delivery)                                                                       |               |
-| **signature**        | bool   | show signature                                                                                                  |               |
+| **language**         | string | invoice language  (for list of possible values see [Value lists > Language list](value-lists.md#language-list))                                                                                                                                                                                                                                                                                                                                                                     |               |
+| **online_payment**   | bool   | show online payments                                                                                                                                                                                                                                                                                                                                                                                                                                                                |               |
+| **payment_info**     | bool   | show payment information                                                                                                                                                                                                                                                                                                                                                                                                                                                            |               |
+| **paypal**           | bool   | show PayPal                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |               |
+| **show_prices**      | bool   | show prices (only effective for delivery)                                                                                                                                                                                                                                                                                                                                                                                                                                           |               |
+| **signature**        | bool   | show signature                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |               |
+| **summary_bg_color** | string | summary boxes color - has to be in format `#rrggbb`, where `rr`, `gg` and `bb` are hexadecimal (`00`-`FF`)                                                                                                                                                                                                                                                                                                                                                                          |               |
 
 
 ##### InvoiceExtras
@@ -597,7 +603,8 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
       "online_payment": true,
       "payment_info": true,
       "paypal": true,
-      "signature": true
+      "signature": true,
+      "summary_bg_color": "#d4eef6"
     },
     "Logo": [
       {
@@ -1055,7 +1062,8 @@ Same as for **Add invoice**. With the exception of *name* being optional.
       "online_payment": true,
       "payment_info": true,
       "paypal": true,
-      "signature": true
+      "signature": true,
+      "summary_bg_color": "#d4eef6"
     },
     "Logo": [
       {
