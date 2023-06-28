@@ -55,6 +55,7 @@ data='{
         }
     ],
     "Client":{
+        "name": "Company name",
         "ico": "44981082"
     }
 }';
@@ -93,6 +94,7 @@ data='{
         }
     ],
     "Client":{
+        "name": "Company name",
         "ico": "44981082",
         "comment": "Client comment",
         "update_addressbook": 1,
@@ -154,6 +156,7 @@ data='{
     }
   ],
   "Client":{
+    "name": "Company name",
     "ico": "46655034",
     "comment": "Client comment",
     "update_addressbook": 1,
