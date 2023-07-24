@@ -76,6 +76,23 @@ data='{
     ]
 }';
 
+# example with client
+data='{
+  "Expense": {
+    "name": "Client inside",
+    "currency": "EUR",
+    "amount": 12.14
+  },
+    "Client":{
+    "name": "Comp Any Ltd",
+    "ico": "12345678",
+    "comment": "no comment",
+    "update_addressbook": 1,
+    "iban": "XX00000000001",
+    "swift": "98765"
+  }
+}';
+
 
 curl -X POST \
     -d "data=$data" \
