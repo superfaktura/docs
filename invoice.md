@@ -602,6 +602,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
     "InvoicePayment": [],
     "InvoiceSetting": {
       "bysquare": true,
+      "force_iban": true,
       "language": "eng",
       "online_payment": true,
       "payment_info": true,
@@ -1061,6 +1062,7 @@ Same as for **Add invoice**. With the exception of *name* being optional.
     "InvoicePayment": [],
     "InvoiceSetting": {
       "bysquare": true,
+      "force_iban": true,
       "language": "eng",
       "online_payment": true,
       "payment_info": true,
