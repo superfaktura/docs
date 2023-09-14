@@ -284,7 +284,7 @@ none
 
 ```json
 {
-  "error": 1,
-  "message": "Nenašiel sa žiaden bankový účet"
+  "BankAccounts": [],
+  "error": 0
 }
 ```
