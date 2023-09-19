@@ -67,12 +67,13 @@ curl -X POST \
 ```
 
 #### Wrong client
+HTTP status 404
 
 ```json
 {
   "error": 1,
-  "message": "Klient sa nenašiel. Prosím skontrolujte kľúč client_id.",
-  "state": "ERROR"
+  "error_message": "Client not found",
+  "message": "Client not found"
 }
 ```
 
@@ -142,21 +143,21 @@ none
       "account": null,
       "address": "Pri Suchom mlyne 6",
       "bank_account": "",
-      "bank_account_id": "0",
+      "bank_account_id": 0,
       "bank_account_prefix": null,
       "bank_code": "",
       "city": "Bratislava - mestská časť Staré Mesto",
       "client": true,
       "comment": "",
       "country": "Slovensko",
-      "country_id": "191",
-      "created": "2050-01-01 23:59:59",
+      "country_id": 191,
+      "created": "2050-01-01T23:59:59+01:00",
       "currency": null,
       "default_variable": "",
       "delivery_address": "",
       "delivery_city": "",
       "delivery_country": "Slovensko",
-      "delivery_country_id": "191",
+      "delivery_country_id": 191,
       "delivery_name": "",
       "delivery_phone": "",
       "delivery_state": "",
@@ -171,16 +172,16 @@ none
       "iban": "",
       "ic_dph": "SK2023513470",
       "ico": "46655034",
-      "id": "3",
-      "modified": "2050-01-01 23:59:59",
+      "id": 3,
+      "modified": "2050-01-01T23:59:59+01:00",
       "name": "SuperFaktura, s.r.o.",
       "notices": true,
       "phone": "",
       "state": "",
       "swift": "",
       "tags": null,
-      "user_id": "1",
-      "user_profile_id": "1",
+      "user_id": 1,
+      "user_profile_id": 1,
       "uuid": null,
       "zip": "811 04"
     }
@@ -189,15 +190,14 @@ none
 ```
 
 #### Wrong client
+HTTP status 404
 
 ```json
-[
-  {
-    "ContactPerson": {
-      "client": true
-    }
-  }
-]
+{
+  "error": 1,
+  "error_message": "Client not found",
+  "message": "Client not found"
+}
 ```
 
 
@@ -242,10 +242,13 @@ none
 
 
 #### Wrong contact person
+HTTP status 404
 
 ```json
 {
-  "error": 1
+  "error": 1,
+  "error_message": "Contact not found",
+  "message": "Contact not found"
 }
 ```
 
