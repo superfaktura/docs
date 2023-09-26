@@ -689,7 +689,6 @@ Example:
 | **gopay**           | GoPay                    |                  |
 | **other**           | other                    | iný spôsob       |
 | **paypal**          | Paypal                   |                  |
-| **postal_order**    | Postal money order       |                  |
 | **transfer**        | wire transfer            | bankový prevod   |
 | **trustpay**        | Trustpay (on SK version) |                  |
 | **viamo**           | Viamo                    |                  |
