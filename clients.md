@@ -1,7 +1,194 @@
 # Clients
 
+- [Create client](#create-client)
 - [View client detail](#view-client-detail)
 - [Get client list](#get-client-list)
+- [Edit client](#edit-client)
+- [Delete client](#delete-client)
+
+
+## Create client
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Create a new client.
+
+### Request
+
+**URL**: `/clients/create`  
+**HTTP method:** POST  
+
+```bash
+# Minimal example
+data='{
+  "Client": {"name": "Jozef Mrkvicka"}
+}';
+
+# Complex example
+data='{
+  "Client": {
+    "address": "Bratislavská 123",
+    "bank_account": "0000003968781519",
+    "bank_code": "1100",
+    "city": "Medzilaborce",
+    "comment": "Note for this client",
+    "country_id": 191,
+    "currency": "EUR",
+    "default_variable": "12345",
+    "delivery_address": "Pri Suchom mlyne 6",
+    "delivery_city": "Bratislava",
+    "delivery_country_id": 191,
+    "delivery_name": "Jozef Mrkvicka",
+    "delivery_phone": "+421 915 222 333",
+    "delivery_zip": "811 04",
+    "dic": "2023513470",
+    "discount": 10.00,
+    "due_date": 20,
+    "email": "jozef.mrkvicka@example.com",
+    "fax": "+421 915 222 333",
+    "iban": "SK6911000000003968781519",
+    "ic_dph": "2023513470",
+    "ico": "12345678",
+    "name": "Jozef Mrkvicka",
+    "phone": "+421 915 222 333",
+    "swift": "TATRSKBX",
+    "uuid": "e5c27ebc-74d2-47da-8f44-72d45cf50200",
+    "zip": "068 01"
+  }
+}';
+
+curl -X POST \
+    -d "$data" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=123"
+    https://moja.superfaktura.sk/clients/create
+```
+
+### Attributes
+#### Required
+
+| name      | type   | description  | default value |
+| --------- | ------ | ------------ | ------------- |
+| **name**  | string | client name  |               |
+
+#### Optional
+
+| name                      | type   | description                                                                                                      | default value |
+|---------------------------|--------|------------------------------------------------------------------------------------------------------------------| ------------- |
+| **address**               | string | address (street + number)                                                                                        | |
+| **bank_account**          | string | bank account                                                                                                     | |
+| **bank_code**             | string | bank code                                                                                                        | |
+| **city**                  | string | city                                                                                                             | |
+| **comment**               | string | comment                                                                                                          | |
+| **country**               | string | custom country name                                                                                              | |
+| **country_id**            | int    | country ID (see [Value lists > Country list](value-lists.md#country-list))                                       | |
+| **currency**              | string | default currency on documents issued for this client (see [Value lists > Currencies](value-lists.md#currencies)) | |
+| **default_variable**      | string | default variable on documents issued for this client                                                             | |
+| **delivery_address**      | string | delivery address (street + number)                                                                               | |
+| **delivery_city**         | string | delivery city                                                                                                    | |
+| **delivery_country**      | string | custom delivery country name                                                                                     | |
+| **delivery_country_id**   | int    | delivery country ID (see [Value lists > Country list](value-lists.md#country-list))                              | |
+| **delivery_name**         | string | delivery country name                                                                                            | |
+| **delivery_phone**        | string | delivery phone number                                                                                            | |
+| **delivery_zip**          | string | delivery ZIP code                                                                                                | |
+| **dic**                   | string | Tax ID (DIČ-sk)                                                                                                  | |
+| **discount**              | float  | default discount on documents issued for this client                                                             | |
+| **due_date**              | int    | default due days on documents issued for this client                                                             | |
+| **email**                 | string | email                                                                                                            | |
+| **fax**                   | string | fax                                                                                                              | |
+| **iban**                  | string | IBAN                                                                                                             | |
+| **ic_dph**                | string | VAT ID (IČ DPH🇸🇰, DIČ-cz)                                                                                      | |
+| **ico**                   | string | ID (IČO)                                                                                                         | |
+| **match_address**         | int    | if this parameter is set, address is included in client searching                                                | |
+| **phone**                 | string | phone number                                                                                                     | |
+| **swift**                 | string | SWIFT code                                                                                                       | |
+| **tags**                  | string | refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity)                          | |
+| **uuid**                  | string | custom unique identifier for client                                                                              | |
+| **zip**                   | string | ZIP code                                                                                                         | |
+
+### Response
+
+#### Successful addition
+
+Returns HTTP status 200 (OK).
+```JSON
+{
+  "data": {
+    "Client": {
+      "account": null,
+      "address": "Bratislavská 123",
+      "bank_account": "0000003968781519",
+      "bank_account_id": null,
+      "bank_account_prefix": null,
+      "bank_code": "1100",
+      "city": "Medzilaborce",
+      "comment": "Note for this client",
+      "country": "Slovensko",
+      "country_id": "191",
+      "created": "2050-01-01 23:59:59",
+      "currency": "EUR",
+      "default_variable": "12345",
+      "delivery_address": "Pri Suchom mlyne 6",
+      "delivery_city": "Bratislava",
+      "delivery_country": "Slovensko",
+      "delivery_country_id": "191",
+      "delivery_name": "Jozef Mrkvicka",
+      "delivery_phone": "+421 915 222 333",
+      "delivery_state": null,
+      "delivery_zip": "811 04",
+      "dic": "2023513470",
+      "discount": "10.00",
+      "distance": null,
+      "dont_travel": null,
+      "due_date": "20",
+      "email": "jozef.mrkvicka@example.com",
+      "fax": "+421 915 222 333",
+      "iban": "SK6911000000003968781519",
+      "ic_dph": "2023513470",
+      "ico": "12345678",
+      "id": "4",
+      "modified": "2050-01-01 23:59:59",
+      "name": "Jozef Mrkvicka",
+      "notices": true,
+      "phone": "+421 915 222 333",
+      "state": null,
+      "swift": "TATRSKBX",
+      "tags": null,
+      "user_id": "1",
+      "user_profile_id": "1",
+      "uuid": "e5c27ebc-74d2-47da-8f44-72d45cf50200",
+      "zip": "068 01"
+    }
+  },
+  "error": 0,
+  "error_message": "Client created"
+}
+```
+
+#### Bad data format
+
+Returns HTTP status 400 (Bad request).
+```json
+{
+  "error": 1,
+  "message": "Bad data format",
+  "error_message": "Bad data format"
+}
+```
+
+#### Missing required data
+
+Returns HTTP status 200 (OK).
+```json
+{
+  "error": 1,
+  "error_message": "Missing data"
+}
+```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 
 ## View client detail
 
@@ -101,10 +288,13 @@ none
 }
 ```
 
-#### Wrong client
+#### Client not found
+
+Returns HTTP status 404 (Not found).
 ```json
 {
   "error": 1,
+  "message": "Client not found",
   "error_message": "Client not found"
 }
 ```
@@ -144,28 +334,28 @@ none
 
 URL parameters:
 
-| name            | type   | description | default value |
-| --------------- | ------ | ----------- | ------------- |
-| **direction**   | string | sorting type, `ASC` or `DESC`| `DESC` |
-| **listinfo**    | int    | should meta information be returned? <ul><li>page number</li><li>number of pages</li><li>number of results per page</li><li>number of results</li></ul> | |
-| **page**        | int    | page number | 1 |
-| **per_page**    | int    | number of results per page | |
-| **sort**        | string | sorting attribute | `regular_count` 
+| name            | type   | description                                                                                                                                             | default value   |
+| --------------- |--------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| **direction**   | string | sorting type, `ASC` or `DESC`                                                                                                                           | `DESC`          |
+| **listinfo**    | int    | should meta information be returned? <ul><li>page number</li><li>number of pages</li><li>number of results per page</li><li>number of results</li></ul> |                 |
+| **page**        | int    | page number                                                                                                                                             | 1               |
+| **per_page**    | int    | number of results per page                                                                                                                              |                 |
+| **sort**        | string | sorting attribute                                                                                                                                       | `regular_count` |
 
 Filtering parameters
 
-| name               | type         | description    | default value |
-| ------------------ | ------------ | ------------   | ------------- |
-| **char_filter** | string | search by first letter of client name (non letter characters are under `#`) | |
-| **created**        | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **created_since**  | date         | creation date since (requires `created:3`) | |
-| **created_to**     | date         | creation date to (requires `created:3`) | |
-| **modified**       | int          | last modification date constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **modified_since** | date         | last modification date from (requires `modified:3`) | |
-| **modified_to**    | date         | last modification date to (requires `modified:3`)   | |
-| **search**      | string | search by base64 encoded substring in the following fields: <ul><li>name</li><li>ID (ICO)</li><li>Tax ID (DIC)</li><li>VAT ID (IC_DPH)</li><li>bank_account</li><li>email</li><li>address</li><li>city</li><li>zip</li><li>state</li><li>country</li><li>phone</li><li>fax</li><li>comment</li><li>tags</li><li>UUID</li></ul> | |
-| **search_uuid** | string | search by UUID | | 
-| **tag**         | int    | tag ID | |
+| name               | type    | description                                                                                                                                                                                                                                                                                                                    | default value |
+|--------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------- |
+| **char_filter**    | string  | search by first letter of client name (non letter characters are under `#`)                                                                                                                                                                                                                                                    | |
+| **created**        | int     | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants))                                                                                                                                                                                                           | |
+| **created_since**  | date    | creation date since (requires `created:3`)                                                                                                                                                                                                                                                                                     | |
+| **created_to**     | date    | creation date to (requires `created:3`)                                                                                                                                                                                                                                                                                        | |
+| **modified**       | int     | last modification date constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants))                                                                                                                                                                                    | |
+| **modified_since** | date    | last modification date from (requires `modified:3`)                                                                                                                                                                                                                                                                            | |
+| **modified_to**    | date    | last modification date to (requires `modified:3`)                                                                                                                                                                                                                                                                              | |
+| **search**         | string  | search by base64 encoded substring in the following fields: <ul><li>name</li><li>ID (ICO)</li><li>Tax ID (DIC)</li><li>VAT ID (IC_DPH)</li><li>bank_account</li><li>email</li><li>address</li><li>city</li><li>zip</li><li>state</li><li>country</li><li>phone</li><li>fax</li><li>comment</li><li>tags</li><li>UUID</li></ul> | |
+| **search_uuid**    | string  | search by UUID                                                                                                                                                                                                                                                                                                                 | | 
+| **tag**            | int     | tag ID                                                                                                                                                                                                                                                                                                                         | |
 
 
 ### Response
@@ -657,5 +847,186 @@ In the key `items` is the same content as in the example above.
   "page": 1,
   "pageCount": 1,
   "perPage": 50
+}
+```
+
+- - -
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+## Edit client
+
+--------------------------
+Edit an existing client.
+
+### Request
+**URL**: `/clients/edit/{ID}`  
+**HTTP method:** PATCH  
+
+```bash
+data='{
+    "Client": {
+        "uuid": "598f4b4f-6fcb-4f25-9828-bf4237a715d0"
+    }
+}'
+
+curl -X PATCH \
+    -d "$data" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=123" \
+    -H "Content-Type: application/json" \
+    https://moja.superfaktura.sk/clients/edit/1234
+```
+
+### Attributes
+#### Required
+
+| name     | type   | description | default value |
+|----------|--------|-------------| ------------- |
+| **id**   | int    | client id   |               |
+| **name** | string | client name |               |
+
+#### Optional
+
+| name                       | type   | description                                                                                                      | default value |
+|----------------------------|--------|------------------------------------------------------------------------------------------------------------------| ------------- |
+| **address**                | string | address (street + number)                                                                                        | |
+| **bank_account**           | string | bank account                                                                                                     | |
+| **bank_code**              | string | bank code                                                                                                        | |
+| **city**                   | string | city                                                                                                             | |
+| **comment**                | string | comment                                                                                                          | |
+| **country**                | string | custom country name                                                                                              | |
+| **country_id**             | int    | country ID (see [Value lists > Country list](value-lists.md#country-list))                                       | |
+| **currency**               | string | default currency on documents issued for this client (see [Value lists > Currencies](value-lists.md#currencies)) | |
+| **default_variable**       | string | default variable on documents issued for this client                                                             | |
+| **delivery_address**       | string | delivery address (street + number)                                                                               | |
+| **delivery_city**          | string | delivery city                                                                                                    | |
+| **delivery_country**       | string | custom delivery country name                                                                                     | |
+| **delivery_country_id**    | int    | delivery country ID (see [Value lists > Country list](value-lists.md#country-list))                              | |
+| **delivery_name**          | string | delivery country name                                                                                            | |
+| **delivery_phone**         | string | delivery phone number                                                                                            | |
+| **delivery_zip**           | string | delivery ZIP code                                                                                                | |
+| **dic**                    | string | Tax ID (DIČ-sk)                                                                                                  | |
+| **discount**               | float  | default discount on documents issued for this client                                                             | |
+| **due_date**               | int    | default due days on documents issued for this client                                                             | |
+| **email**                  | string | email                                                                                                            | |
+| **fax**                    | string | fax                                                                                                              | |
+| **iban**                   | string | IBAN                                                                                                             | |
+| **ic_dph**                 | string | VAT ID (IČ DPH🇸🇰, DIČ-cz)                                                                                      | |
+| **ico**                    | string | ID (IČO)                                                                                                         | |
+| **match_address**          | int    | if this parameter is set, address is included in client searching                                                | |
+| **phone**                  | string | phone number                                                                                                     | |
+| **swift**                  | string | SWIFT code                                                                                                       | |
+| **tags**                   | string | refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity)                                                                                                       | |
+| **uuid**                   | string | custom unique identifier for client                                                                              | |
+| **zip**                    | string | ZIP code                                                                                                         | |
+
+#### Successful update
+
+Returns HTTP status 200 (OK).
+```JSON
+{
+  "error": 0,
+  "message": "The client has been saved"
+}
+```
+
+#### Bad data format
+
+Returns HTTP status 400 (Bad request).
+```json
+{
+  "error": 1,
+  "message": "Bad data format",
+  "error_message": "Bad data format"
+}
+```
+
+#### Client not found
+
+Returns HTTP status 404 (Not found).
+```json
+{
+  "error": 1,
+  "message": "Client not found",
+  "error_message": "Client not found"
+}
+```
+
+#### Insufficient permissions
+
+Returns HTTP status 403 (Forbidden).
+```JSON
+{
+  "error": 1,
+  "message": "You can't edit this item",
+  "error_message": "You can't edit this item"
+}
+```
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+## Delete client
+--------------------------
+Delete an existing client.
+
+### Request
+
+**URL**: `/clients/delete/{ID}`  
+**HTTP method:** DELETE  
+
+```bash
+curl -X DELETE \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=123" \
+    https://moja.superfaktura.sk/clients/delete/1234
+```
+### Attributes
+#### Required
+
+| name      | type | description | default value |
+|-----------|------|-------------| ------------- |
+| **id**    | int  | client id   |               |
+
+#### Successful deletion
+
+Returns HTTP status 200 (OK).
+```JSON
+{
+  "redirect_url": "/clients",
+  "error": 0,
+  "message": "Contact deleted"
+}
+```
+
+#### Client not found
+
+Returns HTTP status 404 (Not found).
+```json
+{
+  "error": 1,
+  "message": "Client not found",
+  "error_message": "Client not found"
+}
+```
+
+#### Insufficient permissions
+
+Returns HTTP status 403 (Forbidden).
+```JSON
+{
+  "error": 1,
+  "message": "You are not authorized to delete this client",
+  "error_message": "You are not authorized to delete this client"
+}
+```
+
+#### Deleting contact with issued invoices
+
+Returns HTTP status 403 (Forbidden).
+```JSON
+{
+  "error": 1,
+  "message": "You can't delete contact with invoices",
+  "error_message": "You can't delete contact with invoices"
 }
 ```
