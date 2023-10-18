@@ -2959,7 +2959,8 @@ data='{
 }';
 
 curl -X POST \
-    -d "data=$data" \
+    -d "$data" \
+    -H "Content-Type: application/json" \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
     https://moja.superfaktura.sk/invoices/send
 ```
@@ -3023,7 +3024,8 @@ data='{
 }';
 
 curl -X POST \
-    -d "data=$data" \
+    -d "$data" \
+    -H "Content-Type: application/json" \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
     https://moja.superfaktura.sk/invoices/send
 ```
@@ -3099,7 +3101,8 @@ data='{
 }';
 
 curl -X POST \
-  -d "data=$data" \
+  -d "$data" \
+  -H "Content-Type: application/json" \
   -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
   https://moja.superfaktura.sk/invoices/mark_as_sent
 ```
@@ -3132,29 +3135,11 @@ none
 }
 ```
 
-#### Invalid post data
-  
-```json
-{
-  "error": 1,
-  "error_message": "Invalid post data"
-}
-
-```
-
 #### Wrong HTTP method
 ```json
 {
   "error": 2,
   "error_message": "This method is POST only"
-}
-```
-
-#### Invalid JSON or no data
-```json
-{
-  "error": 3,
-  "error_message": "Invalid invoice data"
 }
 ```
 
