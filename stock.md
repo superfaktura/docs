@@ -224,10 +224,13 @@ HTTP status 403
 ```
 
 #### Wrong item ID
+HTTP status 404
+
 ```json
 {
   "error": 2,
-  "error_message": "StockItem id not found."
+  "error_message": "StockItem not found.",
+  "message": "StockItem not found."
 }
 ```
 
@@ -299,8 +302,8 @@ none
 ```json
 {
   "error": 1,
-  "error_message": "Skladová položka nenájdená",
-  "message": "Skladová položka nenájdená"
+  "error_message": "StockItem not found",
+  "message": "StockItem not found"
 }
 ```
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -515,7 +518,8 @@ none
 ```json
 {
   "error": 1,
-  "error_message": "Invalid stock item id."
+  "error_message": "StockItem not found",
+  "message": "StockItem not found"
 }
 ```
 
