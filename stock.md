@@ -34,8 +34,9 @@ data='{
 }';
 
 curl -X POST \
-    -d "data=$data" \
-    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    -d "$data" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=123" \
     https://moja.superfaktura.sk/stock_items/add
 ```
 
@@ -97,7 +98,7 @@ none
 ```
 
 #### Missing data
-Status 400.
+Returns HTTP Status 400 (Bad request).
 
 ```sh
 {
@@ -108,7 +109,7 @@ Status 400.
 ```
 
 #### Insufficient privileges
-Status 403.
+Returns HTTP Status 403 (Forbidden).
 
 ```sh
 {
@@ -128,22 +129,22 @@ Updates stock item
 
 ### Request
 
-**URL**: `/stock_items/edit`  
-**HTTP method**: POST  
+**URL**: `/stock_items/edit/{ID}`  
+**HTTP method**: PATCH  
 
 ```sh
 data='{
   "StockItem":{
     "name":"Item B",
-    "unit":"kg",
-    "id":1
+    "unit":"kg"
   }
 }';
 
-curl -X POST \
-    -d "data=$data" \
-    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
-    https://moja.superfaktura.sk/stock_items/edit
+curl -X PATCH \
+    -d "$data" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=123" \
+    https://moja.superfaktura.sk/stock_items/edit/1
 ```
 
 ### Attributes
@@ -213,19 +214,28 @@ curl -X POST \
 ```
 
 #### Insufficient privileges
-HTTP status 403
+Returns HTTP status 403 (Forbidden).
 
 ```json
 {
   "error": 1,
-  "error_message": "Vaša <a href=\"https://pomoc.superfaktura.sk/mozu-moj-ucet-pouzivat-aj-moji-spolupracovnici/\">používateľská rola</a> nemôže vykonať túto akciu.",
-  "message": "Vaša <a href=\"https://pomoc.superfaktura.sk/mozu-moj-ucet-pouzivat-aj-moji-spolupracovnici/\">používateľská rola</a> nemôže vykonať túto akciu."
+  "error_message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu.",
+  "message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu."
 }
 ```
 
 #### Wrong item ID
-HTTP status 404
+Returns HTTP status 400 (Bad request).
+```json
+{
+  "error": 2,
+  "error_message": "StockItem id not found.",
+  "message": "StockItem id not found."
+}
+```
 
+#### Item not found
+Returns HTTP status 404 (Not found).
 ```json
 {
   "error": 2,
@@ -233,7 +243,6 @@ HTTP status 404
   "message": "StockItem not found."
 }
 ```
-
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -249,7 +258,7 @@ Get details about stock item.
 
 ```sh
 curl -X GET \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=123" \
     https://moja.superfaktura.sk/stock_items/view/1
 ```
 
@@ -298,7 +307,7 @@ none
 ```
 
 #### Wrong stock item
-
+Returns HTTP status 404 (Not found).
 ```json
 {
   "error": 1,
@@ -320,7 +329,7 @@ Return list of stock items.
 
 ````sh
 curl -X GET \
-    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=123" \
     https://moja.superfaktura.sk/stock_items/index.json
 ````
 
@@ -449,22 +458,13 @@ Delete stock item
 
 ### Request
 **URL**: `/stock_items/delete/{ID}`  
-**HTTP method**: GET  
+**HTTP method**: DELETE  
 
 
 ```sh
-curl -X GET \
-     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+curl -X DELETE \
+     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=123" \
      https://moja.superfaktura.sk/stock_items/delete/1
-```
-
-```sh
-data='{"ids":"1,2"}';
-
-curl -X POST \
-     -d "data=$data" \
-     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
-     https://moja.superfaktura.sk/stock_items/delete
 ```
 
 ### Attributes
@@ -515,6 +515,17 @@ none
 ```
 
 #### Invalid item ID
+Returns HTTP status 400 (Bad request).
+```json
+{
+  "error": 1,
+  "error_message": "Invalid stock item id",
+  "message": "Invalid stock item id"
+}
+```
+
+#### Item not found
+Returns HTTP status 404 (Not found).
 ```json
 {
   "error": 1,
@@ -522,8 +533,8 @@ none
   "message": "StockItem not found"
 }
 ```
-
 #### Unsuccessful deletion
+Returns HTTP status 500 (Internal server error)
 ```json
 {
     "error": 2,
@@ -533,7 +544,7 @@ none
 
 #### Insufficient privileges
 
-Returns HTTP status 403.
+Returns HTTP status 403 (Forbidden).
 
 ```json
 {
@@ -573,18 +584,19 @@ data='{
 }';
 
 curl -X POST \
-    -d "data=$data" \
-    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    -d "$data" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=123" \
     https://moja.superfaktura.sk/stock_items/addStockMovement
 ```  
 
 ### Attributes
-### Required
+#### Required
 none
 
 Either `sku` or `stock_item_id` is required.
 
-### Optional
+#### Optional
 
 | name                    | type   | description                                      | default value   |
 |-------------------------|--------|--------------------------------------------------|-----------------|
@@ -632,5 +644,100 @@ Either `sku` or `stock_item_id` is required.
 {
   "error": 3,
   "error_message": "StockItem empty data."
+}
+```
+
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+## Get stock logs of item
+### Request
+
+**URL**: `/stock_items/movements/{ID}`  
+**HTTP method**: GET  
+
+```sh
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=123" \
+    https://moja.superfaktura.sk/stock_items/movements/1
+```  
+
+### Attributes
+#### Required
+URL parameters:
+
+| name    | type   | description   | default value |
+| ------- | ------ |---------------|---------------|
+| **id**  | int    | stock item ID |               |
+
+#### Optional
+URL parameters:
+
+| name              | type   | description                | default value |
+| ----------------- | ------ |----------------------------|---------------|
+| **direction**     | string | sorting type, ASC or DESC  | ASC           |
+| **page**          | int    | page number                | 1             |
+| **per_page**      | int    | number of results per page |               |
+| **sort**          | string | sorting attribute          |               |
+
+### Response
+
+#### Successfully showing logs
+
+```json
+{
+  "itemCount": 9,
+  "pageCount": 5,
+  "perPage": 2,
+  "page": 2,
+  "items": [
+    {
+      "StockLog": {
+        "id": "1",
+        "stock_item_id": "9",
+        "user_id": "22",
+        "user_profile_id": "12",
+        "invoice_id": null,
+        "expense_id": null,
+        "document_item_id": null,
+        "quantity": 0,
+        "note": "Ručná úprava stavu na sklade",
+        "document": null,
+        "document_subtype": null,
+        "log_data": "{\"purchase_unit_price\":\"0.1200\",\"purchase_tax\":null,\"purchase_exchange_rate\":1,\"purchase_country_exchange_rate\":1,\"purchase_currency\":null,\"unit_price\":\"0.1\",\"tax\":20,\"exchange_rate\":1,\"country_exchange_rate\":1,\"currency\":\"EUR\",\"home_currency\":\"EUR\"}",
+        "created": "2050-10-10 09:27:17",
+        "modified": "2050-10-10 09:27:17"
+      }
+    },
+    {
+      "StockLog": {
+        "id": "2",
+        "stock_item_id": "9",
+        "user_id": "22",
+        "user_profile_id": "12",
+        "invoice_id": null,
+        "expense_id": null,
+        "document_item_id": null,
+        "quantity": 2,
+        "note": "Test",
+        "document": null,
+        "document_subtype": null,
+        "log_data": "{\"purchase_unit_price\":\"0.1200\",\"purchase_tax\":null,\"purchase_exchange_rate\":1,\"purchase_country_exchange_rate\":1,\"purchase_currency\":null,\"unit_price\":\"0.1\",\"tax\":20,\"exchange_rate\":1,\"country_exchange_rate\":1,\"currency\":\"EUR\",\"home_currency\":\"EUR\"}",
+        "created": "2050-10-10 09:27:25",
+        "modified": "2050-10-10 09:27:25"
+      }
+    }
+  ]
+}
+```
+
+#### Wrong stock item
+Returns HTTP status 404 (Not found).
+```json
+{
+  "error": 1,
+  "error_message": "StockItem not found",
+  "message": "StockItem not found"
 }
 ```
