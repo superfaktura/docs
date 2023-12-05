@@ -366,3 +366,104 @@ curl -X POST \
 ```
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Get bank account moves
+
+Get account moves.
+
+### Request
+**URL**: `/accounts/index.json`  
+**HTTP method**: GET  
+
+```sh
+curl -X GET \
+     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+     https://moja.superfaktura.sk/accounts/index.json
+
+# filter by date
+curl -X GET \
+     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+     https://moja.superfaktura.sk/accounts/index.json/date:3/date_since:2050-01-27/date_to:2050-01-27
+```
+
+### Attributes
+
+#### Required
+none
+
+#### Optional
+URL parameters:
+
+| name              | type   | description                | default value |
+| ----------------- | ------ |----------------------------|---------------|
+| **direction**     | string | sorting type, ASC or DESC  | ASC           |
+| **page**          | int    | page number                | 1             |
+| **per_page**      | int    | number of results per page |               |
+| **sort**          | string | sorting attribute          |               |
+
+Filtering parameters
+
+| name            | type        | description                                                                  | default value |
+| --------------- |-------------|------------------------------------------------------------------------------|---------------|
+| **amount_from** | float\| int | amount from                                                                  | 0             |
+| **amount_to**   | float\| int | amount to                                                                    | 0             |
+| **date**        | int         | constant specifying time filtering (see Value lists > Time filter constants) |               |
+| **date_since**  | date        | date from (requires date:3)                                                  |               |
+| **date_to**     | date        | date to (requires date:3)                                                    |               |
+| **move_type**   | string      | `credit`\|`debit`                                                            |               |
+| **search**      | string      | base64 encoded string                                                        |               |
+
+
+
+### Response
+
+#### Successful
+```json
+{
+  "itemCount": 2,
+  "items": {
+    "1": {
+      "account_id": "1",
+      "account_settings": "1__debet",
+      "amount": "-117.00",
+      "client": [],
+      "client_account": "",
+      "comment": "Platba kartou",
+      "currency": "EUR",
+      "date": "2050-01-27",
+      "documents": [],
+      "error": "Žiadna zhoda podľa sumy",
+      "from_type": "statement",
+      "id": "1",
+      "text": "",
+      "token": "c3b05c50",
+      "transaction_id": null,
+      "type": "without_document",
+      "variable": ""
+    },
+    "2": {
+      "account_id": "1",
+      "account_settings": "1_DE75512108001245126199_debet",
+      "amount": "-1000.00",
+      "client": [],
+      "client_account": "DE75512108001245126199",
+      "comment": "Platba kartou",
+      "currency": "CZK",
+      "date": "2050-01-28",
+      "documents": [],
+      "error": "Žiadna zhoda podľa VS",
+      "from_type": "statement",
+      "id": "2",
+      "text": "",
+      "token": "c3b05c50",
+      "transaction_id": null,
+      "type": "without_document",
+      "variable": ""
+    }
+  },
+  "page": 1,
+  "pageCount": 1,
+  "perPage": 50
+}
+```
