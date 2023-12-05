@@ -3,6 +3,7 @@
 - [Get list of your accounts](#get-list-of-your-accounts)
 - [Get user companies data](#get-user-companies-data)
 - [Send SMS reminder](#send-sms-reminder)
+- [Get bank account moves](#get-bank-account-moves)
 
 ## Get list of your accounts
 
