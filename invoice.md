@@ -3589,6 +3589,8 @@ curl -X POST \
 | **child_id**    | int    | child document ID                   |               |
 | **child_type**  | string | type of document (invoice,expense)  |               |
 
+`estimate`, `order` or any other "invoice type" must have type `invoice`.
+
 
 ### Response
 
