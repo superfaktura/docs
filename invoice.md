@@ -248,46 +248,46 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 
 ##### Invoice
 
-| name                     | type     | description  | default value |
-| ------------------------ | -------- | ------------ | ------------- |
-| **add_rounding_item**    | int      | add rounding item to invoice (EUR is rounded to 5 cents and CZK is rounded to integer) (0=no, 1=yes) | 0 |
-| **already_paid**         | int      | is invoice already paid (0=no, 1=yes) | |
-| **bank_accounts**        | array    | list of bank accounts | |
-| **comment**              | string   | comment | |
-| **constant**             | string   | constant symbol | |
-| **created**              | date     | issue date | |
-| **delivery**             | date     | delivery date | |
-| **delivery_type**        | string   | delivery type (see [Value lists > Delivery types](value-lists.md#delivery-types)) | |
-| **deposit**              | float    | deposit paid | |
-| **discount**             | float    | discount in percent | 0 |
-| **discount_total**       | float    | nominal discount, is used only if `discount` is *not* set | |
-| **due**                  | date     | due date | |
-| **estimate_id**          | int      | estimate ID, based on which is invoice issued | |
-| **header_comment**       | string   | comment above invoice items | |
-| **internal_comment**     | string   | internal comment - will not be displayed on invoice | |
-| **invoice_currency**     | string   | currency (see [Value lists > Currencies](value-lists.md#currencies)) | |
-| **invoice_no_formatted** | string   | invoice number | |
-| **issued_by**            | string   | who issued invoice (person)| |
-| **issued_by_email**      | string   | who issued invoice (email) | |
-| **issued_by_phone**      | string   | who issued invoice (phone) | |
-| **issued_by_web**        | string   | website displayed on invoice | |
-| **logo_id**              | int      | logo ID | |
-| **mark_sent**            | int      | mark invoice as sent via email (0=no, 1=yes) | |
-| **mark_sent_message**    | string   | set mail message for _mark_sent_ flag | |
-| **mark_sent_subject**    | string   | set mail subject for _mark_sent_ flag | |
-| **name**                 | string   | invoice name | |
-| **order_no**             | string   | order number | |
-| **parent_id**            | int      | invoice ID, that we want to cancel | |
-| **paydate**              | datetime | payment date (if set together with `already_paid=1`, the set date will be used) | |
-| **payment_type**         | string   | payment type (see [Value lists > Payment types](value-lists.md#payment-types))| |
-| **proforma_id**          | string   | proforma invoice ID, based on which regular invoice is issued. Invoice will get information about paid invoice | |
-| **rounding**             | string   | rounding type (see [Value lists > Rounding types](value-lists.md#rounding-types)) | |
-| **sequence_id**          | int      | sequence ID (see [Value lists > Sequences](value-lists.md#sequences)) | |
-| **specific**             | string   | specific symbol | |
-| **tax_document**         | int      | is there a receipt? (for correct connection with proforma invoice is necessary to fill `proforma_id`) (0=no, 1=yes) | |
-| **type**                 | string   | invoice type (see [Value lists > Invoice types](value-lists.md#invoice-types)) | |
-| **variable**             | string   | variable symbol (if left empty, invoice number will be used) | |
-| **vat_transfer**         | int      | VAT reverse charge (0=no, 1=yes) | |
+| name                     | type     | description                                                                                                                                                           | default value |
+| ------------------------ | -------- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------- |
+| **add_rounding_item**    | int      | add rounding item to invoice (EUR is rounded to 5 cents and CZK is rounded to integer) (0=no, 1=yes)                                                                  | 0 |
+| **already_paid**         | int      | is invoice already paid (0=no, 1=yes)                                                                                                                                 | |
+| **bank_accounts**        | array    | list of bank accounts                                                                                                                                                 | |
+| **comment**              | string   | comment                                                                                                                                                               | |
+| **constant**             | string   | constant symbol                                                                                                                                                       | |
+| **created**              | date     | issue date                                                                                                                                                            | |
+| **delivery**             | date     | delivery date                                                                                                                                                         | |
+| **delivery_type**        | string   | delivery type (see [Value lists > Delivery types](value-lists.md#delivery-types))                                                                                     | |
+| **deposit**              | float    | deposit paid                                                                                                                                                          | |
+| **discount**             | float    | discount in percent                                                                                                                                                   | 0 |
+| **discount_total**       | float    | nominal discount, is used only if `discount` is *not* set                                                                                                             | |
+| **due**                  | date     | due date                                                                                                                                                              | |
+| **estimate_id**          | int      | estimate ID, based on which is invoice issued                                                                                                                         | |
+| **header_comment**       | string   | comment above invoice items                                                                                                                                           | |
+| **internal_comment**     | string   | internal comment - will not be displayed on invoice                                                                                                                   | |
+| **invoice_currency**     | string   | currency (see [Value lists > Currencies](value-lists.md#currencies))                                                                                                  | |
+| **invoice_no_formatted** | string   | invoice number                                                                                                                                                        | |
+| **issued_by**            | string   | who issued invoice (person)                                                                                                                                           | |
+| **issued_by_email**      | string   | who issued invoice (email)                                                                                                                                            | |
+| **issued_by_phone**      | string   | who issued invoice (phone)                                                                                                                                            | |
+| **issued_by_web**        | string   | website displayed on invoice                                                                                                                                          | |
+| **logo_id**              | int      | logo ID                                                                                                                                                               | |
+| **mark_sent**            | int      | mark invoice as sent via email (0=no, 1=yes)                                                                                                                          | |
+| **mark_sent_message**    | string   | set mail message for _mark_sent_ flag                                                                                                                                 | |
+| **mark_sent_subject**    | string   | set mail subject for _mark_sent_ flag                                                                                                                                 | |
+| **name**                 | string   | invoice name                                                                                                                                                          | |
+| **order_no**             | string   | order number                                                                                                                                                          | |
+| **parent_id**            | int      | invoice ID, that we want to cancel                                                                                                                                    | |
+| **paydate**              | datetime | payment date (if set together with `already_paid=1`, the set date will be used)                                                                                       | |
+| **payment_type**         | string   | payment type (see [Value lists > Payment types](value-lists.md#payment-types))                                                                                        | |
+| **proforma_id**          | string   | proforma invoice ID, based on which regular invoice is issued. Invoice will get information about paid invoice. Multiple IDs can be set separated by comma (`1,2,3`). | |
+| **rounding**             | string   | rounding type (see [Value lists > Rounding types](value-lists.md#rounding-types))                                                                                     | |
+| **sequence_id**          | int      | sequence ID (see [Value lists > Sequences](value-lists.md#sequences))                                                                                                 | |
+| **specific**             | string   | specific symbol                                                                                                                                                       | |
+| **tax_document**         | int      | is there a receipt? (for correct connection with proforma invoice is necessary to fill `proforma_id`) (0=no, 1=yes)                                                   | |
+| **type**                 | string   | invoice type (see [Value lists > Invoice types](value-lists.md#invoice-types))                                                                                        | |
+| **variable**             | string   | variable symbol (if left empty, invoice number will be used)                                                                                                          | |
+| **vat_transfer**         | int      | VAT reverse charge (0=no, 1=yes)                                                                                                                                      | |
 
 
 ##### InvoiceItem
