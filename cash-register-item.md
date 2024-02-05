@@ -270,8 +270,7 @@ curl -X POST \
 ```json
 {
   "error": 1,
-  "error_message": "Nemôžete pridať pohyb v pokladni",
-  "message": "Nemôžete pridať pohyb v pokladni"
+  "error_message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu."
 }
 ```
 
@@ -732,7 +731,6 @@ curl -X POST \
 ```json
 {
   "error": 1,
-  "error_message": "Nemôžete zmazať pohyb v pokladni",
-  "message": "Nemôžete zmazať pohyb v pokladni"
+  "error_message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu."
 }
 ```
