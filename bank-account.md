@@ -76,8 +76,8 @@ At least one of: `bank_name`, `iban`, `swift`, `bank_account`, `bank_code` is re
 ```json
 {
    "error" : 1,
-   "error_message" : "Nemáte právo pridávať účet",
-   "message" : "Nemáte právo pridávať účet"
+  "error_message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu.",
+  "message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu."
 }
 ```
 
@@ -146,8 +146,8 @@ none
 ```json
 {
   "error": 1,
-  "error_message": "Nemáte právo meniť účet",
-  "message": "Nemáte právo meniť účet"
+  "error_message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu.",
+  "message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu."
 }
 ```
 
@@ -210,8 +210,8 @@ none
 ```json
 {
   "error": 1,
-  "error_message": "Nemáte právo zmazať účet",
-  "message": "Nemáte právo zmazať účet"
+  "error_message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu.",
+  "message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu."
 }
 ```
 
