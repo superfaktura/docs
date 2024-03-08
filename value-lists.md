@@ -549,6 +549,19 @@ Example:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
+## Export statuses
+
+| value | description |
+|------:|-------------|
+| **0** | failed      |
+| **1** | completed   |
+| **2** | in progress |
+| **3** | scheduled   |
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
 ## Invoice statuses
 
 | value  | description    |
