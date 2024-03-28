@@ -137,30 +137,31 @@ CURL_DATA
 
 ##### Expense
 
-| name                    | type   | description                                                         | default value |
-| ----------------------- | ------ | ------------------------------------------------------------------- | ------------- |
-| **attachment**          | string | base64 encoded attachment - max file size: 4MB, allowed types: `jpg`, `jpeg`, `png`, `tif`, `tiff`, `gif`, `pdf`, `tmp`, `xls`, `xlsx`, `ods`, `doc`, `docx`, `xml`, `csv`, `msg` | |
-| **already_paid**        | int    | is invoice already paid? (0=no, 1=yes)                              | 0 |
-| **amount**              | float  | amount of money without VAT                                         | 0 |
-| **amount2**             | float  | amount of money without VAT (when multiple VAT rates are necessary) | 0 |
-| **amount3**             | float  | amount of money without VAT (when multiple VAT rates are necessary) | 0 |
-| **client_id**           | int    | client ID                                                           | |
-| **comment**             | string | comment                                                             | |
-| **constant**            | string | constant symbol                                                     | |
-| **created**             | date   | issue date                                                          | &lt;current date&gt; |
-| **currency**            | string | currency (see [Value lists > Currencies](value-lists.md#currencies))                    | &lt;home currency&gt; |
-| **delivery**            | date   | delivery date                                                       | &lt;current date&gt; |
-| **document_number**     | string | document number, (e.g. invoice number, bill number, ...)            | |
-| **due**                 | date   | due date                                                            | &lt;current date&gt; |
-| **expense_category_id** | int    | expense category ID (see [Value lists > Expense categories](value-lists.md#expense-categories)) | |
-| **payment_type**        | string | payment type (see [Value lists > Payment types](value-lists.md#payment-types))             | |
-| **specific**            | string | specific symbol                                                     | |
-| **taxable_supply**      | date   | date of taxable transaction                                         | null |
-| **type**                | string | expense typ (see [Value lists > Invoice types](value-lists.md#invoice-types))              | 'invoice' |
-| **variable**            | string | variable symbol                                                     | |
-| **vat**                 | string | VAT in percent                                                      | 0 |
-| **vat2**                | string | VAT in percent (when multiple VAT rates are necessary)              | 0 |
-| **vat3**                | string | VAT in percent (when multiple VAT rates are necessary)              | 0 |
+| name                    | type   | description                                                                                                                                                                       | default value            |
+|-------------------------| ------ |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+| **attachment**          | string | base64 encoded attachment - max file size: 4MB, allowed types: `jpg`, `jpeg`, `png`, `tif`, `tiff`, `gif`, `pdf`, `tmp`, `xls`, `xlsx`, `ods`, `doc`, `docx`, `xml`, `csv`, `msg` |                          |
+| **already_paid**        | int    | is invoice already paid? (0=no, 1=yes)                                                                                                                                            | 0                        |
+| **amount**              | float  | amount of money without VAT. Only use with `version: "basic"`                                                                                                                     | 0                        |
+| **amount2**             | float  | amount of money without VAT (when multiple VAT rates are necessary). Only use with `version: "basic"`                                                                             | 0                        |
+| **amount3**             | float  | amount of money without VAT (when multiple VAT rates are necessary). Only use with `version: "basic"`                                                                             | 0                        |
+| **client_id**           | int    | client ID                                                                                                                                                                         |                          |
+| **comment**             | string | comment                                                                                                                                                                           |                          |
+| **constant**            | string | constant symbol                                                                                                                                                                   |                          |
+| **created**             | date   | issue date                                                                                                                                                                        | &lt;current date&gt;     |
+| **currency**            | string | currency (see [Value lists > Currencies](value-lists.md#currencies))                                                                                                              | &lt;home currency&gt;    |
+| **delivery**            | date   | delivery date                                                                                                                                                                     | &lt;current date&gt;     |
+| **document_number**     | string | document number, (e.g. invoice number, bill number, ...)                                                                                                                          |                          |
+| **due**                 | date   | due date                                                                                                                                                                          | &lt;current date&gt;     |
+| **expense_category_id** | int    | expense category ID (see [Value lists > Expense categories](value-lists.md#expense-categories))                                                                                   |                          |
+| **payment_type**        | string | payment type (see [Value lists > Payment types](value-lists.md#payment-types))                                                                                                    |                          |
+| **specific**            | string | specific symbol                                                                                                                                                                   |                          |
+| **taxable_supply**      | date   | date of taxable transaction                                                                                                                                                       | null                     |
+| **type**                | string | expense typ (see [Value lists > Invoice types](value-lists.md#invoice-types))                                                                                                     | 'invoice'                |
+| **variable**            | string | variable symbol                                                                                                                                                                   |                          |
+| **vat**                 | string | VAT in percent. Only use with `version: "basic"`                                                                                                                                  | 0                        |
+| **vat2**                | string | VAT in percent (when multiple VAT rates are necessary). Only use with `version: "basic"`                                                                                          | 0                        |
+| **vat3**                | string | VAT in percent (when multiple VAT rates are necessary). Only use with `version: "basic"`                                                                                          | 0                        |
+| **version**             | string | expense version - 'basic' (expense without items, only VAT rates) or 'items' (expense with items)                                                                                 | 'basic'               |
 
 ##### Expense extras
 
@@ -735,6 +736,217 @@ none
     }
   ],
   "attachments": []
+}
+```
+
+#### Amounts when expense version is "items"
+Number of `amount*` and `vat*` are equal to number of expense items.
+- `amount` = 1st item's amount without VAT
+- `amount2` = 2nd item's amount without VAT
+- `vat` = 1st item's VAT rate
+- `vat2` = 2nd item's VAT rate
+
+```json
+{
+  "data": {
+    "Client": [],
+    "Document": [],
+    "Expense": {
+      "accounting_date": "2050-01-01",
+      "amount": 100,
+      "amount2": 100,
+      "amount3": 200,
+      "amount4": 50,
+      "amount5": 100,
+      "amount_country_home": "550.0000",
+      "amount_home": "550.0000",
+      "amount_paid": 0,
+      "amount_paid_vat": 0,
+      "client_data": "{\"id\":1,\"user_id\":1,\"user_profile_id\":1,\"uuid\":null,\"country_id\":191,\"name\":\"Lubo sro\",\"ico\":\"50063006\",\"dic\":\"10063004\",\"ic_dph\":\"SK10063004\",\"account\":null,\"email\":\"chriastel.lubomir@gmail.com\",\"address\":\"Skolska 1570\",\"city\":\"Hrinova\",\"zip\":\"96205\",\"state\":null,\"country\":\"Slovensko\",\"delivery_name\":\"\",\"delivery_address\":\"\",\"delivery_city\":\"\",\"delivery_zip\":\"\",\"delivery_state\":null,\"delivery_country\":\"Slovensko\",\"delivery_country_id\":191,\"phone\":\"+421910123456\",\"delivery_phone\":null,\"fax\":null,\"due_date\":null,\"default_variable\":null,\"discount\":null,\"currency\":null,\"bank_account_id\":null,\"comment\":null,\"tags\":null,\"distance\":null,\"dont_travel\":null,\"notices\":true}",
+      "client_id": "1",
+      "comment": null,
+      "constant": null,
+      "country_exchange_rate": "1.00000000000000",
+      "created": "2050-01-01 00:00:00",
+      "currency": "EUR",
+      "delivery": "2050-01-01 00:00:00",
+      "demo": "0",
+      "discount": "0",
+      "discount_total": "0.0000",
+      "document_number": null,
+      "due": "2050-01-01 00:00:00",
+      "exchange_rate": "1.00000000000000",
+      "expense_category_id": null,
+      "expense_no": "7",
+      "flag": "issued",
+      "home_currency": "EUR",
+      "id": "180",
+      "missing_bank_account": false,
+      "modified": "2050-01-01 09:17:44",
+      "my_data": "{\"id\":\"1\",\"user_id\":1,\"country_id\":\"191\",\"company_name\":\"SuperFaktura, s.r.o.\",\"name\":null,\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"business_register\":\"Obchodn\\u00fd register Okresn\\u00e9ho s\\u00fadu Bratislava I, oddiel: Sro, vlo\\u017eka \\u010d. 81403\\/B\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\\u00e1 \\u010das\\u0165 Star\\u00e9 Mesto\",\"zip\":\"811 04\",\"tax_payer\":\"1\",\"vat_interval\":null,\"company_type\":\"ltd\"}",
+      "name": "Náklad 2050007",
+      "number": "2050007",
+      "paid": 0,
+      "paid_vat": 0,
+      "paydate": null,
+      "qr": "",
+      "qr_type": "",
+      "qr_url": "",
+      "qr_url_max": "",
+      "rates": [],
+      "recurring": null,
+      "sequence_id": "9",
+      "specific": null,
+      "status": "1",
+      "tags": null,
+      "tax": null,
+      "tax_code": null,
+      "taxable_supply": null,
+      "taxdate": "2050-01-01",
+      "total": "635.0000",
+      "total_country_home": "635.0000",
+      "total_home": "635.0000",
+      "type": "invoice",
+      "user_id": "1",
+      "user_profile_id": "1",
+      "variable": null,
+      "vat": 40,
+      "vat2": 30,
+      "vat3": 20,
+      "vat4": 10,
+      "vat5": 0,
+      "version": "items"
+    },
+    "ExpenseExtra": [],
+    "ExpenseItem": [
+      {
+        "description": "description",
+        "discount": null,
+        "discount_description": null,
+        "id": "253",
+        "name": "Item A",
+        "ordernum": "0",
+        "quantity": "1.00000",
+        "stock_item_id": null,
+        "tax": "40.00",
+        "total": "140.0000",
+        "type": "item",
+        "unit": null,
+        "unit_price": "100.0000",
+        "unit_total": "140.0000"
+      },
+      {
+        "description": "description",
+        "discount": null,
+        "discount_description": null,
+        "id": "254",
+        "name": "Item B",
+        "ordernum": "1",
+        "quantity": "1.00000",
+        "stock_item_id": null,
+        "tax": "30.00",
+        "total": "130.0000",
+        "type": "item",
+        "unit": null,
+        "unit_price": "100.0000",
+        "unit_total": "130.0000"
+      },
+      {
+        "description": "description",
+        "discount": null,
+        "discount_description": null,
+        "id": "255",
+        "name": "Item C",
+        "ordernum": "2",
+        "quantity": "1.00000",
+        "stock_item_id": null,
+        "tax": "20.00",
+        "total": "240.0000",
+        "type": "item",
+        "unit": null,
+        "unit_price": "200.0000",
+        "unit_total": "240.0000"
+      },
+      {
+        "description": "description",
+        "discount": null,
+        "discount_description": null,
+        "id": "256",
+        "name": "Item D",
+        "ordernum": "3",
+        "quantity": "1.00000",
+        "stock_item_id": null,
+        "tax": "10.00",
+        "total": "55.0000",
+        "type": "item",
+        "unit": null,
+        "unit_price": "50.0000",
+        "unit_total": "55.0000"
+      },
+      {
+        "description": "description",
+        "discount": null,
+        "discount_description": null,
+        "id": "257",
+        "name": "Item E",
+        "ordernum": "4",
+        "quantity": "1.00000",
+        "stock_item_id": null,
+        "tax": "0.00",
+        "total": "100.0000",
+        "type": "item",
+        "unit": null,
+        "unit_price": "100.0000",
+        "unit_total": "100.0000"
+      }
+    ],
+    "ExpensePayment": [],
+    "MyData": {
+      "address": "Pri Suchom mlyne 6",
+      "business_register": "Obchodný register Okresného súdu Bratislava I, oddiel: Sro, vložka č. 81403/B",
+      "city": "Bratislava - mestská časť Staré Mesto",
+      "company_name": "SuperFaktura, s.r.o.",
+      "company_type": "ltd",
+      "country_id": "191",
+      "dic": "2023513470",
+      "ic_dph": "SK2023513470",
+      "ico": "46655034",
+      "id": "1",
+      "name": null,
+      "tax_payer": "1",
+      "user_id": 1,
+      "vat_interval": null,
+      "zip": "811 04"
+    },
+    "RelatedItem": [],
+    "Tag": [],
+    "VatSummary": {
+      "0": {
+        "base": 100,
+        "vat": 0
+      },
+      "10": {
+        "base": 50,
+        "vat": 5.000000000000007
+      },
+      "20": {
+        "base": 200,
+        "vat": 40
+      },
+      "30": {
+        "base": 100,
+        "vat": 30
+      },
+      "40": {
+        "base": 100,
+        "vat": 40
+      }
+    },
+    "attachments": []
+  },
+  "error": 0,
+  "error_message": "",
+  "status": 1
 }
 ```
 
