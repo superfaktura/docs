@@ -586,7 +586,6 @@ Example:
 | **proforma**      | proforma invoice             | zálohová faktúra                |
 | **regular**       | regular invoice              | ostrá faktúra / bežná faktúra   |
 | **reverse_order** | reverse order                | objednávka                      |
-| **tax_document**  | receipt for received payment | daňový doklad k prijatej platbe |
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
