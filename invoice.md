@@ -2143,9 +2143,9 @@ Filtering parameters
 | **modified_since** | date         | last modification date from (requires `modified:3`) | |
 | **modified_to**    | date         | last modification date to (requires `modified:3`)   | |
 | **order_no**       | string       | order number, from which invoice is created | |
-| **paid**           | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
-| **paid_since**     | date         | pay date since (requires `paid:3`) | |
-| **paid_to**        | date         | pay date to (requires `paid:3`)   | |
+| **paydate**        | int          | constant specifying time filtering (see [Value lists > Time filter constants](value-lists.md#time-filter-constants)) | |
+| **paydate_since**  | date         | pay date since (requires `paydate:3`) | |
+| **paydate_to**     | date         | pay date to (requires `paydate:3`)   | |
 | **payment_type**   | string       | payment types (see [Value lists > Payment types](value-lists.md#payment-types)). Use <code>&#x7c;</code> as separator for multiple values. | |
 | **search**         | string       | base64 encoded string | |
 | **status**         | string / int | invoice status (see [Value lists > Invoice statuses](value-lists.md#invoice-statuses)) | |
