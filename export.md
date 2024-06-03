@@ -56,10 +56,11 @@ curl -X POST \
 | **hide_signature**        | bool | hide signature in invoices         |             0 |
 | **invoices_pdf**          | bool | export in PDF format               |             0 |
 | **invoices_xls**          | bool | export in XLS format               |             0 |
-| **merge_pdf**             | bool | only export merged PDF             |             0 |
+| **merge_pdf**             | bool | export single + merged PDFs        |             0 |
 | **pdf_lang_default**      | bool | translate documents to default language (SK: Slovak, CZ: Czech) | 0 |
 | **pdf_sort_client**       | bool | sort documents by client           |             0 |
 | **pdf_sort_date**         | bool | sort documents by date             |             0 |
+| **only_merge**            | bool | export only merged PDFs            |             0 |
 
 
 ### Response
