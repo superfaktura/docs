@@ -3,7 +3,7 @@
 - [Add cash register item](#add-cash-register-item)
 - [Get cash register items](#get-cash-register-items)
 - [Delete cash register item](#delete-cash-register-item)
-
+- [Get receipt from the cash register in PDF](#get-receipt-from-the-cash-register)
 
 
 ## Add cash register item
@@ -734,3 +734,36 @@ curl -X POST \
   "error_message": "Ako používateľ typu Hosť nemáte oprávnenie na túto akciu."
 }
 ```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Get receipt from the cash register
+
+Return receipt from the cash register in PDF file.
+
+### Request
+
+**URL**: `/cash_register_items/receipt/{ID}`  
+**HTTP method**: GET
+
+```sh
+curl -X GET \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/cash_register_items/receipt/1
+```
+
+### Attributes
+
+#### Required
+
+URL parameters:
+
+| name   | type | description | default value |
+| ------ | ---- | ----------- | ------------- |
+| **id** | int  | receipt ID  |               |
+
+### Response
+
+PDF document on success. Check for HTTP code 404 in case of error.
