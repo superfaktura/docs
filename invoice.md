@@ -9,6 +9,7 @@
 - [Get list of invoices](#get-list-of-invoices)
 - [Export invoices](export.md#export-invoices)
 - [Delete invoice](#delete-invoice)
+- [Get receipt for the invoice in PDF](#get-receipt-for-the-invoice)
 
 Paying invoice  
 - [Set invoice as "will not be paid"](#set-invoice-as-will-not-be-paid)
@@ -3620,3 +3621,36 @@ curl -X GET \
   "error_message": ""
 }
 ```
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+## Get receipt for the invoice
+
+Return receipt document for the invoice in PDF file.
+
+### Request
+
+**URL**: `/invoices/receipt/{ID}`  
+**HTTP method**: GET
+
+```sh
+curl -X GET \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/invoices/receipt/1
+```
+
+### Attributes
+
+#### Required
+
+URL parameters:
+
+| name   | type | description | default value |
+| ------ | ---- | ----------- | ------------- |
+| **id** | int  | invoice receipt ID  |               |
+
+### Response
+
+PDF document on success. Check for HTTP code 404 in case of error.
