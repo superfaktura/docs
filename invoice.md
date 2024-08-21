@@ -226,7 +226,7 @@ At least one Invoice item must be specified.
 | **delivery_country**        | string | custom delivery country name | |
 | **delivery_country_id**     | int    | delivery country ID (see [Value lists > Country list](value-lists.md#country-list)) | |
 | **delivery_country_iso_id** | string | country code ([ISO-3166-1 (Alpha-2)](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)) | |
-| **delivery_name**           | string | delivery country name | |
+| **delivery_name**           | string | delivery name | |
 | **delivery_phone**          | string | delivery phone number | |
 | **delivery_zip**            | string | delivery ZIP code | |
 | **dic**                     | string | Tax ID (DIČ-sk) | |
