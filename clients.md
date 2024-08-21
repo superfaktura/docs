@@ -88,7 +88,7 @@ curl -X POST \
 | **delivery_city**         | string | delivery city                                                                                                    | |
 | **delivery_country**      | string | custom delivery country name                                                                                     | |
 | **delivery_country_id**   | int    | delivery country ID (see [Value lists > Country list](value-lists.md#country-list))                              | |
-| **delivery_name**         | string | delivery country name                                                                                            | |
+| **delivery_name**         | string | delivery name                                                                                            | |
 | **delivery_phone**        | string | delivery phone number                                                                                            | |
 | **delivery_zip**          | string | delivery ZIP code                                                                                                | |
 | **dic**                   | string | Tax ID (DIČ-sk)                                                                                                  | |
