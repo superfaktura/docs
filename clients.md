@@ -105,6 +105,7 @@ curl -X POST \
 | **tags**                  | string | refer to [FAQ > How do I add tags to an entity?](faq.md#how-do-i-add-tags-to-an-entity)                          | |
 | **uuid**                  | string | custom unique identifier for client                                                                              | |
 | **zip**                   | string | ZIP code                                                                                                         | |
+| **update**                | bool   | Also update client in addressbook                                                                                | |
 
 ### Response
 
