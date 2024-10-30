@@ -466,3 +466,73 @@ Filtering parameters
   "perPage": 50
 }
 ```
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+## Get invoice activity logs
+
+Get invoice activity logs.
+
+### Request
+**URL**: `/activity_logs/activity_list/{DOCUMENT_TYPE}/{DOCUMENT_ID}/{LIMIT}`  
+**HTTP method**: GET  
+
+```sh
+curl -X GET \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
+    https://moja.superfaktura.sk/activity_logs/activity_list/invoice/1/10
+```
+
+### Attributes
+#### Required
+URL parameters:
+
+| name              | type    | description                            | default value |
+| ----------------- | ------- | -------------------------------------- | ------------- |
+| **document_type** | string  | type of document (invoice or expense)  |               |
+| **document_id**   | int     | ID of document                         |               |
+
+#### Optional
+| name      | type | description             | default value |
+| --------- | ---- | ----------------------- | ------------- |
+| **limit** | int  | limit of activity logs  | 10            |
+
+### Response
+
+#### Success
+```json
+[
+    {
+        "ActivityLog": {
+            "id": "6309",
+            "data":"{\"Invoice\":{\"is_duplicated\":\"\",\"from_expense\":\"0\",\"related_item_id\":\"\",\"related_item_type\":\"\",\"child_id\":\"\",\"order_id\":\"\",\"updated_sequence_id\":\"\",\"created\":\"2024-10-30\",\"delivery\":\"2024-10-30\",\"exchange_rate_inverted\":0,\"vat_transfer\":\"0\",\"client\":\"Test\",\"is_summary_invoice\":\"0\",\"client_data\":\"{\\\"Client\\\":{\\\"id\\\":\\\"13032570\\\",\\\"name\\\":\\\"Test\\\",\\\"address\\\":\\\"\\\",\\\"ico\\\":\\\"\\\",\\\"email\\\":\\\"\\\",\\\"zip\\\":\\\"\\\",\\\"dic\\\":\\\"\\\",\\\"phone\\\":\\\"\\\",\\\"city\\\":\\\"\\\",\\\"ic_dph\\\":\\\"\\\",\\\"fax\\\":\\\"\\\",\\\"country_id\\\":\\\"191\\\",\\\"state\\\":\\\"\\\",\\\"delivery_name\\\":\\\"\\\",\\\"delivery_zip\\\":\\\"\\\",\\\"delivery_city\\\":\\\"\\\",\\\"delivery_address\\\":\\\"\\\",\\\"delivery_phone\\\":\\\"\\\",\\\"delivery_country_id\\\":\\\"\\\",\\\"delivery_state\\\":\\\"\\\",\\\"updateClient\\\":\\\"0\\\",\\\"save_contact_from_document\\\":\\\"\\\",\\\"country\\\":\\\"Slovensko\\\",\\\"delivery_country\\\":null}}\",\"force_user_id\":true,\"from_web\":true,\"id\":\"24756187\",\"user_profile_id\":\"44775\",\"type\":\"regular\",\"client_id\":\"13032570\",\"name\":\"Fakt\úra 2024001\",\"invoice_no_formatted\":\"2024001\"},\"MyData\":{\"Logo\":\"[]\",\"Signature\":\"[]\"},\"InvoiceItem\":[{\"tax_deposit\":\"0\",\"unit_type\":\"\",\"discount\":\"0%\",\"unit_price\":\"11\",\"discount_no_vat\":\"0,00\",\"stock_item_id\":\"0\",\"quantity_previous\":\"1\",\"sum\":\"13,31\",\"discount_total\":\"0,00\"}],\"Tag\":{\"Tag\":\"\"}}",
+            "created": "2024-10-30 12:33:10",
+            "item_id": "24756187",
+            "item_type": "invoice",
+            "event_type": "update",
+            "client_id": "13032570",
+            "user_id": "2"
+        },
+        "User": {
+            "name": "Test",
+            "email": "test1@test.sk"
+        }
+    },
+    {
+        "ActivityLog": {
+            "id": "6308",
+            "data":"{\"App\":{\"upid_check\":\"44775\",\"csrf_token\":\"lc60Knw45c5v\\/wkklsmy0rpHeBsyOy7AYiMIgVIE7o9YAoxmdKV3WJiobienqPI5OXpoZ3BrVEhuaU9GbjFhQkd5WTFwRThYNFVFbUhSeUphTTlYQnlONnNNNGtJbjk2c0g5SFUxSDRNSFg5YkRZN1IrMjF4MUprMzF1V3VpSWRIbXgxN0FDTlNRME02dlBJQ3NPNm9pajF5bUhKUE5EQTl4cHBmRWtOekM1S2pKeU5QUUlHK1lHRUpHc281NEtrYU9EZksrV1l6dXk1ZWpaTE5CTkdTV3RNWlIybFNrOVFpMU13NGVKYlhvb0pUVjR3VmZ5OUNhbG5oYXZVdGh4VkI0VzFZaXcrcDlZK0FoWVF1UzRJenBIQ08wMHQxcWZFaEE9PQ==\"},\"ClientData\":{\"id\":\"13032570\",\"name\":\"Test\",\"address\":\"\",\"ico\":\"\",\"email\":\"\",\"zip\":\"\",\"dic\":\"\",\"phone\":\"\",\"city\":\"\",\"ic_dph\":\"\",\"fax\":\"\",\"country_id\":\"191\",\"state\":\"\",\"delivery_name\":\"\",\"delivery_zip\":\"\",\"delivery_city\":\"\",\"delivery_address\":\"\",\"delivery_phone\":\"\",\"delivery_country_id\":\"\",\"delivery_state\":\"\",\"updateClient\":\"0\",\"save_contact_from_document\":\"\"},\"Invoice\":{\"from_expense\":\"0\",\"id\":24756187,\"type\":\"regular\",\"user_profile_id\":\"44775\",\"status\":1,\"parent_id\":\"\",\"related_item_id\":\"\",\"related_item_type\":\"\",\"child_id\":\"\",\"estimate_id\":\"\",\"order_id\":\"\",\"sequence_id\":547361,\"updated_sequence_id\":\"\",\"home_currency\":\"CZK\",\"lang\":\"slo\",\"tax_document\":\"\",\"rounding\":\"item_ext\",\"summary_invoice\":\"\",\"invoice_no_formatted\":\"2024001\",\"variable\":\"2024001\",\"name\":\"Fakt\úra 2024001\",\"created\":\"2024-10-30 00:00:00\",\"delivery\":\"2024-10-30 00:00:00\",\"due_in\":\"14\",\"due_date\":\"13.11.2024\",\"delivery_type\":\"\",\"payment_type\":\"\",\"constant\":\"\",\"specific\":\"\",\"order_no\":\"\",\"invoice_currency\":\"CZK\",\"exchange_rate_inverted\":0,\"vat_transfer\":\"0\",\"client_id\":\"13032570\",\"client\":\"Test\",\"header_comment\":\"\",\"items_name\":null,\"comment\":\"\",\"is_summary_invoice\":\"0\",\"discount\":\"0\",\"deposit\":\"\",\"issued_by\":\"Test\",\"issued_by_phone\":\"\",\"issued_by_web\":\"\",\"issued_by_email\":\"test@gmail.com\",\"client_data\":\"{\\\"Client\\\":{\\\"id\\\":\\\"13032570\\\",\\\"name\\\":\\\"Test\\\",\\\"address\\\":\\\"\\\",\\\"ico\\\":\\\"\\\",\\\"email\\\":\\\"\\\",\\\"zip\\\":\\\"\\\",\\\"dic\\\":\\\"\\\",\\\"phone\\\":\\\"\\\",\\\"city\\\":\\\"\\\",\\\"ic_dph\\\":\\\"\\\",\\\"fax\\\":\\\"\\\",\\\"country_id\\\":\\\"191\\\",\\\"state\\\":\\\"\\\",\\\"delivery_name\\\":\\\"\\\",\\\"delivery_zip\\\":\\\"\\\",\\\"delivery_city\\\":\\\"\\\",\\\"delivery_address\\\":\\\"\\\",\\\"delivery_phone\\\":\\\"\\\",\\\"delivery_country_id\\\":\\\"\\\",\\\"delivery_state\\\":\\\"\\\",\\\"updateClient\\\":\\\"0\\\",\\\"save_contact_from_document\\\":\\\"\\\",\\\"country\\\":\\\"Slovensko\\\"}}\",\"my_data\":\"{\\\"MyData\\\":{\\\"id\\\":\\\"44775\\\",\\\"user_id\\\":\\\"2\\\",\\\"user_profile_id\\\":\\\"\\\",\\\"country_id\\\":\\\"191\\\",\\\"company_name\\\":\\\"SuperFaktura, s.r.o.\\\",\\\"address\\\":\\\"Pri Suchom mlyne 6\\\",\\\"city\\\":\\\"Bratislava - mestsk\\\á \\\čas\\\ť Star\\\é Mesto\\\",\\\"zip\\\":\\\"811 04\\\",\\\"ico\\\":\\\"46655034\\\",\\\"dic\\\":\\\"2023513470\\\",\\\"ic_dph\\\":\\\"SK2023513470\\\",\\\"update_profile\\\":\\\"\\\",\\\"tax_payer\\\":\\\"1\\\",\\\"logo_key\\\":\\\"\\\",\\\"logo_id\\\":\\\"\\\",\\\"web\\\":\\\"\\\",\\\"Logo\\\":\\\"[]\\\",\\\"Signature\\\":\\\"[]\\\",\\\"travel_agencies\\\":\\\"\\\",\\\"business_register\\\":\\\"Obchodn\\\ý register Mestsk\\\ého s\\\údu Bratislava III, oddiel: Sro, vlo\\\žka \\\č. 81403\\\\\\/B\\\",\\\"country\\\":\\\"Slovensko\\\"}}\",\"due\":\"2024-11-13\",\"invoice_no\":1,\"exchange_rate\":1},\"MyData\":{\"id\":\"44775\",\"user_id\":\"2\",\"user_profile_id\":\"\",\"country_id\":\"191\",\"company_name\":\"SuperFaktura, s.r.o.\",\"address\":\"Pri Suchom mlyne 6\",\"city\":\"Bratislava - mestsk\á \čas\ť Star\é Mesto\",\"zip\":\"811 04\",\"ico\":\"46655034\",\"dic\":\"2023513470\",\"ic_dph\":\"SK2023513470\",\"update_profile\":\"\",\"tax_payer\":\"1\",\"logo_key\":\"\",\"logo_id\":\"\",\"web\":\"\",\"Logo\":\"[]\",\"Signature\":\"[]\",\"travel_agencies\":\"\",\"business_register\":\"Obchodn\ý register Mestsk\ého s\údu Bratislava III, oddiel: Sro, vlo\žka \č. 81403\\/B\"},\"InvoiceSetting\":{\"signature\":true,\"bysquare\":true,\"payment_info\":true,\"language\":\"slo\",\"online_payment\":false,\"summary_bg_color\":\"#d4eef6\",\"force_iban\":true,\"create_from_multiple_deliveries\":\"\"},\"InvoiceItem\":[{\"id\":103367380,\"tax_deposit\":\"0\",\"name\":\"test\",\"description\":\"\",\"discount_description\":\"Z\ľava\",\"quantity\":null,\"unit_type\":\"\",\"unit\":\"\",\"discount\":\"0%\",\"unit_price\":\"10\",\"discount_no_vat\":\"0,00\",\"tax\":\"21\",\"ordernum\":0,\"stock_item_id\":\"\",\"sku\":\"\",\"hide_in_autocomplete\":\"\",\"quantity_previous\":\"0\",\"sum\":\"12,10\",\"discount_total\":\"0,00\"}],\"Tag\":{\"Tag\":\"\"}}",
+            "created": "2024-10-30 12:33:00",
+            "item_id": "24756187",
+            "item_type": "invoice",
+            "event_type": "create",
+            "client_id": "13032570",
+            "user_id": "2"
+        },
+        "User": {
+            "name": "Test",
+            "email": "test1@test.sk"
+        }
+    }
+]
+```
