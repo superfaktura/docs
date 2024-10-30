@@ -4,6 +4,7 @@
 - [Get user companies data](#get-user-companies-data)
 - [Send SMS reminder](#send-sms-reminder)
 - [Get bank account moves](#get-bank-account-moves)
+- [Get invoice activity logs](#get-invoice-activity-logs)
 
 ## Get list of your accounts
 
