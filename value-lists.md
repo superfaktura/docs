@@ -730,8 +730,8 @@ Different rounding types are used for VAT calculations.
 | value        | description                      |
 | ------------ | -------------------------------- |
 | **document** | whole document                   |
-| **item**     | per item (default))           |
-| **item_ext** | retail (recommended for e-shops) |
+| **item**     | per item                         |
+| **item_ext** | retail (default) (recommended for e-shops) |
 
 
 **Document**  
