@@ -1304,34 +1304,39 @@ none
 Return invoice PDF file.
 
 ### Request
-**URL**: `/[{LANGUAGE}/]invoices/pdf/{INVOICE_ID}/token:{TOKEN}`  
-**HTTP method**: GET  
+
+**URL**: `/[{LANGUAGE}/]invoices/pdf/{INVOICE_ID}/token:{TOKEN}[/{PARAM}:{VALUE}]*`
+
+**HTTP method**: GET
 
 ```sh
 curl -X GET \
     -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=" \
     -o /tmp/faktura1275.pdf \
-    https://moja.superfaktura.sk/slo/invoices/pdf/1275/token:09feb1bd
-```    
+    https://moja.superfaktura.sk/slo/invoices/pdf/1275/token:09feb1bd/bysquare:1
+```
 
 ### Attributes
 
 #### Required
+
 URL parameters:
 
 | name              | type   | description   | default value |
-| ----------------- | ------ | ------------- | ------------- | 
+| ----------------- | ------ | ------------- | ------------- |
 | **invoice_id**    | int    | invoice ID    |               |
 | **token**         | string | invoice token |               |
 
 #### Optional
+
 URL parameters:  
 
 | name              | type   | description | default value |
 | ----------------- | ------ | ----------- | ------------- |
-| **language**      | string | language in which the invoice will be created | as set by `pdf_language` (language of document - language above invoice detail in web application) |
-
-For list of available languages see [Value lists > Language list](value-lists.md#language-list).
+| **bysquare**      | int    | Adds QR code to invoice if set to 1 | If parameter is not specified or set to 0, the setting from web application will be used |
+| **paypal**        | int    | Adds PayPal button to invoice if set to 1 | If parameter is not specified or set to 0, the setting from web application will be used |
+| **no-signature**  | int    | Hides signature on invoice if set to 1 | If parameter is not specified or set to 0, the setting from web application will be used |
+| **language**      | string | language in which the invoice will be created | as set by `pdf_language` (language of document - language above invoice detail in web application)|
 
 
 ### Response  
