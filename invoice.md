@@ -240,7 +240,7 @@ At least one Invoice item must be specified.
 | **swift**                   | string | SWIFT code | |
 | **update_addressbook**      | int    | update client data when invoice is issued? (0=no, 1=true) | |
 | **zip**                     | string | ZIP code | |
-
+| **data_source**             | string | The attribute sets the behavior of how new client data sent in the request should be merged with the data stored in the DB. <br> <br> `empty` = Client data from request will be used. Missing data will be filled with default values. These are usually empty strings. <br> `merge` = Client data from request will be used. Missing data will be filled from the contact stored in the DB. <br> `addressbook` = Only client data stored in the DB will be used. | empty |
 
 In case of foreign client it is necessary to correctly fill `country_id`.
 If `country_id` is empty, predefined value is used (SK version - Slovakia, CZ version - Czech republic).
