@@ -354,7 +354,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 | **summary_bg_color** | string | summary boxes color - has to be in format `#rrggbb`, where `rr`, `gg` and `bb` are hexadecimal (`00`-`FF`)                                                                                                                                                                                                                                                                                                                                                                          |               |
 
 
-##### InvoiceExtras
+##### InvoiceExtra
 
 | name                    | type   | description                          | default value |
 | ----------------------- | ------ | ------------------------------------ | ------------- |
