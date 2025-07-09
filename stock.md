@@ -59,6 +59,7 @@ none
 | **unit**                  | string | unit, e.g.: pcs, mm, m2, ...                                                 | |
 | **unit_price**            | float  | unit price                                                                   | |
 | **purchase_unit_price**   | float  | purchase unit price                                                          | |
+| **purchase_currency**     | string | purchase currency                                                            | home currency if purchase_unit_price is not null |
 | **vat**                   | float  | VAT in percent                                                               | |
 | **watch_stock**           | int    | track inventory level (0=no, 1=yes)                                          | |
 
