@@ -3,6 +3,7 @@
 - [Add expense](#add-expense)
 - [Edit expense](#edit-expense)
 - [Expense detail](#expense-detail)
+- [Download expense attachments ](#download-expense-attachement)
 - [Get list of expenses](#get-list-of-expenses)
 - [Delete expense](#delete-expense)
 
@@ -962,6 +963,79 @@ Number of `amount*` and `vat*` are equal to number of expense items.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+## Download expense attachement
+
+Download one specific or all attachments attached to the expense
+
+### Request
+
+**URL**: `/expenses/downloadAttachment/{expense_id}/{attachement_id}`  
+**HTTP method**: GET
+
+
+```sh
+curl -X GET \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=' \
+    https://moja.superfaktura.sk/expenses/downloadAttachment/{expense_id}/{attachement_id}
+```
+
+
+### Attributes
+
+#### Required
+
+URL parameters:
+
+| name   | type   | description | default value |
+| ------ | ------ | ----------- | ------------- |
+| **expense_id** | int    | expense ID  |               |
+
+**expense_id** is id of expense you wish to download attachment from.
+#### Optional
+
+| name   | type   | description | default value |
+| ------ | ------ | ----------- |---------------|
+| **attachement_id** | int    | expense attachement_id  | 0             |
+
+**attachement_id** is id of specific attachement within the expense, if set to 0, 
+it would download all of the attachements for specified expense as .zip file
+
+### Response
+
+#### Success
+
+```sh
+BinaryFileResponse
+```
+
+#### Not found
+
+```sh
+{
+    "error_code": 0,
+    "error": "Príloha č.666 nebola nájdená pre náklad č.666"
+}
+```
+
+#### Forbidden
+
+```sh
+{
+    "error_code": 0,
+    "error": "Náklad neexistuje, alebo Vám nepatrí"
+}
+```
+
+#### Expense id is 0
+
+```sh
+{
+    "error_code": 0,
+    "error": "Číslo nákladu musí byť uvedené."
+}
+```
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ## Get list of expenses
 
