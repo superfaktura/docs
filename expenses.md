@@ -6,6 +6,7 @@
 - [Download expense attachments ](#download-expense-attachement)
 - [Get list of expenses](#get-list-of-expenses)
 - [Delete expense](#delete-expense)
+- [Delete expense items](#delete-expense-items)
 
 Expense payments  
 - [Add expense payment](#add-expense-payment)
@@ -1289,6 +1290,79 @@ URL parameters:
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+## Delete expense items
+
+Delete specific items from an expense.
+
+### Request
+
+**URL**: `/expense_items/delete`  
+**HTTP method**: DELETE
+
+```sh
+data='{
+  "expense_id": 100,
+  "delete_ids": [
+    200,
+    201
+  ],
+  "create_blank_if_empty": true
+}'
+
+curl -X DELETE \
+    -d "data=$data" \
+    -H "Authorization: SFAPI email=api%40example.com&apikey=c0a4cdcdfe98ca660942d60cf7896de6&company_id=123456" \
+    https://moja.superfaktura.sk/expense_items/delete
+```
+
+### Attributes
+
+| name                  | type | description                                                  | required | default value |
+|-----------------------|------|--------------------------------------------------------------|----------| ------------- |
+| expense_id            | int  | ID of the expense containing the items                       | yes      |               |
+| delete_ids            | int  | List of expense item IDs to delete                           | yes      |               |
+| create_blank_if_empty | bool | The expense must contain at least one item. If set to true, and all items are deleted, it will automatically create one empty item in the expense with a zero value.   | no | true |
+
+### Response
+
+#### Successful deletion
+
+```json
+{
+  "error": 0,
+  "error_message": "OK",
+  "data": [ --Actual Expense-- ],
+}
+```
+
+#### Example error
+
+```json
+{
+  "error": 5,
+  "error_message": "The expense does not exist or does not belong to you.",
+  "data": [],
+}
+```
+
+#### Error list
+
+| error | error_message                                                                                          |
+|-------|--------------------------------------------------------------------------------------------------------|
+| 0     | OK                                                                                                     |
+| 0     | Všetky položky boli zmazané a následne bola vytvorená jedna prázdna položka.                           |
+| 0     | Niektoré položky (%s) sa nepodarilo zmazať.                                                            |
+| 1     | Nezadali ste číslo nákladu na ktorom sa majú zmazať položky.                                           |
+| 2     | Nezadali ste zoznam položiek nákladov na zmazanie.                                                     |
+| 3     | Náklad neexistuje alebo Vám nepatrí.                                                                   |
+| 4     | Pokúšate sa zmazať položky na bezpoložkovom náklade.                                                   |
+| 5     | Náklad neobsahuje žiadne položky.                                                                      |
+| 6     | Niektoré položky neexistujú alebo nepatria nákladu.                                                    |
+| 7     | Pokúšate sa zmazať všetky položky nákladu. Náklad musí obsahovať aspoň jednu položku. Môžte využiť parameter \'create_blank_if_empty: true\' |
+| 10    | Ani jednu položku sa nepodarilo zmazať.                                                                |
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ## Add expense payment
 
