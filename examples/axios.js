@@ -62,7 +62,7 @@ axios.post(`${API_URL}/clients/create`, 'data=' + JSON.stringify(clientBody), co
         //
         // Please notice how data is sent.
         // Don't send pure JSON.
-        axios.post(`${API_URL}/invoices/create`, 'data=' + JSON.stringify(invoiceBody), config)
+        axios.post(`${API_URL}/invoices/create`, 'data=' + JSON.stringify(invoiceBody, null, 2), config)
             .then(result => { console.debug(result); })
             .catch(err => { console.error(err); });
     })
