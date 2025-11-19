@@ -214,6 +214,7 @@ At least one Invoice item must be specified.
 
 | name                        | type   | description  | default value |
 | --------------------------- | ------ | ------------ | ------------- |
+| **id**                      | int    | client ID | |
 | **address**                 | string | address (street + number) | |
 | **bank_account**            | string | bank account | |
 | **city**                    | string | city | |
@@ -251,6 +252,7 @@ To get `country_id` see [Value lists > Country list](value-lists.md#country-list
 
 | name                     | type     | description                                                                                                                                                           | default value |
 | ------------------------ | -------- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------- |
+| **client_id**            | int      | client ID | |
 | **add_rounding_item**    | int      | add rounding item to invoice (EUR is rounded to 5 cents and CZK is rounded to integer) (0=no, 1=yes)                                                                  | 0 |
 | **already_paid**         | int      | is invoice already paid (0=no, 1=yes)                                                                                                                                 | |
 | **bank_accounts**        | array    | list of bank accounts                                                                                                                                                 | |
