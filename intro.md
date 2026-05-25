@@ -31,40 +31,68 @@ So for example email `hello+world@example.com` will become `hello%2Bworld%40exam
 We recommend to create dedicated API user with role Administrator for using API.
 You can manage users in *Settings > Users*.
 
-
 ## POST data format
 
-Sent data are **not** in JSON format.
-Therefor you should set *Content-Type* to `application/x-www-form-urlencoded;charset=UTF-8`.
-You can find more in [examples section](examples/).
+POST requests support two **Content-Type** options:
 
-How to form data:
-1. create JSON from data you want to send
-2. assign this JSON as string to POST `data` parameter
+1. `application/json`
+2. `application/x-www-form-urlencoded; charset=UTF-8`
+
+### Option 1: application/json
+
+You can send request data as a standard JSON body.
 
 Example:
-You want to send data `foo=bar`.
-Steps:
-1. JSON: `{foo:"bar"}`
-2. assign to `data` parameter `data={foo:"bar"}`
 
-
-Examples of data formats:
-
-```
-data={"key":"value"}
-
-// but more often with nested objects
-data={
-    "User":{
-        "id":1,
-        "email":"user@example.com"
+```json
+{
+    "Invoice": {
+        "name": "Example"
     },
-    "Invoice":{
-        "id":1
+    "Client": {
+        "name": "test & company a.s."
     }
 }
 ```
+
+When using `application/json`, special characters such as `&` are part of the JSON string value and do not need any special handling beyond valid JSON encoding.
+
+### Option 2: application/x-www-form-urlencoded; charset=UTF-8
+
+You can also send request data in the `data` form field as a JSON string.
+
+When using `application/x-www-form-urlencoded; charset=UTF-8`, the `data` parameter must be properly URL encoded by your HTTP client. This is important especially for special characters such as `&`, `=`, `+` and `%`, which have special meaning in form encoding.
+
+How to form data:
+
+1. create JSON from data you want to send
+2. serialize this JSON to string
+3. URL encode JSON string data
+4. assign this string to POST `data` parameter
+
+For example, this JSON payload:
+
+```json
+{
+    "Client": {
+        "name": "test & company a.s."
+    }
+}
+```
+
+is serialized to this JSON string:
+
+```text
+{"Client":{"name":"test & company a.s."}}
+```
+
+and then sent as the `data` form field in URL-encoded form, for example:
+
+```text
+data=%7B%22Client%22%3A%7B%22name%22%3A%22test%20%26%20company%20a.s.%22%7D%7D
+```
+
+In this example, the `&` character is encoded as `%26`. If the `data` parameter is not URL encoded properly, the `&` character may be interpreted as a form field separator and the payload can be corrupted.
 
 ## Base URLs
 
