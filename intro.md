@@ -3,14 +3,15 @@
 ## Authentication
 
 All API requests need authentication header. The header looks like this:
-```
+
+```text
 Authorization: SFAPI email=YOUR@EMAIL.TLD&apikey=YOURTOKEN&module=MODULE
 ```
 
-Third attribute, which is optional, is `company_id`.
+Fourth attribute, which is optional, is `company_id`.
 Then the header looks the following:
 
-```
+```text
 Authorization: SFAPI email=YOUR@EMAIL.TLD&apikey=YOURTOKEN&module=MODULE&company_id=YOUR_COMPANY_ID
 ```
 
@@ -23,10 +24,10 @@ So for example email `hello+world@example.com` will become `hello%2Bworld%40exam
 
 | Attribute  | required | Can be found in SuperFaktura? |
 | ---------- | -------- | ----------------------------- |
-| email      | ✅ yes    | ✅ yes                         |
-| apikey     | ✅ yes    | ✅ yes                         |
-| module     | ✅ yes    | ❌ no                          |
-| company_id | ❌ no     | ✅ yes                         |
+| email      | ✅ yes   | ✅ yes                        |
+| apikey     | ✅ yes   | ✅ yes                        |
+| module     | ✅ yes   | ❌ no                         |
+| company_id | ❌ no    | ✅ yes                        |
 
 We recommend to create dedicated API user with role Administrator for using API.
 You can manage users in *Settings > Users*.
@@ -98,13 +99,13 @@ In this example, the `&` character is encoded as `%26`. If the `data` parameter 
 
 Base URLs for different SuperFaktura versions.
 
-| Country        | URL                             |
-| -------------- | ------------------------------- |
-| Slovakia       | https://moja.superfaktura.sk    |
-| Czech republic | https://moje.superfaktura.cz    |
-| Austria        | https://meine.superfaktura.at   |
-| Sandbox (SK)   | https://sandbox.superfaktura.sk |
-| Sandbox (CZ)   | https://sandbox.superfaktura.cz |
+| Country        | URL                               |
+| -------------- | --------------------------------- |
+| Slovakia       | <https://moja.superfaktura.sk>    |
+| Czech republic | <https://moje.superfaktura.cz>    |
+| Austria        | <https://meine.superfaktura.at>   |
+| Sandbox (SK)   | <https://sandbox.superfaktura.sk> |
+| Sandbox (CZ)   | <https://sandbox.superfaktura.cz> |
 
 ## Data types
 
@@ -123,36 +124,32 @@ you must also replace special characters. This is specially true in `GET` reques
 | `/`       | `_`         |
 | `=`       | `,`         |
 
-
-
 ## Limit headers
 
 You can get information about API requests limit with the following headers:
 
-| Header name                      | Description                               | Example                |
-| -------------------------------- | ----------------------------------------- | ---------------------- |
-| **X-RateLimit-DailyLimit**       | How many requests can you make today      | `X-RateLimit-DailyLimit: 1000` |
-| **X-RateLimit-DailyRemaining**   | How many requests remain for today        | `X-RateLimit-DailyRemaining: 876` |
-| **X-RateLimit-DailyReset**       | When is the next monthly limit            | `X-RateLimit-DailyReset: 24.12.2030 00:00:00` |
-| **X-RateLimit-MonthlyLimit**     | How many requests can you make this month | `X-RateLimit-MonthlyLimit: 30000` |
-| **X-RateLimit-MonthlyRemaining** | How many requests remain for this month   | `X-RateLimit-MonthlyRemaining: 13995` |
+| Header name                      | Description                               | Example                                         |
+| -------------------------------- | ----------------------------------------- | ----------------------------------------------- |
+| **X-RateLimit-DailyLimit**       | How many requests can you make today      | `X-RateLimit-DailyLimit: 1000`                  |
+| **X-RateLimit-DailyRemaining**   | How many requests remain for today        | `X-RateLimit-DailyRemaining: 876`               |
+| **X-RateLimit-DailyReset**       | When the daily limit will be reset        | `X-RateLimit-DailyReset: 24.12.2030 00:00:00`   |
+| **X-RateLimit-MonthlyLimit**     | How many requests can you make this month | `X-RateLimit-MonthlyLimit: 30000`               |
+| **X-RateLimit-MonthlyRemaining** | How many requests remain for this month   | `X-RateLimit-MonthlyRemaining: 13995`           |
 | **X-RateLimit-MonthlyReset**     | When is the next monthly limit            | `X-RateLimit-MonthlyReset: 01.12.2030 00:00:00` |
 | **X-RateLimit-Message**          | Information that you exceeded your API requests (either per day or per month) | `You have exceeded a daily limit of 1000 API requests. You have already made 1000 requests today.` |
-
 
 ## Error messages
 
 Error messages can be translated to other languages, based on user account settings.
 
-
 ## DIČ
 
-In our documentation we provide abbreviations _DIČ_ and _IČ DPH_ to help people unfamiliar with Tax ID and VAT ID.
+In our documentation we provide abbreviations *DIČ* and *IČ DPH* to help people unfamiliar with Tax ID and VAT ID.
 However, there is a difference between Slovak and Czech DIČ, so we decided to differentiate them with country suffix.
 
-| field    | English | 🇸🇰    | 🇨🇿 | in documentation      |
+| field    | English | 🇸🇰     | 🇨🇿  | in documentation      |
 | -------- | ------- | ------ | --- | --------------------- |
-| `ic_dph` | VAT ID  | IČ DPH | DIČ | `DIČ-cz`, `IČ DPH🇸🇰` |
+| `ic_dph` | VAT ID  | IČ DPH | DIČ | `DIČ-cz`, `IČ DPH🇸🇰`  |
 | `dic`    | Tax ID  | DIČ    |   - | `DIČ-sk`              |
 
-(https://en.wikipedia.org/wiki/VAT_identification_number)
+(<https://en.wikipedia.org/wiki/VAT_identification_number>)
