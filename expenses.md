@@ -172,6 +172,19 @@ CURL_DATA
 | **vat_transfer**        | int    | Flag determines whether the document VAT is transfered to supplier  | |
 
 
+
+###### AccountingDetail
+
+| name                  | type   | description                                     | default value |
+| --------------------- | ------ | ----------------------------------------------- | ------------- |
+| **analytics_account** | string | analytics account                               |               |
+| **operation**         | string | operation                                       |               |
+| **order**             | string | order name                                      |               |
+| **place**             | string | place name                                      |               |
+| **preconfidence**     | string | preconfidence                                   |               |
+| **synthetic_account** | string | synthetic account                               |               |
+| **type**              | string | item type (`item` (goods), `service` (service)) |               |
+
 ### Response
 
 #### Successful creation
