@@ -21,6 +21,9 @@ Sending invoice
 - [Send invoice via post](#send-invoice-via-post)
 - [Mark invoice as sent](#mark-invoice-as-sent)
 
+eInvoice
+- [eInvoice](#einvoice)
+
 Delete invoice features  
 - [Delete invoice item](#delete-invoice-item)
 - [Delete invoice payment](#delete-invoice-payment)
@@ -2534,7 +2537,197 @@ curl -X GET \
   "perPage": 1
 }
 ```
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+## eInvoice
+
+Send an existing SuperFaktúra invoice over the Peppol network and check its
+sending status. The company selected in the API request must have Peppol
+sending enabled. Both endpoints use [SFAPI authentication](intro.md#authentication).
+
+1. Queue the invoice with [Send invoice via Peppol](#send-invoice-via-peppol).
+2. After HTTP `202 Accepted`, check the invoice with
+   [Get Peppol sending status](#get-peppol-sending-status).
+3. To also receive a notification when a final outcome becomes available,
+   supply a `webhook_url` in the send request.
+
+### Send invoice via Peppol
+
+#### Request
+
+**URL**: `/invoices/sendPeppol`
+
+**HTTP method**: POST
+
+```sh
+curl -X POST \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=YOUR_TOKEN&module=MyIntegration%201.0&company_id=123' \
+    -H 'Content-Type: application/json' \
+    -d '{"invoice_id":50103893}' \
+    https://moja.superfaktura.sk/invoices/sendPeppol
+```
+
+To receive a signed webhook, send this JSON body with the same request.
+
+```json
+{
+  "invoice_id": 50103893,
+  "webhook_url": "https://client.example/webhooks/peppol",
+  "webhook_secret": "YOUR_WEBHOOK_SECRET"
+}
+```
+
+#### Attributes
+
+| name | type | required | description |
+| ---- | ---- | -------- | ----------- |
+| **invoice_id** | int | yes | Positive ID of an existing invoice in the selected company. Use the internal invoice ID. |
+| **webhook_url** | string | no | Public HTTPS endpoint for this send operation. The URL must be free of credentials and fragments. Use the final URL because webhook delivery does not follow redirects. |
+| **webhook_secret** | string | no | Secret shared with your webhook receiver, 1–512 characters. Provide it together with `webhook_url`. SuperFaktúra uses the exact value to sign the request. |
+
+#### Response
+
+HTTP `202 Accepted` confirms that SuperFaktúra has queued the send operation.
+Processing and Peppol delivery happen asynchronously. Save `operation_id` to
+match later status responses and webhook notifications to this operation.
+
+```json
+{
+  "error": 0,
+  "error_message": "",
+  "data": {
+    "invoice_id": 50103893,
+    "operation_id": "018f4471-67f8-7c12-a3b4-123456789abc",
+    "status": "queued"
+  }
+}
+```
+
+| HTTP status | `error_code` | Meaning |
+| ----------- | ------------ | ------- |
+| 400 | `request.invalid_payload` | Correct the request body. |
+| 403 | `peppol.send_not_allowed` | The API user lacks permission to send this invoice. |
+| 404 | `peppol.invoice_not_found` | The invoice could not be found in the selected company. |
+| 409 | `peppol.sending_not_available` | Peppol sending is unavailable for the selected company. Check `data.reason` when present. |
+| 409 | `peppol.send_already_pending` | A send operation already exists. Check the status of that operation. |
+| 409 | `peppol.invoice_already_sent` | The invoice was already sent via Peppol. |
+| 422 | `peppol.precheck_failed` | The invoice is ineligible for sending. Check `data.issues` for the validation results. |
+| 500 | `peppol.unexpected_error` | SuperFaktúra encountered an error while processing the request. |
+
+### Get Peppol sending status
+
+#### Request
+
+**URL**: `/invoices/getPeppolStatus/{invoice_id}`
+
+**HTTP method**: GET
+
+```sh
+curl -X GET \
+    -H 'Authorization: SFAPI email=api%40example.com&apikey=YOUR_TOKEN&module=MyIntegration%201.0&company_id=123' \
+    https://moja.superfaktura.sk/invoices/getPeppolStatus/50103893
+```
+
+#### Attributes
+
+| name | type | required | description |
+| ---- | ---- | -------- | ----------- |
+| **invoice_id** | int | yes | Positive invoice ID in the URL. Use the same ID as in the send request. |
+
+#### Response
+
+HTTP `200 OK` returns the latest status recorded by SuperFaktúra for the invoice.
+A send failure is reported as `data.status: "failed"` within a successful
+status response. Read `provider_status` and `failure_code` when available.
+
+```json
+{
+  "error": 0,
+  "error_message": "",
+  "data": {
+    "invoice_id": 50103893,
+    "operation_id": "018f4471-67f8-7c12-a3b4-123456789abc",
+    "status": "accepted",
+    "outbound_document_id": 501,
+    "provider_document_id": "flowis-document-1",
+    "provider_status": "accepted",
+    "failure_code": null,
+    "created_at": "2026-10-28T09:15:00+01:00",
+    "completed_at": "2026-10-28T09:15:02+01:00"
+  }
+}
+```
+
+| `status` | Meaning |
+| -------- | ------- |
+| `queued` | The send request is waiting to be processed. |
+| `processing` | SuperFaktúra is processing the send request. |
+| `pending` | An outbound document exists and its send status is pending. |
+| `accepted` | The document has been accepted for sending. A final positive outcome is indicated by `provider_status: "accepted"`. |
+| `failed` | Sending failed. Use `failure_code` or `provider_status` for more detail when present. |
+
+`completed_at` is the completion time of the SuperFaktúra send operation.
+It can precede the provider’s final outcome. Some fields can be `null`, for
+example before a provider document ID is available.
+
+| HTTP status | `error_code` | Meaning |
+| ----------- | ------------ | ------- |
+| 400 | `request.invalid_invoice_id` | Use a positive invoice ID. |
+| 403 | — | The API user lacks permission to view the invoice. |
+| 404 | `peppol.send_status_not_found` | No Peppol send status was found for the invoice in the selected company. |
+| 500 | `peppol.send_status_unavailable` | The send status could not be retrieved. |
+
+Both endpoints can return HTTP `401` if authentication fails or HTTP `429`
+when the [SFAPI request limit](intro.md#limit-headers) is exceeded.
+
+### Peppol status webhook
+
+When a `webhook_url` is supplied, SuperFaktúra sends an HTTP POST with a JSON
+body to that URL after a final outcome becomes available for the operation.
+
+| Outcome | `data.provider_status` |
+| ------- | ---------------------- |
+| Provider reports acceptance | `accepted` |
+| Provider reports rejection | `rejected` |
+| Provider reports failed delivery | `failed_delivery` |
+| The send operation fails without a recorded provider outcome | `null` |
+
+A document can remain at provider status `sent` without a later callback.
+Use the status endpoint to read the latest recorded state if you are still
+waiting for a notification.
+
+```json
+{
+  "event_id": "018f4471-67f8-7c12-a3b4-123456789abd",
+  "event_type": "invoice.peppol.status_changed",
+  "occurred_at": "2026-10-29T12:00:00+00:00",
+  "data": {
+    "operation_id": "018f4471-67f8-7c12-a3b4-123456789abc",
+    "invoice_id": 50103893,
+    "status": "accepted",
+    "provider_document_id": "flowis-document-1",
+    "provider_status": "accepted",
+    "failure_code": null
+  }
+}
+```
+
+| Header | Meaning |
+| ------ | ------- |
+| `Idempotency-Key` | Event ID. The value stays the same across retries of this event. |
+| `X-SuperFaktura-Webhook-Id` | The same event ID as `Idempotency-Key` and the body’s `event_id`. |
+| `X-SuperFaktura-Webhook-Timestamp` | Unix timestamp in seconds for signature verification. |
+| `X-SuperFaktura-Webhook-Signature` | Present when a `webhook_secret` was provided. |
+
+To verify a signed request, concatenate the timestamp header value, a single
+period (`.`), and the raw request body. Compute HMAC-SHA256 with your
+`webhook_secret`, encode the digest as lowercase hex, and prefix it with
+`sha256=`. Compare the result to the signature header using a constant-time
+comparison. Use the original request bytes for this check.
+
+Deduplicate by `event_id`, since delivery can be retried. Return HTTP `2xx`
+once you have accepted an event, including a duplicate you have already
+accepted.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
